@@ -152,25 +152,25 @@ hr {
 ::-moz-selection {
    color: #fff;
    text-shadow: none;
-   background: var(--color-fede-red);
+   background: var(--color-fede-orange);
 }
 ::selection {
    color: #fff;
    text-shadow: none;
-   background: var(--color-fede-red);
+   background: var(--color-fede-orange);
 }
 
 ::-moz-selection {
    color: #fff;
    text-shadow: none;
-   background: var(--color-fede-red);
+   background: var(--color-fede-orange);
    /* Firefox */
 }
 
 ::-webkit-selection {
    color: #fff;
    text-shadow: none;
-   background: var(--color-fede-red);
+   background: var(--color-fede-orange);
    /* Safari */
 }
 
@@ -4497,7 +4497,9 @@ video.pgi-video {
       overflow: hidden;
       transition: -webkit-clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
       transition: clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
-      transition: clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96), -webkit-clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
+      transition:
+         clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96),
+         -webkit-clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
       transition:
          clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96),
          -webkit-clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
@@ -7038,7 +7040,9 @@ body.tt-light-bg-on .tt-header-tools .tt-hti-btn {
       overflow: hidden;
       transition: -webkit-clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
       transition: clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
-      transition: clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96), -webkit-clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
+      transition:
+         clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96),
+         -webkit-clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
       transition:
          clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96),
          -webkit-clip-path 0.8s cubic-bezier(0.07, 0.72, 0.29, 0.96);
