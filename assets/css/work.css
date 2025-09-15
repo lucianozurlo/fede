@@ -124,6 +124,12 @@ body.work .tt-wrap .tt-col-md-6 img {
    padding: 0 40px;
 }
 
+body.work img.mob {
+   position: absolute;
+   width: 286px !important;
+   z-index: 11;
+}
+
 img.full-min {
    max-width: 1080px;
 }
@@ -142,12 +148,6 @@ body.work.frogbazar .tt-wrap .tt-col-md-6:last-child img:nth-child(3) {
    max-width: 750px;
    padding-left: 0;
    margin-left: -40px;
-}
-
-body.work.frogbazar img.mob {
-   position: absolute;
-   width: 286px !important;
-   z-index: 11;
 }
 
 body.work.frogbazar img.mob.mob1 {
@@ -179,4 +179,28 @@ body.work.estudio32 .tt-wrap .tt-col-md-6:last-child img:nth-child(1) {
    padding-right: 0;
    max-width: unset;
    margin-left: -44px;
+}
+
+/* OPAME */
+body.work.opame #details {
+   margin-bottom: 45px;
+}
+body.work.opame img.mob {
+   width: 260px !important;
+}
+body.work.opame img.mob.mob1 {
+   right: -13%;
+   top: -3.5%;
+}
+body.work.opame img.mob.mob2 {
+   left: -2.5%;
+   top: 26%;
+}
+body.work.opame img.mob.mob3 {
+   left: -14%;
+   top: 18.8%;
+}
+body.work.opame img.mob.mob4 {
+   right: -2%;
+   top: 57.2%;
 }
