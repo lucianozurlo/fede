@@ -1,0 +1,233 @@
+.gallery {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 120px 68px;
+}
+@media (max-width: 780px) {
+   .gallery {
+      grid-template-columns: 1fr;
+   }
+}
+
+.card {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   overflow: visible;
+   background: transparent;
+   text-decoration: none;
+   color: inherit;
+   transform: translateZ(0);
+   transition: transform 0.4s ease;
+   isolation: isolate;
+}
+
+.card:focus-visible {
+   outline-offset: 2px;
+}
+
+.card .media {
+   position: relative;
+   overflow: hidden;
+   border-radius: 10px;
+}
+.card .media img {
+   width: 100%;
+   height: 400px;
+   -o-object-fit: cover;
+   object-fit: cover;
+   display: block;
+   -webkit-filter: saturate(1.05) contrast(1.02);
+   filter: saturate(1.05) contrast(1.02);
+   transition:
+      transform 0.6s ease,
+      opacity 0.45s ease,
+      -webkit-filter 0.6s ease;
+   transition:
+      transform 0.6s ease,
+      filter 0.6s ease,
+      opacity 0.45s ease;
+   transition:
+      transform 0.6s ease,
+      filter 0.6s ease,
+      opacity 0.45s ease,
+      -webkit-filter 0.6s ease;
+}
+.card .media .img-hover {
+   position: absolute;
+   inset: 0;
+   opacity: 0;
+   pointer-events: none;
+}
+.card:hover .media .img-hover {
+   opacity: 1;
+}
+.card:hover .media img.img-base {
+   /* transform: scale(1.06); */
+   -webkit-filter: saturate(1.15) contrast(1.06);
+   filter: saturate(1.15) contrast(1.06);
+}
+
+.card .overlay {
+   position: absolute;
+   inset: 0;
+   background: linear-gradient(
+      to top,
+      rgba(2, 6, 23, 0.9),
+      rgba(2, 6, 23, 0.2) 60%,
+      transparent 80%
+   );
+   opacity: 0;
+   transition: opacity 0.35s ease;
+}
+.card:hover .overlay {
+   opacity: 0.05;
+}
+
+.card .meta {
+   margin-top: 11px;
+   padding: 0;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.card .meta h3 {
+   margin: 0;
+   padding: 0;
+   font-size: 14px;
+   line-height: 19px;
+   letter-spacing: 0.5px;
+   font-weight: 400;
+   text-transform: uppercase;
+}
+.card .meta p {
+   margin: 0;
+   padding: 0;
+   font-size: 16px;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 20px;
+}
+
+.card .meta p:last-child {
+   font-weight: 800;
+}
+/* Fancybox tweaks */
+.fancybox__container {
+   --fancybox-bg: #3a3a39dd;
+}
+
+html .fancybox__backdrop {
+   -webkit-backdrop-filter: blur(10px) !important;
+   backdrop-filter: blur(10px) !important;
+   transition: all 0.2s ease-in-out;
+}
+
+/* Remove padding for full-viewport inline blocks that use .modal-full */
+.fancybox__slide:has(.modal-full) {
+   padding: 0;
+}
+.fancybox__slide.has-iframe {
+   padding: 0;
+}
+.fancybox__caption {
+   font-size: 14px;
+   color: #cbd5e1;
+}
+
+/* Inline modal block */
+.modal-full {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   padding: 24px;
+   border-radius: 0;
+   display: none;
+}
+
+.modal-full .bg-vectors {
+   z-index: -1;
+}
+
+.modal-full.simple {
+   min-height: unset;
+   width: 732px;
+   border-radius: 10px;
+   padding: 48px 64px;
+   gap: 54px;
+}
+
+.modal-full.simple main {
+   display: flex;
+   flex-direction: column;
+   gap: 36px;
+}
+.modal-item {
+   display: flex;
+   flex-direction: row;
+}
+
+.modal-item .number {
+   font-size: 58px;
+   font-weight: 800;
+   line-height: 1;
+   min-width: 75px;
+}
+
+.modal-item p {
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 22px;
+   margin-bottom: 17px;
+   letter-spacing: 0.5px;
+   color: var(--color-fede-fv);
+}
+
+.modal-item p.ans {
+   color: var(--color-fede-gray);
+   margin-bottom: 0;
+}
+
+.modal-full a.close {
+   width: 420px;
+   height: 41px;
+   background-image: url(../img/modal-button-close.png);
+   background-size: contain;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0 auto;
+   border-radius: 2px;
+   transition: all 0.4s ease-in-out;
+}
+
+.modal-full a:hover.close {
+   color: var(--color-fede-white);
+   background-color: var(--color-fede-fv);
+   border-radius: 6px;
+}
+
+/* .fancybox__footer, */
+.fancybox__caption {
+   display: none !important;
+}
+.fancybox__container {
+   --fancybox-bg: #3a3a39;
+}
+.fancybox__container:not(.is-compact) .fancybox__slide.has-close-btn {
+   padding: 0;
+}
+
+.has-iframe .fancybox__content {
+   width: 100% !important;
+   height: 100% !important;
+   padding: 0;
+}
+
+@media (max-width: 520px) {
+   .card .media img {
+      height: 280px;
+   }
+}

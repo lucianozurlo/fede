@@ -12,15 +12,23 @@
       <link rel="icon" type="image/png" href="assets/img/favicon.png" />
       <link rel="stylesheet" href="assets/vendor/normalize/normalize.min.css" />
       <link rel="stylesheet" href="assets/vendor/fontawesome/css/fontawesome-all.min.css" />
-      <link rel="stylesheet" href="assets/vendor/swiper/css/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="assets/vendor/lightgallery/css/lightgallery.min.css" />
+      <!-- <link rel="stylesheet" href="assets/vendor/swiper/css/swiper-bundle.min.css" /> -->
+      <!-- <link rel="stylesheet" href="assets/vendor/lightgallery/css/lightgallery.min.css" /> -->
       <link rel="stylesheet" href="assets/css/helper.css" />
       <link rel="stylesheet" href="assets/css/theme.css" />
       <link rel="stylesheet" href="assets/fonts/fonts.css" />
       <link rel="stylesheet" href="assets/css/custom.css" />
+      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css"
+      />
+      <link rel="stylesheet" href="assets/css/gallery.css" />
+      <link rel="stylesheet" href="assets/css/testimonials.css" />
+      <link rel="stylesheet" href="assets/css/form.css" />
    </head>
 
-   <body id="body" class="tt-transition tt-boxed tt-smooth-scroll tt-magic-cursor">
+   <body id="body" class="tt-boxed tt-smooth-scroll">
       <main id="body-inner">
          <div id="page-transition">
             <div class="ptr-overlay"></div>
@@ -49,6 +57,9 @@
                                     <li><a href="#services" data-offset="0">Services</a></li>
                                     <li><a href="#contact" data-offset="0">Contact</a></li>
                                  </ul>
+                                 <a class="work-on" id="closeBtn"
+                                    ><span>WORK</span><img src="assets/img/close.svg"
+                                 /></a>
                               </div>
                            </div>
                         </div>
@@ -79,16 +90,13 @@
                   id="page-header"
                   class="ph-full ph-cap-sm ph-image-cropped ph-image-cover-3 ph-content-parallax"
                >
-                  <!-- <div class="bg-vectors">
-						<div class="pos top-left">
-							<img src="assets/img/bg-vectors/home-bg1.png" style="width: 27.39vw;">
-						</div>
-						<div class="pos bottom-right">
-							<img src="assets/img/bg-vectors/home-bg2.png" style="width: 39.89vw;">
-						</div>
-					</div> -->
-
                   <div class="page-header-inner tt-wrap">
+                     <div class="bg-vectors">
+                        <div class="pos top-left">
+                           <img src="assets/img/bg-lines/bg-lines1.svg" />
+                        </div>
+                     </div>
+
                      <div class="ph-caption text-uppercase">
                         <div class="anim-fadeinup text-center color-fv min-titles spacing">
                            Portfolio
@@ -108,27 +116,21 @@
                               <img src="assets/img/hammer-b.png" class="off" alt="" />
                            </div>
                         </div>
-                        <div class="ph-appear text-center color-fv min-titles spacing">2025</div>
+
+                        <div class="anim-fadeinup text-center color-fv min-titles spacing">
+                           2025
+                        </div>
                      </div>
                   </div>
                </div>
 
                <div id="page-content">
-                  <div
-                     id="about"
-                     class="tt-section padding-bottom-xlg-90 padding-left-sm-3-p padding-right-sm-3-p psi-image-is-light"
-                  >
-                     <!-- <div class="bg-vectors">
-							<div class="pos top-right">
-								<img src="assets/img/bg-vectors/home-bg2b.png" style="width: 39.89vw;">
-							</div>
-							<div class="pos bottom-left">
-								<img src="assets/img/bg-vectors/home-bg3b.png" style="width: 9.74vw;">
-							</div>
-							<div class="pos bottom-right">
-								<img src="assets/img/bg-vectors/home-bg4b.png" style="width: 31.93vw;">
-							</div>
-						</div> -->
+                  <div id="about" class="tt-section padding-bottom-xlg-90 psi-image-is-light">
+                     <div class="bg-vectors">
+                        <div class="pos bottom-right">
+                           <img src="assets/img/bg-lines/bg-lines2.svg" />
+                        </div>
+                     </div>
 
                      <div class="tt-section-inner tt-wrap">
                         <h2 class="section-title anim-fadeinup">Hola!</h2>
@@ -205,266 +207,630 @@
                      </div>
                   </div>
 
-                  <div
-                     id="work"
-                     class="tt-section padding-bottom-xlg-150 padding-left-sm-3-p padding-right-sm-3-p"
-                  >
-                     <!-- <div class="bg-vectors">
-							<div class="pos top-right">
-								<img src="assets/img/bg-vectors/home-bg4.png" style="width: 31.93vw;">
-							</div>
-							<div class="pos center-left">
-								<img src="assets/img/bg-vectors/home-bg5.png" style="width: 25.14vw;">
-							</div>
-							<div class="pos bottom-right">
-								<img src="assets/img/bg-vectors/home-bg6.png" style="width: 35.51vw;">
-							</div>
-						</div> -->
+                  <div id="work" class="tt-section">
+                     <div class="bg-vectors">
+                        <div class="pos top-left">
+                           <img src="assets/img/bg-lines/bg-lines3.svg" />
+                        </div>
+                     </div>
+
                      <div class="tt-section-inner tt-wrap">
                         <h2 class="section-title">Work</h2>
-                        <p>Some of the work I've done over the past years.</p>
+                        <span>
+                           <img src="assets/img/work-brush.svg" alt="" />
+                           <p>Some of the work I've done over the past years</p>
+                        </span>
 
-                        <div id="portfolio-grid" class="pgi-hover">
-                           <div class="tt-grid ttgr-layout-2 ttgr-gap-3">
-                              <div class="tt-grid-items-wrap isotope-items-wrap">
-                                 <div class="tt-grid-item isotope-item people">
-                                    <div class="ttgr-item-inner">
-                                       <div class="portfolio-grid-item">
-                                          <a href="work/frogbazar" class="pgi-image-wrap">
-                                             <div class="pgi-image-holder">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                   <figure class="pgi-image ttgr-height">
-                                                      <img
-                                                         src="assets/work/frogbazar.jpg"
-                                                         alt="image"
-                                                      />
-                                                   </figure>
-                                                </div>
-                                             </div>
-                                          </a>
+                        <div class="gallery">
+                           <!-- Frog Bazar -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/frogbazar/index.html"
+                              data-caption="Frog Bazar"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/frogbazar.jpg"
+                                    alt="Frog Bazar"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/frogbazar-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>Frog Bazar</h3>
+                                 <p>branding + website + photo</p>
+                                 <p>(001)</p>
+                              </div>
+                           </a>
 
-                                          <div class="pgi-caption">
-                                             <div class="pgi-caption-inner">
-                                                <h5 class="pgi-title">
-                                                   <a href="work/frogbazar">Frog Bazar.</a>
-                                                </h5>
-                                                <div class="pgi-categories-wrap">
-                                                   <div class="pgi-category">
-                                                      Branding + Website + Photo
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
+                           <!-- ESTUDIO 32 -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/estudio32/index.html"
+                              data-caption="ESTUDIO 32"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/estudio32.jpg"
+                                    alt="ESTUDIO 32"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/estudio32-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>ESTUDIO 32</h3>
+                                 <p>branding + photo</p>
+                                 <p>(002)</p>
+                              </div>
+                           </a>
+
+                           <!-- OPAME COLLECTIVE -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/opame-collective/index.html"
+                              data-caption="OPAME COLLECTIVE"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/collective.jpg"
+                                    alt="OPAME COLLECTIVE"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/collective-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>OPAME COLLECTIVE</h3>
+                                 <p>website</p>
+                                 <p>(003)</p>
+                              </div>
+                           </a>
+
+                           <!-- N.M,P -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/nmp/index.html"
+                              data-caption="N.M,P"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/nmpd.jpg"
+                                    alt="N.M,P"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/nmpd-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>N.M,P</h3>
+                                 <p>branding + website</p>
+                                 <p>(004)</p>
+                              </div>
+                           </a>
+
+                           <!-- CLEO PAY -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/cleo/index.html"
+                              data-caption="CLEO PAY"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/cleo.jpg"
+                                    alt="CLEO PAY"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/cleo-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>CLEO PAY</h3>
+                                 <p>branding</p>
+                                 <p>(005)</p>
+                              </div>
+                           </a>
+
+                           <!-- MICHI BISTRO -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/michi/index.html"
+                              data-caption="MICHI BISTRO"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/michi.jpg"
+                                    alt="MICHI BISTRO"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/michi-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>MICHI BISTRO</h3>
+                                 <p>concept branding</p>
+                                 <p>(006)</p>
+                              </div>
+                           </a>
+
+                           <!-- BROKE -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/broke/index.html"
+                              data-caption="BROKE"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/broke.jpg"
+                                    alt="BROKE"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/broke-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>BROKE</h3>
+                                 <p>branding</p>
+                                 <p>(007)</p>
+                              </div>
+                           </a>
+
+                           <!-- LOGOFOLIO -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/logofolio/index.html"
+                              data-caption="LOGOFOLIO"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/logofolio.jpg"
+                                    alt="LOGOFOLIO"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/logofolio-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>LOGOFOLIO</h3>
+                                 <p>(008)</p>
+                              </div>
+                           </a>
+
+                           <!-- UI / UX -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/ui-ux/index.html"
+                              data-caption="UI / UX"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/ui-ux.jpg"
+                                    alt="UI / UX"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/ui-ux-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>UI / UX</h3>
+                                 <p>(009)</p>
+                              </div>
+                           </a>
+
+                           <!-- WEB -->
+                           <a
+                              class="card"
+                              data-fancybox="galeria"
+                              data-type="iframe"
+                              href="work/web/index.html"
+                              data-caption="WEB"
+                           >
+                              <div class="media">
+                                 <img
+                                    class="img-base"
+                                    src="assets/work/web.jpg"
+                                    alt="WEB"
+                                    loading="lazy"
+                                 />
+                                 <img
+                                    class="img-hover"
+                                    src="assets/work/web-b.jpg"
+                                    alt=""
+                                    aria-hidden="true"
+                                 />
+                                 <span class="overlay" aria-hidden="true"></span>
+                              </div>
+                              <div class="meta">
+                                 <h3>WEB</h3>
+                                 <p>(010)</p>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div id="services" class="tt-section">
+                     <div class="tt-section-inner tt-wrap">
+                        <h2 class="section-title anim-fadeinup">Services</h2>
+                        <span class="anim-fadeinup">
+                           <img src="assets/img/services-stars.svg" alt="" />
+                           <p>Things that I can help you with</p>
+                        </span>
+
+                        <div class="tt-row">
+                           <div class="tt-col-md-6 anim-fadeinup d-flex-center">
+                              <div class="services-container">
+                                 <div class="services-items">
+                                    <div class="items">
+                                       <div class="icon">
+                                          <img src="assets/img/services-item1.svg" alt="" />
+                                       </div>
+                                       <div class="services-text">
+                                          <p>Web Design</p>
+                                          <p>
+                                             I design clean, responsive websites that look great and
+                                             work even better. Let's make your site stand out.
+                                          </p>
+                                       </div>
+                                    </div>
+                                    <div class="items">
+                                       <div class="icon">
+                                          <img src="assets/img/services-item2.svg" alt="" />
+                                       </div>
+                                       <div class="services-text">
+                                          <p>Branding</p>
+                                          <p>
+                                             I help you shape a brand that's clear, consistent, and
+                                             built to last — with visuals, tone, and strategy that
+                                             all work together.
+                                          </p>
+                                       </div>
+                                    </div>
+                                    <div class="items">
+                                       <div class="icon">
+                                          <img src="assets/img/services-item3.svg" alt="" />
+                                       </div>
+                                       <div class="services-text">
+                                          <p>Product Design (UI/UX)</p>
+                                          <p>
+                                             Great design is more than looks — I create interfaces
+                                             that guide, engage, and convert.
+                                          </p>
+                                       </div>
+                                    </div>
+                                    <div class="items">
+                                       <div class="icon">
+                                          <img src="assets/img/services-item4.svg" alt="" />
+                                       </div>
+                                       <div class="services-text">
+                                          <p>Graphic Design</p>
+                                          <p>
+                                             Bold, creative visuals that tell your story. From logos
+                                             to social posts, I'll make it pop.
+                                          </p>
                                        </div>
                                     </div>
                                  </div>
 
-                                 <div class="tt-grid-item isotope-item people">
-                                    <div class="ttgr-item-inner">
-                                       <div class="portfolio-grid-item">
-                                          <a href="#" class="pgi-image-wrap">
-                                             <div class="pgi-image-holder">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                   <figure class="pgi-image ttgr-height">
-                                                      <img
-                                                         src="assets/work/estudio32.jpg"
-                                                         alt="image"
-                                                      />
-                                                   </figure>
-                                                </div>
-                                             </div>
-                                          </a>
+                                 <div class="services-buttons">
+                                    <div class="buttons1">
+                                       <a
+                                          data-fancybox="modal-faqs"
+                                          data-src="#modal-faqs"
+                                          href="javascript:;"
+                                          >Faqs</a
+                                       >
 
-                                          <div class="pgi-caption">
-                                             <div class="pgi-caption-inner">
-                                                <h5 class="pgi-title">
-                                                   <a href="#">Estudio 32</a>
-                                                </h5>
-                                                <div class="pgi-categories-wrap">
-                                                   <div class="pgi-category">Branding + Photo</div>
-                                                </div>
+                                       <!-- FAQs -->
+                                       <div id="modal-faqs" class="modal-full simple" hidden>
+                                          <div class="bg-vectors">
+                                             <div class="pos bottom-left">
+                                                <img
+                                                   src="assets/img/bg-lines/modal-bg-lines1.svg"
+                                                />
                                              </div>
                                           </div>
+                                          <header class="fade-in">
+                                             <div class="tt-section-inner tt-wrap">
+                                                <h2 class="section-title">FAQs</h2>
+                                                <span>
+                                                   <img src="assets/img/modal-faq.svg" alt="" />
+                                                   <p>Frequently Asked Questions</p>
+                                                </span>
+                                             </div>
+                                          </header>
+                                          <main class="fade-in">
+                                             <div class="modal-item">
+                                                <div class="number">1</div>
+                                                <div>
+                                                   <p>Who do you usually work with?</p>
+                                                   <p class="ans">
+                                                      I've worked with startups, small businesses,
+                                                      and larger companies in all kinds of
+                                                      industries: tech, retail, e-commerce, you name
+                                                      it.
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="modal-item">
+                                                <div class="number">2</div>
+                                                <div>
+                                                   <p>How long does the project take?</p>
+                                                   <p class="ans">
+                                                      It depends on the project. A logo might take a
+                                                      week or two, while a full branding package or
+                                                      website could take a month. I'll provide a
+                                                      timeline once we figure out the details.
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="modal-item">
+                                                <div class="number">3</div>
+                                                <div>
+                                                   <p>How much do you charge?</p>
+                                                   <p class="ans">
+                                                      Prices vary based on the project, but I'll
+                                                      give you a clear quote after we chat. No
+                                                      surprises, promise.
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="modal-item">
+                                                <div class="number">4</div>
+                                                <div>
+                                                   <p>What if I want changes?</p>
+                                                   <p class="ans">
+                                                      Most projects include 2-3 rounds of revisions.
+                                                      If you need more tweaks, we can discuss about
+                                                      that.
+                                                   </p>
+                                                </div>
+                                             </div>
+                                          </main>
+                                          <a href="#" data-fancybox-close class="close fade-in"
+                                             >Understood!</a
+                                          >
+                                       </div>
+
+                                       <a
+                                          data-fancybox="modal-process"
+                                          data-src="#modal-process"
+                                          href="javascript:;"
+                                          >Process</a
+                                       >
+
+                                       <!-- Process -->
+                                       <div id="modal-process" class="modal-full simple" hidden>
+                                          <div class="bg-vectors">
+                                             <div class="pos top-right">
+                                                <img
+                                                   src="assets/img/bg-lines/modal-bg-lines2.svg"
+                                                />
+                                             </div>
+                                          </div>
+                                          <header class="fade-in">
+                                             <div class="tt-section-inner tt-wrap">
+                                                <h2 class="section-title">Process</h2>
+                                                <span>
+                                                   <img src="assets/img/modal-process.svg" alt="" />
+                                                   <p>How Things Are Done</p>
+                                                </span>
+                                             </div>
+                                          </header>
+                                          <main class="fade-in">
+                                             <div class="modal-item">
+                                                <div class="number">1</div>
+                                                <div>
+                                                   <p>Discovery & Research</p>
+                                                   <p class="ans">
+                                                      It all starts with getting to know your needs.
+                                                      I dive into your goals and audience, making
+                                                      sure we're clear on the vision and direction.
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="modal-item">
+                                                <div class="number">2</div>
+                                                <div>
+                                                   <p>Concept & Ideation</p>
+                                                   <p class="ans">
+                                                      Time to brainstorm! I sketch out ideas and
+                                                      share early concepts to get your input, so
+                                                      we're aligned from the start.
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="modal-item">
+                                                <div class="number">3</div>
+                                                <div>
+                                                   <p>Design & Development</p>
+                                                   <p class="ans">
+                                                      I bring the design to life, from wireframes to
+                                                      the final look. Your feedback helps me
+                                                      fine-tune until everything's just right.
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="modal-item">
+                                                <div class="number">4</div>
+                                                <div>
+                                                   <p>Review & Delivery</p>
+                                                   <p class="ans">
+                                                      I'll walk you through the final design, make
+                                                      any last tweaks, and hand over all the files.
+                                                      I'm here if you need further support, too!
+                                                   </p>
+                                                </div>
+                                             </div>
+                                          </main>
+                                          <a href="#" data-fancybox-close class="close fade-in"
+                                             >Got it!</a
+                                          >
                                        </div>
                                     </div>
+                                    <a href="#contact" class="buttons2">Connect</a>
                                  </div>
+                              </div>
+                           </div>
+                        </div>
 
-                                 <div class="tt-grid-item isotope-item people">
-                                    <div class="ttgr-item-inner">
-                                       <div class="portfolio-grid-item">
-                                          <a href="#" class="pgi-image-wrap">
-                                             <div class="pgi-image-holder">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                   <figure class="pgi-image ttgr-height">
-                                                      <img
-                                                         src="assets/work/opame.jpg"
-                                                         alt="image"
-                                                      />
-                                                   </figure>
-                                                </div>
-                                             </div>
-                                          </a>
+                        <div class="tt-row">
+                           <div
+                              class="tt-col-md-6 anim-fadeinup d-flex-center flex-col max-width-full"
+                           >
+                              <h4 class="section-title">Trusted By:</h4>
+                              <div class="trusted-container">
+                                 <img src="assets/img/trusted-logo1.svg" alt="" />
+                                 <img src="assets/img/trusted-logo2.svg" alt="" />
+                                 <img src="assets/img/trusted-logo3.svg" alt="" />
+                                 <img src="assets/img/trusted-logo4.svg" alt="" />
+                                 <img src="assets/img/trusted-logo5.svg" alt="" />
+                                 <img src="assets/img/trusted-logo6.svg" alt="" />
+                                 <img src="assets/img/trusted-logo7.svg" alt="" />
+                                 <img src="assets/img/trusted-logo8.svg" alt="" />
+                                 <img src="assets/img/trusted-logo9.svg" alt="" />
+                                 <img src="assets/img/trusted-logo10.svg" alt="" />
+                                 <img src="assets/img/trusted-logo11.svg" alt="" />
+                                 <img src="assets/img/trusted-logo12.svg" alt="" />
+                              </div>
+                           </div>
+                        </div>
 
-                                          <div class="pgi-caption">
-                                             <div class="pgi-caption-inner">
-                                                <h5 class="pgi-title">
-                                                   <a href="#">Opame Collective</a>
-                                                </h5>
-                                                <div class="pgi-categories-wrap">
-                                                   <div class="pgi-category">Website</div>
-                                                </div>
-                                             </div>
+                        <div class="tt-row">
+                           <div
+                              class="tt-col-md-6 anim-fadeinup d-flex-center flex-col max-width-full"
+                           >
+                              <h4 class="section-title">Some Kind Words:</h4>
+                              <div class="words-container">
+                                 <div class="carousel">
+                                    <div class="stage" id="stage">
+                                       <article
+                                          class="verbatim prev"
+                                          tabindex="0"
+                                          aria-label="Testimonio anterior"
+                                       >
+                                          <img src="assets/img/word2.jpg" alt="" />
+                                          <div>
+                                             <p><span>Dana Johonson</span> (Dotted 8)</p>
+                                             <p>
+                                                “As a US-based agency, it can be tricky to find
+                                                reliable international talent that aligns with our
+                                                time constraints and quality expectations. Fede has
+                                                been an incredible resource and a valued member of
+                                                our team for many years!”
+                                             </p>
                                           </div>
-                                       </div>
-                                    </div>
-                                 </div>
+                                       </article>
 
-                                 <div class="tt-grid-item isotope-item people">
-                                    <div class="ttgr-item-inner">
-                                       <div class="portfolio-grid-item">
-                                          <a href="#" class="pgi-image-wrap">
-                                             <div class="pgi-image-holder">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                   <figure class="pgi-image ttgr-height">
-                                                      <img src="assets/work/nmp.jpg" alt="image" />
-                                                   </figure>
-                                                </div>
-                                             </div>
-                                          </a>
-
-                                          <div class="pgi-caption">
-                                             <div class="pgi-caption-inner">
-                                                <h5 class="pgi-title">
-                                                   <a href="#">N.N.P.</a>
-                                                </h5>
-                                                <div class="pgi-categories-wrap">
-                                                   <div class="pgi-category">
-                                                      Branding + Website
-                                                   </div>
-                                                </div>
-                                             </div>
+                                       <article
+                                          class="verbatim active"
+                                          tabindex="0"
+                                          aria-label="Testimonio anterior"
+                                       >
+                                          <img src="assets/img/word1.jpg" alt="" />
+                                          <div>
+                                             <p><span>Ramiro Nieto Moreno</span> (N.M.P.)</p>
+                                             <p>
+                                                “From the first call to the final delivery,
+                                                everything just flowed. The site captures our vibe
+                                                perfectly—and the whole process was smoother than
+                                                expected!”
+                                             </p>
                                           </div>
-                                       </div>
-                                    </div>
-                                 </div>
+                                       </article>
 
-                                 <div class="tt-grid-item isotope-item people">
-                                    <div class="ttgr-item-inner">
-                                       <div class="portfolio-grid-item">
-                                          <a href="#" class="pgi-image-wrap">
-                                             <div class="pgi-image-holder">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                   <figure class="pgi-image ttgr-height">
-                                                      <img
-                                                         src="assets/work/michi.jpg"
-                                                         alt="image"
-                                                      />
-                                                   </figure>
-                                                </div>
-                                             </div>
-                                          </a>
-
-                                          <div class="pgi-caption">
-                                             <div class="pgi-caption-inner">
-                                                <h5 class="pgi-title">
-                                                   <a href="#">Michi Bistro</a>
-                                                </h5>
-                                                <div class="pgi-categories-wrap">
-                                                   <div class="pgi-category">Concept Branding</div>
-                                                </div>
-                                             </div>
+                                       <article
+                                          class="verbatim next"
+                                          tabindex="0"
+                                          aria-label="Testimonio anterior"
+                                       >
+                                          <img src="assets/img/word3.jpg" alt="" />
+                                          <div>
+                                             <p><span>Nayoung S. Kim</span> (Highfive)</p>
+                                             <p>
+                                                “Fede did an amazing job with HighFive! Our vet
+                                                purchase app is sleek, intuitive, and exactly what
+                                                we needed. Highly recommend!”
+                                             </p>
                                           </div>
-                                       </div>
-                                    </div>
-                                 </div>
+                                       </article>
 
-                                 <div class="tt-grid-item isotope-item people">
-                                    <div class="ttgr-item-inner">
-                                       <div class="portfolio-grid-item">
-                                          <a href="#" class="pgi-image-wrap">
-                                             <div class="pgi-image-holder">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                   <figure class="pgi-image ttgr-height">
-                                                      <img
-                                                         src="assets/work/broke.jpg"
-                                                         alt="image"
-                                                      />
-                                                   </figure>
-                                                </div>
-                                             </div>
-                                          </a>
-
-                                          <div class="pgi-caption">
-                                             <div class="pgi-caption-inner">
-                                                <h5 class="pgi-title">
-                                                   <a href="#">Broke</a>
-                                                </h5>
-                                                <div class="pgi-categories-wrap">
-                                                   <div class="pgi-category">Branding</div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="tt-grid-item isotope-item people">
-                                    <div class="ttgr-item-inner">
-                                       <div class="portfolio-grid-item">
-                                          <a href="#" class="pgi-image-wrap">
-                                             <div class="pgi-image-holder">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                   <figure class="pgi-image ttgr-height">
-                                                      <img
-                                                         src="assets/work/logofolio.jpg"
-                                                         alt="image"
-                                                      />
-                                                   </figure>
-                                                </div>
-                                             </div>
-                                          </a>
-
-                                          <div class="pgi-caption">
-                                             <div class="pgi-caption-inner">
-                                                <h5 class="pgi-title">
-                                                   <a href="#">Logofolio</a>
-                                                </h5>
-                                                <div class="pgi-categories-wrap">
-                                                   <div class="pgi-category"></div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="tt-grid-item isotope-item people">
-                                    <div class="ttgr-item-inner">
-                                       <div class="portfolio-grid-item">
-                                          <a href="#" class="pgi-image-wrap">
-                                             <div class="pgi-image-holder">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                   <figure class="pgi-image ttgr-height">
-                                                      <img
-                                                         src="assets/work/ui-ux.png"
-                                                         alt="image"
-                                                      />
-                                                   </figure>
-                                                </div>
-                                             </div>
-                                          </a>
-
-                                          <div class="pgi-caption">
-                                             <div class="pgi-caption-inner">
-                                                <h5 class="pgi-title">
-                                                   <a href="#">UI / UX</a>
-                                                </h5>
-                                                <div class="pgi-categories-wrap">
-                                                   <div class="pgi-category"></div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
+                                       <!-- Hotzones para asegurar click y hover en extremos -->
+                                       <div class="hit left" aria-hidden="true"></div>
+                                       <div class="hit right" aria-hidden="true"></div>
                                     </div>
                                  </div>
                               </div>
@@ -473,105 +839,212 @@
                      </div>
                   </div>
 
-                  <!-- <div
-                     id="contact"
-                     class="tt-section padding-bottom-xlg-110 padding-top-xlg-110 padding-left-sm-3-p padding-right-sm-3-p bg-white psi-image-is-ligh"
-                  >
+                  <div id="contact" class="tt-section">
                      <div class="bg-vectors">
-							<div class="pos top-right">
-								<img src="assets/img/bg-vectors/home-bg6b.png" style="width: 35.51vw;">
-							</div>
-						</div>
-						<div class="bg-vectors">
-							<div class="pos bottom-left">
-								<img src="assets/img/bg-vectors/home-bg7b.png" style="width: 42.77vw;">
-							</div>
-						</div>
+                        <div class="pos bottom-center">
+                           <img src="assets/img/footer.svg" />
+                        </div>
+                        <div class="noise"></div>
+                     </div>
 
                      <div class="tt-section-inner tt-wrap">
-                        <div class="tt-row fede">
-                           <div class="tt-col-md-6">
-                              <div class="tt-heading tt-heading-lg anim-fadeinup no-margin-bottom">
-                                 <p>Contact me. Let´s Talk.</p>
-                                 <p>
-                                    <a href="mailto:fvaccarezza@gmail.com" class="tt-link"
-                                       >fvaccarezza@gmail.com</a
-                                    >
-                                 </p>
-                                 <p>54 11 6509 3091</p>
-                              </div>
-                           </div>
-
-                           <div class="tt-col-md-6">
-                              <div class="social">
-                                 <a
-                                    href="https://behance.net/vaccarezza"
-                                    target="_blank"
-                                    class="magnetic-item"
-                                 >
-                                    <i class="fab fa-behance"></i>
-                                    <span>Behance</span>
-                                 </a>
-                                 <a
-                                    href="https://dribble.com/vaccarezza"
-                                    target="_blank"
-                                    class="magnetic-item"
-                                 >
-                                    <i class="fab fa-dribbble"></i>
-                                    <span>Dribble</span>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
+                        <h2 class="section-title">Get in touch</h2>
+                        <span>
+                           <img src="assets/img/contact.svg" alt="" />
+                           <p>Lets work together!</p>
+                        </span>
                      </div>
-                  </div> -->
-               </div>
 
-               <!-- <footer id="tt-footer">
-                  <div class="tt-footer-inner">
-                     <div class="footer-col tt-align-center-left">
-                        <div class="footer-col-inner">
-                           <div class="tt-btn tt-btn-link">
-                              <a href="#" class="scroll-to-top" data-hover="back to top"
-                                 >back to top</a
-                              >
+                     <div class="tt-section-inner tt-wrap">
+                        <div class="tt-row">
+                           <div class="tt-col-md-6 anim-fadeinup">
+                              <h3>Fill the form.</h3>
+                              <p class="fw-200">
+                                 Fill out the form below and share a bit about your vision, budget
+                                 and any details you'd like to include.
+                              </p>
+                              <form class="form-wrap" action="#" method="post" novalidate>
+                                 <div class="field">
+                                    <label for="name">Name</label>
+                                    <input
+                                       class="input"
+                                       id="name"
+                                       name="name"
+                                       type="text"
+                                       required
+                                    />
+                                 </div>
+
+                                 <div class="field">
+                                    <label for="email">Email</label>
+                                    <input
+                                       class="input"
+                                       id="email"
+                                       name="email"
+                                       type="email"
+                                       required
+                                    />
+                                 </div>
+                                 <div class="field">
+                                    <legend>Project type</legend>
+                                    <div
+                                       class="chips-group"
+                                       role="checkbox"
+                                       aria-label="Project type"
+                                    >
+                                       <div class="chip">
+                                          <input
+                                             type="checkbox"
+                                             id="type-uiux"
+                                             name="project_type"
+                                             value="UI/UX"
+                                             required
+                                          />
+                                          <label for="type-uiux">UI/UX</label>
+                                       </div>
+                                       <div class="chip">
+                                          <input
+                                             type="checkbox"
+                                             id="type-web"
+                                             name="project_type"
+                                             value="Web"
+                                          />
+                                          <label for="type-web">Web</label>
+                                       </div>
+                                       <div class="chip">
+                                          <input
+                                             type="checkbox"
+                                             id="type-branding"
+                                             name="project_type"
+                                             value="Branding"
+                                          />
+                                          <label for="type-branding">Branding</label>
+                                       </div>
+                                       <div class="chip">
+                                          <input
+                                             type="checkbox"
+                                             id="type-deck"
+                                             name="project_type"
+                                             value="Deck"
+                                          />
+                                          <label for="type-deck">Deck</label>
+                                       </div>
+                                       <div class="chip">
+                                          <input
+                                             type="checkbox"
+                                             id="type-other"
+                                             name="project_type"
+                                             value="Other"
+                                          />
+                                          <label for="type-other">Other</label>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="field">
+                                    <label for="desc">Project description</label>
+                                    <textarea id="desc" name="project_description"></textarea>
+                                 </div>
+
+                                 <div class="actions">
+                                    <button class="btn" type="submit">Submit</button>
+                                 </div>
+                              </form>
+                           </div>
+                           <div class="tt-col-md-6 anim-fadeinup">
+                              <div class="col">
+                                 <h3>Or talk to me.</h3>
+                                 <p class="fw-200">
+                                    Book a quick 15-min call, and we'll dive into your ideas,
+                                    explore your goals, and see how I can support your vision from
+                                    the start.
+                                 </p>
+                                 <a
+                                    href="https://calendly.com/fvaccarezza/intro-call"
+                                    target="_blank"
+                                    class="btn"
+                                    >book a call</a
+                                 >
+                                 <a href="tel:+5491165093091">+54 9 11 6509 3091</a>
+                                 <a href="mailto:fvaccarezza@gmail.com"
+                                    ><img
+                                       src="assets/img/contact.svg"
+                                       alt=""
+                                    />fvaccarezza@gmail.com</a
+                                 >
+                              </div>
+                              <div class="col">
+                                 <h3>Social.</h3>
+                                 <div class="socials">
+                                    <a href="https://www.behance.net/Vaccarezza" target="_blank">
+                                       <img src="assets/img/social-behance.svg" alt="" />
+                                       <p>Behance</p>
+                                       <div class="circle"></div>
+                                    </a>
+                                    <a href="https://dribbble.com/Vaccarezza" target="_blank">
+                                       <img src="assets/img/social-dribble.svg" alt="" />
+                                       <p>Dribble</p>
+                                       <div class="circle"></div>
+                                    </a>
+                                    <a href="https://vsco.co/fedevaccarezza/" target="_blank">
+                                       <img src="assets/img/social-vsco.svg" alt="" />
+                                       <p>Vsco</p>
+                                       <div class="circle"></div>
+                                    </a>
+                                 </div>
+                              </div>
                            </div>
                         </div>
                      </div>
                   </div>
-               </footer> -->
+               </div>
             </div>
          </div>
       </main>
 
       <script src="assets/vendor/jquery/jquery.min.js"></script>
-      <!-- jquery JS (https://jquery.com) -->
 
-      <!-- Libs and Plugins JS -->
       <script src="assets/vendor/gsap/gsap.min.js"></script>
-      <!-- GSAP JS (https://greensock.com/gsap/) -->
-      <script src="assets/vendor/gsap/ScrollToPlugin.min.js"></script>
-      <!-- GSAP ScrollToPlugin JS (https://greensock.com/scrolltoplugin/) -->
-      <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-      <!-- GSAP ScrollTrigger JS (https://greensock.com/scrolltrigger/) -->
-
-      <script src="assets/vendor/smooth-scrollbar.js"></script>
-      <!-- Smooth Scrollbar JS (https://github.com/idiotWu/smooth-scrollbar/) -->
-      <script src="assets/vendor/swiper/js/swiper-bundle.min.js"></script>
-      <!-- Swiper JS (https://swiperjs.com/) -->
       <script src="assets/vendor/isotope/imagesloaded.pkgd.min.js"></script>
-      <!-- imagesloaded JS (more info: https://imagesloaded.desandro.com/) -->
       <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
-      <!-- Isotope JS (http://isotope.metafizzy.co) -->
       <script src="assets/vendor/isotope/packery-mode.pkgd.min.js"></script>
-      <!-- Isotope Packery Mode JS (https://isotope.metafizzy.co/layout-modes/packery.html) -->
-      <script src="assets/vendor/lightgallery/js/lightgallery-all.min.js"></script>
-      <!-- lightGallery Plugins JS (http://sachinchoolur.github.io/lightGallery) -->
-      <script src="assets/vendor/jquery.mousewheel.min.js"></script>
-      <!-- A jQuery plugin that adds cross browser mouse wheel support (https://github.com/jquery/jquery-mousewheel) -->
 
-      <!-- Theme master JS -->
       <script src="assets/js/theme.js"></script>
-      <!-- <script src="assets/js/menu.js"></script> -->
+
+      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
+      <script src="assets/js/gallery.js"></script>
+
+      <script src="assets/js/testimonials.js"></script>
+      <script src="assets/js/form.js"></script>
+
+      <script>
+         // Navegación y cierre desde dentro del iframe
+         function getInstance() {
+            try {
+               return window.parent && window.parent.Fancybox && window.parent.Fancybox.getInstance
+                  ? window.parent.Fancybox.getInstance()
+                  : null;
+            } catch (e) {
+               return null;
+            }
+         }
+
+         function closeMe() {
+            const fb = getInstance();
+            if (fb) {
+               fb.close();
+            } else if (history.length > 1) {
+               history.back();
+            } else {
+               window.close();
+            }
+         }
+         document.getElementById('closeBtn').addEventListener('click', closeMe);
+
+         // Soporte de teclado (← → Esc) por si se abre standalone
+         window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMe();
+         });
+      </script>
    </body>
 </html>

@@ -11,3 +11,8 @@
 
 [[plugins]]
   package = "@netlify/plugin-sitemap"
+
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
