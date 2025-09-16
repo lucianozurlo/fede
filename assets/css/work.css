@@ -290,3 +290,50 @@ body.work.michi img.mob.misc {
    bottom: -12.5%;
    width: 446px !important;
 }
+
+/* BROKE */
+body.work.broke .tt-wrap .tt-col-md-6:first-child img:nth-child(1) {
+   max-width: unset;
+   width: 564px;
+   padding-left: 0;
+   padding-right: 16px;
+}
+body.work.broke img.mob.mob1 {
+   left: -6%;
+   top: 29%;
+}
+body.work.broke .tt-wrap .tt-col-md-6:last-child img:nth-child(1) {
+   max-width: unset;
+   width: 315px;
+   margin: 0 auto;
+   padding: 0;
+   transform: translateX(-45px);
+}
+body.work.broke img.mob.ipad {
+   max-width: unset;
+   width: 664px !important;
+   left: -9%;
+   top: 30.8%;
+}
+body.work.broke img.mob.mob2 {
+   max-width: unset;
+   width: 280px !important;
+   right: -6%;
+   top: 23.5%;
+}
+body.work.broke img.mob.square-1 {
+   max-width: unset;
+   width: 654px !important;
+   left: -4.8%;
+   top: 52.3%;
+}
+body.work.broke img.mob.square-2 {
+   max-width: unset;
+   width: 508px !important;
+   left: 5.5%;
+   bottom: -0.3%;
+}
+body.work.broke .tt-section-inner .tt-row:nth-child(3) .tt-col-md-12 img:nth-child(1) {
+   margin: 58px 0 63px;
+   max-width: 858px;
+}
