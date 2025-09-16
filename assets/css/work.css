@@ -6,6 +6,13 @@
 #content-wrap.work .work-title * {
    color: var(--color-fede-fv);
 }
+#content-wrap.work .work-title h1 {
+   font-weight: 800;
+   font-size: 120px;
+   line-height: 164px;
+   text-transform: uppercase;
+   margin-bottom: 8px;
+}
 #content-wrap.work .work-title h3 {
    font-size: 35px;
    font-weight: 800;
@@ -14,11 +21,20 @@
    text-transform: uppercase;
    margin-bottom: 5px;
 }
+#content-wrap.work .work-title h5 {
+   font-size: 38px;
+   font-weight: 400;
+   line-height: 90%;
+   text-align: left;
+   text-transform: inherit;
+   margin-bottom: 5px;
+}
 #content-wrap.work .work-title p.order {
    font-weight: 400;
    font-size: 14px;
    line-height: 19px;
    text-align: center;
+   text-transform: uppercase;
    letter-spacing: 1em;
 }
 #content-wrap.work .work-title p.desc {
@@ -354,12 +370,6 @@ body.tt-boxed.work.logofolio .tt-wrap .tt-col-md-6:last-child {
 }
 body.work.logofolio #content-wrap.work .work-title {
    max-width: unset;
-}
-body.work.logofolio h1 {
-   font-weight: 800;
-   font-size: 120px;
-   line-height: 164px;
-   margin-bottom: 8px;
 }
 body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min {
    margin-top: 17px;
