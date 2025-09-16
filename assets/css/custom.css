@@ -327,7 +327,7 @@ body:not(.tt-boxed) .tt-header-inner,
    width: -webkit-fit-content;
    width: -moz-fit-content;
    width: fit-content;
-   padding: 1px 4px 1px 12px;
+   padding: 1px 6px 1px 12px;
    border-radius: 5px;
    transition: all 0.3s ease-in-out;
 }
