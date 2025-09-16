@@ -209,13 +209,13 @@ html .fancybox__backdrop {
    border-radius: 6px;
 }
 
-/* .fancybox__footer, */
+.fancybox__footer,
 .fancybox__caption {
    display: none !important;
 }
-.fancybox__container {
+/* .fancybox__container {
    --fancybox-bg: #3a3a39;
-}
+} */
 .fancybox__container:not(.is-compact) .fancybox__slide.has-close-btn {
    padding: 0;
 }
