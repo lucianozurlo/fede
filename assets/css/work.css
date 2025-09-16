@@ -27,7 +27,7 @@
    line-height: 90%;
    text-align: left;
    text-transform: inherit;
-   margin-bottom: 14px;
+   margin-bottom: 15px;
    color: var(--color-fede-fv);
 }
 #content-wrap.work .work-title p.order {
@@ -93,6 +93,7 @@
 .talk * {
    color: var(--color-fede-fv);
    font-size: 16px;
+   align-items: center !important;
 }
 .talk h3 {
    font-size: 32px;
@@ -472,4 +473,36 @@ body.tt-boxed.work.ui-ux .mobs img {
 body.tt-boxed.work.ui-ux .mobs .base {
    width: 100%;
    position: relative;
+}
+
+body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 {
+   align-items: flex-start;
+}
+body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs-details {
+   max-width: 560px;
+   margin-left: 195px;
+}
+body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs {
+   margin-left: 0;
+}
+body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs img {
+   width: 811px;
+   position: relative;
+   padding-left: 0;
+   padding-right: 0;
+}
+body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs img:nth-child(1) {
+   margin-left: -7%;
+   margin-top: -2%;
+}
+body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs img:nth-child(2) {
+   margin-left: 26%;
+   margin-top: -52%;
+}
+body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs img:nth-child(3) {
+   margin-left: -28%;
+   margin-top: -45%;
+}
+body.tt-boxed.work.ui-ux .tt-wrap .talk {
+   margin-top: -35px;
 }
