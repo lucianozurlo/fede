@@ -381,6 +381,7 @@ body.tt-boxed .tt-wrap {
 
 body.tt-boxed .tt-wrap .tt-row {
    justify-content: center;
+   flex-direction: row;
 }
 
 #page-header.ph-full .page-header-inner {
