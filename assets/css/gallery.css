@@ -19,7 +19,7 @@
    text-decoration: none;
    color: inherit;
    transform: translateZ(0);
-   transition: transform 0.2s ease;
+   transition: all 0.2s ease-in-out;
    isolation: isolate;
 }
 .card:focus-visible {
@@ -43,19 +43,7 @@
    display: block;
    -webkit-filter: saturate(1.05) contrast(1.02);
    filter: saturate(1.05) contrast(1.02);
-   transition:
-      transform 0.6s ease,
-      opacity 0.45s ease,
-      -webkit-filter 0.6s ease;
-   transition:
-      transform 0.6s ease,
-      filter 0.6s ease,
-      opacity 0.45s ease;
-   transition:
-      transform 0.6s ease,
-      filter 0.6s ease,
-      opacity 0.45s ease,
-      -webkit-filter 0.6s ease;
+   transition: all 0.2s ease-in-out;
 }
 .card .media .img-hover {
    position: absolute;
@@ -82,7 +70,7 @@
       transparent 80%
    );
    opacity: 0;
-   transition: opacity 0.35s ease;
+   transition: all 0.2s ease-in-out;
 }
 .card:hover .overlay {
    opacity: 0.05;
@@ -119,6 +107,7 @@
 /* Fancybox tweaks */
 .fancybox__container {
    --fancybox-bg: #3a3a39dd;
+   z-index: 9999;
 }
 
 html .fancybox__backdrop {
@@ -203,7 +192,7 @@ html .fancybox__backdrop {
    justify-content: center;
    margin: 0 auto;
    border-radius: 2px;
-   transition: all 0.4s ease-in-out;
+   transition: all 0.2s ease-in-out;
 }
 
 .modal-full a:hover.close {
