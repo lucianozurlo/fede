@@ -512,3 +512,49 @@ body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs img:nth-child(3) {
 body.tt-boxed.work.ui-ux .tt-wrap .talk {
    margin-top: -35px;
 }
+
+/* WEB */
+body.tt-boxed.work.web .tt-section {
+   margin-top: -130px;
+}
+body.tt-boxed.work.web .tt-wrap {
+   width: 1080px;
+   row-gap: 60px;
+}
+body.tt-boxed.work.web .mobs img {
+   width: 600px;
+   position: absolute;
+   padding-right: 16px;
+   z-index: 11;
+   margin-top: 12.5%;
+   margin-left: -10.5%;
+}
+body.tt-boxed.work.web .mobs .base {
+   width: 954px;
+   position: relative;
+   z-index: 1;
+   margin-top: 0;
+   margin-left: 19.5%;
+}
+body.tt-boxed.work.web .tt-wrap .tt-row .mobs-details {
+   margin-top: -10%;
+   margin-left: 33%;
+}
+body.tt-boxed.work.web p.desc {
+   font-size: 15px;
+   line-height: 20px;
+   letter-spacing: 0.5px;
+   max-width: 750px;
+}
+body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs img {
+   margin-left: 25.5%;
+}
+body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs .base {
+   margin-left: -18%;
+}
+body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs-details {
+   margin-left: -29%;
+}
+body.tt-boxed.work.web .tt-wrap .talk {
+   margin-top: 168px;
+}
