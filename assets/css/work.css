@@ -1,3 +1,20 @@
+/** BG VECTORS **/
+.bg-vectors div:nth-child(2) {
+   transform: translateY(8%);
+}
+.bg-vectors div:nth-child(3) {
+   transform: translateY(26.5%);
+}
+.bg-vectors div:nth-child(4) {
+   transform: translateY(42%);
+}
+.bg-vectors div:nth-child(5) {
+   transform: translateY(44.4%);
+}
+.bg-vectors div:nth-child(6) {
+   transform: translateY(63.3%);
+}
+
 /** WORK PROJECTS **/
 #content-wrap.work .work-title {
    max-width: 500px;
