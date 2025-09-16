@@ -435,6 +435,9 @@ body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-chi
 }
 
 /* UI/UX */
+body.tt-boxed.work.ui-ux .tt-section {
+   margin-top: -40px;
+}
 body.tt-boxed.work.ui-ux .tt-wrap {
    width: 1080px;
 }
@@ -444,6 +447,9 @@ body.tt-boxed.work.ui-ux .tt-wrap .tt-row {
 }
 body.tt-boxed.work.ui-ux .tt-wrap .tt-row:nth-child(1) {
    margin-bottom: 140px;
+}
+body.tt-boxed.work.ui-ux .tt-wrap .tt-row:nth-child(2) {
+   margin-bottom: 60px;
 }
 body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-6,
 body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-6:first-child,
