@@ -19,18 +19,21 @@
    text-decoration: none;
    color: inherit;
    transform: translateZ(0);
-   transition: transform 0.4s ease;
+   transition: transform 0.2s ease;
    isolation: isolate;
 }
-
 .card:focus-visible {
    outline-offset: 2px;
 }
-
 .card .media {
    position: relative;
    overflow: hidden;
    border-radius: 10px;
+   box-shadow: 0 0 0 #dedede;
+   transition: all 0.2s ease-in-out;
+}
+.card .media:hover {
+   box-shadow: 0 0 30px #dedede;
 }
 .card .media img {
    width: 100%;
@@ -69,7 +72,7 @@
    filter: saturate(1.15) contrast(1.06);
 }
 
-.card .overlay {
+/* .card .overlay {
    position: absolute;
    inset: 0;
    background: linear-gradient(
@@ -83,7 +86,7 @@
 }
 .card:hover .overlay {
    opacity: 0.05;
-}
+} */
 
 .card .meta {
    margin-top: 11px;
