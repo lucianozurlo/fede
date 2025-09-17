@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>Federico Vaccarezza :: Portfolio 2025</title>
+      <meta charset="utf-8" />
+      <meta
+         name="Graphic Designer"
+         content="I'm based in Tigre, Argentina, and I spent several years studying at the University of Buenos Aires (UBA), switching from industrial to graphic design. I've always had a passion for style in all its forms and have been diving into this creative world for many years.orium."
+      />
+      <meta name="Federico Vaccarezza" content="fvaccarezza.com" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+      <link rel="stylesheet" href="assets/vendor/normalize/normalize.min.css" />
+      <link rel="stylesheet" href="assets/vendor/fontawesome/css/fontawesome-all.min.css" />
+      <!-- <link rel="stylesheet" href="assets/vendor/swiper/css/swiper-bundle.min.css" /> -->
+      <!-- <link rel="stylesheet" href="assets/vendor/lightgallery/css/lightgallery.min.css" /> -->
+      <link rel="stylesheet" href="assets/css/helper.css" />
+      <link rel="stylesheet" href="assets/css/theme.css" />
+      <link rel="stylesheet" href="assets/fonts/fonts.css" />
+      <link rel="stylesheet" href="assets/css/custom.css" />
+      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css"
+      />
+      <link rel="stylesheet" href="assets/css/gallery.css" />
+      <link rel="stylesheet" href="assets/css/testimonials.css" />
+      <link rel="stylesheet" href="assets/css/form.css" />
+
+      <style>
+         /* Pegado al fondo y a todo el ancho */
+         .footer-masked {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+
+            -webkit-mask-mode: alpha;
+            mask-mode: alpha;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center bottom;
+            mask-position: center bottom;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+         }
+
+         .footer-masked.footer1 {
+            -webkit-mask-image: url('assets/img/footer1.svg');
+            mask-image: url('assets/img/footer1.svg');
+         }
+
+         .footer-masked.footer2 {
+            -webkit-mask-image: url('assets/img/footer2.svg');
+            mask-image: url('assets/img/footer2.svg');
+         }
+
+         .footer-masked.footer3 {
+            -webkit-mask-image: url('assets/img/footer3.svg');
+            mask-image: url('assets/img/footer3.svg');
+         }
+
+         /* Contenido que se recorta de nuevo por footer2.svg */
+         .footer-ink {
+            position: relative;
+            width: 100vw;
+            margin: 0 auto;
+
+            /* 2ª máscara: define dónde aparece realmente la textura */
+            -webkit-mask-mode: alpha;
+            mask-mode: alpha;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center bottom;
+            mask-position: center bottom;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+         }
+         .footer-ink.footer1 {
+            -webkit-mask-image: url('assets/img/footer1.svg');
+            mask-image: url('assets/img/footer1.svg');
+         }
+         .footer-ink.footer2 {
+            -webkit-mask-image: url('assets/img/footer2.svg');
+            mask-image: url('assets/img/footer2.svg');
+         }
+         .footer-ink.footer3 {
+            -webkit-mask-image: url('assets/img/footer3.svg');
+            mask-image: url('assets/img/footer3.svg');
+         }
+
+         /* IMG solo para “sondear” dimensiones de footer2.svg (no visible) */
+         .footer-probe {
+            display: block;
+            width: 100%;
+            height: auto;
+            opacity: 0; /* no se ve */
+            pointer-events: none;
+         }
+
+         /* La textura es lo único visible, sin blends */
+         .footer-texture {
+            position: absolute;
+            inset: 0;
+            background-repeat: repeat;
+            background-position: center;
+            background-size: 250px auto;
+            pointer-events: none; /* sin interacciones */
+         }
+         .footer-texture.yellow {
+            background-image: url('assets/img/noise-yellow.png');
+         }
+         .footer-texture.orange {
+            background-image: url('assets/img/noise-orange.png');
+         }
+      </style>
+   </head>
+
+   <body id="body" class="tt-boxed tt-smooth-scroll">
+      <main id="body-inner">
+         <div id="scroll-container">
+            <div id="content-wrap">
+               <div id="page-content">
+                  <div id="contact" class="tt-section" style="height: 1400px">
+                     <div class="bg-vectors">
+                        <div class="pos bottom-center">
+                           <img src="assets/img/footer4.svg" />
+                        </div>
+                     </div>
+                     <div class="footer-masked footer1">
+                        <div class="footer-ink footer1">
+                           <img class="footer-probe" src="assets/img/footer1.svg" alt="" />
+                           <div class="footer-texture orange" aria-hidden="true"></div>
+                        </div>
+                     </div>
+                     <div class="footer-masked footer1">
+                        <div class="footer-ink footer2">
+                           <img class="footer-probe" src="assets/img/footer2.svg" alt="" />
+                           <div class="footer-texture yellow" aria-hidden="true"></div>
+                        </div>
+                     </div>
+                     <div class="footer-masked footer3">
+                        <div class="footer-ink footer3">
+                           <img class="footer-probe" src="assets/img/footer3.svg" alt="" />
+                           <div class="footer-texture yellow" aria-hidden="true"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+
+      <script src="assets/vendor/jquery/jquery.min.js"></script>
+
+      <script src="assets/vendor/gsap/gsap.min.js"></script>
+      <script src="assets/vendor/isotope/imagesloaded.pkgd.min.js"></script>
+      <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/isotope/packery-mode.pkgd.min.js"></script>
+
+      <script src="assets/js/theme.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
+      <script src="assets/js/gallery.js"></script>
+
+      <script src="assets/js/testimonials.js"></script>
+      <script src="assets/js/form.js"></script>
+   </body>
+</html>

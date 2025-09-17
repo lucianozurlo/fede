@@ -192,6 +192,7 @@ h2 + span p {
 h2 + span {
    display: flex;
    flex-direction: row;
+   align-items: center;
    justify-content: center;
    gap: 10px;
 }
@@ -775,7 +776,7 @@ body.tt-boxed #services .tt-wrap {
 
 /* CONTACT */
 #contact {
-   padding: 0 0 36px !important;
+   padding: 0 0 39px !important;
 }
 #contact * {
    color: var(--color-fede-fv);
@@ -787,7 +788,7 @@ body.tt-boxed #services .tt-wrap {
    width: 100%;
    height: auto;
 }
-#contact .bg-vectors .noise {
+/* #contact .bg-vectors .noise {
    position: absolute;
    bottom: 0;
    left: 0;
@@ -797,9 +798,98 @@ body.tt-boxed #services .tt-wrap {
    background: url(../img/noise.png);
    background-size: 12%;
    mix-blend-mode: screen;
+} */
+
+/* Pegado al fondo y a todo el ancho */
+#contact .footer-masked {
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   pointer-events: none;
+   z-index: 0;
+
+   -webkit-mask-mode: alpha;
+   mask-mode: alpha;
+   -webkit-mask-repeat: no-repeat;
+   mask-repeat: no-repeat;
+   -webkit-mask-position: center bottom;
+   mask-position: center bottom;
+   -webkit-mask-size: 100% 100%;
+   mask-size: 100% 100%;
 }
+
+#contact .footer-masked.footer1 {
+   -webkit-mask-image: url('../img/footer1.svg');
+   mask-image: url('../img/footer1.svg');
+}
+
+#contact .footer-masked.footer2 {
+   -webkit-mask-image: url('../img/footer2.svg');
+   mask-image: url('../img/footer2.svg');
+}
+
+#contact .footer-masked.footer3 {
+   -webkit-mask-image: url('../img/footer3.svg');
+   mask-image: url('../img/footer3.svg');
+}
+
+/* Contenido que se recorta de nuevo por footer2.svg */
+#contact .footer-ink {
+   position: relative;
+   width: 100%;
+   margin: 0 auto;
+
+   /* 2ª máscara: define dónde aparece realmente la textura */
+   -webkit-mask-mode: alpha;
+   mask-mode: alpha;
+   -webkit-mask-repeat: no-repeat;
+   mask-repeat: no-repeat;
+   -webkit-mask-position: center bottom;
+   mask-position: center bottom;
+   -webkit-mask-size: 100% 100%;
+   mask-size: 100% 100%;
+}
+#contact .footer-ink.footer1 {
+   -webkit-mask-image: url('../img/footer1.svg');
+   mask-image: url('../img/footer1.svg');
+}
+#contact .footer-ink.footer2 {
+   -webkit-mask-image: url('../img/footer2.svg');
+   mask-image: url('../img/footer2.svg');
+}
+#contact .footer-ink.footer3 {
+   -webkit-mask-image: url('../img/footer3.svg');
+   mask-image: url('../img/footer3.svg');
+}
+
+/* IMG solo para “sondear” dimensiones de footer2.svg (no visible) */
+#contact .footer-probe {
+   display: block;
+   width: 100%;
+   height: auto;
+   opacity: 0; /* no se ve */
+   pointer-events: none;
+}
+
+/* La textura es lo único visible, sin blends */
+#contact .footer-texture {
+   position: absolute;
+   inset: 0;
+   background-repeat: repeat;
+   background-position: center;
+   background-size: 250px auto;
+   pointer-events: none; /* sin interacciones */
+}
+#contact .footer-texture.yellow {
+   background-image: url('../img/noise-yellow.png');
+}
+#contact .footer-texture.orange {
+   background-image: url('../img/noise-orange.png');
+}
+
 #contact h2.section-title {
-   margin-bottom: 5px;
+   margin-bottom: 4px;
 }
 
 #contact .tt-row {
@@ -821,13 +911,14 @@ body.tt-boxed #services .tt-wrap {
    font-weight: 400;
    font-size: 38px;
    line-height: 90%;
-   margin-bottom: 15px;
-   margin-top: 55px;
+   margin-bottom: 20px;
+   margin-top: 60px;
 }
 #contact .fw-200 {
    margin-top: 10px;
-   margin-bottom: 22px;
+   margin-bottom: 30px;
    letter-spacing: 0.5px;
+   line-height: 22px;
 }
 #contact a {
    font-family: 'PP Telegraf';
@@ -848,6 +939,7 @@ body.tt-boxed #services .tt-wrap {
    flex-direction: row;
    gap: 0;
    transform: translateX(-16px);
+   margin-bottom: 30px;
 }
 #contact .col .socials a {
    margin: 0;
