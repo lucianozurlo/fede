@@ -1078,7 +1078,7 @@ body.tt-boxed #services .tt-wrap {
       transition: all 0.2s ease-in-out;
    }
 
-   .work-on {
+   /* .work-on {
       position: fixed;
       left: 58px;
       top: 119px;
@@ -1115,11 +1115,11 @@ body.tt-boxed #services .tt-wrap {
 
    html.with-fancybox-gallery .tt-main-menu-list > li:nth-child(2) > a {
       width: 100%;
-   }
+   } */
 
-   html.with-fancybox-gallery .work-on:hover {
+   /* html.with-fancybox-gallery .work-on:hover {
       opacity: 0.9;
-   }
+   } */
 
    /* .tt-main-menu-list > li > a:hover {
       letter-spacing: 20px !important;

@@ -44,15 +44,59 @@ window.addEventListener('DOMContentLoaded', () => {
    });
 
    // Delegación global en el PADRE: cerrar cualquier instancia si clickean <a|button data-fancybox-close>
+   // Delegación global en el PADRE: cerrar y luego actuar sobre el href (hash scroll o navegación)
    document.addEventListener('click', (e) => {
       const el = e.target.closest('a[data-fancybox-close], button[data-fancybox-close]');
       if (!el) return;
-      e.preventDefault();
-      try {
-         const fb = window.Fancybox?.getInstance?.();
-         if (fb) fb.close();
-      } catch (err) {
-         /* no-op */
+
+      const href = (el.getAttribute('href') || '').trim();
+      const isHash = href.startsWith('#') && href.length > 1;
+      const offset = Number(el.dataset.offset || 0) || 0;
+
+      // Acción a ejecutar DESPUÉS del cierre
+      const afterClose = () => {
+         if (isHash) {
+            const id = href.slice(1);
+            const target = document.getElementById(id);
+            if (target) {
+               const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+               window.scrollTo({ top: y, behavior: 'smooth' });
+            } else {
+               // fallback: actualizar hash si no existe el elemento (no rompe)
+               location.hash = href;
+            }
+         } else if (href && href !== '#') {
+            // Navegación normal a otra URL
+            location.href = href;
+         }
+      };
+
+      const fb = window.Fancybox?.getInstance?.();
+
+      if (fb) {
+         e.preventDefault();
+
+         // Intentá engancharte a la destrucción de la instancia para ejecutar la acción luego
+         let ran = false;
+         const runOnce = () => {
+            if (ran) return;
+            ran = true;
+            afterClose();
+         };
+         try {
+            fb.on?.('destroy', runOnce);
+         } catch (_) {
+            // fallback por si la API cambia
+            setTimeout(runOnce, 0);
+         }
+         fb.close();
+      } else {
+         // No hay Fancybox abierto: si es hash, manejamos nosotros para aplicar offset; si no, dejamos navegar
+         if (isHash) {
+            e.preventDefault();
+            afterClose();
+         }
+         // si NO es hash, no prevenimos y el navegador navega normalmente
       }
    });
 });
