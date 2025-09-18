@@ -11,7 +11,7 @@ legend {
 textarea {
    width: 100%;
    border: 0.5px solid var(--color-fede-fv);
-   border-radius: 5px;
+   border-radius: 7px;
    padding: 0 10px;
    height: 32px;
    background: transparent;
@@ -67,17 +67,17 @@ textarea {
 }
 
 .chip label:active {
-   border-radius: 5px;
+   border-radius: 7px;
    transform: scale(0.98);
 }
 
 .chip input[type='checkbox']:hover + label {
    background-color: #3a3a3944;
-   border-radius: 5px;
+   border-radius: 7px;
 }
 
 .chip input[type='checkbox']:checked + label {
-   border-radius: 5px;
+   border-radius: 7px;
    background: var(--color-fede-fv) !important;
    background-color: var(--color-fede-fv) !important;
    color: var(--color-fede-white) !important;

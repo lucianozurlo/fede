@@ -9,6 +9,13 @@
    }
 }
 
+.gallery .stamp {
+   position: absolute;
+   width: 70px;
+   top: -35px;
+   right: -35px;
+}
+
 .card {
    position: relative;
    display: flex;
@@ -34,6 +41,7 @@
 }
 .card .media:hover {
    box-shadow: 0 0 30px #dedede;
+   cursor: pointer;
 }
 .card .media img {
    width: 100%;
@@ -51,10 +59,10 @@
    opacity: 0;
    pointer-events: none;
 }
-.card:hover .media .img-hover {
+.card .media:hover .img-hover {
    opacity: 1;
 }
-.card:hover .media img.img-base {
+.card .media:hover img.img-base {
    /* transform: scale(1.06); */
    -webkit-filter: saturate(1.15) contrast(1.06);
    filter: saturate(1.15) contrast(1.06);
@@ -178,7 +186,7 @@ html .fancybox__backdrop {
 }
 
 .modal-item p.ans {
-   color: var(--color-fede-gray);
+   color: var(--color-fede-fv-gray);
    margin-bottom: 0;
 }
 
