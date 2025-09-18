@@ -817,6 +817,7 @@ body.tt-boxed #services .tt-wrap {
 /* CONTACT */
 #contact {
    padding: 0 0 39px !important;
+   overflow: hidden;
 }
 #contact * {
    color: var(--color-fede-fv);
