@@ -279,6 +279,7 @@ h2 + span {
 
 .min-titles.spacing {
    letter-spacing: 0.5vw;
+   margin-left: 0.5vw;
 }
 
 .text {
@@ -442,6 +443,7 @@ body.tt-boxed .tt-wrap .tt-row {
 #page-header .min-titles {
    font-size: 16px !important;
    letter-spacing: 8px;
+   margin-left: 8px;
    font-weight: 400 !important;
 }
 
@@ -478,6 +480,7 @@ body.tt-boxed .tt-wrap .tt-row {
    font-weight: 400;
    line-height: 1.8;
    letter-spacing: 0.5px;
+   margin-left: 0.5px;
 }
 #about .tt-wrap p:last-child {
    margin-bottom: 0;
@@ -668,6 +671,7 @@ body.tt-boxed #work .tt-wrap {
 #work .pgi-caption-inner .pgi-title {
    text-transform: uppercase;
    letter-spacing: calc(5px + 0.1vw);
+   margin-left: calc(5px + 0.1vw);
 }
 
 #work .pgi-caption-inner .pgi-category {
@@ -729,6 +733,7 @@ body.tt-boxed #services .tt-wrap {
 #services .services-container .items .services-text p:nth-child(2) {
    line-height: 22px;
    letter-spacing: 0.05em;
+   margin-left: 0.05em;
    color: #979797;
    margin-bottom: 0;
 }
@@ -959,6 +964,7 @@ body.tt-boxed #services .tt-wrap {
    margin-top: 10px;
    margin-bottom: 30px;
    letter-spacing: 0.5px;
+   margin-left: 0.5px;
    line-height: 22px;
 }
 #contact a {
@@ -1187,6 +1193,7 @@ body.tt-boxed #services .tt-wrap {
       align-items: center;
       font-size: 14px;
       letter-spacing: 7px;
+      margin-left: 7px;
       height: 26px;
       transition: all 0.35s ease-in-out;
    }

@@ -54,6 +54,7 @@
    text-align: center;
    text-transform: uppercase;
    letter-spacing: 1em;
+   margin-left: 1em;
 }
 #content-wrap.work .work-title p.desc {
    font-weight: 400;
@@ -61,6 +62,7 @@
    line-height: 22px;
    text-align: center;
    letter-spacing: 0.02em;
+   margin-left: 0.02em;
 }
 
 .scroll {
@@ -96,6 +98,7 @@
    font-size: 16px;
    line-height: 22px;
    letter-spacing: 0.2px;
+   margin-left: 0.2px;
    margin-top: 4px;
    margin-bottom: 0;
    transform: translateY(0px);
@@ -527,14 +530,14 @@ body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs-details {
 
 body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-6 .mobs.iphone {
    margin-left: -60px;
-   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-6 .mobs.iphone:hover {
    margin-left: -120px;
 }
 
 body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-6 .mobs.iphone img {
-   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-6 .mobs.iphone:hover img:nth-child(1) {
    width: 565px;
@@ -550,7 +553,7 @@ body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-6 .mobs.iphone:hover img:nth-child(
 body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs.ipad {
    margin-left: 0;
    height: 874px;
-   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs.ipad img {
@@ -558,7 +561,7 @@ body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs.ipad img {
    position: relative;
    padding-left: 0;
    padding-right: 0;
-   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 body.tt-boxed.work.ui-ux .tt-wrap .tt-col-md-12 .mobs.ipad img:nth-child(1) {
    margin-left: -7%;
@@ -608,7 +611,9 @@ body.tt-boxed.work.web .mobs img {
    z-index: 11;
    margin-top: 12.5%;
    margin-left: -10.5%;
+   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
 body.tt-boxed.work.web .mobs .base {
    width: 954px;
    position: relative;
@@ -624,10 +629,12 @@ body.tt-boxed.work.web p.desc {
    font-size: 15px;
    line-height: 20px;
    letter-spacing: 0.5px;
+   margin-left: 0.5px;
    max-width: 750px;
 }
 body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs img {
    margin-left: 25.5%;
+   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs .base {
    margin-left: -18%;
@@ -637,4 +644,11 @@ body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs-details {
 }
 body.tt-boxed.work.web .tt-wrap .talk {
    margin-top: 168px;
+}
+
+body.tt-boxed.work.web .mobs:hover img:nth-child(1) {
+   margin-left: -13.5%;
+}
+body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs:hover img:nth-child(1) {
+   margin-left: 28.5%;
 }
