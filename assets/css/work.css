@@ -607,23 +607,44 @@ body.tt-boxed.work.web .tt-wrap {
 body.tt-boxed.work.web .mobs img {
    width: 600px;
    position: absolute;
-   padding-right: 16px;
+   /* padding-right: 16px; */
    z-index: 11;
    margin-top: 12.5%;
-   margin-left: -10.5%;
+   /* margin-left: -10.5%; */
    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+body.tt-boxed.work.web .mobs img:nth-child(1) {
+   margin-left: -28.5%;
+}
+body.tt-boxed.work.web .mobs:hover img:nth-child(1) {
+   margin-left: -31%;
+}
+body.tt-boxed.work.web .mobs:hover img:nth-child(2) {
+   margin-left: 2.5%;
+}
+
+body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) img:nth-child(1) {
+   margin-left: 41.5%;
+}
+body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even):hover img:nth-child(1) {
+   margin-left: 44%;
+}
+body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs:hover img:nth-child(2) {
+   margin-left: -2.5%;
+}
+
 body.tt-boxed.work.web .mobs .base {
-   width: 954px;
+   width: 938px;
    position: relative;
    z-index: 1;
    margin-top: 0;
-   margin-left: 19.5%;
 }
 body.tt-boxed.work.web .tt-wrap .tt-row .mobs-details {
    margin-top: -10%;
-   margin-left: 33%;
+   margin-left: 0;
+   width: 65%;
+   z-index: 11;
 }
 body.tt-boxed.work.web p.desc {
    font-size: 15px;
@@ -632,23 +653,16 @@ body.tt-boxed.work.web p.desc {
    margin-left: 0.5px;
    max-width: 750px;
 }
-body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs img {
+/* body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs img {
    margin-left: 25.5%;
    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs .base {
    margin-left: -18%;
-}
-body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs-details {
+} */
+/* body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs-details {
    margin-left: -29%;
-}
+} */
 body.tt-boxed.work.web .tt-wrap .talk {
    margin-top: 168px;
-}
-
-body.tt-boxed.work.web .mobs:hover img:nth-child(1) {
-   margin-left: -13.5%;
-}
-body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs:hover img:nth-child(1) {
-   margin-left: 28.5%;
 }
