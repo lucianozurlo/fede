@@ -666,3 +666,15 @@ body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .mobs .base {
 body.tt-boxed.work.web .tt-wrap .talk {
    margin-top: 168px;
 }
+
+body.tt-boxed.work.web .stamp {
+   right: 176px;
+   top: 79px;
+}
+body.tt-boxed.work.web .tt-wrap .tt-row:nth-child(even) .stamp {
+   left: 176px;
+}
+
+body.tt-boxed.work.web .stamp img {
+   margin-left: unset !important;
+}
