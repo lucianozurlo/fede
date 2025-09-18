@@ -515,10 +515,10 @@ body.tt-boxed .tt-wrap .tt-row {
    margin-left: 18px;
    transition: all 0.4s ease-in-out;
 }
-#about .tt-wrap #hola:hover {
+/* #about .tt-wrap #hola-foto:hover {
    cursor: pointer !important;
-}
-#about .tt-wrap #hola:hover .photo {
+} */
+#about .tt-wrap #hola-foto:hover .photo {
    transform: scale(1.015);
 }
 #about .tt-wrap .photo .fede {
@@ -529,7 +529,7 @@ body.tt-boxed .tt-wrap .tt-row {
    mix-blend-mode: multiply;
 }
 
-#about .tt-wrap #hola:hover .photo .fede {
+#about .tt-wrap #hola-foto:hover .photo .fede {
    background-color: #ff660000;
 }
 
@@ -565,7 +565,7 @@ body.tt-boxed .tt-wrap .tt-row {
    left: -42%;
 }
 
-#about .tt-wrap #hola:hover .photo .film .vectors img.photo-vector.vector1 {
+#about .tt-wrap #hola-foto:hover .photo .film .vectors img.photo-vector.vector1 {
    transform: scale(0.44) rotate(0deg);
    left: -49%;
    opacity: 0;
@@ -575,7 +575,7 @@ body.tt-boxed .tt-wrap .tt-row {
    top: 42%;
    left: 44%;
 }
-#about .tt-wrap #hola:hover .photo .film .vectors img.photo-vector.vector2 {
+#about .tt-wrap #hola-foto:hover .photo .film .vectors img.photo-vector.vector2 {
    transform: scale(0.36) rotate(-10deg);
    top: 43%;
    left: 48%;
@@ -587,7 +587,7 @@ body.tt-boxed .tt-wrap .tt-row {
    filter: brightness(9);
    transition: all 0.4s ease-in-out;
 }
-#about .tt-wrap #hola:hover .photo .film.out .vectors img.photo-vector.vector1 {
+#about .tt-wrap #hola-foto:hover .photo .film.out .vectors img.photo-vector.vector1 {
    -webkit-filter: brightness(1);
    filter: brightness(1);
 }
@@ -596,7 +596,7 @@ body.tt-boxed .tt-wrap .tt-row {
    filter: brightness(9);
    transition: all 0.4s ease-in-out;
 }
-#about .tt-wrap #hola:hover .photo .film.out .vectors img.photo-vector.vector2 {
+#about .tt-wrap #hola-foto:hover .photo .film.out .vectors img.photo-vector.vector2 {
    -webkit-filter: brightness(1);
    filter: brightness(1);
 }
@@ -612,15 +612,15 @@ body.tt-boxed .tt-wrap .tt-row {
    filter: hue-rotate(0) saturate(5) sepia(0.1);
 } */
 
-#about .tt-wrap #hola:hover .photo .film.bg .vectors img.photo-vector {
+#about .tt-wrap #hola-foto:hover .photo .film.bg .vectors img.photo-vector {
    opacity: 1;
 }
 
-#about .tt-wrap #hola .info {
+#about .tt-wrap #hola-foto .info {
    transform: translateX(0);
    transition: all 0.4s ease-in-out;
 }
-#about .tt-wrap #hola:hover .info {
+#about .tt-wrap #hola-foto:hover .info {
    transform: translateX(30px);
 }
 
@@ -1194,7 +1194,7 @@ body.tt-boxed #services .tt-wrap {
       align-items: center;
       font-size: 14px;
       letter-spacing: 7px;
-      margin-left: 7px;
+      /* margin-left: 7px; */
       height: 26px;
       transition: all 0.35s ease-in-out;
    }

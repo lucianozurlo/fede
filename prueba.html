@@ -1,113 +1,93 @@
 <!doctype html>
 <html lang="en">
    <head>
-      <title>Federico Vaccarezza :: Portfolio 2025</title>
-      <meta charset="utf-8" />
-      <meta
-         name="Graphic Designer"
-         content="I'm based in Tigre, Argentina, and I spent several years studying at the University of Buenos Aires (UBA), switching from industrial to graphic design. I've always had a passion for style in all its forms and have been diving into this creative world for many years.orium."
-      />
-      <meta name="Federico Vaccarezza" content="fvaccarezza.com" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-      <link rel="stylesheet" href="assets/vendor/normalize/normalize.min.css" />
-      <link rel="stylesheet" href="assets/vendor/fontawesome/css/fontawesome-all.min.css" />
-      <!-- <link rel="stylesheet" href="assets/vendor/swiper/css/swiper-bundle.min.css" /> -->
-      <!-- <link rel="stylesheet" href="assets/vendor/lightgallery/css/lightgallery.min.css" /> -->
-      <link rel="stylesheet" href="assets/css/helper.css" />
-      <link rel="stylesheet" href="assets/css/theme.css" />
-      <link rel="stylesheet" href="assets/fonts/fonts.css" />
-      <link rel="stylesheet" href="assets/css/custom.css" />
-      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-      <link
-         rel="stylesheet"
-         href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css"
-      />
-      <link rel="stylesheet" href="assets/css/gallery.css" />
-      <link rel="stylesheet" href="assets/css/testimonials.css" />
-      <link rel="stylesheet" href="assets/css/form.css" />
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+      <section
+         style="height: 120vh; background: #111; color: #fff; display: grid; place-items: center"
+      >
+         <h2>Scroll hacia abajo →</h2>
+      </section>
+
+      <!-- CONTENEDOR PARALLAX -->
+      <div class="parallax-wrap">
+         <div class="parallax-item" data-parallax-speed="0.35">
+            <img src="assets/img/hero.png" alt="Hero" />
+         </div>
+      </div>
+
+      <section style="height: 120vh; background: #111"></section>
+
+      <script>
+         (() => {
+            // Selecciona TODOS los que tengan data-parallax-speed
+            const els = Array.from(document.querySelectorAll('[data-parallax-speed]'));
+            if (!els.length) return;
+
+            // Si tenés "reduce motion" activado, no corremos el efecto
+            if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            let ticking = false;
+
+            function compute() {
+               const vh2 = window.innerHeight * 0.5;
+               for (const el of els) {
+                  const speed = parseFloat(el.getAttribute('data-parallax-speed') || '0');
+                  if (!speed) continue;
+
+                  // Centro del elemento vs centro de la ventana
+                  const rect = el.getBoundingClientRect();
+                  const delta = rect.top + rect.height * 0.5 - vh2;
+
+                  // Movimiento proporcional
+                  const ty = -delta * speed;
+
+                  // Clamp opcional para evitar excesos
+                  const clamp = 240;
+                  const v = Math.max(-clamp, Math.min(clamp, ty));
+
+                  // Aplicamos transform directo (sin variables CSS)
+                  el.style.transform = `translate3d(0, ${v}px, 0)`;
+               }
+               ticking = false;
+            }
+
+            function onScrollOrResize() {
+               if (!ticking) {
+                  ticking = true;
+                  requestAnimationFrame(compute);
+               }
+            }
+
+            // Primer cálculo y listeners
+            compute();
+            window.addEventListener('scroll', onScrollOrResize, { passive: true });
+            window.addEventListener('resize', onScrollOrResize);
+         })();
+      </script>
 
       <style>
-         .footer-textured {
-            width: 100%;
+         .parallax-wrap {
+            position: relative;
+            height: 80vh; /* espacio para ver el efecto */
+            display: grid;
+            place-items: center;
+            overflow: visible;
+            background: #f4f4f4;
+         }
+         .parallax-item {
+            will-change: transform;
+            transition: transform 0s; /* asegura actualizaciones inmediatas */
+            display: inline-block;
+         }
+         .parallax-item img {
+            display: block;
+            max-width: min(80vw, 900px);
             height: auto;
-            min-height: 100%;
-
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: auto;
-
-            background-repeat: repeat;
-            background-position: center;
-            background-size: 250px auto;
-
-            -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
-            -webkit-mask-position: center;
-            mask-position: center;
-            -webkit-mask-size: 100% 100%;
-            mask-size: 100% 100%;
-         }
-
-         .footer-textured.orange {
-            background-image: url('assets/img/noise-orange.png');
-         }
-         .footer-textured.yellow {
-            background-image: url('assets/img/noise-yellow.png');
-         }
-         .footer-textured.footer1 {
-            -webkit-mask-image: url('assets/img/footer-1b.svg');
-            mask-image: url('assets/img/footer-1b.svg');
-         }
-         .footer-textured.footer2 {
-            -webkit-mask-image: url('assets/img/footer-2.svg');
-            mask-image: url('assets/img/footer-2.svg');
-         }
-         .footer-textured.footer3 {
-            -webkit-mask-image: url('assets/img/footer-3.svg');
-            mask-image: url('assets/img/footer-3.svg');
-         }
-         .footer-textured.footer4 {
-            -webkit-mask-image: url('assets/img/footer-4.svg');
-            mask-image: url('assets/img/footer-4.svg');
          }
       </style>
-   </head>
-
-   <body id="body" class="tt-boxed tt-smooth-scroll">
-      <main id="body-inner">
-         <div id="scroll-container">
-            <div id="content-wrap">
-               <div id="page-content">
-                  <div id="contact" class="tt-section" style="height: 1400px">
-                     <div class="bg-vectors">
-                        <div class="pos bottom-center">
-                           <div class="footer-textured footer4"></div>
-                           <div class="footer-textured orange footer1"></div>
-                           <div class="footer-textured yellow footer3"></div>
-                           <div class="footer-textured yellow footer2"></div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </main>
-
-      <script src="assets/vendor/jquery/jquery.min.js"></script>
-
-      <script src="assets/vendor/gsap/gsap.min.js"></script>
-      <script src="assets/vendor/isotope/imagesloaded.pkgd.min.js"></script>
-      <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
-      <script src="assets/vendor/isotope/packery-mode.pkgd.min.js"></script>
-
-      <script src="assets/js/theme.js"></script>
-
-      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
-      <script src="assets/js/gallery.js"></script>
-
-      <script src="assets/js/testimonials.js"></script>
-      <script src="assets/js/form.js"></script>
    </body>
 </html>
