@@ -334,6 +334,10 @@ body.work.cleo img.mob.mob4 {
 }
 
 /* MICHI */
+body.tt-boxed.michi .work-title p.desc {
+   width: 75%;
+   margin: 0 auto !important;
+}
 body.work.michi #details {
    margin-bottom: 130px;
 }
@@ -409,6 +413,15 @@ body.tt-boxed.work.logofolio .tt-wrap {
    display: flex;
    flex-direction: column;
    row-gap: 250px;
+}
+
+body.tt-boxed.work.logofolio .work-title p.desc {
+   width: 40%;
+   margin: 0 auto !important;
+}
+
+body.tt-boxed.work.logofolio .tt-wrap .tt-row {
+   width: 100%;
 }
 body.tt-boxed.work.logofolio .tt-wrap .tt-col-md-6,
 body.tt-boxed.work.logofolio .tt-wrap .tt-col-md-6:first-child,
