@@ -433,6 +433,16 @@ body.tt-boxed.work.logofolio .tt-wrap .tt-col-md-6:last-child {
 body.work.logofolio #content-wrap.work .work-title {
    max-width: unset;
 }
+body.tt-boxed.work.logofolio .tt-wrap .tt-row img {
+   transition: all 0.35s ease-in-out;
+}
+
+body.tt-boxed.work.logofolio .tt-wrap .tt-row img:hover {
+   -webkit-filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%)
+      contrast(102%);
+   filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%) contrast(102%);
+}
+
 body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min {
    margin-top: 17px;
    margin-bottom: -230px;
@@ -448,6 +458,7 @@ body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 {
 body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min img {
    width: 11%;
 }
+
 body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-child(1) {
    width: 124px;
 }

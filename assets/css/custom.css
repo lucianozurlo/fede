@@ -459,7 +459,7 @@ body.tt-boxed .tt-wrap .tt-row {
 #page-header .home-title span {
    font-size: 190px;
    line-height: 0.9;
-   margin: 0px 2.5vw;
+   /* margin: 0px 2.5vw; */
    margin: 0;
 }
 
