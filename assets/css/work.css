@@ -16,8 +16,11 @@
 }
 
 /** WORK PROJECTS **/
+body.tt-boxed.work .tt-section:last-child {
+   margin-top: -25px;
+}
 #content-wrap.work .work-title {
-   max-width: 500px;
+   max-width: 524px;
    margin: 0 auto;
 }
 #content-wrap.work .work-title * {
@@ -55,6 +58,7 @@
    text-transform: uppercase;
    letter-spacing: 1em;
    margin-left: 1em;
+   margin-bottom: 8px;
 }
 #content-wrap.work .work-title p.desc {
    font-weight: 400;
@@ -63,6 +67,7 @@
    text-align: center;
    letter-spacing: 0.02em;
    margin-left: 0.02em;
+   margin-bottom: 0;
 }
 
 .scroll {

@@ -311,6 +311,12 @@ h2.section-title {
    line-height: 0.9;
    text-align: center;
    margin-bottom: 15px;
+   transition: all 0.35s ease-in-out;
+}
+
+h2.section-title:hover {
+   color: transparent !important;
+   -webkit-text-stroke: 1px var(--color-fede-fv);
 }
 
 /* HEADER MENU */
@@ -411,6 +417,9 @@ body:not(.tt-boxed) .tt-header-inner,
 /* HOME */
 body.tt-boxed .tt-wrap {
    max-width: 1320px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 body.tt-boxed .tt-wrap .tt-row {
@@ -459,13 +468,6 @@ body.tt-boxed .tt-wrap .tt-row {
 }
 #about h2.section-title {
    margin-bottom: 38px;
-   color: var(--color-fede-fv);
-   -webkit-text-stroke: 2px transparent;
-   transition: all 0.35s ease-in-out;
-}
-#about h2.section-title:hover {
-   color: transparent;
-   -webkit-text-stroke: 1px var(--color-fede-fv);
 }
 
 #about .tt-wrap {
@@ -1070,12 +1072,24 @@ body.tt-boxed #services .tt-wrap {
 .is-idle .fancybox__nav {
    opacity: 1 !important;
 }
-.is-horizontal .fancybox__nav .f-button svg {
+
+.is-horizontal .fancybox__nav .f-button {
+   width: 40px;
+   height: 40px;
    /* stroke-width: unset !important;
    -webkit-filter: unset !important; */
    -webkit-filter: unset !important;
    filter: unset !important;
    stroke: var(--color-fede-fv);
+}
+
+.is-horizontal .fancybox__nav .f-button svg {
+   width: 18px !important;
+   height: 18px !important;
+   stroke-width: 3 !important;
+   stroke: var(--color-fede-fv) !important;
+   -webkit-filter: none !important;
+   filter: none !important;
 }
 
 .is-horizontal .fancybox__nav .f-button.is-prev {
@@ -1098,13 +1112,6 @@ body.tt-boxed #services .tt-wrap {
    bottom: 0px;
    border-radius: 50%;
    z-index: 1;
-}
-
-.is-horizontal .fancybox__nav .f-button svg {
-   width: 20px !important;
-   height: 20px !important;
-   stroke-width: 3 !important;
-   stroke: var(--color-fede-fv) !important;
 }
 
 .is-horizontal .fancybox__nav .f-button {
@@ -1137,10 +1144,10 @@ body.tt-boxed #services .tt-wrap {
 /* Texto común para ambas */
 .is-horizontal .fancybox__nav .f-button::after {
    position: absolute;
-   bottom: -38px;
+   bottom: -28px;
    left: 50%;
    transform: translateX(-50%);
-   font-size: 20px;
+   font-size: 16px;
    color: var(--color-fede-fv);
    opacity: 0;
    transition: opacity 0.35s ease-in-out;
