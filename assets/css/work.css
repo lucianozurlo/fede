@@ -58,7 +58,7 @@ body.tt-boxed.work .tt-section:last-child {
    text-transform: uppercase;
    letter-spacing: 1em;
    margin-left: 1em;
-   margin-bottom: 8px;
+   margin-bottom: 12px;
 }
 #content-wrap.work .work-title p.desc {
    font-weight: 400;
@@ -207,8 +207,10 @@ img.full-pad-right {
 }
 
 body.work .stamp {
-   right: 75px;
-   bottom: 165px;
+   right: -30px;
+   bottom: 75px;
+   width: 90px;
+   height: 90px;
 }
 
 /* FROG BAZAR */
