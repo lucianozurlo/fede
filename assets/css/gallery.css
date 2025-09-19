@@ -235,3 +235,45 @@ html .fancybox__backdrop {
       height: 280px;
    }
 }
+
+.modal-full.simple#works {
+   width: 950px;
+   gap: 95px;
+}
+.modal-full.simple#works .bg-vectors {
+   margin-top: 26px;
+}
+.modal-full.simple#works .work-items {
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+   gap: 58px 10px;
+   justify-items: center;
+}
+.modal-full.simple#works .work-items a {
+   color: var(--color-fede-fv);
+}
+.modal-full.simple#works .work-items a:hover {
+   color: var(--color-fede-orange);
+}
+
+.modal-full.simple#works a.close {
+   width: 195px;
+   height: 59px;
+   background-image: url(../img/btn-modal-goback.png);
+   background-size: contain;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0 auto;
+   border-radius: 2px;
+   transition: all 0.2s ease-in-out;
+}
+.modal-full.simple#works a:hover.close {
+   color: var(--color-fede-white);
+   background-color: var(--color-fede-fv);
+   border-radius: 6px;
+}
+.modal-full.simple#works main {
+   gap: 105px;
+}

@@ -1,6 +1,5 @@
-// assets/js/main.js (v4.1) — scroll siempre + cierre de Fancybox sin romper el anchor
+// assets/js/main.js (v4.5.1) — Fancybox v5: deep-link por caption + FAB + submodal inline + ESC priority + backtick-safe
 window.addEventListener('DOMContentLoaded', () => {
-   // ====== Fancybox (dos grupos con clases distintas) ======
    const html = document.documentElement;
    const counters = { gallery: 0, standalone: 0 };
 
@@ -14,17 +13,159 @@ window.addEventListener('DOMContentLoaded', () => {
       compact: false,
    };
 
+   // ===== Helpers slug/id por caption =====
+   const usedSlugs = new Set();
+   const slugify = (str) =>
+      (str || '')
+         .toString()
+         .normalize('NFD')
+         .replace(/[\u0300-\u036f]/g, '')
+         .toLowerCase()
+         .replace(/[^a-z0-9]+/g, '-')
+         .replace(/^-+|-+$/g, '')
+         .slice(0, 120) || 'item';
+
+   const ensureUnique = (base) => {
+      let s = base;
+      let i = 2;
+      while (usedSlugs.has(s)) s = base + '-' + i++;
+      usedSlugs.add(s);
+      return s;
+   };
+
+   const slugToIndex = new Map();
+   const indexToSlug = new Map();
+
+   // ===== Thumbs + IDs automáticos + slugs =====
+   const triggers = Array.from(
+      document.querySelectorAll('.gallery .card[data-fancybox="galeria"]')
+   );
+   triggers.forEach((card, i) => {
+      if (!card.hasAttribute('data-thumb')) {
+         const img = card.querySelector('.media .img-base');
+         if (img && img.src) card.setAttribute('data-thumb', img.src);
+      }
+      const caption =
+         card.getAttribute('data-caption') ||
+         card.getAttribute('data-title') ||
+         card.title ||
+         'proyecto-' + (i + 1);
+      const slug = ensureUnique(slugify(caption));
+      card.dataset.slug = slug;
+      if (!card.id) card.id = slug;
+      slugToIndex.set(slug, i);
+      indexToSlug.set(i, slug);
+   });
+
+   const getSlugFromHash = () => (location.hash.startsWith('#') ? location.hash.slice(1) : '');
+   const safeReplaceHash = (hash) => {
+      try {
+         const url = new URL(location.href);
+         url.hash = hash || '';
+         history.replaceState(null, '', url.toString());
+      } catch {
+         if (hash) location.hash = hash; // fallback
+      }
+   };
+
+   // ===== Bind Fancybox =====
    if (window.Fancybox) {
+      // Galería principal
       Fancybox.bind('[data-fancybox="galeria"]', {
          ...common,
-         on: { ready: () => add('gallery'), destroy: () => remove('gallery') },
+         iframeAttr: {
+            sandbox: 'allow-forms allow-scripts allow-same-origin allow-popups allow-modals',
+         },
+         on: {
+            ready: (fb) => {
+               add('gallery');
+               injectFab(fb);
+               const slug = indexToSlug.get(fb.page);
+               if (slug) safeReplaceHash('#' + slug);
+            },
+            destroy: () => {
+               remove('gallery');
+               // safeReplaceHash(''); // opcional: limpiar hash al cerrar
+            },
+            'Carousel.change': (fb, carousel, to) => {
+               const s = indexToSlug.get(to);
+               if (s) safeReplaceHash('#' + s);
+            },
+            init: (fb) => injectFab(fb),
+         },
       });
+
+      // Cualquier otro uso
       Fancybox.bind('[data-fancybox]:not([data-fancybox="galeria"])', {
          ...common,
-         on: { ready: () => add('standalone'), destroy: () => remove('standalone') },
+         on: {
+            ready: () => add('standalone'),
+            destroy: () => remove('standalone'),
+         },
       });
    }
 
+   // ===== Abrir galería en un slug específico =====
+   const openGalleryAtSlug = (slug) => {
+      if (!slugToIndex.has(slug)) return false;
+      const startIndex = slugToIndex.get(slug);
+
+      const items = triggers.map((el) => ({
+         src: el.getAttribute('href') || el.getAttribute('data-src') || '',
+         type: el.getAttribute('data-type') || undefined,
+         caption: el.getAttribute('data-caption') || el.getAttribute('data-title') || '',
+         thumb:
+            el.getAttribute('data-thumb') ||
+            (el.querySelector &&
+               el.querySelector('.img-base') &&
+               el.querySelector('.img-base').src) ||
+            '',
+         $trigger: el,
+      }));
+
+      Fancybox.show(items, {
+         ...common,
+         startIndex,
+         iframeAttr: {
+            sandbox: 'allow-forms allow-scripts allow-same-origin allow-popups allow-modals',
+         },
+         on: {
+            ready: (fb) => {
+               add('gallery');
+               injectFab(fb);
+               const s = indexToSlug.get(fb.page) || slug;
+               if (s) safeReplaceHash('#' + s);
+            },
+            destroy: () => remove('gallery'),
+            'Carousel.change': (fb, carousel, to) => {
+               const s = indexToSlug.get(to);
+               if (s) safeReplaceHash('#' + s);
+            },
+         },
+      });
+      return true;
+   };
+
+   // ===== FAB dentro del modal principal =====
+   function injectFab(fb) {
+      const mount = fb && fb.$container ? fb.$container : null;
+      if (!mount)
+         return requestAnimationFrame(function () {
+            injectFab(fb);
+         });
+      if (mount.querySelector('.fbx-menu-fab')) return;
+
+      const btn = document.createElement('button');
+      btn.className = 'fbx-menu-fab';
+      btn.type = 'button';
+      btn.textContent = 'Ver proyectos';
+      btn.addEventListener('click', function () {
+         openSlideMenu(fb);
+      });
+      mount.appendChild(btn);
+   }
+
+   // ===== Helpers de clases globales =====
    function add(type) {
       counters[type] = (counters[type] || 0) + 1;
       html.classList.add(type === 'gallery' ? 'with-fancybox-gallery' : 'with-fancybox-standalone');
@@ -35,8 +176,9 @@ window.addEventListener('DOMContentLoaded', () => {
       if (counters[type] === 0) html.classList.remove(cls);
    }
 
-   // ====== Utils de scroll/navegación ======
-   const getFB = () => window.Fancybox?.getInstance?.() || null;
+   // ===== Utils de scroll / navegación (base) =====
+   const getFB = () =>
+      (window.Fancybox && window.Fancybox.getInstance && window.Fancybox.getInstance()) || null;
 
    function isSamePageHash(href) {
       if (!href) return false;
@@ -64,18 +206,15 @@ window.addEventListener('DOMContentLoaded', () => {
    function scrollToHash(hash, offset) {
       const raw = (hash || '').trim();
       if (!raw || raw === '#') return;
-
       const id = raw.slice(1);
-      // ID primero (robusto); fallback a [name=]
       let target = document.getElementById(id);
       if (!target) {
          try {
             const esc = window.CSS && CSS.escape ? CSS.escape(id) : id;
-            target = document.querySelector(`[name="${esc}"]`);
+            target = document.querySelector('[name="' + esc + '"]');
          } catch {}
       }
       if (!target) {
-         // Al menos reflejar el hash
          try {
             history.pushState(null, '', raw);
          } catch {
@@ -83,10 +222,8 @@ window.addEventListener('DOMContentLoaded', () => {
          }
          return;
       }
-
       const y = target.getBoundingClientRect().top + window.pageYOffset - (Number(offset) || 0);
       window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-      // Reflejar hash sin “salto”
       try {
          history.pushState(null, '', '#' + id);
       } catch {
@@ -94,19 +231,18 @@ window.addEventListener('DOMContentLoaded', () => {
       }
    }
 
-   // Reintenta la acción tras quitar overlay/clase de Fancybox (si estaba abierto)
    function afterFancyboxClosed(cb) {
       const fb = getFB();
       if (!fb) return requestAnimationFrame(cb);
-
       let done = false;
       const finish = () => {
          if (done) return;
          done = true;
+         // Limpieza defensiva del flag de submodal
+         document.documentElement.classList.remove('with-fancybox-sub');
          requestAnimationFrame(cb);
       };
 
-      // Detectar cuando <html> pierde 'with-fancybox'
       let obs;
       try {
          obs = new MutationObserver(() => {
@@ -118,42 +254,48 @@ window.addEventListener('DOMContentLoaded', () => {
          obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       } catch {}
       try {
-         fb.on?.('destroy', finish);
+         fb.on && fb.on('destroy', finish);
       } catch {}
-      setTimeout(finish, 900); // fallback
-      fb.close();
+      setTimeout(finish, 900);
+      try {
+         fb.close();
+      } catch {}
    }
 
-   // ====== Handler para [data-close-fancybox] ======
-   // Importante: NO usamos data-fancybox-close (lo deja Fancybox y rompe el anchor).
+   // ===== Click delegado: cierres y scroll seguro =====
    document.addEventListener(
       'click',
       (e) => {
-         const a = e.target.closest('a[data-close-fancybox], button[data-close-fancybox]');
-         if (!a) return;
+         const closer = e.target.closest('a[data-close-fancybox], button[data-close-fancybox]');
+         if (!closer) return;
 
-         // Nunca llamar preventDefault sobre un <a> con hash; dejamos que el navegador haga lo suyo
-         // y nosotros sólo ajustamos (offset) y cerramos Fancybox aparte.
-         const href = (a.getAttribute('href') || '').trim();
-         const offset = a.dataset.scrollOffset || a.dataset.offset || 0;
+         const container = closer.closest('.fancybox__container');
+         const isSub = container && container.classList.contains('is-submodal');
+
+         if (isSub) {
+            // Cerrar SOLO el submodal y limpiar la clase
+            e.preventDefault();
+            try {
+               const fb = getFB();
+               if (fb) fb.close();
+            } finally {
+               document.documentElement.classList.remove('with-fancybox-sub');
+            }
+            return; // No continuar con el flujo de hash/scroll
+         }
+
+         // Cierre general (galería u otros)
+         const href = (closer.getAttribute('href') || '').trim();
+         const offset = closer.dataset.scrollOffset || closer.dataset.offset || 0;
          const hasHref = !!href && href !== '#';
          const fb = getFB();
 
-         // Si es HASH de esta página: dejamos que el navegador scrollee (NO prevenimos)
          if (hasHref && isSamePageHash(href)) {
-            // Ajuste de offset en el frame siguiente (después del scroll nativo)
             const hash = extractHash(href);
             requestAnimationFrame(() => scrollToHash(hash, offset));
-
-            // Si hay Fancybox abierto, lo cerramos SIN bloquear el click,
-            // y re-ajustamos el offset cuando el overlay desaparezca.
             if (fb) afterFancyboxClosed(() => scrollToHash(hash, offset));
-
-            // No return; dejamos pasar el evento para que el anchor haga su trabajo
             return;
          }
-
-         // Si es otra URL (con o sin hash): dejamos navegar, pero si hay Fancybox lo cerramos “después”
          if (hasHref) {
             if (fb)
                setTimeout(() => {
@@ -161,15 +303,207 @@ window.addEventListener('DOMContentLoaded', () => {
                      fb.close();
                   } catch {}
                }, 0);
-            return; // navegación nativa
+            return;
          }
-
-         // Si es botón sin href: cerramos si hay Fancybox
          if (fb) {
-            e.preventDefault(); // no hay navegación que preservar
+            e.preventDefault();
             fb.close();
          }
       },
       { capture: true }
-   ); // captura: nos adelantamos, pero SIN prevenir el default del anchor
+   );
+
+   // ===== ESC priority: cerrar submodal antes que la galería =====
+   document.addEventListener(
+      'keydown',
+      (e) => {
+         const key = e.key || e.code;
+         if (key !== 'Escape' && key !== 'Esc') return;
+
+         const fb = getFB();
+         if (!fb) return;
+
+         // Si la instancia top es un submodal, priorizar ese cierre
+         const isSubTop = !!(
+            fb.$container &&
+            fb.$container.classList &&
+            fb.$container.classList.contains('is-submodal')
+         );
+         if (isSubTop) {
+            e.preventDefault();
+            e.stopPropagation();
+            try {
+               fb.close();
+            } finally {
+               document.documentElement.classList.remove('with-fancybox-sub');
+            }
+         }
+         // Si no es submodal, Fancybox maneja el Escape normalmente
+      },
+      { capture: true }
+   );
+
+   // ===== Modal hijo con menú de saltos =====
+   function openSlideMenu(parentFb) {
+      const fbParent = parentFb || getFB();
+      let items = fbParent && fbParent.items;
+      if (!items || !items.length) {
+         const t = triggers;
+         items = t.map((el) => ({
+            src: el.getAttribute('href') || el.getAttribute('data-src') || '',
+            type: el.getAttribute('data-type') || undefined,
+            caption: el.getAttribute('data-caption') || el.getAttribute('data-title') || '',
+            thumb:
+               el.getAttribute('data-thumb') ||
+               (el.querySelector &&
+                  el.querySelector('.img-base') &&
+                  el.querySelector('.img-base').src) ||
+               '',
+            $trigger: el,
+         }));
+      }
+
+      // Construcción segura del HTML (sin backticks anidados)
+      const htmlItems = items
+         .map((it, i) => {
+            const t =
+               it.thumb ||
+               (it.$trigger &&
+                  it.$trigger.getAttribute &&
+                  it.$trigger.getAttribute('data-thumb')) ||
+               (it.$trigger &&
+                  it.$trigger.querySelector &&
+                  it.$trigger.querySelector('.img-base') &&
+                  it.$trigger.querySelector('.img-base').src) ||
+               '';
+            const label = (
+               it.caption ||
+               it.title ||
+               'Proyecto ' + String(i + 1).padStart(2, '0')
+            ).toString();
+
+            return (
+               '<button class="fbx-menu-item" data-index="' +
+               i +
+               '" type="button">' +
+               '<img class="fbx-menu-thumb" src="' +
+               t +
+               '" alt="">' +
+               '<div class="fbx-menu-label">' +
+               label +
+               '</div>' +
+               '</button>'
+            );
+         })
+         .join('');
+
+      const htmlMenu =
+         '<div class="fbx-menu">' +
+         '<h3>Ir al proyecto</h3>' +
+         '<div class="fbx-menu-grid">' +
+         htmlItems +
+         '</div>' +
+         '</div>';
+
+      Fancybox.show([{ src: htmlMenu, type: 'html' }], {
+         closeExisting: false,
+         dragToClose: true,
+         animated: true,
+         closeButton: 'top',
+         on: {
+            done: (fbChild) => {
+               fbChild.$container.querySelectorAll('.fbx-menu-item').forEach((btn) => {
+                  btn.addEventListener('click', () => {
+                     const idx = Number(btn.dataset.index);
+                     fbChild.close();
+                     if (fbParent && fbParent.jumpTo) {
+                        fbParent.jumpTo(idx);
+                     } else {
+                        const sel = triggers.map((el) => ({
+                           src: el.getAttribute('href') || el.getAttribute('data-src') || '',
+                           type: el.getAttribute('data-type') || undefined,
+                           caption: el.getAttribute('data-caption') || '',
+                        }));
+                        Fancybox.show(sel, { ...common, startIndex: idx });
+                     }
+                  });
+               });
+            },
+         },
+      });
+   }
+
+   // ===== API Sub-modal (inline) — sin default params
+   function openSubModal(src, opts) {
+      if (!window.Fancybox) {
+         console.warn('[SUBMODAL] Fancybox no está disponible');
+         return;
+      }
+      src = src || '#submodal-template';
+      opts = opts || {};
+
+      const el = document.querySelector(src);
+      if (!el) {
+         console.error('[SUBMODAL] No existe el selector:', src);
+         return;
+      }
+
+      Fancybox.show([{ src: src, type: 'inline' }], {
+         closeExisting: false,
+         animated: true,
+         dragToClose: true,
+         showClass: 'f-fadeIn',
+         hideClass: 'f-fadeOut',
+         hideScrollbar: false,
+         compact: false,
+         ...opts,
+         on: {
+            init: (fb) => {
+               document.documentElement.classList.add('with-fancybox-sub');
+               try {
+                  fb.$container.classList.add('is-submodal');
+               } catch {}
+            },
+            destroy: () => {
+               document.documentElement.classList.remove('with-fancybox-sub');
+            },
+         },
+      });
+   }
+   if (typeof window !== 'undefined') {
+      window.openSubModal = openSubModal;
+   }
+
+   // Apertura por data-attr (cuando el slide no es iframe)
+   document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-open-submodal]');
+      if (!btn) return;
+      e.preventDefault();
+      const src = btn.getAttribute('data-open-submodal') || '#submodal-template';
+      openSubModal(src);
+   });
+
+   // Mensajes desde iframes (slides tipo iframe)
+   window.addEventListener('message', (ev) => {
+      const data = ev.data || {};
+      if (data && data.fancybox === 'open-submodal') {
+         openSubModal(data.src || '#submodal-template', data.opts || {});
+      }
+   });
+
+   // ===== Deep link al cargar / cambio de hash =====
+   const initialSlug = getSlugFromHash();
+   if (initialSlug && slugToIndex.has(initialSlug)) {
+      openGalleryAtSlug(initialSlug);
+   }
+   window.addEventListener('hashchange', () => {
+      const s = getSlugFromHash();
+      if (!s) return;
+      const fb = getFB();
+      if (slugToIndex.has(s)) {
+         const idx = slugToIndex.get(s);
+         if (fb && fb.jumpTo) fb.jumpTo(idx);
+         else openGalleryAtSlug(s);
+      }
+   });
 });

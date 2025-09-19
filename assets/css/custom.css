@@ -324,7 +324,8 @@ header#tt-header {
    z-index: 99999;
 }
 
-html.with-fancybox-standalone header#tt-header {
+html.with-fancybox-standalone header#tt-header,
+html.with-fancybox-sub header#tt-header {
    z-index: 999;
 }
 
@@ -355,6 +356,17 @@ body:not(.tt-boxed) .tt-header-inner,
 
 .tt-main-menu-list.tt-mm-hover > li > a {
    opacity: 1 !important;
+}
+
+.tt-main-menu-list > li:nth-child(2) > a:last-child {
+   display: none;
+}
+
+html.with-fancybox-gallery .tt-main-menu-list > li:nth-child(2) > a:first-child {
+   display: none;
+}
+html.with-fancybox-gallery .tt-main-menu-list > li:nth-child(2) > a:last-child {
+   display: flex;
 }
 
 #content-wrap {

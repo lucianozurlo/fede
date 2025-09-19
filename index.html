@@ -58,7 +58,10 @@
                                           >About</a
                                        >
                                     </li>
-                                    <li><a href="#work" data-offset="0">Work</a></li>
+                                    <li>
+                                       <a href="#work" data-offset="0" data-close-fancybox>Work</a>
+                                       <a href="#works" data-open-submodal="#works">Work</a>
+                                    </li>
                                     <li>
                                        <a href="#services" data-offset="0" data-close-fancybox
                                           >Services</a
@@ -230,7 +233,7 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/frogbazar/index.html"
-                              data-caption="Frog Bazar"
+                              data-caption="frog-bazar"
                            >
                               <a
                                  href="https://www.behance.net/gallery/157959551/Frog-Bazar-2023"
@@ -272,7 +275,7 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/estudio32/index.html"
-                              data-caption="ESTUDIO 32"
+                              data-caption="estudio-32"
                            >
                               <a
                                  href="http://behance.net/gallery/164603319/Estudio-32"
@@ -314,7 +317,7 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/opame/index.html"
-                              data-caption="OPAME"
+                              data-caption="opame"
                            >
                               <a class="media">
                                  <img
@@ -343,13 +346,13 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/nmp/index.html"
-                              data-caption="N.M.P"
+                              data-caption="nmp"
                            >
                               <a class="media">
                                  <img
                                     class="img-base"
                                     src="assets/work/nmpd.jpg"
-                                    alt="N.M.P"
+                                    alt="N.M, P"
                                     loading="lazy"
                                  />
                                  <img
@@ -372,7 +375,7 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/cleo/index.html"
-                              data-caption="CLEO PAY"
+                              data-caption="cleo-pay"
                            >
                               <a class="media">
                                  <img
@@ -401,7 +404,7 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/michi/index.html"
-                              data-caption="MICHI BISTRO"
+                              data-caption="michi-bristro"
                            >
                               <a
                                  href="https://www.behance.net/gallery/162858615/Michi-Dine-In-Take-Away"
@@ -443,7 +446,7 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/broke/index.html"
-                              data-caption="BROKE"
+                              data-caption="broke"
                            >
                               <a
                                  href="https://www.behance.net/gallery/161530441/Broke-Music"
@@ -462,7 +465,7 @@
                                  <img
                                     class="img-base"
                                     src="assets/work/broke.jpg"
-                                    alt="BROKE"
+                                    alt="Broke"
                                     loading="lazy"
                                  />
                                  <img
@@ -485,13 +488,13 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/logofolio/index.html"
-                              data-caption="LOGOFOLIO"
+                              data-caption="logofolio"
                            >
                               <a class="media">
                                  <img
                                     class="img-base"
                                     src="assets/work/logofolio.jpg"
-                                    alt="LOGOFOLIO"
+                                    alt="Logofolio"
                                     loading="lazy"
                                  />
                                  <img
@@ -513,7 +516,7 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/ui-ux/index.html"
-                              data-caption="UI / UX"
+                              data-caption="ui-ux"
                            >
                               <a class="media">
                                  <img
@@ -541,13 +544,13 @@
                               data-fancybox="galeria"
                               data-type="iframe"
                               href="work/web/index.html"
-                              data-caption="WEB"
+                              data-caption="web"
                            >
                               <a class="media">
                                  <img
                                     class="img-base"
                                     src="assets/work/web.jpg"
-                                    alt="WEB"
+                                    alt="Web"
                                     loading="lazy"
                                  />
                                  <img
@@ -562,6 +565,36 @@
                                  <p>(010)</p>
                               </div>
                            </div>
+                        </div>
+
+                        <div id="works" class="modal-full simple" hidden>
+                           <div class="bg-vectors">
+                              <div class="pos top-left">
+                                 <img src="assets/img/bg-lines/bg-modal-goback.svg" />
+                              </div>
+                           </div>
+                           <header>
+                              <h2 class="section-title">Work</h2>
+                              <span>
+                                 <img src="assets/img/work-brush.svg" alt="" />
+                                 <p>Some of the work I've done over the past years</p>
+                              </span>
+                           </header>
+                           <main>
+                              <div class="work-items">
+                                 <a href="#frog-bazar" data-close-fancybox>FROG BAZAR.</a>
+                                 <a href="#estudio-32" data-close-fancybox>ESTUDIO 32</a>
+                                 <a href="#opame" data-close-fancybox>OPAME </a>
+                                 <a href="#nmp" data-close-fancybox>N.M, P</a>
+                                 <a href="#cleo-pay" data-close-fancybox>CLEO</a>
+                                 <a href="#cleo-pay" data-close-fancybox>michi-bristro</a>
+                                 <a href="#broke" data-close-fancybox>BROKE</a>
+                                 <a href="#logofolio" data-close-fancybox>LOGOFOLIO</a>
+                                 <a href="#ui-ux" data-close-fancybox>UI / UX</a>
+                                 <a href="#web" data-close-fancybox>WEB</a>
+                              </div>
+                              <a href="#" class="close" data-close-fancybox>Go back</a>
+                           </main>
                         </div>
                      </div>
                   </div>
