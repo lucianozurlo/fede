@@ -1107,6 +1107,10 @@ body.tt-boxed #services .tt-wrap {
    -webkit-filter: invert(1) brightness(2);
    filter: invert(1) brightness(2);
 }
+#contact .col .socials a:hover img {
+   width: 32px;
+   margin-top: 12px;
+}
 #contact .col .socials a .circle {
    position: absolute;
    width: 80px;
