@@ -671,7 +671,7 @@
                            <div class="tt-col-md-6 d-flex-center flex-col max-width-full">
                               <h4 class="section-title">Some Kind Words:</h4>
                               <div class="words-container">
-                                 <div class="carousel">
+                                 <div class="carousel" role="region">
                                     <div class="stage" id="stage">
                                        <article class="verbatim prev" tabindex="0">
                                           <img src="assets/img/word2.jpg" alt="" />
@@ -711,6 +711,33 @@
                                              </p>
                                           </div>
                                        </article>
+
+                                       <article class="verbatim hidden" tabindex="0">
+                                          <img src="assets/img/word4.jpg" alt="" />
+                                          <div>
+                                             <p>
+                                                <span>Tristan Kemitzis</span> (Kemitzis Consulting)
+                                             </p>
+                                             <p>
+                                                “Working with Fede has been a true pleasure. Quick
+                                                turnarounds, immediate responsiveness... all in all
+                                                extremely high quality, white-glove service.”
+                                             </p>
+                                          </div>
+                                       </article>
+                                       <article class="verbatim hidden" tabindex="0">
+                                          <img src="assets/img/word5.jpg" alt="" />
+                                          <div>
+                                             <p><span>Nick Godin</span> (Netwrk Ventures)</p>
+                                             <p>
+                                                “Fede nailed it. He instantly got what we were about
+                                                and came up with fresh, modern branding that tells
+                                                our story perfectly. Super easy to work with and
+                                                always on point”
+                                             </p>
+                                          </div>
+                                       </article>
+                                       -->
 
                                        <div class="hit left" aria-hidden="true"></div>
                                        <div class="hit right" aria-hidden="true"></div>
@@ -789,16 +816,16 @@
                                     <legend>Project type</legend>
                                     <div
                                        class="chips-group"
-                                       role="checkbox"
+                                       role="group"
                                        aria-label="Project type"
+                                       id="project-type-group"
                                     >
                                        <div class="chip">
                                           <input
                                              type="checkbox"
                                              id="type-uiux"
-                                             name="project_type"
+                                             name="project_type[]"
                                              value="UI/UX"
-                                             required
                                           />
                                           <label for="type-uiux">UI/UX</label>
                                        </div>
@@ -806,7 +833,7 @@
                                           <input
                                              type="checkbox"
                                              id="type-web"
-                                             name="project_type"
+                                             name="project_type[]"
                                              value="Web"
                                           />
                                           <label for="type-web">Web</label>
@@ -815,7 +842,7 @@
                                           <input
                                              type="checkbox"
                                              id="type-branding"
-                                             name="project_type"
+                                             name="project_type[]"
                                              value="Branding"
                                           />
                                           <label for="type-branding">Branding</label>
@@ -824,7 +851,7 @@
                                           <input
                                              type="checkbox"
                                              id="type-deck"
-                                             name="project_type"
+                                             name="project_type[]"
                                              value="Deck"
                                           />
                                           <label for="type-deck">Deck</label>
@@ -833,14 +860,13 @@
                                           <input
                                              type="checkbox"
                                              id="type-other"
-                                             name="project_type"
+                                             name="project_type[]"
                                              value="Other"
                                           />
                                           <label for="type-other">Other</label>
                                        </div>
                                     </div>
                                  </div>
-
                                  <div class="field">
                                     <label for="desc">Project description</label>
                                     <textarea id="desc" name="project_description"></textarea>

@@ -3,140 +3,225 @@
    const hitLeft = stage.querySelector('.hit.left');
    const hitRight = stage.querySelector('.hit.right');
 
-   // Geometría/estilo
-   const CARD_W = 540; // ancho del activo
-   const SIDE_SCALE = 0.82; // escala base de laterales (más chico)
-   const SIDE_BLUR = 4; // blur mayor en laterales
-   const HOVER_SCALE = 0.88; // hover leve, PERO < 1 (nunca igual al activo)
-   const HOVER_BLUR = SIDE_BLUR; /* mantener blur en hover (no cambia) */
+   // Parámetros visuales
+   const CARD_W = 540;
+   const SIDE_SCALE = 0.82; // prev/next más chicos
+   const SIDE_BLUR = 4; // blur alto constante
+   const HOVER_SCALE = 0.88; // hover leve (siempre < 1)
+   const HOVER_BLUR = SIDE_BLUR;
+   const HOVER_LIFT_Y = -8; // parallax vertical
+   const HIDDEN_MARGIN = 12; // cuánto fuera de escena queda el hidden
 
-   function els() {
+   // Estado
+   let items = [];
+   let activeIndex = 0;
+   let lastDirection = 'next';
+
+   function syncItems() {
+      items = Array.from(stage.querySelectorAll('.verbatim'));
+      const domActive = items.findIndex((el) => el.classList.contains('active'));
+      if (domActive !== -1) activeIndex = domActive;
+   }
+
+   const mod = (n, m) => ((n % m) + m) % m;
+
+   function rolesFor(aIdx) {
+      const N = items.length;
       return {
-         prev: stage.querySelector('.verbatim.prev'),
-         active: stage.querySelector('.verbatim.active'),
-         next: stage.querySelector('.verbatim.next'),
+         prev: mod(aIdx - 1, N),
+         active: aIdx,
+         next: mod(aIdx + 1, N),
       };
    }
 
-   // Posiciona: prev pegado a borde izq, next pegado a borde der
+   function clearRoles() {
+      items.forEach((el) => el.classList.remove('prev', 'active', 'next', 'hidden', 'hovering'));
+   }
+
+   function setRoles(aIdx) {
+      const { prev, active, next } = rolesFor(aIdx);
+      clearRoles();
+      items.forEach((el, i) => {
+         if (i === active) el.classList.add('active');
+         else if (i === prev) el.classList.add('prev');
+         else if (i === next) el.classList.add('next');
+         else el.classList.add('hidden');
+      });
+   }
+
+   // Calcula y aplica layout (posiciones y capas); el hidden entra por detrás
    function applyLayout() {
-      const { prev, active, next } = els();
-      const stageW = stage.clientWidth; // 1320px (o menos si viewport chico)
+      const N = items.length;
+      if (!N) return;
+
+      const stageW = stage.clientWidth;
       const halfStage = stageW / 2;
 
-      // ACTIVO (centro y arriba)
-      if (active) {
-         active.style.transform = `translate(-50%, -50%) translateX(0px) scale(1)`;
-         active.style.filter = 'blur(0px)';
-         active.style.boxShadow = '0 0 39.7px rgba(0,0,0,0.1)';
-         active.style.opacity = '1';
-         active.style.zIndex = '3'; // siempre por encima
-         active.style.cursor = 'default';
-      }
-
-      // Helper para laterales (debajo, más chicos, blur alto)
       function placeSide(el, isLeft) {
-         if (!el) return;
          const hovering = el.classList.contains('hovering');
-         const scale = hovering ? HOVER_SCALE : SIDE_SCALE; // nunca llega a 1
+         const scale = hovering ? HOVER_SCALE : SIDE_SCALE;
+         const ty = hovering ? HOVER_LIFT_Y : 0;
          const sideW = CARD_W * scale;
-
-         // Queremos que el borde toque exactamente 0px (izq) o stageW (der)
          const shift = Math.max(0, halfStage - sideW / 2);
          const x = isLeft ? -shift : +shift;
 
-         el.style.transform = `translate(-50%, -50%) translateX(${x}px) scale(${scale})`;
-         el.style.filter = `blur(${HOVER_BLUR}px)`; // blur constante también en hover
+         el.style.transform = `translate(-50%, -50%) translate(${x}px, ${ty}px) scale(${scale})`;
+         el.style.filter = `blur(${HOVER_BLUR}px)`;
          el.style.boxShadow = '0 0 16px rgba(0,0,0,.06)';
          el.style.opacity = '0.95';
-         el.style.zIndex = '1'; // SIEMPRE debajo del activo
+         el.style.zIndex = '1'; // debajo del activo
          el.style.cursor = 'pointer';
 
-         // Hotzones del tamaño exacto del lateral visible
-         if (isLeft && hitLeft) hitLeft.style.width = sideW + 'px';
-         if (!isLeft && hitRight) hitRight.style.width = sideW + 'px';
+         if (isLeft) hitLeft.style.width = sideW + 'px';
+         else hitRight.style.width = sideW + 'px';
       }
 
-      placeSide(prev, true);
-      placeSide(next, false);
+      items.forEach((el, i) => {
+         if (el.classList.contains('active')) {
+            el.style.transform = `translate(-50%, -50%) translate(0px, 0px) scale(1)`;
+            el.style.filter = 'blur(0px)';
+            el.style.boxShadow = '0 0 39.7px rgba(0,0,0,0.1)';
+            el.style.opacity = '1';
+            el.style.zIndex = '3';
+            el.style.cursor = 'default';
+            el.removeAttribute('data-hidden-side');
+         } else if (el.classList.contains('prev')) {
+            placeSide(el, true);
+            el.removeAttribute('data-hidden-side');
+         } else if (el.classList.contains('next')) {
+            placeSide(el, false);
+            el.removeAttribute('data-hidden-side');
+         } else {
+            // HIDDEN: estacionado fuera de escena del lado correcto y por DETRÁS
+            // 1) Prioridad al atributo (si fue preparado para entrar/salir)
+            let side = el.getAttribute('data-hidden-side');
+            if (!side) {
+               // 2) Si no hay atributo, decidir por topología circular respecto del activo
+               const forward = (i - activeIndex + N) % N; // hacia "next"
+               const backward = (activeIndex - i + N) % N; // hacia "prev"
+               side = forward <= backward ? 'right' : 'left';
+            }
+            const scale = SIDE_SCALE;
+            const sideW = CARD_W * scale;
+            const x =
+               side === 'left'
+                  ? -(halfStage + sideW / 2 + HIDDEN_MARGIN)
+                  : halfStage + sideW / 2 + HIDDEN_MARGIN;
+
+            el.style.transform = `translate(-50%, -50%) translate(${x}px, 0px) scale(${scale})`;
+            el.style.filter = `blur(${SIDE_BLUR + 1}px)`;
+            el.style.boxShadow = 'none';
+            el.style.opacity = '0'; // invisible
+            el.style.zIndex = '0'; // siempre por detrás
+            el.style.pointerEvents = 'none';
+         }
+      });
+   }
+
+   // Prepara posiciones antes de cambiar roles para evitar "barridos"
+   function prepareIncoming(direction) {
+      const N = items.length;
+      if (N < 2) return;
+
+      const { prev, next } = rolesFor(activeIndex);
+
+      if (direction === 'next') {
+         const incoming = mod(activeIndex + 2, N); // será el nuevo "next"
+         items[incoming]?.setAttribute('data-hidden-side', 'right'); // entra desde derecha
+         items[prev]?.setAttribute('data-hidden-side', 'left'); // el prev saliente se oculta a la izquierda
+      } else {
+         const incoming = mod(activeIndex - 2, N); // será el nuevo "prev"
+         items[incoming]?.setAttribute('data-hidden-side', 'left'); // entra desde izquierda
+         items[next]?.setAttribute('data-hidden-side', 'right'); // el next saliente se oculta a la derecha
+      }
+
+      lastDirection = direction;
+
+      // Fijar transforms iniciales de hidden/salientes antes de animar
+      applyLayout();
+      // Reflow para que el siguiente cambio de clases anime desde estas posiciones
+      void stage.offsetWidth;
    }
 
    function bindSideInteractions() {
-      // Limpio handlers viejos
-      stage.querySelectorAll('.verbatim').forEach((v) => {
+      items.forEach((v) => {
          v.onclick = null;
          v.onmouseenter = null;
          v.onmouseleave = null;
       });
 
-      const { prev, next } = els();
+      const prevEl = items.find((el) => el.classList.contains('prev'));
+      const nextEl = items.find((el) => el.classList.contains('next'));
 
-      // Click directo
-      if (prev) prev.onclick = goPrev;
-      if (next) next.onclick = goNext;
-
-      // Hover: sube apenas la escala, mantiene blur, SIEMPRE debajo del activo
-      if (prev) {
-         prev.onmouseenter = () => {
-            prev.classList.add('hovering');
+      if (prevEl) {
+         prevEl.onclick = goPrev;
+         prevEl.onmouseenter = () => {
+            prevEl.classList.add('hovering');
             applyLayout();
          };
-         prev.onmouseleave = () => {
-            prev.classList.remove('hovering');
+         prevEl.onmouseleave = () => {
+            prevEl.classList.remove('hovering');
             applyLayout();
          };
       }
-      if (next) {
-         next.onmouseenter = () => {
-            next.classList.add('hovering');
+      if (nextEl) {
+         nextEl.onclick = goNext;
+         nextEl.onmouseenter = () => {
+            nextEl.classList.add('hovering');
             applyLayout();
          };
-         next.onmouseleave = () => {
-            next.classList.remove('hovering');
+         nextEl.onmouseleave = () => {
+            nextEl.classList.remove('hovering');
             applyLayout();
          };
       }
 
-      // Hotzones: click + hover espejo (para feedback)
+      // Hotzones reflejan hover/click del lateral correspondiente
       hitLeft.onclick = goPrev;
       hitRight.onclick = goNext;
-
       hitLeft.onmouseenter = () => {
-         const { prev } = els();
-         prev?.classList.add('hovering');
+         prevEl?.classList.add('hovering');
          applyLayout();
       };
       hitLeft.onmouseleave = () => {
-         const { prev } = els();
-         prev?.classList.remove('hovering');
+         prevEl?.classList.remove('hovering');
          applyLayout();
       };
       hitRight.onmouseenter = () => {
-         const { next } = els();
-         next?.classList.add('hovering');
+         nextEl?.classList.add('hovering');
          applyLayout();
       };
       hitRight.onmouseleave = () => {
-         const { next } = els();
-         next?.classList.remove('hovering');
+         nextEl?.classList.remove('hovering');
          applyLayout();
       };
    }
 
    function goNext() {
-      const { prev, active, next } = els();
-      next.classList.replace('next', 'active');
-      active.classList.replace('active', 'prev');
-      prev.classList.replace('prev', 'next');
+      syncItems();
+      if (items.length < 2) return;
+
+      // Prepara: hidden correcto a la derecha, prev saliente a la izquierda
+      prepareIncoming('next');
+
+      // Rotar índice activo y roles
+      activeIndex = mod(activeIndex + 1, items.length);
+      setRoles(activeIndex);
+
       applyLayout();
       bindSideInteractions();
    }
 
    function goPrev() {
-      const { prev, active, next } = els();
-      prev.classList.replace('prev', 'active');
-      active.classList.replace('active', 'next');
-      next.classList.replace('next', 'prev');
+      syncItems();
+      if (items.length < 2) return;
+
+      // Prepara: hidden correcto a la izquierda, next saliente a la derecha
+      prepareIncoming('prev');
+
+      activeIndex = mod(activeIndex - 1, items.length);
+      setRoles(activeIndex);
+
       applyLayout();
       bindSideInteractions();
    }
@@ -153,7 +238,32 @@
       startX = null;
    });
 
-   // Inicializa
+   // Observa nuevos testimonios añadidos (N dinámico)
+   const observer = new MutationObserver((mutations) => {
+      let changed = false;
+      for (const m of mutations) {
+         m.addedNodes.forEach((node) => {
+            if (node.nodeType === 1 && node.classList?.contains('verbatim')) {
+               node.setAttribute('tabindex', '0');
+               node.classList.remove('prev', 'next', 'active');
+               node.classList.add('hidden');
+               node.setAttribute('data-hidden-side', 'right'); // por defecto, entra como "next"
+               changed = true;
+            }
+         });
+      }
+      if (changed) {
+         syncItems();
+         setRoles(activeIndex);
+         applyLayout();
+         bindSideInteractions();
+      }
+   });
+   observer.observe(stage, { childList: true });
+
+   // Init
+   syncItems();
+   setRoles(activeIndex); // normaliza el DOM inicial
    applyLayout();
    bindSideInteractions();
    window.addEventListener('resize', applyLayout, { passive: true });

@@ -408,6 +408,9 @@ body.work.broke .tt-section-inner .tt-row:nth-child(3) .tt-col-md-12 img:nth-chi
 }
 
 /* LOGOFOLIO */
+body.tt-boxed.work.logofolio .tt-section:last-child {
+   margin-top: 60px;
+}
 body.tt-boxed.work.logofolio .tt-wrap {
    max-width: 1160px;
    display: flex;

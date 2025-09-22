@@ -380,8 +380,8 @@ html.with-fancybox-gallery .tt-main-menu-list > li:nth-child(2) > a:last-child {
    right: -40px;
    bottom: 135px;
    z-index: 11;
-   -webkit-filter: drop-shadow(0 7px 2px rgba(0, 0, 0, 0.1));
-   filter: drop-shadow(0 7px 2px rgba(0, 0, 0, 0.1));
+   -webkit-filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0.2));
+   filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0.2));
 }
 
 .stamp img {
@@ -643,7 +643,7 @@ body.tt-boxed .tt-wrap .tt-row {
 /* WORK */
 #work {
    padding-top: 190px;
-   padding-bottom: 30px !important;
+   padding-bottom: 40px !important;
 }
 
 #work h2 + span {
@@ -706,7 +706,7 @@ body.tt-boxed #work .tt-wrap {
 }
 
 #services h2 + span {
-   margin-bottom: 75px;
+   margin-bottom: 60px;
 }
 
 body.tt-boxed #services .tt-wrap {
@@ -735,6 +735,7 @@ body.tt-boxed #services .tt-wrap {
 }
 
 #services .services-container .items .icon {
+   padding-top: 3px;
    width: 38px;
 }
 

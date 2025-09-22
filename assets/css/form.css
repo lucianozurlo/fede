@@ -33,6 +33,12 @@ textarea {
    flex-wrap: wrap;
    justify-content: space-between;
 }
+.chips-group[aria-invalid='true'] {
+   outline: 2px solid #ff4d4f;
+   outline-offset: 6px;
+   border-radius: 10px;
+}
+
 .chip {
    position: relative;
 }
