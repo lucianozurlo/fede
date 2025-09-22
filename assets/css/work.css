@@ -447,18 +447,18 @@ body.tt-boxed.work.logofolio .tt-wrap .tt-row img:hover {
    filter: unset;
 }
 
-body.tt-boxed.work.logofolio .tt-wrap .tt-row img.color {
-   /* -webkit-filter: invert(0) sepia(0) saturate(0) hue-rotate(0) brightness(0) contrast(0);
-   filter: invert(0) sepia(0) saturate(0) hue-rotate(0) brightness(0) contrast(0); */
-}
+/* body.tt-boxed.work.logofolio .tt-wrap .tt-row img.color {
+   -webkit-filter: invert(0) sepia(0) saturate(0) hue-rotate(0) brightness(0) contrast(0);
+   filter: invert(0) sepia(0) saturate(0) hue-rotate(0) brightness(0) contrast(0);
+} */
 
-body.tt-boxed.work.logofolio .tt-wrap .tt-row img.color {
-   /* -webkit-filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%)
+/* body.tt-boxed.work.logofolio .tt-wrap .tt-row img.color {
+   -webkit-filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%)
       contrast(102%);
-   filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%) contrast(102%); */
+   filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%) contrast(102%);
    -webkit-filter: unset;
    filter: unset;
-}
+} */
 
 body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min {
    margin-top: 17px;
@@ -473,37 +473,48 @@ body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 {
    gap: 90px 7%;
 }
 
-.swap {
+body.work.logofolio .swap {
    position: relative;
    display: inline-block;
    line-height: 0;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+   transform: translateZ(0);
 }
-.swap img {
+
+body.work.logofolio .swap img {
    display: block;
-   width: 100% !important; /* mismo tamaño para ambas (o 100%) */
-   height: 100% !important; /* o usa aspect-ratio en vez de height */
+   width: 100% !important;
+   height: 100% !important;
    -o-object-fit: cover;
-   object-fit: cover; /* recorte consistente */
-   -webkit-filter: unset !important;
+   object-fit: cover;
    filter: unset !important;
+   -webkit-filter: unset !important;
 }
-.swap .hover {
+
+body.work.logofolio .swap .base {
+   position: relative;
+   z-index: 0;
+   opacity: 1;
+   transition: opacity 0.25s ease;
+}
+
+body.work.logofolio .swap .hover {
    position: absolute;
    inset: 0;
+   z-index: 1;
    opacity: 0;
+   pointer-events: none;
    transition: opacity 0.25s ease;
-   pointer-events: none; /* no bloquea el hover */
 }
-.swap:hover .hover {
+
+body.work.logofolio .swap:hover .hover {
    opacity: 1;
+   transition-delay: 0s;
 }
-.swap .base {
-   opacity: 1;
-   transition: all 0.25s ease;
-   transition-delay: 1.45;
-}
-.swap:hover .base {
+body.work.logofolio .swap:hover .base {
    opacity: 0;
+   transition-delay: 0.06s;
 }
 body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min img {
    width: 11%;
