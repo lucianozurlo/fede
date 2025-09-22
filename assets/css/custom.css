@@ -53,6 +53,7 @@ body {
    --color-fede-orange: #ff6600;
    --color-fede-red: #ff0000;
    --color-fede-fv: #3a3a39;
+   --color-fede-black-cc: #000000cc;
    --color-fede-fv-gray: #979797;
    --color-fede-fv-ultragray: #3b3b3a0d;
    --color-fede-fv-00: #3a3a3900;
@@ -646,7 +647,7 @@ body.tt-boxed .tt-wrap .tt-row {
 }
 
 #work h2 + span {
-   margin-bottom: 75px;
+   margin-bottom: 0;
 }
 
 body.tt-boxed #work .tt-wrap {
@@ -977,8 +978,8 @@ body.tt-boxed #services .tt-wrap {
    margin-top: 60px;
 }
 #contact .fw-200 {
-   margin-top: 10px;
-   margin-bottom: 30px;
+   margin-top: 2px;
+   margin-bottom: 12px;
    letter-spacing: 0.5px;
    margin-left: 0.5px;
    line-height: 22px;

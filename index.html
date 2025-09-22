@@ -54,21 +54,19 @@
                               <div class="tt-main-menu-content">
                                  <ul class="tt-main-menu-list">
                                     <li>
-                                       <a href="#about" data-offset="0" data-close-fancybox
-                                          >About</a
-                                       >
+                                       <a href="#about" data-offset="0" data-clear-gallery>About</a>
                                     </li>
                                     <li>
-                                       <a href="#work" data-offset="0" data-close-fancybox>Work</a>
-                                       <a href="#works" data-open-submodal="#works">Work</a>
+                                       <a href="#work" data-offset="0" data-clear-gallery>Work</a>
+                                       <a href="#" data-modal-open="#works">Work</a>
                                     </li>
                                     <li>
-                                       <a href="#services" data-offset="0" data-close-fancybox
+                                       <a href="#services" data-offset="0" data-clear-gallery
                                           >Services</a
                                        >
                                     </li>
                                     <li>
-                                       <a href="#contact" data-offset="0" data-close-fancybox
+                                       <a href="#contact" data-offset="0" data-clear-gallery
                                           >Contact</a
                                        >
                                     </li>
@@ -78,7 +76,7 @@
                         </div>
                      </nav>
                      <div class="tt-logo">
-                        <a href="#page-header" data-offset="0" data-close-fancybox>
+                        <a href="#page-header" data-offset="0" data-clear-gallery>
                            <span class="tt-logo-light magnetic-item color-fv" alt="Logo"
                               >PF FV 2025</span
                            >
@@ -113,8 +111,8 @@
                         <div class="hover-fv">
                            <h1 class="ph-caption-title font-bold text-center color-fv">
                               <a href="#about" class="home-title">
-                                 <span class="">Federico</span>
-                                 <span class="">Vaccarezza</span>
+                                 <span>Federico</span>
+                                 <span>Vaccarezza</span>
                               </a>
                            </h1>
                            <div class="stamp">
@@ -192,14 +190,14 @@
                            </div>
                            <div class="tt-col-md-6">
                               <div class="info">
-                                 <p class="">
+                                 <p>
                                     I'm a graphic designer from Tigre, Argentina. I studied at the
                                     University of Buenos Aires (UBA), where I started in industrial
                                     design but eventually switched to graphic design. I've always
                                     been into style, and that naturally pulled me into the creative
                                     world.
                                  </p>
-                                 <p class="">
+                                 <p>
                                     Over the past few years, I've been working on branding, web
                                     design, and UI/UX. I like creating things that not only look
                                     good but are clear and easy to use. Clean visuals, smart
@@ -230,9 +228,8 @@
                            <!-- Frog Bazar -->
                            <div
                               class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/frogbazar/index.html"
+                              data-caption="frog-bazar"
+                              id="frog-bazar"
                               data-caption="frog-bazar"
                            >
                               <a
@@ -248,7 +245,14 @@
                                     alt=""
                                  />
                               </a>
-                              <a class="media">
+
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/frogbazar/index.html"
+                                 data-caption="frog-bazar"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/frogbazar.jpg"
@@ -270,13 +274,7 @@
                            </div>
 
                            <!-- ESTUDIO 32 -->
-                           <div
-                              class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/estudio32/index.html"
-                              data-caption="estudio-32"
-                           >
+                           <div class="card" id="estudio-32" data-caption="estudio-32">
                               <a
                                  href="http://behance.net/gallery/164603319/Estudio-32"
                                  target="_blank"
@@ -290,7 +288,13 @@
                                     alt=""
                                  />
                               </a>
-                              <a class="media">
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/estudio32/index.html"
+                                 data-caption="estudio-32"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/estudio32.jpg"
@@ -312,14 +316,14 @@
                            </div>
 
                            <!-- OPAME -->
-                           <div
-                              class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/opame/index.html"
-                              data-caption="opame"
-                           >
-                              <a class="media">
+                           <div class="card" id="opame" data-caption="opame">
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/opame/index.html"
+                                 data-caption="opame"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/opame.jpg"
@@ -341,14 +345,14 @@
                            </div>
 
                            <!-- N.M,P -->
-                           <div
-                              class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/nmp/index.html"
-                              data-caption="nmp"
-                           >
-                              <a class="media">
+                           <div class="card" id="nmp" data-caption="nmp">
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/nmp/index.html"
+                                 data-caption="nmp"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/nmpd.jpg"
@@ -370,14 +374,14 @@
                            </div>
 
                            <!-- CLEO PAY -->
-                           <div
-                              class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/cleo/index.html"
-                              data-caption="cleo-pay"
-                           >
-                              <a class="media">
+                           <div class="card" id="cleo-pay" data-caption="cleo-pay">
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/cleo/index.html"
+                                 data-caption="cleo-pay"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/cleo.jpg"
@@ -399,13 +403,7 @@
                            </div>
 
                            <!-- MICHI BISTRO -->
-                           <div
-                              class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/michi/index.html"
-                              data-caption="michi-bristro"
-                           >
+                           <div class="card" id="michi-bristro" data-caption="michi-bristro">
                               <a
                                  href="https://www.behance.net/gallery/162858615/Michi-Dine-In-Take-Away"
                                  target="_blank"
@@ -419,7 +417,13 @@
                                     alt=""
                                  />
                               </a>
-                              <a class="media">
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/michi/index.html"
+                                 data-caption="michi-bristro"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/michi.jpg"
@@ -441,13 +445,7 @@
                            </div>
 
                            <!-- BROKE -->
-                           <div
-                              class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/broke/index.html"
-                              data-caption="broke"
-                           >
+                           <div class="card" id="broke" data-caption="broke">
                               <a
                                  href="https://www.behance.net/gallery/161530441/Broke-Music"
                                  target="_blank"
@@ -461,7 +459,13 @@
                                     alt=""
                                  />
                               </a>
-                              <a class="media">
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/broke/index.html"
+                                 data-caption="broke"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/broke.jpg"
@@ -483,14 +487,14 @@
                            </div>
 
                            <!-- LOGOFOLIO -->
-                           <div
-                              class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/logofolio/index.html"
-                              data-caption="logofolio"
-                           >
-                              <a class="media">
+                           <div class="card" id="logofolio" data-caption="logofolio">
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/logofolio/index.html"
+                                 data-caption="logofolio"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/logofolio.jpg"
@@ -511,14 +515,14 @@
                            </div>
 
                            <!-- UI / UX -->
-                           <div
-                              class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/ui-ux/index.html"
-                              data-caption="ui-ux"
-                           >
-                              <a class="media">
+                           <div class="card" id="ui-ux" data-caption="ui-ux">
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/ui-ux/index.html"
+                                 data-caption="ui-ux"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/ui-ux.jpg"
@@ -539,14 +543,14 @@
                            </div>
 
                            <!-- WEB -->
-                           <div
-                              class="card"
-                              data-fancybox="galeria"
-                              data-type="iframe"
-                              href="work/web/index.html"
-                              data-caption="web"
-                           >
-                              <a class="media">
+                           <div class="card" id="web" data-caption="web">
+                              <a
+                                 class="media"
+                                 data-fancybox="galeria"
+                                 data-type="iframe"
+                                 data-src="work/web/index.html"
+                                 data-caption="web"
+                              >
                                  <img
                                     class="img-base"
                                     src="assets/work/web.jpg"
@@ -566,43 +570,13 @@
                               </div>
                            </div>
                         </div>
-
-                        <div id="works" class="modal-full simple" hidden>
-                           <div class="bg-vectors">
-                              <div class="pos top-left">
-                                 <img src="assets/img/bg-lines/bg-modal-goback.svg" />
-                              </div>
-                           </div>
-                           <header>
-                              <h2 class="section-title">Work</h2>
-                              <span>
-                                 <img src="assets/img/work-brush.svg" alt="" />
-                                 <p>Some of the work I've done over the past years</p>
-                              </span>
-                           </header>
-                           <main>
-                              <div class="work-items">
-                                 <a href="#frog-bazar" data-close-fancybox>FROG BAZAR.</a>
-                                 <a href="#estudio-32" data-close-fancybox>ESTUDIO 32</a>
-                                 <a href="#opame" data-close-fancybox>OPAME </a>
-                                 <a href="#nmp" data-close-fancybox>N.M, P</a>
-                                 <a href="#cleo-pay" data-close-fancybox>CLEO</a>
-                                 <a href="#cleo-pay" data-close-fancybox>michi-bristro</a>
-                                 <a href="#broke" data-close-fancybox>BROKE</a>
-                                 <a href="#logofolio" data-close-fancybox>LOGOFOLIO</a>
-                                 <a href="#ui-ux" data-close-fancybox>UI / UX</a>
-                                 <a href="#web" data-close-fancybox>WEB</a>
-                              </div>
-                              <a href="#" class="close" data-close-fancybox>Go back</a>
-                           </main>
-                        </div>
                      </div>
                   </div>
 
                   <div id="services" class="tt-section">
                      <div class="tt-section-inner tt-wrap">
                         <h2 class="section-title">Services</h2>
-                        <span class="">
+                        <span>
                            <img src="assets/img/services-stars.svg" alt="" />
                            <p>Things that I can help you with</p>
                         </span>
@@ -664,157 +638,8 @@
 
                                  <div class="services-buttons">
                                     <div class="buttons1">
-                                       <a
-                                          data-fancybox="modal-faqs"
-                                          data-src="#modal-faqs"
-                                          href="javascript:;"
-                                          >Faqs</a
-                                       >
-
-                                       <!-- FAQs -->
-                                       <div id="modal-faqs" class="modal-full simple" hidden>
-                                          <div class="bg-vectors">
-                                             <div class="pos bottom-left">
-                                                <img
-                                                   src="assets/img/bg-lines/modal-bg-lines1.svg"
-                                                />
-                                             </div>
-                                          </div>
-                                          <header class="">
-                                             <div class="tt-section-inner tt-wrap">
-                                                <h2 class="section-title">FAQs</h2>
-                                                <span>
-                                                   <img src="assets/img/modal-faq.svg" alt="" />
-                                                   <p>Frequently Asked Questions</p>
-                                                </span>
-                                             </div>
-                                          </header>
-                                          <main class="">
-                                             <div class="modal-item">
-                                                <div class="number">1</div>
-                                                <div>
-                                                   <p>Who do you usually work with?</p>
-                                                   <p class="ans">
-                                                      I've worked with startups, small businesses,
-                                                      and larger companies in all kinds of
-                                                      industries: tech, retail, e-commerce, you name
-                                                      it.
-                                                   </p>
-                                                </div>
-                                             </div>
-                                             <div class="modal-item">
-                                                <div class="number">2</div>
-                                                <div>
-                                                   <p>How long does the project take?</p>
-                                                   <p class="ans">
-                                                      It depends on the project. A logo might take a
-                                                      week or two, while a full branding package or
-                                                      website could take a month. I'll provide a
-                                                      timeline once we figure out the details.
-                                                   </p>
-                                                </div>
-                                             </div>
-                                             <div class="modal-item">
-                                                <div class="number">3</div>
-                                                <div>
-                                                   <p>How much do you charge?</p>
-                                                   <p class="ans">
-                                                      Prices vary based on the project, but I'll
-                                                      give you a clear quote after we chat. No
-                                                      surprises, promise.
-                                                   </p>
-                                                </div>
-                                             </div>
-                                             <div class="modal-item">
-                                                <div class="number">4</div>
-                                                <div>
-                                                   <p>What if I want changes?</p>
-                                                   <p class="ans">
-                                                      Most projects include 2-3 rounds of revisions.
-                                                      If you need more tweaks, we can discuss about
-                                                      that.
-                                                   </p>
-                                                </div>
-                                             </div>
-                                          </main>
-                                          <a href="#" data-close-fancybox class="close"
-                                             >Understood!</a
-                                          >
-                                       </div>
-
-                                       <a
-                                          data-fancybox="modal-process"
-                                          data-src="#modal-process"
-                                          href="javascript:;"
-                                          >Process</a
-                                       >
-
-                                       <!-- Process -->
-                                       <div id="modal-process" class="modal-full simple" hidden>
-                                          <div class="bg-vectors">
-                                             <div class="pos top-right">
-                                                <img
-                                                   src="assets/img/bg-lines/modal-bg-lines2.svg"
-                                                />
-                                             </div>
-                                          </div>
-                                          <header class="">
-                                             <div class="tt-section-inner tt-wrap">
-                                                <h2 class="section-title">Process</h2>
-                                                <span>
-                                                   <img src="assets/img/modal-process.svg" alt="" />
-                                                   <p>How Things Are Done</p>
-                                                </span>
-                                             </div>
-                                          </header>
-                                          <main class="">
-                                             <div class="modal-item">
-                                                <div class="number">1</div>
-                                                <div>
-                                                   <p>Discovery & Research</p>
-                                                   <p class="ans">
-                                                      It all starts with getting to know your needs.
-                                                      I dive into your goals and audience, making
-                                                      sure we're clear on the vision and direction.
-                                                   </p>
-                                                </div>
-                                             </div>
-                                             <div class="modal-item">
-                                                <div class="number">2</div>
-                                                <div>
-                                                   <p>Concept & Ideation</p>
-                                                   <p class="ans">
-                                                      Time to brainstorm! I sketch out ideas and
-                                                      share early concepts to get your input, so
-                                                      we're aligned from the start.
-                                                   </p>
-                                                </div>
-                                             </div>
-                                             <div class="modal-item">
-                                                <div class="number">3</div>
-                                                <div>
-                                                   <p>Design & Development</p>
-                                                   <p class="ans">
-                                                      I bring the design to life, from wireframes to
-                                                      the final look. Your feedback helps me
-                                                      fine-tune until everything's just right.
-                                                   </p>
-                                                </div>
-                                             </div>
-                                             <div class="modal-item">
-                                                <div class="number">4</div>
-                                                <div>
-                                                   <p>Review & Delivery</p>
-                                                   <p class="ans">
-                                                      I'll walk you through the final design, make
-                                                      any last tweaks, and hand over all the files.
-                                                      I'm here if you need further support, too!
-                                                   </p>
-                                                </div>
-                                             </div>
-                                          </main>
-                                          <a href="#" data-close-fancybox class="close">Got it!</a>
-                                       </div>
+                                       <a href="#" data-modal-open="#modal-faqs">Faqs</a>
+                                       <a href="#" data-modal-open="#modal-process">Process</a>
                                     </div>
                                     <a href="#contact" class="buttons2">Connect</a>
                                  </div>
@@ -848,11 +673,7 @@
                               <div class="words-container">
                                  <div class="carousel">
                                     <div class="stage" id="stage">
-                                       <article
-                                          class="verbatim prev"
-                                          tabindex="0"
-                                          aria-label="Testimonio anterior"
-                                       >
+                                       <article class="verbatim prev" tabindex="0">
                                           <img src="assets/img/word2.jpg" alt="" />
                                           <div>
                                              <p><span>Dana Johonson</span> (Dotted 8)</p>
@@ -866,11 +687,7 @@
                                           </div>
                                        </article>
 
-                                       <article
-                                          class="verbatim active"
-                                          tabindex="0"
-                                          aria-label="Testimonio anterior"
-                                       >
+                                       <article class="verbatim active" tabindex="0">
                                           <img src="assets/img/word1.jpg" alt="" />
                                           <div>
                                              <p><span>Ramiro Nieto Moreno</span> (N.M,P.)</p>
@@ -883,11 +700,7 @@
                                           </div>
                                        </article>
 
-                                       <article
-                                          class="verbatim next"
-                                          tabindex="0"
-                                          aria-label="Testimonio anterior"
-                                       >
+                                       <article class="verbatim next" tabindex="0">
                                           <img src="assets/img/word3.jpg" alt="" />
                                           <div>
                                              <p><span>Nayoung S. Kim</span> (Highfive)</p>
@@ -1089,6 +902,188 @@
          </div>
       </main>
 
+      <!-- SUBMODAL -->
+      <div
+         class="modal-simple submmodal"
+         id="works"
+         role="dialog"
+         aria-modal="true"
+         aria-hidden="true"
+      >
+         <div class="modal__backdrop" data-modal-close></div>
+         <div class="modal__dialog" role="document">
+            <div class="bg-vectors">
+               <div class="pos top-left">
+                  <img src="assets/img/bg-lines/bg-modal-goback.svg" />
+               </div>
+            </div>
+            <header>
+               <h2 class="section-title">Work</h2>
+               <span>
+                  <img src="assets/img/work-brush.svg" alt="" />
+                  <p>Some of the work I've done over the past years</p>
+               </span>
+            </header>
+            <div class="content">
+               <div class="work-items">
+                  <a href="#" data-modal-close data-gallery-target="frog-bazar">FROG BAZAR</a>
+                  <a href="#" data-modal-close data-gallery-target="estudio-32">ESTUDIO 32</a>
+                  <a href="#" data-modal-close data-gallery-target="opame">OPAME</a>
+                  <a href="#" data-modal-close data-gallery-target="nmp">N.M, P</a>
+                  <a href="#" data-modal-close data-gallery-target="cleo-pay">CLEO</a>
+                  <a href="#" data-modal-close data-gallery-target="michi-bristro">MICHI BISTRO</a>
+                  <a href="#" data-modal-close data-gallery-target="broke">BROKE</a>
+                  <a href="#" data-modal-close data-gallery-target="logofolio">LOGOFOLIO</a>
+                  <a href="#" data-modal-close data-gallery-target="ui-ux">UI / UX</a>
+                  <a href="#" data-modal-close data-gallery-target="web">WEB</a>
+               </div>
+
+               <a href="#" class="close" data-modal-close data-clear-gallery>Go back</a>
+            </div>
+         </div>
+      </div>
+
+      <!-- MODAL Process -->
+      <div
+         class="modal-simple services-modals"
+         id="modal-process"
+         role="dialog"
+         aria-modal="true"
+         aria-hidden="true"
+      >
+         <div class="modal__backdrop" data-modal-close></div>
+         <div class="modal__dialog" role="document">
+            <div class="bg-vectors">
+               <div class="pos top-right">
+                  <img src="assets/img/bg-lines/modal-bg-lines2.svg" />
+               </div>
+            </div>
+            <header>
+               <div class="tt-section-inner tt-wrap">
+                  <h2 class="section-title">Process</h2>
+                  <span>
+                     <img src="assets/img/modal-process.svg" alt="" />
+                     <p>How Things Are Done</p>
+                  </span>
+               </div>
+            </header>
+            <div class="content">
+               <div class="modal-item">
+                  <div class="number">1</div>
+                  <div>
+                     <p>Discovery & Research</p>
+                     <p class="ans">
+                        It all starts with getting to know your needs. I dive into your goals and
+                        audience, making sure we're clear on the vision and direction.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-item">
+                  <div class="number">2</div>
+                  <div>
+                     <p>Concept & Ideation</p>
+                     <p class="ans">
+                        Time to brainstorm! I sketch out ideas and share early concepts to get your
+                        input, so we're aligned from the start.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-item">
+                  <div class="number">3</div>
+                  <div>
+                     <p>Design & Development</p>
+                     <p class="ans">
+                        I bring the design to life, from wireframes to the final look. Your feedback
+                        helps me fine-tune until everything's just right.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-item">
+                  <div class="number">4</div>
+                  <div>
+                     <p>Review & Delivery</p>
+                     <p class="ans">
+                        I'll walk you through the final design, make any last tweaks, and hand over
+                        all the files. I'm here if you need further support, too!
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <a href="#" data-modal-close class="close">Got it!</a>
+         </div>
+      </div>
+
+      <!-- MODAL FAQs -->
+      <div
+         class="modal-simple services-modals"
+         id="modal-faqs"
+         role="dialog"
+         aria-modal="true"
+         aria-hidden="true"
+      >
+         <div class="modal__backdrop" data-modal-close></div>
+         <div class="modal__dialog" role="document">
+            <div class="bg-vectors">
+               <div class="pos bottom-left">
+                  <img src="assets/img/bg-lines/modal-bg-lines1.svg" />
+               </div>
+            </div>
+            <header>
+               <div class="tt-section-inner tt-wrap">
+                  <h2 class="section-title">FAQs</h2>
+                  <span>
+                     <img src="assets/img/modal-faq.svg" alt="" />
+                     <p>Frequently Asked Questions</p>
+                  </span>
+               </div>
+            </header>
+            <div class="content">
+               <div class="modal-item">
+                  <div class="number">1</div>
+                  <div>
+                     <p>Who do you usually work with?</p>
+                     <p class="ans">
+                        I've worked with startups, small businesses, and larger companies in all
+                        kinds of industries: tech, retail, e-commerce, you name it.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-item">
+                  <div class="number">2</div>
+                  <div>
+                     <p>How long does the project take?</p>
+                     <p class="ans">
+                        It depends on the project. A logo might take a week or two, while a full
+                        branding package or website could take a month. I'll provide a timeline once
+                        we figure out the details.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-item">
+                  <div class="number">3</div>
+                  <div>
+                     <p>How much do you charge?</p>
+                     <p class="ans">
+                        Prices vary based on the project, but I'll give you a clear quote after we
+                        chat. No surprises, promise.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-item">
+                  <div class="number">4</div>
+                  <div>
+                     <p>What if I want changes?</p>
+                     <p class="ans">
+                        Most projects include 2-3 rounds of revisions. If you need more tweaks, we
+                        can discuss about that.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <a href="#" data-modal-close class="close">Understood!</a>
+         </div>
+      </div>
+
       <!-- jQuery -->
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
@@ -1111,5 +1106,6 @@
       <script src="assets/js/testimonials.js"></script>
       <script src="assets/js/form.js"></script>
       <script src="assets/js/anim.js"></script>
+      <script src="assets/js/modal.js"></script>
    </body>
 </html>

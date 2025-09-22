@@ -1,7 +1,7 @@
 .gallery {
    display: grid;
    grid-template-columns: repeat(2, minmax(0, 1fr));
-   gap: 120px 68px;
+   gap: 45px 68px;
 }
 @media (max-width: 780px) {
    .gallery {
@@ -13,7 +13,7 @@
    position: absolute;
    width: 70px;
    height: 70px;
-   top: -35px;
+   top: 40px;
    right: -35px;
    border: none;
 }
@@ -23,6 +23,7 @@
    display: flex;
    flex-direction: column;
    gap: 8px;
+   padding-top: 75px;
    overflow: visible;
    background: transparent;
    text-decoration: none;
@@ -120,26 +121,34 @@
    --fancybox-bg: #3a3a39dd;
    z-index: 9999;
 }
-
+.fancybox__container:not(.is-compact) .fancybox__slide.has-close-btn {
+   padding: 0;
+}
 html .fancybox__backdrop {
-   -webkit-backdrop-filter: blur(10px) !important;
-   backdrop-filter: blur(10px) !important;
-   transition: all 0.2s ease-in-out;
+   -webkit-backdrop-filter: unset !important ;
+   backdrop-filter: unset !important ;
 }
 
-/* Remove padding for full-viewport inline blocks that use .modal-full */
 .fancybox__slide:has(.modal-full) {
    padding: 0;
 }
 .fancybox__slide.has-iframe {
    padding: 0;
 }
+.has-iframe .fancybox__content {
+   width: 100% !important;
+   height: 100% !important;
+   padding: 0;
+}
+.fancybox__footer,
 .fancybox__caption {
-   font-size: 14px;
-   color: #cbd5e1;
+   display: none !important;
+}
+.with-fancybox-gallery {
+   overflow: hidden;
 }
 
-/* Inline modal block */
+/* GALERIA */
 .modal-full {
    min-height: 100vh;
    display: flex;
@@ -147,26 +156,12 @@ html .fancybox__backdrop {
    gap: 20px;
    padding: 24px;
    border-radius: 0;
-   display: none;
 }
 
 .modal-full .bg-vectors {
    z-index: -1;
 }
 
-.modal-full.simple {
-   min-height: unset;
-   width: 732px;
-   border-radius: 10px;
-   padding: 48px 64px;
-   gap: 54px;
-}
-
-.modal-full.simple main {
-   display: flex;
-   flex-direction: column;
-   gap: 36px;
-}
 .modal-item {
    display: flex;
    flex-direction: row;
@@ -177,6 +172,7 @@ html .fancybox__backdrop {
    font-weight: 800;
    line-height: 1;
    min-width: 75px;
+   color: var(--color-fede-fv);
 }
 
 .modal-item p {
@@ -194,7 +190,8 @@ html .fancybox__backdrop {
    margin-bottom: 0;
 }
 
-.modal-full a.close {
+.modal-full a.close,
+.modal-simple a.close {
    width: 420px;
    height: 41px;
    background-image: url(../img/modal-button-close.png);
@@ -204,10 +201,13 @@ html .fancybox__backdrop {
    justify-content: center;
    margin: 0 auto;
    border-radius: 2px;
+   color: var(--color-fede-fv);
+   z-index: 9999999;
    transition: all 0.2s ease-in-out;
 }
 
-.modal-full a:hover.close {
+.modal-full a:hover.close,
+.modal-simple a:hover.close {
    color: var(--color-fede-white);
    background-color: var(--color-fede-fv);
    border-radius: 6px;
@@ -236,28 +236,98 @@ html .fancybox__backdrop {
    }
 }
 
-.modal-full.simple#works {
+/* Responsive thumb */
+@media (max-width: 520px) {
+   .card .media img {
+      height: 280px;
+   }
+}
+
+/* ======= Flags globales ======= */
+
+/********/
+/* #works[hidden] {
+   display: none;
+} */
+
+/* MODAL SIMPLE */
+.modal-simple {
+   position: fixed;
+   inset: 0;
+   display: grid;
+   grid-template-rows: 1fr;
+   align-items: center;
+   justify-items: center;
+   pointer-events: none;
+   opacity: 0;
+   z-index: 99999;
+   transition: all 0.2s ease-in-out;
+}
+
+.modal-simple .content {
+   display: flex;
+   flex-direction: column;
+   gap: 36px;
+}
+.modal-simple .modal__dialog {
+   position: relative;
+   display: flex;
+   background: var(--color-fede-white);
+   border-radius: 10px;
+   box-shadow: 0 20px 60px var(--color-fede-fv);
+   transform: translateY(12px) scale(0.98);
+   opacity: 0;
+   padding: 48px 64px;
+   transition: all 0.2s ease-in-out;
+}
+.modal-open {
+   overflow: hidden;
+}
+.modal__backdrop {
+   position: absolute;
+   inset: 0;
+   -webkit-backdrop-filter: blur(6px);
+   backdrop-filter: blur(6px);
+   background: var(--color-fede-black-cc);
+}
+.modal-simple.is-open {
+   pointer-events: auto;
+   opacity: 1;
+}
+.modal-simple.is-open .modal__dialog {
+   transform: translateY(0) scale(1);
+   opacity: 1;
+}
+
+/* SUBMODAL */
+.modal-simple.submmodal .modal__dialog {
+   padding-top: 60px;
    width: 950px;
+   height: 570px;
+   display: flex;
+   flex-direction: column;
    gap: 95px;
 }
-.modal-full.simple#works .bg-vectors {
+.modal-simple.submmodal .bg-vectors {
    margin-top: 26px;
+   z-index: -1;
 }
-.modal-full.simple#works .work-items {
+.modal-simple.submmodal .work-items {
    display: grid;
    grid-template-columns: repeat(5, 1fr);
    grid-template-rows: repeat(2, 1fr);
    gap: 58px 10px;
    justify-items: center;
+   /* margin: 94px 0 105px; */
 }
-.modal-full.simple#works .work-items a {
+.modal-simple.submmodal .work-items a {
    color: var(--color-fede-fv);
 }
-.modal-full.simple#works .work-items a:hover {
+.modal-simple.submmodal .work-items a:hover {
    color: var(--color-fede-orange);
 }
 
-.modal-full.simple#works a.close {
+.modal-simple.submmodal a.close {
    width: 195px;
    height: 59px;
    background-image: url(../img/btn-modal-goback.png);
@@ -267,13 +337,53 @@ html .fancybox__backdrop {
    justify-content: center;
    margin: 0 auto;
    border-radius: 2px;
+   color: var(--color-fede-fv);
    transition: all 0.2s ease-in-out;
 }
-.modal-full.simple#works a:hover.close {
+.modal-simple.submmodal a:hover.close {
    color: var(--color-fede-white);
    background-color: var(--color-fede-fv);
    border-radius: 6px;
 }
-.modal-full.simple#works main {
+.modal-simple.submmodal .content {
    gap: 105px;
+}
+
+/* --- SERVICES MODALS --- */
+.modal-simple.services-modals .modal__dialog {
+   min-height: unset;
+   width: 732px;
+   border-radius: 10px;
+   padding: 48px 64px;
+   gap: 54px;
+   flex-direction: column;
+}
+.modal-simple.services-modals header {
+   /* display: flex;
+   align-items: center;
+   gap: 12px; */
+   margin-bottom: 16px;
+}
+/* .modal-simple.services-modals header .section-title {
+   margin: 0;
+} */
+.modal-simple.services-modals header span {
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+}
+.modal-simple.services-modals .work-items {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 8px 16px;
+   margin-block: 16px;
+}
+.modal-simple.services-modals .work-items a {
+   text-decoration: none;
+   color: #111;
+   padding: 4px 0;
+   line-height: 1.2;
+}
+.modal-simple.services-modals .work-items a:hover {
+   text-decoration: underline;
 }

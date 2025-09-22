@@ -1,242 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+         /* Botones de ejemplo */
+         .btn,
+         .btn-open {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+         }
+         .btn:hover,
+         .btn-open:hover {
+            border-color: #aaa;
+         }
+         .btn-primary {
+            background: #ff6600;
+            color: #fff;
+            border-color: #ff6600;
+         }
+         .btn-primary:hover {
+            filter: brightness(1.05);
+         }
 
-  <style>
-    html {
-  padding: 0;
-  height: 100%; }
+         /* Estado del body cuando el modal está abierto */
+         .modal-open {
+            overflow: hidden;
+         }
 
-body {
-  padding: 0;
-  margin: 0;
-  background: #222228;
-  overflow: hidden;
-  height: 100%;
-  position: relative; }
+         /* Contenedor del modal (oculto por defecto) */
+         .modal {
+            position: fixed;
+            inset: 0;
+            display: grid;
+            grid-template-rows: 1fr;
+            align-items: center;
+            justify-items: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+            z-index: 9999;
+         }
 
-#container {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0; }
+         /* Fondo */
+         .modal__backdrop {
+            position: absolute;
+            inset: 0;
+            backdrop-filter: blur(6px);
+            background: rgba(0, 0, 0, 0.45);
+         }
 
-#logo {
-  position: relative;
-  left: -175px;
-  top: -172px; }
+         /* Caja del modal */
+         .modal__dialog {
+            position: relative;
+            width: min(90vw, 720px);
+            max-height: 88vh;
+            overflow: auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            transform: translateY(12px) scale(0.98);
+            transition:
+               transform 0.2s ease,
+               opacity 0.2s ease;
+            opacity: 0;
+            padding: 20px 22px;
+         }
 
-h1 {
-  top: 20px;
-  left: 20px;
-  position: absolute;
-  margin: 0;
-  display: block;
-}
+         /* Header / Footer / Close */
+         .modal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+         }
+         .modal__title {
+            margin: 0;
+            font-size: 20px;
+            line-height: 1.2;
+         }
+         .modal__close {
+            border: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #f3f3f3;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+         }
+         .modal__close:hover {
+            background: #e9e9e9;
+         }
+         .modal__body {
+            padding: 8px 0 12px;
+         }
+         .modal__footer {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+         }
 
-#logo-text .letter {
-  -webkit-animation: slidein-top .5s 0s cubic-bezier(0.64, 1.11, 0.58, 1.08) forwards;
-  -ms-animation: slidein-top .5s 0s cubic-bezier(0.64, 1.11, 0.58, 1.08) forwards;
-  animation: slidein-top .5s 0s cubic-bezier(0.64, 1.11, 0.58, 1.08) forwards;
-  -webkit-transform: translateY(-200px);
-  transform: translateY(-200px);
-}
+         /* Estado visible */
+         .modal.is-open {
+            pointer-events: auto;
+            opacity: 1;
+         }
+         .modal.is-open .modal__dialog {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+         }
 
-#logo-text .s {
-  animation-delay: .4s;
-  -ms-animation-delay: .4s;
-  -webkit-animation-delay: .4s;
-}
+         /* Dark mode friendly (opcional) */
+         @media (prefers-color-scheme: dark) {
+            .modal__dialog {
+               background: #1e1f22;
+               color: #eaeaea;
+            }
+            .modal__close {
+               background: #2a2b2e;
+               color: #eaeaea;
+            }
+            .btn,
+            .btn-open {
+               background: #2a2b2e;
+               color: #eaeaea;
+               border-color: #3a3b3e;
+            }
+            .btn:hover,
+            .btn-open:hover {
+               border-color: #5a5b5e;
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Botón que abre el modal -->
+      <button class="btn-open" data-modal-open="#demo-modal">Abrir modal</button>
 
-#logo-text .u {
-  animation-delay: .5s;
-  -ms-animation-delay: .5s;
-  -webkit-animation-delay: .5s;
-}
+      <!-- Modal -->
+      <div
+         class="modal"
+         id="demo-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="demo-title"
+         aria-hidden="true"
+      >
+         <div class="modal__backdrop" data-modal-close></div>
 
-#logo-text .b {
-  animation-delay: .6s;
-  -ms-animation-delay: .6s;
-  -webkit-animation-delay: .6s;
-}
+         <div class="modal__dialog" role="document">
+            <header class="modal__header">
+               <h2 id="demo-title" class="modal__title">Título del modal</h2>
+               <button class="modal__close" type="button" aria-label="Cerrar" data-modal-close>
+                  &times;
+               </button>
+            </header>
 
-#logo-text .p {
-  animation-delay: .7s;
-  -ms-animation-delay: .7s;
-  -webkit-animation-delay: .7s;
-}
+            <main class="modal__body">
+               <p>Contenido del modal. Podés poner formularios, texto, imágenes, etc.</p>
+               <p>Este modal se cierra con el botón, clic fuera, o tecla <kbd>Esc</kbd>.</p>
+            </main>
 
-#logo-text .i {
-  animation-delay: .8s;
-  -ms-animation-delay: .8s;
-  -webkit-animation-delay: .8s;
-}
+            <footer class="modal__footer">
+               <button class="btn" data-modal-close>Cerrar</button>
+               <button class="btn btn-primary">Acción principal</button>
+            </footer>
+         </div>
+      </div>
 
-#logo-text .x {
-  animation-delay: .9s;
-  -ms-animation-delay: .9s;
-  -webkit-animation-delay: .9s;
-}
-
-#logo-text .e {
-  animation-delay: 1.0s;
-  -ms-animation-delay: 1.0s;
-  -webkit-animation-delay: 1.0s;
-}
-
-#logo-text .l {
-  animation-delay: 1.1s;
-  -ms-animation-delay: 1.1s;
-  -webkit-animation-delay: 1.1s;
-}
-
-h1 a {
-  display: block; }
-
-@-webkit-keyframes slidein-top {
-
-  100% {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px); } }
-
-@-ms-keyframes slidein-top {
-
-  100% {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px); } }
-
-@keyframes slidein-top {
-
-  100% {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px); } }
-
-#Cells > g > g {
-  -webkit-transform: translateY(300px);
-  transform: translateY(300px);
-  cursor: hand; }
-
-#CellRed {
-  -webkit-animation: popup 1s 0.2s ease-in-out forwards;
-  -ms-animation: popup 1s 0.2s ease-in-out forwards;
-  animation: popup 1s 0.2s ease-in-out forwards; }
-
-#CellGreen {
-  -webkit-animation: popup 1s 0.4s ease-in-out forwards;
-  -ms-animation: popup 1s 0.4s ease-in-out forwards;
-  animation: popup 1s 0.4s ease-in-out forwards; }
-
-#CellBlue {
-  -webkit-animation: popup 1s 0.6s ease-in-out forwards;
-  -ms-animation: popup 1s 0.6s ease-in-out forwards;
-  animation: popup 1s 0.6s ease-in-out forwards; }
-
-@-webkit-keyframes popup {
-
-  25% {
-    -webkit-transform: translate(0, -35px);
-    transform: translate(0, -35px); }
-
-  50% {
-    -webkit-transform: translate(0, 20px);
-    transform: translate(0, 20px); }
-
-  75% {
-    -webkit-transform: translate(0, -6px);
-    transform: translate(0, -6px); }
-
-  100% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0); } }
-
-@-ms-keyframes popup {
-
-  25% {
-    -webkit-transform: translate(0, -35px);
-    transform: translate(0, -35px); }
-
-  50% {
-    -webkit-transform: translate(0, 20px);
-    transform: translate(0, 20px); }
-
-  75% {
-    -webkit-transform: translate(0, -6px);
-    transform: translate(0, -6px); }
-
-  100% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0); } }
-
-@keyframes popup {
-
-  25% {
-    -webkit-transform: translate(0, -35px);
-    transform: translate(0, -35px); }
-
-  50% {
-    -webkit-transform: translate(0, 20px);
-    transform: translate(0, 20px); }
-
-  75% {
-    -webkit-transform: translate(0, -6px);
-    transform: translate(0, -6px); }
-
-  100% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0); } }
-
-#Cells.interactive > g > g {
-  -webkit-animation: none;
-  -ms-animation: none;
-  animation: none;
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
-  transition: all 0.1s ease-out; }
-#Cells.interactive > g > g:hover {
-  -webkit-transform: translate(0, 12px);
-  transform: translate(0, 12px); }
-
-#CellRed .top {
-  fill: #E22027; }
-#CellRed .sw {
-  fill: #B02024; }
-#CellRed .se {
-  fill: #981B1F; }
-
-#CellGreen .top {
-  fill: #5FBB46; }
-#CellGreen .sw {
-  fill: #459243; }
-#CellGreen .se {
-  fill: #397F3D; }
-
-#CellBlue .top {
-  fill: #1E90CD; }
-#CellBlue .sw {
-  fill: #1371A3; }
-#CellBlue .se {
-  fill: #0E628E; }
-
-footer {
-  display: block;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: #ccc;
-  font-size: 10px;
-  font-family: Arial; }
-  </style>
-</head>
-<body>
-  
-    <div id=container>
-      <svg id=logo version=1.1 xmlns=http://www.w3.org/2000/svg x=0px y=0px width=350px height=365px viewbox="0 -50 612 800" xml:space=preserve><clippath id=CLIP_B><polygon id=MASK_B points="958.9,62.7 458.9,396 -41.1,62.7 -41.1,-596.4 958.9,-596.4"></polygon></clippath><clippath id=CLIP_G><polygon id=MASK_G points="958.9,268.7 458.9,602.1 -41.1,268.7 -41.1,-390.3 958.9,-390.3"></polygon></clippath><clippath id=CLIP_R><polygon id=MASK_R points="805.9,370.7 305.9,704.1 -194.1,370.7 -194.1,-288.3 805.9,-288.3"></polygon></clippath><g id=Cells><g id=group-blue clip-path=url(#CLIP_B)><g id=CellBlue><polygon class=top points="611.9,203.9 305.9,-0.1 152.9,101.9 152.9,598 458.9,802 611.9,700"></polygon><polygon class=se points="458.9,305.9 458.9,802 611.9,700 611.9,203.9"></polygon><polygon class=sw points="458.9,305.9 152.9,101.9 152.9,598 458.9,802"></polygon><!--<polygon class="top" points="458.9,305.9 152.9,101.9 305.9,-0.1 611.9,203.9"></polygon>--></g></g><g id=group-green clip-path=url(#CLIP_G)><g id=CellGreen><polygon class=top points="611.9,407.9 152.9,101.9 -0.1,203.9 -0.1,698 458.9,1004 611.9,901"></polygon><polygon class=se points="458.9,509.9 458.9,1004 611.9,902 611.9,407.9"></polygon><polygon class=sw points="458.9,509.9 -0.1,203.9 -0.1,698 458.9,1004"></polygon><!--<polygon class="top" points="458.9,509.9 -0.1,203.9 152.9,101.9 611.9,407.9"></polygon>--></g></g><g id=group-red clip-path=url(#CLIP_R)><g id=CellRed><polygon class=top points="152.9,305.9 -0.1,407.9 -0.1,902 305.9,1106 458.9,1004 458.9,509.9"></polygon><polygon class=se points="305.9,611.9 305.9,1106 458.9,1004 458.9,509.9"></polygon><polygon class=sw points="305.9,611.9 -0.1,407.9 -0.1,902 305.9,1106"></polygon><!--<polygon class="top" points="305.9,611.9 -0.1,407.9 152.9,305.9 458.9,509.9"></polygon>--></g></g></g></svg></div>
-</body>
+      <script src="assets/js/modal.js"></script>
+   </body>
 </html>
