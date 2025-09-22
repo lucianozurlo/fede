@@ -51,6 +51,7 @@ body {
 :root {
    --color-fede-white: #f8f8f8;
    --color-fede-orange: #ff6600;
+   --color-fede-orange-light: #fffff5;
    --color-fede-red: #ff0000;
    --color-fede-fv: #3a3a39;
    --color-fede-black-cc: #000000cc;
@@ -458,7 +459,7 @@ body.tt-boxed .tt-wrap .tt-row {
    transition: all 0.35s ease-in-out;
 }
 #page-header .hover-fv:hover .home-title {
-   color: transparent;
+   color: var(--color-fede-orange-light);
    -webkit-text-stroke: 2px var(--color-fede-orange);
 }
 
@@ -529,7 +530,7 @@ body.tt-boxed .tt-wrap .tt-row {
    inset: 0;
    pointer-events: none;
    margin-left: 18px;
-   transition: all 0.4s ease-in-out;
+   transition: all 0.5s ease-in-out;
 }
 /* #about .tt-wrap #hola-foto:hover {
    cursor: pointer !important;
@@ -539,21 +540,21 @@ body.tt-boxed .tt-wrap .tt-row {
 }
 #about .tt-wrap .photo .fede {
    background-color: var(--color-fede-orange);
-   transition: all 0.4s ease-in-out;
+   transition: all 0.5s ease-in-out;
 }
 #about .tt-wrap .photo .fede img {
    mix-blend-mode: multiply;
 }
 
 #about .tt-wrap #hola-foto:hover .photo .fede {
-   background-color: #ff660000;
+   background-color: var(--color-fede-orange-light);
 }
 
 #about .tt-wrap .photo .film {
    overflow: hidden;
    width: 100%;
    height: 100%;
-   transition: all 0.4s ease-in-out;
+   transition: all 0.5s ease-in-out;
 }
 #about .tt-wrap .photo .film.out,
 #about .tt-wrap .photo .film.bg {
@@ -568,7 +569,7 @@ body.tt-boxed .tt-wrap .tt-row {
    position: absolute;
    mix-blend-mode: plus-lighter;
    opacity: 0.85;
-   transition: all 0.4s ease-in-out;
+   transition: all 0.5s ease-in-out;
 }
 
 #about .tt-wrap .photo .film.bg .vectors img.photo-vector {
@@ -601,7 +602,7 @@ body.tt-boxed .tt-wrap .tt-row {
 #about .tt-wrap .photo .film.out .vectors img.photo-vector.vector1 {
    -webkit-filter: brightness(9);
    filter: brightness(9);
-   transition: all 0.4s ease-in-out;
+   transition: all 0.5s ease-in-out;
 }
 #about .tt-wrap #hola-foto:hover .photo .film.out .vectors img.photo-vector.vector1 {
    -webkit-filter: brightness(1);
@@ -610,7 +611,7 @@ body.tt-boxed .tt-wrap .tt-row {
 #about .tt-wrap .photo .film.out .vectors img.photo-vector.vector2 {
    -webkit-filter: brightness(9);
    filter: brightness(9);
-   transition: all 0.4s ease-in-out;
+   transition: all 0.5s ease-in-out;
 }
 #about .tt-wrap #hola-foto:hover .photo .film.out .vectors img.photo-vector.vector2 {
    -webkit-filter: brightness(1);
@@ -634,7 +635,7 @@ body.tt-boxed .tt-wrap .tt-row {
 
 #about .tt-wrap #hola-foto .info {
    transform: translateX(0);
-   transition: all 0.4s ease-in-out;
+   transition: all 0.5s ease-in-out;
 }
 #about .tt-wrap #hola-foto:hover .info {
    transform: translateX(30px);

@@ -419,7 +419,7 @@ body.tt-boxed.work.logofolio .tt-wrap {
 }
 
 body.tt-boxed.work.logofolio .work-title p.desc {
-   width: 40%;
+   /* width: 40%; */
    margin: 0 auto !important;
 }
 
@@ -510,7 +510,7 @@ body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-chi
 
 /* UI/UX */
 body.tt-boxed.work.ui-ux .tt-section:last-child {
-   margin-top: -40px;
+   margin-top: 65px;
 }
 body.tt-boxed.work.ui-ux .tt-wrap {
    width: 1080px;
@@ -632,7 +632,7 @@ body.tt-boxed.work.ui-ux .tt-wrap .talk {
 
 /* WEB */
 body.tt-boxed.work.web .tt-section:last-child {
-   margin-top: -130px;
+   margin-top: -74px;
 }
 body.tt-boxed.work.web .tt-wrap {
    width: 1080px;
