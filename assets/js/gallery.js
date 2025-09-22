@@ -1,4 +1,4 @@
-// gallery.js — Fancybox v5 con URL SIEMPRE limpia + API global Gallery.openBySlug()
+// gallery.js — Fancybox v5/v6 con URL SIEMPRE limpia + API global Gallery.openBySlug()
 window.addEventListener('DOMContentLoaded', () => {
    const html = document.documentElement;
 
@@ -8,8 +8,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
    // Desactivar cualquier manejo de hash interno de Fancybox
    try {
-      window.Fancybox && (window.Fancybox.defaults.Hash = false);
+      if (window.Fancybox) window.Fancybox.defaults.Hash = false;
    } catch {}
+
    const common = {
       animated: true,
       dragToClose: true,
@@ -44,10 +45,21 @@ window.addEventListener('DOMContentLoaded', () => {
       if (slug) indexBySlug.set(slug, i);
    });
 
-   // Bind Fancybox
+   // Bind Fancybox + flechas personalizadas del Carousel
    if (window.Fancybox) {
       window.Fancybox.bind('[data-fancybox="galeria"]', {
          ...common,
+         // 👇 Reemplazo de flechas con tus SVGs externos
+         Carousel: {
+            ...common.Carousel,
+            Navigation: {
+               prevTpl: `<img src="assets/img/arrow-prev.svg" alt="Prev">`,
+               nextTpl: `<img src="assets/img/arrow-next.svg" alt="Next">`,
+               // Si querés agregar clases custom a los botones:
+               // prevClass: 'nav-prev-custom',
+               // nextClass: 'nav-next-custom',
+            },
+         },
          on: {
             ready: (fb) => {
                html.classList.add('with-fancybox-gallery');
@@ -121,8 +133,7 @@ window.addEventListener('DOMContentLoaded', () => {
          window.Fancybox.show(items, { ...common, startIndex: idx });
       }
 
-      // Por si algo escribió hash, lo limpiamos
-      clearUrlHash();
+      clearUrlHash(); // Por si algo escribió hash
       return true;
    }
 

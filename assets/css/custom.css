@@ -1137,14 +1137,19 @@ body.tt-boxed #services .tt-wrap {
 .is-horizontal .fancybox__nav .f-button:hover {
    background-color: var(--color-fede-fv) !important;
 }
-.is-horizontal .fancybox__nav .f-button:hover svg {
-   stroke: var(--color-fede-white) !important;
+.is-horizontal .fancybox__nav .f-button img {
+   transition: all 0.35s ease-in-out;
+}
+.is-horizontal .fancybox__nav .f-button:hover img {
+   -webkit-filter: invert(1) brightness(1.5);
+   filter: invert(1) brightness(1.5);
+   /* stroke: var(--color-fede-white) !important; */
 }
 .is-horizontal .fancybox__nav .f-button[disabled] {
    stroke: var(--color-fede-fv-gray);
    opacity: 0.5 !important;
 }
-.is-horizontal .fancybox__nav .f-button[disabled] svg {
+.is-horizontal .fancybox__nav .f-button[disabled] img {
    -webkit-filter: unset !important;
    filter: unset !important;
    stroke: var(--color-fede-fv-gray);

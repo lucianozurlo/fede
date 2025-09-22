@@ -437,13 +437,27 @@ body.work.logofolio #content-wrap.work .work-title {
    max-width: unset;
 }
 body.tt-boxed.work.logofolio .tt-wrap .tt-row img {
+   -webkit-filter: grayscale(1) brightness(0.43);
+   filter: grayscale(1) brightness(0.43);
    transition: all 0.35s ease-in-out;
 }
 
 body.tt-boxed.work.logofolio .tt-wrap .tt-row img:hover {
-   -webkit-filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%)
+   -webkit-filter: unset;
+   filter: unset;
+}
+
+body.tt-boxed.work.logofolio .tt-wrap .tt-row img.color {
+   /* -webkit-filter: invert(0) sepia(0) saturate(0) hue-rotate(0) brightness(0) contrast(0);
+   filter: invert(0) sepia(0) saturate(0) hue-rotate(0) brightness(0) contrast(0); */
+}
+
+body.tt-boxed.work.logofolio .tt-wrap .tt-row img.color {
+   /* -webkit-filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%)
       contrast(102%);
-   filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%) contrast(102%);
+   filter: invert(42%) sepia(96%) saturate(2500%) hue-rotate(1deg) brightness(102%) contrast(102%); */
+   -webkit-filter: unset;
+   filter: unset;
 }
 
 body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min {
@@ -457,6 +471,39 @@ body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 {
    flex-wrap: wrap;
    justify-content: space-between;
    gap: 90px 7%;
+}
+
+.swap {
+   position: relative;
+   display: inline-block;
+   line-height: 0;
+}
+.swap img {
+   display: block;
+   width: 100% !important; /* mismo tamaño para ambas (o 100%) */
+   height: 100% !important; /* o usa aspect-ratio en vez de height */
+   -o-object-fit: cover;
+   object-fit: cover; /* recorte consistente */
+   -webkit-filter: unset !important;
+   filter: unset !important;
+}
+.swap .hover {
+   position: absolute;
+   inset: 0;
+   opacity: 0;
+   transition: opacity 0.25s ease;
+   pointer-events: none; /* no bloquea el hover */
+}
+.swap:hover .hover {
+   opacity: 1;
+}
+.swap .base {
+   opacity: 1;
+   transition: all 0.25s ease;
+   transition-delay: 1.45;
+}
+.swap:hover .base {
+   opacity: 0;
 }
 body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min img {
    width: 11%;
@@ -492,19 +539,19 @@ body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-chi
 body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-child(10) {
    width: 94px;
 }
-body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-child(11) {
+body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 figure:nth-child(11) {
    width: 149px;
 }
-body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-child(12) {
+body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 figure:nth-child(12) {
    width: 170px;
 }
-body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-child(13) {
+body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 figure:nth-child(13) {
    width: 139px;
 }
-body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-child(14) {
+body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 figure:nth-child(14) {
    width: 148px;
 }
-body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 img:nth-child(15) {
+body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 figure:nth-child(15) {
    width: 135px;
 }
 
