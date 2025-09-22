@@ -517,7 +517,7 @@ body.tt-boxed .tt-wrap .tt-row {
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   margin: 25px 0 35px;
+   margin: 35px 0;
 }
 
 #page-header .hover-fv .home-title {
