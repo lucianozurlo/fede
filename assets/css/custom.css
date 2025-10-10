@@ -51,6 +51,7 @@ body {
 :root {
    --color-fede-white: #f8f8f8;
    --color-fede-orange: #ff6600;
+   --color-fede-orange-00: #ff660000;
    --color-fede-orange-light: #fffff5;
    --color-fede-red: #ff0000;
    --color-fede-fv: #3a3a39;
@@ -525,8 +526,8 @@ body.tt-boxed .tt-wrap .tt-row {
 
 #page-header .hover-fv .home-title {
    color: var(--color-fede-fv);
-   -webkit-text-stroke: 2px transparent;
-   transition: all 0.35s ease-in-out;
+   -webkit-text-stroke: 2px var(--color-fede-orange-00);
+   transition: all 1s cubic-bezier(0.34, 1.5, 0.9, 1);
 }
 #page-header .hover-fv:hover .home-title {
    color: var(--color-fede-orange-light);
