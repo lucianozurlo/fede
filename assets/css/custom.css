@@ -448,15 +448,17 @@ html.with-fancybox-gallery .tt-main-menu-list > li:nth-child(2) > a:last-child {
    right: -40px;
    bottom: 135px;
    z-index: 11;
-   -webkit-filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0.2));
-   filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0.2));
+   /* -webkit-filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0.2));
+   filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0.2)); */
+   -webkit-filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.15));
+   filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.15));
 }
 
 .stamp img {
    position: absolute;
    -webkit-filter: var(--filter-fede-orange);
    filter: var(--filter-fede-orange);
-   transition: all 0.3s cubic-bezier(0.34, 1.5, 0.9, 1);
+   transition: all 0.5s cubic-bezier(0.34, 1.5, 0.9, 1);
 }
 .stamp:hover img,
 .hover-fv:hover .stamp img {
@@ -471,13 +473,14 @@ html.with-fancybox-gallery .tt-main-menu-list > li:nth-child(2) > a:last-child {
 .stamp img.inside {
    -webkit-filter: unset !important;
    filter: unset !important;
-   transition: all 0.5s cubic-bezier(0.34, 1.5, 0.9, 1);
+   transition: all 0.7s cubic-bezier(0.34, 1.5, 0.9, 1);
 }
-.stamp:hover img.inside {
+.stamp:hover img.inside,
+.hover-fv:hover .stamp img.inside {
    transform: rotate(-30deg);
 }
 
-.hover-fv:hover .stamp:hover img,
+/* .hover-fv:hover .stamp:hover img,
 .hover-fv:hover .stamp:hover img.join,
 .hover-fv:hover .stamp:hover img.inside {
    transform: unset !important;
@@ -493,7 +496,7 @@ html.with-fancybox-gallery .tt-main-menu-list > li:nth-child(2) > a:last-child {
    transform: unset !important;
    -webkit-filter: unset !important;
    filter: unset !important;
-}
+} */
 
 /* HOME */
 body.tt-boxed .tt-wrap {
@@ -901,7 +904,7 @@ body.tt-boxed #services .tt-wrap {
 
 /* CONTACT */
 #contact {
-   padding: 0 0 39px !important;
+   padding: 87px 0 39px !important;
    overflow: hidden;
 }
 #contact * {
@@ -930,7 +933,7 @@ body.tt-boxed #services .tt-wrap {
 
 #contact .bg-vectors img,
 #contact .footer-masked {
-   transform: translateY(48.4%);
+   transform: translateY(42%);
 }
 
 #contact .footer-masked {
