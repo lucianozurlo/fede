@@ -3089,11 +3089,11 @@
          var $active = false;
          var $ball = $('#ball');
 
-         var $ballWidth = 34; // Ball default width
-         var $ballHeight = 34; // Ball default height
+         var $ballWidth = 10; // Ball default width
+         var $ballHeight = 10; // Ball default height
          var $ballScale = 1; // Ball default scale
-         var $ballOpacity = 0.5; // Ball default opacity
-         var $ballBorderWidth = 2; // Ball default border width
+         var $ballOpacity = 1; // Ball default opacity
+         var $ballBorderWidth = 0; // Ball default border width
 
          gsap.set($ball, {
             // scale from middle and style ball
@@ -3101,6 +3101,7 @@
             yPercent: -50,
             width: $ballWidth,
             height: $ballHeight,
+            backgroundColor: '#ff6600',
             borderWidth: $ballBorderWidth,
             opacity: $ballOpacity,
          });
@@ -3189,20 +3190,20 @@
                   duration: 0.3,
                   borderWidth: 0,
                   opacity: 0.2,
-                  backgroundColor: '#F8F4EF',
-                  width: '100px',
-                  height: '100px',
+                  backgroundColor: 'transparent',
+                  width: '50px',
+                  height: '50px',
                });
             })
             .on('mouseleave', function () {
                gsap.to($ball, {
                   duration: 0.3,
-                  borderWidth: $ballBorderWidth,
+                  // borderWidth: $ballBorderWidth,
                   opacity: $ballOpacity,
-                  backgroundColor: 'transparent',
+                  // backgroundColor: 'transparent',
                   width: $ballWidth,
                   height: $ballHeight,
-                  clearProps: 'backgroundColor',
+                  backgroundColor: '#ff6600',
                });
             });
 
@@ -3227,7 +3228,7 @@
                      width: 95,
                      height: 95,
                      opacity: 0.85,
-                     borderWidth: 0,
+                     // borderWidth: 0,
                      backgroundColor: '#F8F4EF',
                   });
                   gsap.to('.ball-view', { duration: 0.3, scale: 1, autoAlpha: 1 });

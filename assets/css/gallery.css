@@ -322,9 +322,19 @@ html .fancybox__backdrop {
 }
 .modal-simple.submmodal .work-items a {
    color: var(--color-fede-fv);
+   background-color: transparent;
+   width: -webkit-fit-content;
+   width: -moz-fit-content;
+   width: fit-content;
+   font-size: 16px;
+   padding: 6px 12px;
+   border-radius: 7px;
+   transition: all 0.35s ease-in-out;
 }
+
 .modal-simple.submmodal .work-items a:hover {
-   color: var(--color-fede-orange);
+   color: var(--color-fede-white);
+   background-color: var(--color-fede-fv);
 }
 
 .modal-simple.submmodal a.close {
