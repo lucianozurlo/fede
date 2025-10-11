@@ -260,7 +260,7 @@ html .fancybox__backdrop {
    justify-items: center;
    pointer-events: none;
    opacity: 0;
-   z-index: 99999;
+   z-index: 99990;
    transition: all 0.2s ease-in-out;
 }
 

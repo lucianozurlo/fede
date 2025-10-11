@@ -548,6 +548,14 @@ body.tt-boxed .tt-wrap .tt-row {
    margin: 0;
 }
 
+#magic-cursor #ball {
+   visibility: visible !important;
+}
+
+iframe.fancybox__iframe {
+   pointer-events: none !important;
+}
+
 /* ABOUT */
 #about {
    padding-bottom: 180px;
@@ -766,10 +774,10 @@ body.tt-boxed #work .tt-wrap {
    text-transform: lowercase;
 }
 
-#work #ball .ball-view {
+/* #work #ball .ball-view {
    font-weight: 400;
    color: var(--color-fede-fv);
-}
+} */
 
 /* SERVICES */
 #services {
