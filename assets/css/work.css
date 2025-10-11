@@ -313,12 +313,12 @@ body.work.cleo #details {
    margin-bottom: 45px;
 }
 body.work.cleo img.mob.mob1 {
-   left: 16%;
+   left: 3%;
    top: -2%;
    width: 549px !important;
 }
 body.work.cleo img.mob.mob2 {
-   left: 20.8%;
+   left: 9.9%;
    bottom: -11%;
    width: 466px !important;
 }
@@ -354,6 +354,17 @@ body.work.michi img.mob.mob1 {
    top: 40.5%;
    width: 270px !important;
 }
+
+body.work.michi img.mob.mob2 {
+   left: 40.5%;
+   top: 55.5%;
+   width: 270px !important;
+}
+body.work.michi img.mob.mob3 {
+   left: 58.5%;
+   top: 71.5%;
+   width: 270px !important;
+}
 body.work.michi img.mob.misc {
    right: 36.2%;
    bottom: -12.5%;
@@ -368,7 +379,7 @@ body.work.broke .tt-wrap .tt-col-md-6:first-child img:nth-child(1) {
    padding-right: 16px;
 }
 body.work.broke img.mob.mob1 {
-   left: -6%;
+   left: -60%;
    top: 29%;
 }
 body.work.broke .tt-wrap .tt-col-md-6:last-child img:nth-child(1) {
@@ -376,7 +387,7 @@ body.work.broke .tt-wrap .tt-col-md-6:last-child img:nth-child(1) {
    width: 315px;
    margin: 0 auto;
    padding: 0;
-   transform: translateX(-45px);
+   transform: translateX(102px);
 }
 body.work.broke img.mob.ipad {
    max-width: unset;
@@ -387,7 +398,7 @@ body.work.broke img.mob.ipad {
 body.work.broke img.mob.mob2 {
    max-width: unset;
    width: 280px !important;
-   right: -6%;
+   right: -64%;
    top: 23.5%;
 }
 body.work.broke img.mob.square-1 {
