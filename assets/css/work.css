@@ -418,6 +418,18 @@ body.work.broke .tt-section-inner .tt-row:nth-child(3) .tt-col-md-12 img:nth-chi
    max-width: 858px;
 }
 
+/* BIG MOTHER ENERGY */
+body.work.big-mother-energy .tt-wrap .tt-col-md-6:last-child {
+   justify-content: flex-end;
+}
+body.work.big-mother-energy .tt-wrap .tt-col-md-6 img {
+   padding: 0 4px;
+}
+body.work.big-mother-energy #details {
+   padding-top: 0;
+   margin-top: 10px;
+}
+
 /* LOGOFOLIO */
 body.tt-boxed.work.logofolio .tt-section:last-child {
    margin-top: 60px;
@@ -705,8 +717,17 @@ body.tt-boxed.work.web .tt-section:last-child {
 }
 body.tt-boxed.work.web .tt-wrap {
    width: 1080px;
-   row-gap: 60px;
+   /* row-gap: 60px; */
+   row-gap: 40px;
 }
+
+body.tt-boxed .tt-wrap.work-gallery .tt-row:nth-child(odd) {
+   transform: translateX(150px)
+}
+body.tt-boxed .tt-wrap.work-gallery .tt-row:nth-child(even) {
+   transform: translateX(-150px)
+}
+
 body.tt-boxed.work.web .mobs img {
    width: 600px;
    position: absolute;
@@ -746,7 +767,8 @@ body.tt-boxed.work.web .mobs .base {
 body.tt-boxed.work.web .tt-wrap .tt-row .mobs-details {
    margin-top: -10%;
    margin-left: 0;
-   width: 68.8%;
+   /* width: 68.8%; */
+   width: 75%;
    z-index: 11;
 }
 body.tt-boxed.work.web p.desc {
