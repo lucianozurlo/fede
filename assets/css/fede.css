@@ -464,8 +464,9 @@ body.tt-boxed #work .tt-wrap {
 
 /* SERVICES */
 #services {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 55px;
 }
 #services h2 + span {
   margin-bottom: 60px;
@@ -584,7 +585,9 @@ body.tt-boxed #services .tt-wrap {
 
 /* CONTACT */
 #contact {
-  padding: 87px 0 39px !important;
+  /* padding: 87px 0 39px !important; */
+  padding: 105px 0 25vw !important;
+  position: relative;
   overflow: hidden;
 }
 #contact * {
@@ -592,35 +595,30 @@ body.tt-boxed #services .tt-wrap {
 }
 #contact .bg-vectors img {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
   height: auto;
-}
-#contact .bg-vectors img,
-#contact .footer-masked {
-  transform: translateY(42%);
 }
 #contact .footer-masked {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  top: 0;
   pointer-events: none;
   z-index: 0;
-
   -webkit-mask-mode: alpha;
   mask-mode: alpha;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-position: center bottom;
-  mask-position: center bottom;
+  -webkit-mask-position: center top;
+  mask-position: center top;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
 #contact .footer-masked.footer1 {
-  -webkit-mask-image: url("../img/footer-1b.svg");
-  mask-image: url("../img/footer-1b.svg");
+  -webkit-mask-image: url("../img/footer-1.svg");
+  mask-image: url("../img/footer-1.svg");
 }
 #contact .footer-masked.footer2 {
   -webkit-mask-image: url("../img/footer-2.svg");
@@ -629,6 +627,64 @@ body.tt-boxed #services .tt-wrap {
 #contact .footer-masked.footer3 {
   -webkit-mask-image: url("../img/footer-3.svg");
   mask-image: url("../img/footer-3.svg");
+}
+#contact .footer-bottom-full {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 24vw;
+  pointer-events: none;
+  z-index: 9;
+  background-color: #3a3a39;
+  -webkit-mask-image: url("../img/footer_lets-build.svg");
+  mask-image: url("../img/footer_lets-build.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: left bottom;
+  mask-position: left bottom;
+  -webkit-mask-size: 100vw auto;
+  mask-size: 100vw auto;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+#contact .footer-bottom-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  -webkit-mask-image: url("../img/footer-2-mask.svg");
+  mask-image: url("../img/footer-2-mask.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: left top;
+  mask-position: left top;
+  -webkit-mask-size: 100vw auto;
+  mask-size: 100vw auto;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+#contact .footer-bottom-cut {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 24vw;
+  pointer-events: none;
+  background-color: #fea039;
+  -webkit-mask-image: url("../img/footer_lets-build.svg");
+  mask-image: url("../img/footer_lets-build.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: left bottom;
+  mask-position: left bottom;
+  -webkit-mask-size: 100vw auto;
+  mask-size: 100vw auto;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
 }
 #contact .footer-ink {
   position: relative;
@@ -644,8 +700,8 @@ body.tt-boxed #services .tt-wrap {
   mask-size: 100% 100%;
 }
 #contact .footer-ink.footer1 {
-  -webkit-mask-image: url("../img/footer-1b.svg");
-  mask-image: url("../img/footer-1b.svg");
+  -webkit-mask-image: url("../img/footer-1.svg");
+  mask-image: url("../img/footer-1.svg");
 }
 #contact .footer-ink.footer2 {
   -webkit-mask-image: url("../img/footer-2.svg");
@@ -907,7 +963,9 @@ body.tt-boxed #services .tt-wrap {
 }
 
 body.zoom-photos .is-horizontal .fancybox__nav .f-button,
-body.zoom-photos .tt-main-menu {
+body.zoom-photos .tt-main-menu,
+body.modal-open .is-horizontal .fancybox__nav .f-button,
+body.modal-open .tt-main-menu {
   opacity: 0 !important;
   pointer-events: none;
   transition: all 1s ease;
