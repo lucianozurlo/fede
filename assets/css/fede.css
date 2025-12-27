@@ -970,6 +970,6 @@ body.modal-open .tt-main-menu {
   pointer-events: none;
   transition: all 1s ease;
 }
-body.zoom-photos .tt-logo a img:last-child {
+/* body.zoom-photos .tt-logo a img:last-child {
   filter: brightness(4.5);
-}
+} */

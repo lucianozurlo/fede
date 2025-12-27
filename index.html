@@ -891,216 +891,129 @@
       <script>
          (() => {
             const cursor = document.querySelector('.fx-cursor');
-            let x = -100,
-               y = -100,
-               tx = x,
-               ty = y;
-            const lerp = 0.22;
 
-            const raf = () => {
-               x += (tx - x) * lerp;
-               y += (ty - y) * lerp;
-               cursor.style.setProperty('--x', x - 5 + 'px');
-               cursor.style.setProperty('--y', y - 5 + 'px');
-               requestAnimationFrame(raf);
-            };
-            requestAnimationFrame(raf);
+            // ===== Config =====
+            const LERP = 0.22;
+            const INTERACTIVE_SELECTOR = [
+               'a[href]',
+               'button',
+               'label',
+               '[role="button"]',
+               'input[type="button"]',
+               'input[type="submit"]',
+               '.btn', '.button',
+               '.f-button',             // botones de Fancybox
+               '.swiper-button-next', '.swiper-button-prev' // por si tenés Swiper
+            ].join(',');
 
-            const onPointerMove = (e) => {
-               tx = e.clientX;
-               ty = e.clientY;
-            };
+            let x = -100, y = -100, tx = x, ty = y;
+            let scale = 1;
 
-            // Escuchar en múltiples raíces del documento
-            [window, document, document.documentElement, document.body].forEach((t) => {
-               t?.addEventListener('pointermove', onPointerMove, { capture: true, passive: true });
+            // === Track global pointer (cubre mouse/touch/pen) ===
+            const onPMove = (e) => { tx = e.clientX; ty = e.clientY; };
+            [window, document, document.documentElement, document.body].forEach(t => {
+               t?.addEventListener('pointermove', onPMove, { capture: true, passive: true });
             });
 
-            // Hover en <a> del documento principal
-            function bindAnchorHover(root = document) {
-               root.querySelectorAll('a').forEach((a) => {
-                  a.addEventListener('mouseenter', () => cursor.style.setProperty('--s', '0'));
-                  a.addEventListener('mouseleave', () => cursor.style.setProperty('--s', '1'));
-               });
-               root.querySelectorAll('label').forEach((label) => {
-                  label.addEventListener('mouseenter', () => cursor.style.setProperty('--s', '0'));
-                  label.addEventListener('mouseleave', () => cursor.style.setProperty('--s', '1'));
-               });
-            }
-            bindAnchorHover();
+            // === Core loop: suaviza y decide escala por hit-test ===
+            const loop = () => {
+               x += (tx - x) * LERP;
+               y += (ty - y) * LERP;
+               cursor.style.setProperty('--x', (x - 5) + 'px');
+               cursor.style.setProperty('--y', (y - 5) + 'px');
 
-            // === SOPORTE FANCYBOX (carousel + iframes) ===
-            // Convierte coords de un iframe (clientX/Y del interior) a coords del viewport padre
-            function iframeToParentCoords(iframe, clientX, clientY) {
-               const r = iframe.getBoundingClientRect();
-               return { X: r.left + clientX, Y: r.top + clientY };
-            }
+               const el = document.elementFromPoint(Math.round(tx), Math.round(ty));
+               const isInteractive = !!el && (el.matches?.(INTERACTIVE_SELECTOR) || el.closest?.(INTERACTIVE_SELECTOR));
+               const nextScale = isInteractive ? 0 : 1;
+               if (nextScale !== scale) {
+                  scale = nextScale;
+                  cursor.style.setProperty('--s', String(scale));
+               }
+               requestAnimationFrame(loop);
+            };
+            requestAnimationFrame(loop);
 
-            // Vincula puntero y hover <a> dentro de un iframe (MISMO ORIGEN)
+            // Ocultar/mostrar al salir/entrar del viewport (opcional)
+            window.addEventListener('mouseleave', () => cursor.style.setProperty('--s', '0'));
+            window.addEventListener('mouseenter', () => cursor.style.setProperty('--s', '1'));
+
+            // =========================
+            // Fancybox + Carousel + Iframes
+            // =========================
             function hookSameOriginIframe(iframe) {
                try {
-                  const doc = iframe.contentDocument;
                   const win = iframe.contentWindow;
-                  if (!doc || !win) return false;
+                  const doc = iframe.contentDocument;
+                  if (!win || !doc) return false;
 
-                  // Seguir el puntero dentro del iframe traduciendo coords
-                  const onIframePointerMove = (ev) => {
-                     const { X, Y } = iframeToParentCoords(iframe, ev.clientX, ev.clientY);
-                     tx = X;
-                     ty = Y;
+                  // Forward de pointermove dentro del iframe (coords -> padre)
+                  const onIF = (ev) => {
+                     const r = iframe.getBoundingClientRect();
+                     tx = r.left + ev.clientX;
+                     ty = r.top + ev.clientY;
                   };
-                  win.addEventListener('pointermove', onIframePointerMove, { passive: true });
-
-                  // Achicar en <a> dentro del iframe
-                  const bindIframeAnchors = () => {
-                     doc.querySelectorAll('a').forEach((a) => {
-                        a.addEventListener('mouseenter', () =>
-                           cursor.style.setProperty('--s', '0')
-                        );
-                        a.addEventListener('mouseleave', () =>
-                           cursor.style.setProperty('--s', '1')
-                        );
-                     });
-                     doc.querySelectorAll('label').forEach((label) => {
-                        label.addEventListener('mouseenter', () =>
-                           cursor.style.setProperty('--s', '0')
-                        );
-                        label.addEventListener('mouseleave', () =>
-                           cursor.style.setProperty('--s', '1')
-                        );
-                     });
-                  };
-                  bindIframeAnchors();
-
-                  // Si el contenido del iframe cambia dinámicamente:
-                  const mo = new MutationObserver(() => bindIframeAnchors());
-                  mo.observe(doc.documentElement, { childList: true, subtree: true });
-
-                  // Guardar refs para limpiar si hiciera falta
-                  iframe._fxCleanup = () => {
-                     try {
-                        win.removeEventListener('pointermove', onIframePointerMove, {
-                           passive: true,
-                        });
-                     } catch { }
-                     try {
-                        mo.disconnect();
-                     } catch { }
-                  };
-
-                  // También actualizar cuando el iframe hace scroll (para tener coords coherentes)
-                  win.addEventListener(
-                     'scroll',
-                     (ev) => {
-                        // forzamos un tick de actualización usando la última tx/ty ya que el raf suaviza
-                        // (no hace falta nada más porque usamos clientX/Y que ya son relativos al viewport del iframe)
-                     },
-                     { passive: true }
-                  );
-
+                  win.addEventListener('pointermove', onIF, { passive: true });
+                  iframe._fxCleanup = () => { try { win.removeEventListener('pointermove', onIF); } catch { }; };
                   return true;
-               } catch (err) {
-                  return false; // probablemente cross-origin
-               }
+               } catch { return false; } // cross-origin
             }
 
-            // Fallback para iframes cross-origin: esconder el cursor cuando está encima
             function hookCrossOriginIframe(iframe) {
+               // No podemos seguir el puntero adentro => ocultamos el cursor para que no “quede clavado”
                iframe.addEventListener('mouseenter', () => cursor.style.setProperty('--s', '0'));
                iframe.addEventListener('mouseleave', () => cursor.style.setProperty('--s', '1'));
             }
 
-            // Escanear y enganchar todos los iframes dentro de Fancybox
             function hookFancyboxIframes(root = document) {
-               root
-                  .querySelectorAll(
-                     '.fancybox__container .fancybox__iframe, .fancybox__container iframe'
-                  )
-                  .forEach((iframe) => {
-                     // Evitar duplicados
-                     if (iframe._fxHooked) return;
-                     iframe._fxHooked = true;
-
-                     // Si el iframe aún no está listo, esperar a load
-                     const tryHook = () => {
-                        const ok = hookSameOriginIframe(iframe);
-                        if (!ok) hookCrossOriginIframe(iframe);
-                     };
-
-                     if (iframe.dataset.ready === 'true' || iframe.readyState === 'complete') {
-                        tryHook();
-                     } else {
-                        iframe.addEventListener('load', tryHook, { once: true });
-                     }
-                  });
+               root.querySelectorAll('.fancybox__container iframe').forEach(ifr => {
+                  if (ifr._fxHooked) return;
+                  ifr._fxHooked = true;
+                  const tryHook = () => { if (!hookSameOriginIframe(ifr)) hookCrossOriginIframe(ifr); };
+                  if (ifr.dataset.ready === 'true' || ifr.complete || ifr.readyState === 'complete') {
+                     tryHook();
+                  } else {
+                     ifr.addEventListener('load', tryHook, { once: true });
+                  }
+               });
             }
 
-            // Capturar contenedores/carousel de Fancybox y sus iframes cuando aparezcan/cambien
-            const domMO = new MutationObserver((muts) => {
+            function hookFancyboxContainers(root = document) {
+               root.querySelectorAll('.fancybox__container, .fancybox__viewport, .fancybox__track, .fancybox__slide, .fancybox__content')
+                  .forEach(el => el.addEventListener('pointermove', onPMove, { capture: true, passive: true }));
+            }
+
+            // Detectar Fancybox/carousel dinámicos
+            const mo = new MutationObserver(muts => {
                for (const m of muts) {
-                  m.addedNodes?.forEach((n) => {
+                  m.addedNodes?.forEach(n => {
                      if (n.nodeType !== 1) return;
-
-                     // Nuevos enlaces en el doc principal
-                     if (n.matches?.('a')) bindAnchorHover(n.parentNode || document);
-                     if (n.querySelectorAll) bindAnchorHover(n);
-
-                     // Fancybox container/carousel/viewport/track
                      if (
-                        n.matches?.(
-                           '.fancybox__container, .fancybox__carousel, .fancybox__viewport, .fancybox__track'
-                        ) ||
-                        n.querySelector?.(
-                           '.fancybox__container, .fancybox__carousel, .fancybox__viewport, .fancybox__track'
-                        )
+                        n.matches?.('.fancybox__container, .fancybox__viewport, .fancybox__track, .fancybox__slide, .fancybox__content') ||
+                        n.querySelector?.('.fancybox__container, .fancybox__viewport, .fancybox__track, .fancybox__slide, .fancybox__content')
                      ) {
                         const scope = n.querySelector ? n : document;
-                        // Seguir pointer también sobre el viewport/track para arrastres
-                        scope
-                           .querySelectorAll(
-                              '.fancybox__container, .fancybox__viewport, .fancybox__track, .fancybox__slide, .fancybox__content'
-                           )
-                           .forEach((el) => {
-                              el.addEventListener('pointermove', onPointerMove, {
-                                 capture: true,
-                                 passive: true,
-                              });
-                           });
-                        // Iframes dentro del modal
+                        hookFancyboxContainers(scope);
                         hookFancyboxIframes(scope);
                      }
                   });
                }
             });
-            domMO.observe(document.body, { childList: true, subtree: true });
+            mo.observe(document.body, { childList: true, subtree: true });
 
-            // Eventos nativos de Fancybox v5 (si están disponibles)
-            document.addEventListener('fancybox:show', (ev) => {
-               const c = ev?.detail?.instance?.container;
-               if (c) {
-                  c.addEventListener('pointermove', onPointerMove, {
-                     capture: true,
-                     passive: true,
-                  });
-                  hookFancyboxIframes(c);
-               }
+            // Eventos nativos Fancybox v5 (si están)
+            document.addEventListener('fancybox:show', e => {
+               const c = e?.detail?.instance?.container;
+               if (c) { hookFancyboxContainers(c); hookFancyboxIframes(c); }
             });
-            document.addEventListener('fancybox:done', (ev) => {
-               const c = ev?.detail?.instance?.container;
-               if (c) hookFancyboxIframes(c);
+            document.addEventListener('fancybox:done', e => {
+               const c = e?.detail?.instance?.container;
+               if (c) { hookFancyboxContainers(c); hookFancyboxIframes(c); }
             });
-            document.addEventListener('fancybox:closing', (ev) => {
-               // Limpieza opcional si guardaste handlers por iframe:
-               ev?.detail?.instance?.container?.querySelectorAll?.('iframe').forEach((ifr) => {
-                  ifr._fxCleanup?.();
-                  delete ifr._fxCleanup;
-               });
+            document.addEventListener('fancybox:closing', e => {
+               e?.detail?.instance?.container?.querySelectorAll?.('iframe').forEach(ifr => { ifr._fxCleanup?.(); });
             });
-
-            // Opcional: ocultar al salir de la ventana
-            window.addEventListener('mouseleave', () => cursor.style.setProperty('--s', '0'));
-            window.addEventListener('mouseenter', () => cursor.style.setProperty('--s', '1'));
          })();
+
       </script>
 
       <script>

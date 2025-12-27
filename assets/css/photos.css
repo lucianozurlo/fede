@@ -100,11 +100,17 @@ body:not(.tt-boxed) .tt-section-inner.tt-wrap .tt-grid.ttgr-gap-40 .tt-grid-top,
   background: var(--color-fede-orange);
 }
 .lg-toolbar {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
 }
 .lg-backdrop,
 .lg-outer {
   z-index: 999999 !important;
+}
+.lg-backdrop {
+    background-color: #fff;
+}
+.lg-toolbar .lg-icon:hover {
+    color: #000;
 }
 #lg-counter {
   display: none;
@@ -177,13 +183,13 @@ body:not(.tt-boxed) .tt-section-inner.tt-wrap .tt-grid.ttgr-gap-40 .tt-grid-top,
   background-color: var(--color-fede-orange);
 }
 .lg-actions .lg-icon {
-  filter: brightness(1);
+  filter: brightness(2);
   width: 22px;
   height: 22px;
   transition: all 0.3s ease;
 }
 .lg-actions .lg-icon:hover {
-  filter: brightness(5);
+  filter: brightness(0);
 }
 .lg-actions .lg-prev:after,
 .lg-actions .lg-next:before {
