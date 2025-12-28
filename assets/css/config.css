@@ -72,7 +72,9 @@ h6,
   font-family: "PP Telegraf", sans-serif !important;
   font-weight: normal;
 }
-
+textarea {
+  resize: none !important;
+}
 p {
   color: var(--color-fede-fv);
   font-size: 16px;
@@ -92,11 +94,9 @@ h2 + span {
   justify-content: center;
   gap: 10px;
 }
-
 .fw-200 {
   font-weight: 200 !important;
 }
-
 .bg-vectors {
   position: absolute;
   top: 0;
