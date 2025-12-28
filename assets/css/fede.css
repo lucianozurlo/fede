@@ -464,9 +464,9 @@ body.tt-boxed #work .tt-wrap {
 
 /* SERVICES */
 #services {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 55px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 55px;
 }
 #services h2 + span {
   margin-bottom: 60px;
@@ -797,6 +797,7 @@ body.tt-boxed #services .tt-wrap {
 }
 #contact .col .socials a img {
   width: 32px;
+  filter: grayscale(1) brightness(0.44);
 }
 #contact .col .socials a p {
   font-family: "PP Telegraf";
@@ -806,6 +807,8 @@ body.tt-boxed #services .tt-wrap {
   margin: 0;
   padding: 0;
   text-transform: uppercase;
+  color: var(--color-fede-fv);
+  transition: all 0.35s ease-in-out;
 }
 #contact .col .socials a * {
   transition: all 0.35s ease-in-out;
@@ -813,15 +816,16 @@ body.tt-boxed #services .tt-wrap {
 #contact .col .socials a:hover {
   transform: scale(0.8);
 }
-#contact .col .socials a:hover img,
+
 #contact .col .socials a:hover p {
-  -webkit-filter: invert(1) brightness(2);
-  filter: invert(1) brightness(2);
+  color: var(--color-fede-orange);
 }
 #contact .col .socials a:hover img {
   width: 32px;
   margin-top: 12px;
+  filter: grayscale(0) brightness(1);
 }
+
 #contact .col .socials a .circle {
   position: absolute;
   width: 80px;
@@ -835,6 +839,9 @@ body.tt-boxed #services .tt-wrap {
 #contact .col .socials a:hover .circle {
   background-color: var(--color-fede-fv);
   transform: scale(1.25);
+}
+#contact .btn:hover {
+  color: var(--color-fede-orange);
 }
 .btn {
   width: 100%;

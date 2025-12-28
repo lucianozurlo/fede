@@ -17,26 +17,26 @@ $desc  = trim($data['project_description'] ?? '');
 
 if (!$name || !$email || !$type) {
   http_response_code(400);
-  echo json_encode(['ok'=>false, 'error'=>'Faltan campos obligatorios.']); exit;
+  echo json_encode(['ok'=>false, 'error'=>'Required fields are missing.']); exit;
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   http_response_code(400);
-  echo json_encode(['ok'=>false, 'error'=>'Email inválido.']); exit;
+  echo json_encode(['ok'=>false, 'error'=>'Invalid email.']); exit;
 }
 
-$to = 'info@mailtest.com';
-$subject = 'Nuevo proyecto: ' . $type;
+$to = 'fvaccarezza@gmail.com';
+$subject = 'New project: ' . $type;
 
-$text = "Nombre: $name\nEmail: $email\nProject type: $type\n\n$desc";
-$html = '<h2>Nuevo mensaje del formulario</h2>'
-      . '<p><strong>Nombre:</strong> '.htmlspecialchars($name).'</p>'
-      . '<p><strong>Email:</strong> '.htmlspecialchars($email).'</p>'
+$text = "Name: $name\nE-mail: $email\nProject type: $type\n\n$desc";
+$html = '<h2>New form message</h2>'
+      . '<p><strong>Name:</strong> '.htmlspecialchars($name).'</p>'
+      . '<p><strong>E-mail:</strong> '.htmlspecialchars($email).'</p>'
       . '<p><strong>Project type:</strong> '.htmlspecialchars($type).'</p>'
       . '<p><strong>Project description:</strong></p>'
       . '<pre style="white-space:pre-wrap;margin:0;">'.htmlspecialchars($desc).'</pre>';
 
 $boundary = md5(uniqid(time()));
-$headers  = "From: Website Form <no-reply@" . $_SERVER['HTTP_HOST'] . ">\r\n";
+$headers  = "From: <no-reply@" . $_SERVER['HTTP_HOST'] . ">\r\n";
 $headers .= "Reply-To: ".sprintf('"%s" <%s>', addslashes($name), $email)."\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: multipart/alternative; boundary=\"".$boundary."\"\r\n";
@@ -52,4 +52,4 @@ $body .= "--$boundary--";
 $ok = @mail($to, '=?UTF-8?B?'.base64_encode($subject).'?=', $body, $headers);
 
 if ($ok) echo json_encode(['ok'=>true]);
-else { http_response_code(500); echo json_encode(['ok'=>false, 'error'=>'Error enviando el correo.']); }
+else { http_response_code(500); echo json_encode(['ok'=>false, 'error'=>'Error sending the email.']); }
