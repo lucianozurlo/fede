@@ -343,10 +343,11 @@ html .fancybox__backdrop {
   right: 74px;
   width: 24px;
   height: 24px;
+  opacity: 0.5;
   transition: all 0.2s ease-in-out;
 }
 .modal-simple.submmodal a:hover.submodal-close {
-  opacity: 0.8;
+  opacity: 1;
 }
 .modal-simple.submmodal .content {
   width: 100%;
