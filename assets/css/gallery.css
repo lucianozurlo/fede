@@ -8,7 +8,6 @@
     grid-template-columns: 1fr;
   }
 }
-
 .gallery .stamp {
   position: absolute;
   width: 70px;
@@ -17,7 +16,6 @@
   right: -35px;
   border: none;
 }
-
 .card {
   position: relative;
   display: flex;
@@ -112,7 +110,6 @@
   font-size: 16px;
   line-height: 20px;
 }
-
 .card .meta p:last-child {
   font-weight: 800;
 }
@@ -128,7 +125,6 @@ html .fancybox__backdrop {
   -webkit-backdrop-filter: unset !important ;
   backdrop-filter: unset !important ;
 }
-
 .fancybox__slide:has(.modal-full) {
   padding: 0;
 }
@@ -157,16 +153,14 @@ html .fancybox__backdrop {
   padding: 24px;
   border-radius: 0;
 }
-
 .modal-full .bg-vectors {
   z-index: -1;
 }
-
 .modal-item {
   display: flex;
   flex-direction: row;
+  max-width: 600px;
 }
-
 .modal-item .number {
   font-size: 58px;
   font-weight: 800;
@@ -174,7 +168,6 @@ html .fancybox__backdrop {
   min-width: 75px;
   color: var(--color-fede-fv);
 }
-
 .modal-item p {
   font-weight: 400;
   font-size: 16px;
@@ -184,12 +177,10 @@ html .fancybox__backdrop {
   margin-left: 0.5px;
   color: var(--color-fede-fv);
 }
-
 .modal-item p.ans {
   color: var(--color-fede-fv-gray);
   margin-bottom: 0;
 }
-
 .modal-full a.close,
 .modal-simple a.close {
   width: 420px;
@@ -205,14 +196,12 @@ html .fancybox__backdrop {
   z-index: 9999999;
   transition: all 0.2s ease-in-out;
 }
-
 .modal-full a:hover.close,
 .modal-simple a:hover.close {
   color: var(--color-fede-white);
   background-color: var(--color-fede-fv);
   border-radius: 6px;
 }
-
 .fancybox__footer,
 .fancybox__caption {
   display: none !important;
@@ -223,7 +212,6 @@ html .fancybox__backdrop {
 .fancybox__container:not(.is-compact) .fancybox__slide.has-close-btn {
   padding: 0;
 }
-
 .has-iframe .fancybox__content {
   width: 100% !important;
   height: 100% !important;
@@ -246,7 +234,7 @@ html .fancybox__backdrop {
 /* ======= Flags globales ======= */
 
 /********/
-/* #works[hidden] {
+/* #work[hidden] {
    display: none;
 } */
 
@@ -263,7 +251,6 @@ html .fancybox__backdrop {
   z-index: 99990;
   transition: all 0.2s ease-in-out;
 }
-
 .modal-simple .content {
   display: flex;
   flex-direction: column;
@@ -327,7 +314,7 @@ html .fancybox__backdrop {
   margin-top: 26px;
   z-index: -1;
 }
-.modal-simple.submmodal .work-items {
+.modal-simple.submmodal .works-items {
   width: 100%;
   max-width: 1320px;
   display: flex;
@@ -335,7 +322,7 @@ html .fancybox__backdrop {
   justify-items: center;
   justify-content: center;
 }
-.modal-simple.submmodal .work-items a {
+.modal-simple.submmodal .works-items a {
   color: var(--color-fede-fv);
   background-color: transparent;
   /* width: 220px; */
@@ -346,7 +333,7 @@ html .fancybox__backdrop {
   border-radius: 7px;
   transition: all 0.35s ease-in-out;
 }
-.modal-simple.submmodal .work-items a:hover {
+.modal-simple.submmodal .works-items a:hover {
   color: var(--color-fede-white);
   background-color: var(--color-fede-fv);
 }
@@ -359,7 +346,7 @@ html .fancybox__backdrop {
   transition: all 0.2s ease-in-out;
 }
 .modal-simple.submmodal a:hover.submodal-close {
-  opacity: .8;
+  opacity: 0.8;
 }
 .modal-simple.submmodal .content {
   width: 100%;
@@ -368,7 +355,7 @@ html .fancybox__backdrop {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 65px;
+  gap: 39px;
 }
 
 /* --- SERVICES MODALS --- */
@@ -394,18 +381,18 @@ html .fancybox__backdrop {
   align-items: center;
   gap: 8px;
 }
-.modal-simple.services-modals .work-items {
+.modal-simple.services-modals .works-items {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px 16px;
   margin-block: 16px;
 }
-.modal-simple.services-modals .work-items a {
+.modal-simple.services-modals .works-items a {
   text-decoration: none;
   color: #111;
   padding: 4px 0;
   line-height: 1.2;
 }
-.modal-simple.services-modals .work-items a:hover {
+.modal-simple.services-modals .works-items a:hover {
   text-decoration: underline;
 }

@@ -56,8 +56,8 @@
                                        <a href="#about" data-offset="60" data-clear-gallery>About</a>
                                     </li>
                                     <li>
-                                       <a href="#work" data-offset="-50" data-clear-gallery>Work</a>
-                                       <a href="#" data-modal-open="#works">Work</a>
+                                       <a href="#works" data-offset="-50" data-clear-gallery>Works</a>
+                                       <a href="#" data-modal-open="#modal-works">Works</a>
                                     </li>
                                     <li>
                                        <a href="#services" data-offset="40" data-clear-gallery>Services</a>
@@ -121,7 +121,7 @@
                      </div>
 
                      <div class="tt-section-inner tt-wrap">
-                        <h2 class="section-title hola"><a href="#work" data-offset="-50">Hola!</a></h2>
+                        <h2 class="section-title hola"><a href="#works" data-offset="-50">Hola!</a></h2>
 
                         <div id="hola-foto" class="tt-row">
                            <div class="tt-col-md-6">
@@ -171,7 +171,7 @@
                      </div>
                   </div>
 
-                  <div id="work" class="tt-section">
+                  <div id="works" class="tt-section">
                      <div class="bg-vectors">
                         <div class="pos top-left">
                            <img src="assets/img/bg-lines/bg-lines3.svg" />
@@ -179,7 +179,7 @@
                      </div>
 
                      <div class="tt-section-inner tt-wrap">
-                        <h2 class="section-title">WorkS</h2>
+                        <h2 class="section-title">Works</h2>
                         <span>
                            <img src="assets/img/work-brush.svg" alt="" />
                            <p>Some of what I've done over the years.</p>
@@ -700,12 +700,15 @@
       </main>
 
       <!-- SUBMODAL -->
-      <div class="modal-simple submmodal" id="works" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-simple submmodal" id="modal-works" role="dialog" aria-modal="true" aria-hidden="true">
          <div class="modal__backdrop" data-modal-close></div>
          <div class="modal__dialog" role="document">
             <div class="bg-vectors">
-               <div class="pos top-left">
-                  <img src="assets/img/bg-lines/bg-modal-goback.svg" />
+               <div class="pos bottom-left">
+                  <img src="assets/img/bg-lines/modal-bg1.svg" />
+               </div>
+               <div class="pos top-right">
+                  <img src="assets/img/bg-lines/modal-bg2.svg" />
                </div>
             </div>
             <header>
@@ -715,19 +718,19 @@
                </a>
             </header>
             <div class="content">
-               <div class="work-items">
+               <div class="works-items">
                   <a href="#" data-modal-close data-gallery-target="frog-bazar">FROG BAZAR.</a>
                   <a href="#" data-modal-close data-gallery-target="estudio-32">ESTUDIO 32.</a>
                   <a href="#" data-modal-close data-gallery-target="opame">OPAME.</a>
                   <a href="#" data-modal-close data-gallery-target="nmp">N.M, P.</a>
                </div>
-               <div class="work-items">
+               <div class="works-items">
                   <a href="#" data-modal-close data-gallery-target="cleo-pay">CLEO.</a>
                   <a href="#" data-modal-close data-gallery-target="michi-bristro">MICHI BISTRO.</a>
                   <a href="#" data-modal-close data-gallery-target="broke">BROKE.</a>
                   <a href="#" data-modal-close data-gallery-target="big-mother-energy">BIG MOTHER ENERGY.</a>
                </div>
-               <div class="work-items">
+               <div class="works-items">
                   <a href="#" data-modal-close data-gallery-target="ui-ux">UI / UX.</a>
                   <a href="#" data-modal-close data-gallery-target="web">WEB.</a>
                   <a href="#" data-modal-close data-gallery-target="logofolio">LOGOFOLIO.</a>
@@ -738,131 +741,120 @@
       </div>
 
       <!-- MODAL Process -->
-      <div class="modal-simple services-modals" id="modal-process" role="dialog" aria-modal="true" aria-hidden="true">
-         <div class="modal__backdrop" data-modal-close></div>
-         <div class="modal__dialog" role="document">
-            <div class="bg-vectors">
-               <div class="pos top-right">
-                  <img src="assets/img/bg-lines/modal-bg-lines2.svg" />
-               </div>
-            </div>
-            <header>
-               <div class="tt-section-inner tt-wrap">
-                  <h2 class="section-title">Process</h2>
-                  <span>
-                     <img src="assets/img/modal-process.svg" alt="" />
-                     <p>How Things Are Done</p>
-                  </span>
-               </div>
-            </header>
-            <div class="content">
-               <div class="modal-item">
-                  <div class="number">1</div>
-                  <div>
-                     <p>Discovery & Research</p>
-                     <p class="ans">
-                        It all starts with getting to know your needs. I dive into your goals and
-                        audience, making sure we're clear on the vision and direction.
-                     </p>
-                  </div>
-               </div>
-               <div class="modal-item">
-                  <div class="number">2</div>
-                  <div>
-                     <p>Concept & Ideation</p>
-                     <p class="ans">
-                        Time to brainstorm! I sketch out ideas and share early concepts to get your
-                        input, so we're aligned from the start.
-                     </p>
-                  </div>
-               </div>
-               <div class="modal-item">
-                  <div class="number">3</div>
-                  <div>
-                     <p>Design & Development</p>
-                     <p class="ans">
-                        I bring the design to life, from wireframes to the final look. Your feedback
-                        helps me fine-tune until everything's just right.
-                     </p>
-                  </div>
-               </div>
-               <div class="modal-item">
-                  <div class="number">4</div>
-                  <div>
-                     <p>Review & Delivery</p>
-                     <p class="ans">
-                        I'll walk you through the final design, make any last tweaks, and hand over
-                        all the files. I'm here if you need further support, too!
-                     </p>
-                  </div>
-               </div>
-            </div>
-            <a href="#" data-modal-close class="close">Got it!</a>
-         </div>
-      </div>
-
-      <!-- MODAL FAQs -->
-      <div class="modal-simple services-modals" id="modal-faqs" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-simple submmodal" id="modal-process" role="dialog" aria-modal="true" aria-hidden="true">
          <div class="modal__backdrop" data-modal-close></div>
          <div class="modal__dialog" role="document">
             <div class="bg-vectors">
                <div class="pos bottom-left">
-                  <img src="assets/img/bg-lines/modal-bg-lines1.svg" />
+                  <img src="assets/img/bg-lines/modal-bg1.svg" />
+               </div>
+               <div class="pos top-right">
+                  <img src="assets/img/bg-lines/modal-bg2.svg" />
                </div>
             </div>
             <header>
-               <div class="tt-section-inner tt-wrap">
-                  <h2 class="section-title">FAQs</h2>
-                  <span>
-                     <img src="assets/img/modal-faq.svg" alt="" />
-                     <p>Frequently Asked Questions</p>
-                  </span>
-               </div>
+               <h3 class="section-title">PROCESS</h3>
+               <a href="#" data-modal-close data-clear-gallery class="submodal-close">
+                  <img src="assets/img/icon-close.svg" alt="">
+               </a>
             </header>
             <div class="content">
                <div class="modal-item">
-                  <div class="number">1</div>
                   <div>
-                     <p>Who do you usually work with?</p>
+                     <p><strong>(01)</strong> Discovery & Research</p>
                      <p class="ans">
-                        I've worked with startups, small businesses, and larger companies in all
-                        kinds of industries: tech, retail, e-commerce, you name it.
+                        It all starts with getting to know your needs. I dive into your goals and audience, making sure
+                        we're clear on the vision and direction.
                      </p>
                   </div>
                </div>
                <div class="modal-item">
-                  <div class="number">2</div>
                   <div>
-                     <p>How long does the project take?</p>
+                     <p><strong>(02)</strong> Concept & Ideation</p>
                      <p class="ans">
-                        It depends on the project. A logo might take a week or two, while a full
-                        branding package or website could take a month. I'll provide a timeline once
-                        we figure out the details.
+                        Time to brainstorm! I sketch out ideas and share early concepts to get your input, so we're
+                        aligned from the start.
                      </p>
                   </div>
                </div>
                <div class="modal-item">
-                  <div class="number">3</div>
                   <div>
-                     <p>How much do you charge?</p>
+                     <p><strong>(03)</strong> Design & Development</p>
                      <p class="ans">
-                        Prices vary based on the project, but I'll give you a clear quote after we
-                        chat. No surprises, promise.
+                        I bring the design to life, from wireframes to the final look. Your feedback helps me fine-tune
+                        until everything's just right.
                      </p>
                   </div>
                </div>
                <div class="modal-item">
-                  <div class="number">4</div>
                   <div>
-                     <p>What if I want changes?</p>
+                     <p><strong>(04)</strong> Review & Delivery</p>
                      <p class="ans">
-                        Most projects include 2-3 rounds of revisions. If you need more tweaks, we
-                        can discuss about that.
+                        I'll walk you through the final design, make any last tweaks, and hand over all the files. I'm
+                        here if you need further support, too!
                      </p>
                   </div>
                </div>
             </div>
-            <a href="#" data-modal-close class="close">Understood!</a>
+         </div>
+      </div>
+
+      <!-- MODAL FAQs -->
+      <div class="modal-simple submmodal" id="modal-faqs" role="dialog" aria-modal="true" aria-hidden="true">
+         <div class="modal__backdrop" data-modal-close></div>
+         <div class="modal__dialog" role="document">
+            <div class="bg-vectors">
+               <div class="pos bottom-left">
+                  <img src="assets/img/bg-lines/modal-bg1.svg" />
+               </div>
+               <div class="pos top-right">
+                  <img src="assets/img/bg-lines/modal-bg2.svg" />
+               </div>
+            </div>
+            <header>
+               <h3 class="section-title">FAQS</h3>
+               <a href="#" data-modal-close data-clear-gallery class="submodal-close">
+                  <img src="assets/img/icon-close.svg" alt="">
+               </a>
+            </header>
+            <div class="content">
+               <div class="modal-item">
+                  <div>
+                     <p><strong>(01)</strong> Who do you usually work with?</p>
+                     <p class="ans">
+                        I've worked with startups, small businesses, and larger companies in all kinds of industries:
+                        tech, retail, e-commerce, you name it.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-item">
+                  <div>
+                     <p><strong>(02)</strong> How long does the project take?</p>
+                     <p class="ans">
+                        It depends on the project. A logo might take a week or two, while a full branding package or
+                        website could take a month. I'll provide a timeline once we figure out the details.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-item">
+                  <div>
+                     <p><strong>(03)</strong> How much do you charge?</p>
+                     <p class="ans">
+                        Prices vary based on the project, but I'll give you a clear quote after we chat. No surprises,
+                        promise.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-item">
+                  <div>
+                     <p><strong>(04)</strong> What if I want changes?</p>
+                     <p class="ans">
+                        Most projects include 2-3 rounds of revisions. If you need more tweaks, we can discuss about
+                        that.
+                     </p>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
 
