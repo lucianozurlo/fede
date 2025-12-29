@@ -144,7 +144,9 @@ html .fancybox__backdrop {
   overflow: hidden;
 }
 
+/* ========================================================= */
 /* GALERIA */
+/* ========================================================= */
 .modal-full {
   min-height: 100vh;
   display: flex;
@@ -181,6 +183,7 @@ html .fancybox__backdrop {
   color: var(--color-fede-fv-gray);
   margin-bottom: 0;
 }
+
 .modal-full a.close,
 .modal-simple a.close {
   width: 568px;
@@ -203,6 +206,8 @@ html .fancybox__backdrop {
   background-color: var(--color-fede-fv);
   border-radius: 6px;
 }
+
+/* Fancybox */
 .fancybox__footer,
 .fancybox__caption {
   display: none !important;
@@ -216,12 +221,6 @@ html .fancybox__backdrop {
   padding: 0;
 }
 
-@media (max-width: 520px) {
-  .card .media img {
-    height: 280px;
-  }
-}
-
 /* Responsive thumb */
 @media (max-width: 520px) {
   .card .media img {
@@ -229,14 +228,17 @@ html .fancybox__backdrop {
   }
 }
 
-/* ======= Flags globales ======= */
+/* ========================================================= */
+/* MODAL SIMPLE (drop desde arriba + rebote largo + salida arriba) */
+/* ========================================================= */
 
-/********/
-/* #work[hidden] {
-   display: none;
-} */
+/* Duraciones (mantenelas sincronizadas con el JS) */
+:root {
+  --modal-open-ms: 820ms;
+  --modal-close-ms: 420ms;
+  --modal-fade-ms: 420ms;
+}
 
-/* MODAL SIMPLE */
 .modal-simple {
   position: fixed;
   inset: 0;
@@ -244,47 +246,112 @@ html .fancybox__backdrop {
   grid-template-rows: 1fr;
   align-items: center;
   justify-items: center;
+  z-index: 99990;
+
   pointer-events: none;
   opacity: 0;
-  z-index: 99990;
-  transition: all 0.2s ease-in-out;
+  transition: opacity var(--modal-fade-ms) ease;
 }
+
 .modal-simple .content {
   display: flex;
   flex-direction: column;
   gap: 36px;
 }
+
 .modal-simple .modal__dialog {
   position: relative;
   display: flex;
   background: var(--color-fede-white);
   border-radius: 10px;
-  box-shadow: 0 20px 60px var(--color-fede-fv);
-  transform: translateY(12px) scale(0.98);
-  opacity: 0;
+  /* box-shadow: 0 20px 60px var(--color-fede-fv); */
   padding: 48px 64px;
-  transition: all 0.2s ease-in-out;
+
+  /* Estado base (cerrado): arriba y transparente */
+  transform: translateY(-180px) scale(0.98);
+  opacity: 0;
+
+  transition: none;
+  will-change: transform, opacity;
 }
+
+/* Bloqueo scroll */
 .modal-open {
   overflow: hidden;
 }
+
+/* Backdrop */
 .modal__backdrop {
   position: absolute;
   inset: 0;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   background: var(--color-fede-black-cc);
+
+  opacity: 0;
+  transition: opacity var(--modal-fade-ms) ease;
 }
+
+/* Abierto */
 .modal-simple.is-open {
   pointer-events: auto;
   opacity: 1;
 }
-.modal-simple.is-open .modal__dialog {
-  transform: translateY(0) scale(1);
+.modal-simple.is-open .modal__backdrop {
   opacity: 1;
 }
 
+/* Entrada: más lenta + rebote más largo */
+.modal-simple.is-open .modal__dialog {
+  animation: modalDropBounce var(--modal-open-ms) cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Cierre: fade + salida hacia arriba (más lento) */
+.modal-simple.is-closing {
+  pointer-events: none;
+  opacity: 0; /* el contenedor también se va en fade */
+}
+.modal-simple.is-closing .modal__backdrop {
+  opacity: 0;
+}
+.modal-simple.is-closing .modal__dialog {
+  animation: modalUpOut var(--modal-close-ms) cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+/* Keyframes (rebote más notorio y largo) */
+@keyframes modalDropBounce {
+  0%   { opacity: 0; transform: translateY(-240px) scale(0.98); }
+  60%  { opacity: 1; transform: translateY(16px) scale(1); }   /* antes 36px */
+  78%  { opacity: 1; transform: translateY(-8px) scale(1); }   /* antes -18px */
+  90%  { opacity: 1; transform: translateY(4px) scale(1); }    /* antes 10px */
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+@keyframes modalUpOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-240px) scale(0.98); }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .modal-simple,
+  .modal__backdrop {
+    transition: none !important;
+  }
+  .modal-simple.is-open .modal__dialog,
+  .modal-simple.is-closing .modal__dialog {
+    animation: none !important;
+  }
+  .modal-simple .modal__dialog {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ========================================================= */
 /* SUBMODAL */
+/* ========================================================= */
 .modal-simple.submmodal .modal__backdrop {
   background: transparent !important;
 }
@@ -323,7 +390,6 @@ html .fancybox__backdrop {
 .modal-simple.submmodal .works-items a {
   color: var(--color-fede-fv);
   background-color: transparent;
-  /* width: 220px; */
   text-align: center;
   font-size: 14px;
   letter-spacing: 6px;
@@ -357,7 +423,9 @@ html .fancybox__backdrop {
   gap: 39px;
 }
 
+/* ========================================================= */
 /* --- SERVICES MODALS --- */
+/* ========================================================= */
 .modal-simple.services-modals .modal__dialog {
   min-height: unset;
   width: 732px;
@@ -367,14 +435,8 @@ html .fancybox__backdrop {
   flex-direction: column;
 }
 .modal-simple.services-modals header {
-  /* display: flex;
-   align-items: center;
-   gap: 12px; */
   margin-bottom: 16px;
 }
-/* .modal-simple.services-modals header .section-title {
-   margin: 0;
-} */
 .modal-simple.services-modals header span {
   display: inline-flex;
   align-items: center;
