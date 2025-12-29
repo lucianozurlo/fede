@@ -159,7 +159,7 @@ html .fancybox__backdrop {
 .modal-item {
   display: flex;
   flex-direction: row;
-  max-width: 600px;
+  max-width: 568px;
 }
 .modal-item .number {
   font-size: 58px;
@@ -183,15 +183,16 @@ html .fancybox__backdrop {
 }
 .modal-full a.close,
 .modal-simple a.close {
-  width: 420px;
+  width: 568px;
   height: 41px;
   background-image: url(../img/modal-button-close.png);
   background-size: contain;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 10px auto;
   border-radius: 2px;
+  font-size: 16px;
   color: var(--color-fede-fv);
   z-index: 9999999;
   transition: all 0.2s ease-in-out;
@@ -206,9 +207,6 @@ html .fancybox__backdrop {
 .fancybox__caption {
   display: none !important;
 }
-/* .fancybox__container {
-   --fancybox-bg: #3a3a39;
-} */
 .fancybox__container:not(.is-compact) .fancybox__slide.has-close-btn {
   padding: 0;
 }
