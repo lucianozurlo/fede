@@ -303,7 +303,8 @@ html .fancybox__backdrop {
 
 /* Entrada: más lenta + rebote más largo */
 .modal-simple.is-open .modal__dialog {
-  animation: modalDropBounce var(--modal-open-ms) cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: modalDropBounce var(--modal-open-ms) cubic-bezier(0.16, 1, 0.3, 1)
+    both;
 }
 
 /* Cierre: fade + salida hacia arriba (más lento) */
@@ -320,17 +321,37 @@ html .fancybox__backdrop {
 
 /* Keyframes (rebote más notorio y largo) */
 @keyframes modalDropBounce {
-  0%   { opacity: 0; transform: translateY(-240px) scale(0.98); }
-  60%  { opacity: 1; transform: translateY(16px) scale(1); }   /* antes 36px */
-  78%  { opacity: 1; transform: translateY(-8px) scale(1); }   /* antes -18px */
-  90%  { opacity: 1; transform: translateY(4px) scale(1); }    /* antes 10px */
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translateY(-240px) scale(0.98);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(16px) scale(1);
+  } /* antes 36px */
+  78% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1);
+  } /* antes -18px */
+  90% {
+    opacity: 1;
+    transform: translateY(4px) scale(1);
+  } /* antes 10px */
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-
 @keyframes modalUpOut {
-  from { opacity: 1; transform: translateY(0) scale(1); }
-  to   { opacity: 0; transform: translateY(-240px) scale(0.98); }
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-240px) scale(0.98);
+  }
 }
 
 /* Accesibilidad */
