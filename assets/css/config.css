@@ -11,7 +11,7 @@
   --color-fede-fv-00: #3a3a3900;
   --filter-fede-gray: grayscale(1) brightness(0.43);
   --filter-fede-orange: grayscale(0) brightness(1);
-
+  --transparent: transparent;
   --tt-trans-cubic: all 0.7s cubic-bezier(0.34, 1.5, 0.9, 1);
 }
 

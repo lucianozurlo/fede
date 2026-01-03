@@ -17,7 +17,6 @@
       <link rel="stylesheet" href="assets/css/anim.css" />
       <link rel="stylesheet" href="assets/css/config.css">
       <link rel="stylesheet" href="assets/css/fede.css" />
-      <link rel="stylesheet" href="assets/css/responsive.css" />
       <link rel="stylesheet" href="assets/css/preload.css">
       <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css" />
@@ -51,8 +50,7 @@
                            <img src="assets/img/fv-logo.svg" alt="" />
                         </a>
                      </div>
-
-                     <nav class="mob-no tt-main-menu tt-submenu-dark tt-m-menu-center">
+                     <nav class="tt-main-menu tt-submenu-dark tt-m-menu-center">
                         <div class="tt-main-menu-holder">
                            <div class="tt-main-menu-inner">
                               <div class="tt-main-menu-content">
@@ -75,63 +73,13 @@
                            </div>
                         </div>
                      </nav>
-
                   </div>
                   <div class="tt-header-col">
-
-                     <div id="tt-ol-menu-toggle-btn-wrap">
-                        <div class="tt-ol-menu-toggle-btn-text">
-                           <span class="text-menu" data-hover="Open"></span>
-                           <span class="text-close"></span>
-                        </div>
-                        <div class="tt-ol-menu-toggle-btn-holder">
-                           <a href="#" class="tt-ol-menu-toggle-btn magnetic-item"><span></span><span></span></a>
+                     <div id="tt-m-menu-toggle-btn-wrap">
+                        <div class="tt-m-menu-toggle-btn-holder">
+                           <a href="#" class="tt-m-menu-toggle-btn"><span></span></a>
                         </div>
                      </div>
-
-                     <nav class="mob-ok tt-overlay-menu tt-ol-menu-center tt-ol-menu-count">
-                        <div class="tt-ol-menu-holder">
-                           <div class="tt-ol-menu-inner tt-wrap">
-                              <div class="tt-ol-menu-content">
-
-                                 <ul class="tt-ol-menu-list">
-                                    <li class="common-li">
-                                       <a href="#about" data-offset="60" data-clear-gallery>About</a>
-                                    </li>
-                                    <li class="tt-ol-submenu-wrap">
-                                       <div class="tt-ol-submenu-trigger">
-                                          <a id="works-submenu" href="#" class="tt-ol-submenu-link">Works</a>
-                                       </div>
-                                       <div class="tt-ol-submenu">
-                                          <ul class="tt-ol-submenu-list">
-                                             <li><a href="#">/ FROG BAZAR.</a></li>
-                                             <li><a href="#">/ ESTUDIO 32.</a></li>
-                                             <li><a href="#">/ OPAME.</a></li>
-                                             <li><a href="#">/ NM, P.</a></li>
-                                             <li><a href="#">/ CLEO.</a></li>
-                                             <li><a href="#">/ MICHI BISTRO.</a></li>
-                                             <li><a href="#">/ BROKE.</a></li>
-                                             <li><a href="#">/ BIG MOTHER ENERGY.</a></li>
-                                             <li><a href="#">/ UI / UX.</a></li>
-                                             <li><a href="#">/ WEB.</a></li>
-                                             <li><a href="#">/ LOGOFOLIO.</a></li>
-                                             <li><a href="#">/ PHOTOGRAPHY.</a></li>
-                                          </ul>
-                                       </div>
-                                    </li>
-                                    <li class="common-li">
-                                       <a href="#services" data-offset="40" data-clear-gallery>Services</a>
-                                    </li>
-                                    <li class="common-li">
-                                       <a href="#contact" data-offset="14" data-clear-gallery>Contact</a>
-                                    </li>
-                                 </ul>
-
-                              </div>
-                           </div>
-                        </div>
-                     </nav>
-
                   </div>
                </div>
             </header>
@@ -934,57 +882,6 @@
       <script src="assets/js/zoom-photos-bridge.js" defer></script>
       <script src="assets/js/preload.js"></script>
       <script src="assets/js/noise.js"></script>
-
-      <script>
-         document.addEventListener("DOMContentLoaded", () => {
-            const worksSubmenu = document.getElementById("works-submenu");
-            const menuToggleBtn = document.querySelector(".tt-ol-menu-toggle-btn");
-            const submenuTrigger = document.querySelector(".tt-ol-submenu-trigger");
-
-            const mq = window.matchMedia("(max-width: 960px)");
-
-            const onWorksClick = (e) => {
-               e.preventDefault();
-               document.body.classList.toggle("hide-others");
-            };
-
-            const onToggleClick = (e) => {
-               e.preventDefault();
-               setTimeout(() => {
-                  document.body.classList.remove("hide-others");
-                  if (submenuTrigger) submenuTrigger.classList.remove("tt-ol-submenu-open");
-               }, 500);
-            };
-
-            const bind = () => {
-               if (worksSubmenu) worksSubmenu.addEventListener("click", onWorksClick);
-               if (menuToggleBtn) menuToggleBtn.addEventListener("click", onToggleClick);
-            };
-
-            const unbind = () => {
-               if (worksSubmenu) worksSubmenu.removeEventListener("click", onWorksClick);
-               if (menuToggleBtn) menuToggleBtn.removeEventListener("click", onToggleClick);
-            };
-
-            const apply = () => {
-               if (mq.matches) bind();
-               else {
-                  unbind();
-                  // opcional: limpiar estado por si venías de mobile
-                  document.body.classList.remove("hide-others");
-                  if (submenuTrigger) submenuTrigger.classList.remove("tt-ol-submenu-open");
-               }
-            };
-
-            apply();
-
-            // escucha cambios de breakpoint
-            if (mq.addEventListener) mq.addEventListener("change", apply);
-            else mq.addListener(apply); // fallback Safari viejo
-         });
-
-      </script>
-
    </body>
 
 </html>
