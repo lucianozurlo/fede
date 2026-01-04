@@ -78,7 +78,6 @@
   const finish = () => {
     finished = true;
 
-    // Si reduce motion, limpiamos directo
     if (
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -90,8 +89,6 @@
     preloader.classList.add("is-done");
     if (underlay) underlay.classList.add("is-done");
 
-    // Esperamos a que termine el underlay (que sale con delay),
-    // así se ve el naranja “acompañando” el barrido.
     if (underlay) {
       underlay.addEventListener(
         "animationend",
@@ -102,7 +99,6 @@
         { once: true }
       );
     } else {
-      // fallback
       preloader.addEventListener(
         "animationend",
         (e) => {
@@ -118,6 +114,11 @@
   trackImages();
   requestAnimationFrame(render);
 
-  // Hook opcional
+  // Hook opcional para controlar progreso manual
   window.__setLoaderProgress = (v) => setTarget(clamp(v, 0, 100));
 })();
+
+// ocultar loading de fancybox
+Fancybox.bind("[data-fancybox]", {
+  showLoading: false, // si tu build lo respeta
+});
