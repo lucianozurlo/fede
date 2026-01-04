@@ -143,8 +143,8 @@
   filter: var(--filter-fede-orange);
 }
 .scroll.bottom {
-    position: absolute;
-    bottom: 100px;
+  position: absolute;
+  bottom: 100px;
 }
 
 /* HEADER MENU */

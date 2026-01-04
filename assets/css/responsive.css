@@ -170,7 +170,7 @@
 @media only screen and (max-width: 739px) {
   body:not(.tt-boxed) .tt-header-inner,
   .tt-header-inner:not(.tt-wrap) {
-    padding-top: 32px;
+    padding-top: 18px;
     padding-left: 40px;
     padding-right: 20px;
   }
