@@ -240,7 +240,6 @@
   #services {
     padding-top: 80px;
   }
-
   #services .tt-row {
     width: 100%;
   }
@@ -261,5 +260,13 @@
   }
   #services h4 {
     margin-top: 120px;
+  }
+
+  /* WORKS */
+  #content-wrap.work .title-work {
+    padding-top: 120px;
+  }
+  #content-wrap.work .work-title h1 {
+    font-size: 45px;
   }
 }
