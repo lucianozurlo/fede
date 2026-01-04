@@ -94,6 +94,59 @@
   }
 }
 
+/* SCROLL */
+.scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 111;
+  margin: 65px 0 0;
+}
+.scroll .arrow {
+  width: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-filter: var(--filter-fede-gray);
+  filter: var(--filter-fede-gray);
+  transition: all 0.4s cubic-bezier(0.34, 3, 0.44, 1);
+}
+.scroll .arrow .scroll-arrow {
+  position: absolute;
+  margin-top: 2px;
+  width: 8px;
+  transform: translateY(0px);
+}
+.scroll p {
+  color: var(--color-fede-orange);
+  -webkit-filter: var(--filter-fede-gray);
+  filter: var(--filter-fede-gray);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  margin-left: 0.2px;
+  margin-top: 4px;
+  margin-bottom: 0;
+  transform: translateY(0px);
+  transition: all 0.4s cubic-bezier(0.34, 3, 0.44, 1);
+}
+.scroll:hover .arrow .scroll-arrow,
+.scroll:hover p {
+  transform: translateY(5px);
+  transition: all 0.4s cubic-bezier(0.34, 3, 0.44, 1);
+}
+.scroll:hover .arrow,
+.scroll:hover p {
+  -webkit-filter: var(--filter-fede-orange);
+  filter: var(--filter-fede-orange);
+}
+.scroll.bottom {
+    position: absolute;
+    bottom: 100px;
+}
+
 /* HEADER MENU */
 /* MENU */
 #tt-ol-menu-toggle-btn-wrap {
