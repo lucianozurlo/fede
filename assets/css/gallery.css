@@ -115,7 +115,7 @@
 }
 /* Fancybox tweaks */
 .fancybox__container {
-  --fancybox-bg: #3a3a39dd;
+  --fancybox-bg: transparent;
   z-index: 9999;
 }
 .fancybox__container:not(.is-compact) .fancybox__slide.has-close-btn {
