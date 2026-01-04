@@ -1,4 +1,4 @@
-/* Gap 40px */
+/* Gap 40px (tu theme) */
 .tt-grid.ttgr-gap-40,
 .tt-grid.ttgr-gap-40 .tt-grid-top {
   margin-left: 40px;
@@ -20,14 +20,16 @@ body:not(.tt-boxed) .tt-section-inner.tt-wrap .tt-grid.ttgr-gap-40 .tt-grid-top,
   margin: 0 20px 40px 20px;
 }
 
-/* gallery */
+/* Isotope widths */
 #gallery .grid-sizer,
 #gallery .tt-grid-item {
   width: 33.333%;
 }
+
 #gallery .gutter-sizer {
   width: 16px;
 }
+
 #gallery .tt-grid-item.is-wide {
   width: 66.666%;
 }
@@ -54,152 +56,42 @@ body:not(.tt-boxed) .tt-section-inner.tt-wrap .tt-grid.ttgr-gap-40 .tt-grid-top,
     width: 0;
   }
 }
-.tt-gallery-item,
-.tt-gallery-image-wrap,
-.tt-gallery-image {
+
+/* Tile */
+.photo-tile,
+.tt-gallery-image,
+#gallery img {
   position: relative;
 }
-.tt-gallery-image-wrap {
+
+.photo-tile {
   overflow: hidden;
   isolation: isolate;
+  background: #fff;
 }
-.tt-gallery-image-wrap::before {
+
+.photo-tile::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--color-fede-orange);
-  opacity: 1;
   z-index: 1;
   pointer-events: none;
-  transition: var(--tt-trans-cubic);
+  background: var(--color-fede-orange);
+  transition: background 0.7s cubic-bezier(0.34, 1.5, 0.9, 1);
 }
-.tt-gallery-image-wrap img {
+
+.photo-tile img {
   position: relative;
   z-index: 2;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
   mix-blend-mode: multiply;
-  transition: var(--tt-trans-cubic);
-}
-.tt-gallery.ttga-hover .tt-gallery-image-hover-zoom {
-  transition: unset !important;
-}
-.tt-gallery.ttga-hover .tt-gallery-item:hover .tt-gallery-image-hover-zoom {
-  transform: unset !important;
-}
-.tt-gallery-image-wrap::before {
-  transition: background 0.7s cubic-bezier(0.34, 1.5, 0.9, 1);
-}
-#gallery .tt-gallery-item:hover .tt-gallery-image-wrap::before,
-#gallery.no-tint .tt-gallery-image-wrap::before {
-  background: var(--color-fede-orange-00);
-}
-#gallery:not(.no-tint) .tt-gallery-image-wrap::before {
-  background: var(--color-fede-orange);
-}
-.lg-toolbar {
-  background-color: transparent;
-}
-.lg-backdrop,
-.lg-outer {
-  z-index: 999999 !important;
-}
-.lg-backdrop {
-    background-color: #fff;
-}
-.lg-toolbar .lg-icon:hover {
-    color: #000;
-}
-#lg-counter {
-  display: none;
 }
 
-/* SWITCH */
-.switch-holder {
-  position: fixed;
-  right: calc(50% - 688px);
-  z-index: 9999;
-}
-.switch-holder .tt-switch {
-  pointer-events: auto;
-  position: relative;
-  margin-right: -20px;
-}
-.tt-switch {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  margin: 0;
-  z-index: 1;
-}
-.tt-switch input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  margin: 0;
-  padding: 0;
-  width: 23px;
-  height: 23px;
-}
-.tt-switch-ui {
-  width: 23px;
-  height: 50px;
-  border-radius: 999px;
-  box-sizing: border-box;
-  position: relative;
-  border: 2px solid #2d2d2d;
-  background: transparent;
-  transition: border-color 0.35s ease;
-}
-.tt-switch-ui::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -2px;
-  width: 23px;
-  height: 23px;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: transparent;
-  border: 2px solid #2d2d2d;
-  box-sizing: border-box;
-  transition:
-    top 0.35s ease,
-    background-color 0.35s ease,
-    border-color 0.35s ease;
-}
-.tt-switch input:checked + .tt-switch-ui {
-  border-color: var(--color-fede-orange);
-}
-.tt-switch input:checked + .tt-switch-ui::after {
-  top: calc(100% - 21px);
-  background: var(--color-fede-orange);
-  border-color: var(--color-fede-orange);
-}
-.lg-progress-bar .lg-progress {
-  background-color: var(--color-fede-orange);
-}
-.lg-actions .lg-icon {
-  filter: brightness(2);
-  width: 22px;
-  height: 22px;
-  transition: all 0.3s ease;
-}
-.lg-actions .lg-icon:hover {
-  filter: brightness(0);
-}
-.lg-actions .lg-prev:after,
-.lg-actions .lg-next:before {
-  display: none;
-}
-.lg-actions .lg-prev {
-  background: url("../img/arrow-prev.svg") center / contain no-repeat !important;
-  transform: translateX(70px);
-}
-.lg-actions .lg-next {
-  background: url("../img/arrow-next.svg") center / contain no-repeat !important;
-  transform: translateX(-70px);
+/* Hover “limpio” */
+#gallery .tt-grid-item:hover .photo-tile::before,
+#gallery.no-tint .photo-tile::before {
+  background: var(--color-fede-orange-00);
 }

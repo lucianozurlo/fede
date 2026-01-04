@@ -11,24 +11,32 @@
       <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
       <link rel="stylesheet" href="../../assets/vendor/normalize/normalize.min.css" />
       <link rel="stylesheet" href="../../assets/vendor/fontawesome/css/fontawesome-all.min.css" />
-      <link rel="stylesheet" href="../../assets/vendor/lightgallery/css/lightgallery.min.css" />
       <link rel="stylesheet" href="../../assets/css/helper.css" />
       <link rel="stylesheet" href="../../assets/css/theme.css" />
       <link rel="stylesheet" href="../../assets/fonts/fonts.css" />
-      <link rel="stylesheet" href="../../assets/css/anim.css" />
       <link rel="stylesheet" href="../../assets/css/config.css">
       <link rel="stylesheet" href="../../assets/css/fede.css" />
+      <link rel="stylesheet" href="../../assets/css/responsive.css" />
+      <link rel="stylesheet" href="../../assets/css/preload.css">
       <link rel="stylesheet" href="../../assets/css/work.css" />
       <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css" />
       <link rel="stylesheet" href="../../assets/css/gallery.css" />
-      <link rel="stylesheet" href="../../assets/css/testimonials.css" />
-      <link rel="stylesheet" href="../../assets/css/form.css" />
       <link rel="stylesheet" href="../../assets/css/photos.css">
    </head>
 
    <body id="body" class="tt-transition tt-boxed tt-smooth-scroll work photography">
       <main id="body-inner">
+         <div id="preloader-under" aria-hidden="true"></div>
+         <div id="preloader" aria-live="polite" aria-label="Cargando">
+            <div class="pl-sweep" aria-hidden="true"></div>
+            <div class="pl-inner">
+               <div class="pl-top">LOADING</div>
+               <div class="pl-percent" data-percent>(0%)</div>
+               <div class="pl-bottom">PF FV 2026</div>
+            </div>
+         </div>
+
          <div id="scroll-container">
             <div id="content-wrap" class="work">
                <div class="bg-vectors">
@@ -64,787 +72,544 @@
                      </div>
                   </div>
 
+
                   <div class="tt-section no-padding-bottom">
-                     <div class="tt-section-inner tt-wrap" style="display: block">
-                        <div class="tt-gallery ttga-hover">
-                           <div class="tt-grid ttgr-layout-3 ttgr-gap-40 ttgr-portrait ttgr-not-cropped">
+                     <div class="tt-section-inner tt-wrap" style="display:block">
+                        <div class="tt-grid ttgr-layout-3 ttgr-gap-40 ttgr-portrait ttgr-not-cropped">
 
-                              <!-- <div class="switch-holder">
-                                 <label class="tt-switch">
-                                    <input id="toggleTint" type="checkbox" checked />
-                                    <span class="tt-switch-ui" aria-hidden="true"></span>
-                                 </label>
-                              </div> -->
+                           <div id="gallery" class="tt-grid-items-wrap isotope-items-wrap">
 
-                              <div id="gallery" class="tt-grid-items-wrap isotope-items-wrap lightgallery">
-                                 <div class="grid-sizer"></div>
-                                 <div class="gutter-sizer"></div>
+                              <div class="grid-sizer"></div>
+                              <div class="gutter-sizer"></div>
 
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/01.jpg" class="tt-gallery-item lg-trigger">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/01_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/01_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/02.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/02_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/02_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/03.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/03_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/03_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/04.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/04_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/04_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/05.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/05_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/05_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/06.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/06_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/06_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item is-wide">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/07.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/07_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item is-wide">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/07_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/08.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/08_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/08_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/09.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/09_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/09_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/10.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/10_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/10_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/11.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/11_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/11_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/12.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/12_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/12_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/13.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/13_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/13_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/14.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/14_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/14_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/15.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/15_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/15_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/16.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/16_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/16_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/17.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/17_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/17_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/18.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/18_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/18_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/19.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/19_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/19_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/20.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/20_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/20_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/21.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/21_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/21_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/22.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/22_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/22_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/23.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/23_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/23_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/24.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/24_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/24_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/25.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/25_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/25_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/26.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/26_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/26_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/27.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/27_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/27_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/28.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/28_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/28_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/29.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/29_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/29_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/30.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/30_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/30_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/31.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/31_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/31_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/32.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/32_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/32_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/33.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/33_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/33_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/34.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/34_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/34_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/35.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/35_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/35_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/36.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/36_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/36_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/37.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/37_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/37_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/38.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/38_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/38_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/39.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/39_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/39_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/40.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/40_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/40_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/41.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/41_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/41_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/42.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/42_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/42_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/43.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/43_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/43_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/44.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/44_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/44_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/45.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/45_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/45_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/46.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/46_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/46_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/47.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/47_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/47_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/48.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/48_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/48_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/49.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/49_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/49_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/50.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/50_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/50_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/51.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/51_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/51_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/52.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/52_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/52_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/53.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/53_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/53_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/54.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/54_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/54_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/55.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/55_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/55_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/56.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/56_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/56_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/57.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/57_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/57_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/58.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/58_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/58_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
-                                 <div class="tt-grid-item isotope-item">
-                                    <div class="ttgr-item-inner">
-                                       <a href="photos/59.jpg" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                          <div class="tt-gallery-item-inner">
-                                             <div class="tt-gallery-image-wrap anim-zoomin">
-                                                <figure class="tt-gallery-image ttgr-height">
-                                                   <img src="photos/th/59_th.jpg" alt="image" />
-                                                </figure>
-                                             </div>
-                                          </div>
-                                       </a>
+                              </div>
+                              <div class="tt-grid-item isotope-item">
+                                 <div class="ttgr-item-inner">
+                                    <div class="photo-tile">
+                                       <figure class="tt-gallery-image ttgr-height">
+                                          <img src="photos/th/59_th.jpg" alt="image" />
+                                       </figure>
                                     </div>
                                  </div>
                               </div>
@@ -926,10 +691,11 @@
       <script src="../../assets/vendor/isotope/imagesloaded.pkgd.min.js"></script>
       <script src="../../assets/vendor/isotope/isotope.pkgd.min.js"></script>
       <script src="../../assets/vendor/isotope/packery-mode.pkgd.min.js"></script>
-      <script src="../../assets/vendor/lightgallery/js/lightgallery-all.min.js"></script>
       <script src="../../assets/vendor/jquery.mousewheel.min.js"></script>
       <script src="../../assets/js/theme.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
+      <script src="../../assets/js/preload.js"></script>
+      <script src="../../assets/js/noise.js"></script>
       <script src="../../assets/js/work.js"></script>
       <script src="../../assets/js/photos.js"></script>
    </body>

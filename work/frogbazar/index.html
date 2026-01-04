@@ -16,6 +16,8 @@
       <link rel="stylesheet" href="../../assets/fonts/fonts.css" />
       <link rel="stylesheet" href="../../assets/css/config.css">
       <link rel="stylesheet" href="../../assets/css/fede.css" />
+      <link rel="stylesheet" href="../../assets/css/responsive.css" />
+      <link rel="stylesheet" href="../../assets/css/preload.css">
       <link rel="stylesheet" href="../../assets/css/work.css" />
       <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css" />
@@ -23,6 +25,16 @@
 
    <body id="body" class="tt-transition tt-boxed tt-smooth-scroll work frogbazar">
       <main id="body-inner">
+         <div id="preloader-under" aria-hidden="true"></div>
+         <div id="preloader" aria-live="polite" aria-label="Cargando">
+            <div class="pl-sweep" aria-hidden="true"></div>
+            <div class="pl-inner">
+               <div class="pl-top">LOADING</div>
+               <div class="pl-percent" data-percent>(0%)</div>
+               <div class="pl-bottom">PF FV 2026</div>
+            </div>
+         </div>
+
          <div id="scroll-container">
             <div id="content-wrap" class="work">
                <div class="bg-vectors">
@@ -184,6 +196,8 @@
       <script src="../../assets/vendor/jquery.mousewheel.min.js"></script>
       <script src="../../assets/js/theme.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
+      <script src="../../assets/js/preload.js"></script>
+      <script src="../../assets/js/noise.js"></script>
       <script src="../../assets/js/work.js"></script>
    </body>
 
