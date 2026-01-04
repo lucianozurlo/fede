@@ -280,8 +280,7 @@ body.tt-boxed .tt-wrap .tt-row {
   font-weight: 400 !important;
 }
 #page-header .home-title span {
-  /* font-size: 190px; */
-  font-size: 11vw;
+  font-size: 190px;
   line-height: 0.9;
   margin: 0;
 }

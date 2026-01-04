@@ -1,3 +1,15 @@
+/* SPECIAL
+   ================= */
+@media only screen and (max-width: 1420px) {
+  #page-header .home-title span {
+    font-size: 11vw;
+  }
+    #page-header.ph-full {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+  }
+}
 /* TABLET: Landscape 
    ================= */
 @media only screen and (max-width: 1200px) {
