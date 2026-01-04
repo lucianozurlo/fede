@@ -30,6 +30,9 @@
   .mob-ok {
     display: unset !important;
   }
+  .stamp {
+    display: none;
+  }
 
   /* MENU */
   #tt-ol-menu-toggle-btn-wrap {
@@ -185,5 +188,75 @@
   }
   .pl-percent {
     font-size: 11vw !important;
+  }
+  h2.section-title {
+    font-size: 53px;
+  }
+  #about #hola-foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  #about #hola-foto div:first-child {
+    order: 1;
+  }
+  #about #hola-foto .photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto 0;
+  }
+  #about #hola-foto .info {
+    position: relative;
+    pointer-events: none !important;
+    transform: unset !important;
+  }
+  #about #hola-foto .info p {
+    text-align: center;
+    color: var(--color-fede-fv);
+  }
+  #about #hola-foto:hover .photo {
+    transform: unset !important;
+  }
+  #works {
+    padding-top: 80px;
+  }
+  #works .card {
+    padding-top: 0;
+  }
+  #works .card .meta {
+    flex-direction: column;
+    gap: 7px;
+  }
+  #works .card .meta p:last-child {
+    display: none;
+  }
+  #works .gallery {
+    gap: 35px;
+  }
+  #services {
+    padding-top: 80px;
+  }
+
+  #services .tt-row {
+    width: 100%;
+  }
+  #services .services-container {
+    width: 341px;
+    gap: 40px;
+  }
+  #services .services-container .items {
+    gap: 14px;
+  }
+  #services .services-container .services-buttons .buttons1 a {
+    width: 156px;
+    background-image: url(../img/services-button1-mob.png);
+  }
+  #services .services-container .services-buttons a.buttons2 {
+    width: 341px;
+    background-image: url(../img/services-button2-mob.png);
   }
 }

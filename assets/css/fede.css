@@ -416,7 +416,7 @@ body.tt-boxed .tt-wrap .tt-row {
   margin-left: 18px;
   transition: all 0.7s cubic-bezier(0.34, 1.5, 0.9, 1);
 }
-#about .tt-wrap #hola-foto:hover .photo {
+#about #hola-foto:hover .photo {
   transform: scale(1.015);
 }
 #about .tt-wrap .photo .fede {
@@ -426,7 +426,7 @@ body.tt-boxed .tt-wrap .tt-row {
 #about .tt-wrap .photo .fede img {
   mix-blend-mode: multiply;
 }
-#about .tt-wrap #hola-foto:hover .photo .fede {
+#about #hola-foto:hover .photo .fede {
   background-color: var(--color-fede-orange-light);
 }
 #about .tt-wrap .photo .film {
@@ -520,14 +520,14 @@ body.tt-boxed .tt-wrap .tt-row {
   -webkit-filter: unset;
   filter: unset;
 }
-#about .tt-wrap #hola-foto:hover .photo .film.bg .vectors img.photo-vector {
+#about #hola-foto:hover .photo .film.bg .vectors img.photo-vector {
   opacity: 1;
 }
-#about .tt-wrap #hola-foto .info {
+#about #hola-foto .info {
   transform: translateX(0);
   transition: all 0.7s cubic-bezier(0.34, 1.5, 0.9, 1);
 }
-#about .tt-wrap #hola-foto:hover .info {
+#about #hola-foto:hover .info {
   transform: translateX(30px);
 }
 
