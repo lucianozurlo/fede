@@ -29,12 +29,18 @@
 
    <body id="body" class="tt-boxed tt-smooth-scroll">
       <main id="body-inner">
-         <div id="preloader-under" aria-hidden="true"></div>
+         <!-- PRELOADER -->
          <div id="preloader" aria-live="polite" aria-label="Cargando">
+            <!-- dos elementos que rotan con el progreso -->
+            <div class="pl-rotator pl-rotator--tr" aria-hidden="true"></div>
+            <div class="pl-rotator pl-rotator--bl" aria-hidden="true"></div>
+
+            <!-- sweep del barrido -->
             <div class="pl-sweep" aria-hidden="true"></div>
+
             <div class="pl-inner">
                <div class="pl-top">LOADING</div>
-               <div class="pl-percent noise-fill-hover" data-percent>(0%)</div>
+               <div class="pl-percent" data-percent>(0%)</div>
                <div class="pl-bottom">PF FV 2026</div>
             </div>
          </div>
