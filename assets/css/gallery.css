@@ -64,26 +64,9 @@
   opacity: 1;
 }
 .card .media:hover img.img-base {
-  /* transform: scale(1.06); */
   -webkit-filter: saturate(1.15) contrast(1.06);
   filter: saturate(1.15) contrast(1.06);
 }
-
-/* .card .overlay {
-   position: absolute;
-   inset: 0;
-   background: linear-gradient(
-      to top,
-      rgba(2, 6, 23, 0.9),
-      rgba(2, 6, 23, 0.2) 60%,
-      transparent 80%
-   );
-   opacity: 0;
-   transition: all 0.2s ease-in-out;
-}
-.card:hover .overlay {
-   opacity: 0.05;
-} */
 
 .card .meta {
   margin-top: 11px;
@@ -115,8 +98,10 @@
 }
 /* Fancybox tweaks */
 .fancybox__container {
-  --fancybox-bg: #3a3a39dd;
+  --fancybox-bg: #f8f8f8ff;
+  /* backdrop-filter: blur(5px); */
   z-index: 9999;
+  transition: all 0.2s ease-in-out;
 }
 .fancybox__container:not(.is-compact) .fancybox__slide.has-close-btn {
   padding: 0;
