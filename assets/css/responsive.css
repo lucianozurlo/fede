@@ -7,7 +7,7 @@
   #page-header.ph-full {
     display: flex;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100dvh;
   }
 }
 /* TABLET: Landscape 
@@ -157,7 +157,7 @@
   #page-header.ph-full {
     display: flex;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100dvh;
   }
   #page-header .home-title span {
     font-size: 12.8vw;

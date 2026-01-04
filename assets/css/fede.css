@@ -366,7 +366,7 @@ body.tt-boxed .tt-wrap .tt-row {
   padding-bottom: 180px;
   display: flex;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 #about h2.section-title {
   margin-bottom: 38px;

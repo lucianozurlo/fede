@@ -148,7 +148,7 @@ html .fancybox__backdrop {
 /* GALERIA */
 /* ========================================================= */
 .modal-full {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -293,7 +293,7 @@ html .fancybox__backdrop {
 @keyframes modalDropBounce {
   0% {
     opacity: 0;
-    transform: translateY(-100vh);
+    transform: translateY(-100dvh);
   }
   50% {
     opacity: 1;
@@ -316,7 +316,7 @@ html .fancybox__backdrop {
   }
   to {
     opacity: 0;
-    transform: translateY(-100vh);
+    transform: translateY(-100dvh);
   }
 }
 
