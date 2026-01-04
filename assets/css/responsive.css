@@ -4,7 +4,7 @@
   #page-header .home-title span {
     font-size: 11vw;
   }
-    #page-header.ph-full {
+  #page-header.ph-full {
     display: flex;
     align-items: center;
     min-height: 100vh;
@@ -178,6 +178,6 @@
     width: 60px;
   }
   .scroll.bottom {
-  bottom: 150px;
-}
+    bottom: 150px;
+  }
 }
