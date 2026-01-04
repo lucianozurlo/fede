@@ -177,4 +177,7 @@
   .tt-logo a {
     width: 60px;
   }
+  .scroll.bottom {
+  bottom: 150px;
+}
 }
