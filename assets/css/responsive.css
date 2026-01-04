@@ -180,4 +180,7 @@
   .scroll.bottom {
     bottom: 40px;
   }
+  .scroll p {
+    display: none;
+  }
 }

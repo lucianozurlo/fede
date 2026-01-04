@@ -329,7 +329,7 @@ body.tt-boxed .tt-wrap .tt-row {
 #page-header .min-titles {
   font-size: 16px !important;
   letter-spacing: 8px;
-  margin-left: 8px;
+  margin-left: 0;
   font-weight: 400 !important;
 }
 #page-header .home-title span {
