@@ -52,7 +52,6 @@
   opacity: 1;
 }
 
-
 /* FADE */
 .fade-in {
   -webkit-animation:
@@ -96,6 +95,10 @@
 }
 
 /* HEADER MENU */
+/* MENU */
+#tt-ol-menu-toggle-btn-wrap {
+  display: none;
+}
 .tt-header-col {
   display: flex;
   align-items: flex-start;
@@ -265,7 +268,7 @@ body.tt-boxed .tt-wrap .tt-row {
 #page-header .hover-fv .home-title {
   -webkit-text-stroke: 2px var(--color-fede-orange-00);
   transition: all 1s cubic-bezier(0.34, 1.5, 0.9, 1);
-      max-width: 100vw;
+  max-width: 100vw;
 }
 #page-header .hover-fv:hover .home-title {
   -webkit-text-stroke: 2px var(--color-fede-orange);

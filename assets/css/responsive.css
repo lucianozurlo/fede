@@ -18,6 +18,59 @@
   .mob-ok {
     display: unset !important;
   }
+
+  /* MENU */
+  #tt-ol-menu-toggle-btn-wrap {
+    display: flex;
+  }
+  .tt-ol-menu-toggle-btn {
+    margin-top: 22px;
+    transition: all 0.2s ease-in-out;
+  }
+  .tt-ol-menu-toggle-btn * {
+    transition: all 0.2s ease-in-out !important;
+  }
+  .tt-ol-menu-toggle-btn span {
+    width: 32px;
+  }
+  .tt-ol-menu-toggle-btn span::before,
+  .tt-ol-menu-toggle-btn span::after {
+    background-color: var(--color-fede-fv);
+    transition: all 0.2s ease-in-out;
+  }
+  .tt-ol-menu-toggle-btn span::before {
+    top: -4px;
+    width: 32px;
+  }
+  .tt-ol-menu-toggle-btn span::after {
+    width: 32px;
+    bottom: -4px;
+  }
+  .tt-ol-menu-toggle-btn span:last-child::before {
+    top: -12px;
+  }
+  .tt-ol-menu-toggle-btn span:last-child::after {
+    display: none;
+  }
+  body.tt-ol-menu-open .tt-ol-menu-toggle-btn span:first-child::before {
+    top: 0;
+    opacity: 0;
+  }
+  body.tt-ol-menu-open .tt-ol-menu-toggle-btn span {
+    width: 32px;
+  }
+  body.tt-ol-menu-open .tt-ol-menu-toggle-btn span::before {
+    width: 32px;
+  }
+  body.tt-ol-menu-open .tt-ol-menu-toggle-btn span::after {
+    width: 32px;
+  }
+  body.tt-ol-menu-open .tt-ol-menu-toggle-btn {
+    margin-top: 11px;
+  }
+  .tt-overlay-menu {
+    background-color: var(--color-fede-white);
+  }
   .tt-ol-submenu-wrap {
     display: list-item !important;
     transition: all 0.2s ease-in-out;
@@ -75,7 +128,7 @@
     margin-bottom: 45px;
   }
   body.hide-others .tt-ol-menu-list {
-    margin-top: 90px;
+    margin-top: 20px;
     gap: 0;
   }
   body.hide-others .tt-ol-submenu-wrap {
@@ -86,6 +139,13 @@
     opacity: 0;
     margin: 0;
     transition: all 0.2s ease-in-out;
+  }
+
+  /* HERO */
+  #page-header.ph-full {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
   }
 }
 
@@ -100,53 +160,5 @@
   }
   .tt-logo a {
     width: 60px;
-  }
-  .tt-ol-menu-toggle-btn {
-    margin-top: 22px;
-    transition: all 0.2s ease-in-out;
-  }
-  .tt-ol-menu-toggle-btn * {
-    transition: all 0.2s ease-in-out !important;
-  }
-  .tt-ol-menu-toggle-btn span {
-    width: 32px;
-  }
-  .tt-ol-menu-toggle-btn span::before,
-  .tt-ol-menu-toggle-btn span::after {
-    background-color: var(--color-fede-fv);
-    transition: all 0.2s ease-in-out;
-  }
-  .tt-ol-menu-toggle-btn span::before {
-    top: -4px;
-    width: 32px;
-  }
-  .tt-ol-menu-toggle-btn span::after {
-    width: 32px;
-    bottom: -4px;
-  }
-  .tt-ol-menu-toggle-btn span:last-child::before {
-    top: -12px;
-  }
-  .tt-ol-menu-toggle-btn span:last-child::after {
-    display: none;
-  }
-  body.tt-ol-menu-open .tt-ol-menu-toggle-btn span:first-child::before {
-    top: 0;
-    opacity: 0;
-  }
-  body.tt-ol-menu-open .tt-ol-menu-toggle-btn span {
-    width: 32px;
-  }
-  body.tt-ol-menu-open .tt-ol-menu-toggle-btn span::before {
-    width: 32px;
-  }
-  body.tt-ol-menu-open .tt-ol-menu-toggle-btn span::after {
-    width: 32px;
-  }
-  body.tt-ol-menu-open .tt-ol-menu-toggle-btn {
-    margin-top: 11px;
-  }
-  .tt-overlay-menu {
-    background-color: var(--color-fede-white);
   }
 }
