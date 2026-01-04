@@ -183,4 +183,7 @@
   .scroll p {
     display: none;
   }
+  .pl-percent {
+    font-size: 11vw;
+  }
 }
