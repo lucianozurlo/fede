@@ -192,16 +192,16 @@
   h2.section-title {
     font-size: 53px;
   }
-  #about #hola-foto {
+  #about .tt-wrap #hola-foto {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
   }
-  #about #hola-foto div:first-child {
+  #about .tt-wrap #hola-foto div:first-child {
     order: 1;
   }
-  #about #hola-foto .photo {
+  #about .tt-wrap #hola-foto .photo {
     position: relative;
     display: flex;
     justify-content: center;
@@ -209,16 +209,16 @@
     align-items: center;
     margin: 30px auto 0;
   }
-  #about #hola-foto .info {
+  #about .tt-wrap #hola-foto .info {
     position: relative;
     pointer-events: none !important;
     transform: unset !important;
   }
-  #about #hola-foto .info p {
+  #about .tt-wrap #hola-foto .info p {
     text-align: center;
     color: var(--color-fede-fv);
   }
-  #about #hola-foto:hover .photo {
+  #about .tt-wrap #hola-foto:hover .photo {
     transform: unset !important;
   }
   #works {
