@@ -14,14 +14,13 @@
    overflow: visible;
    perspective: 1200px;
    transform-style: preserve-3d;
-   overflow: visible;
 }
 
 .verbatim {
    position: absolute;
    top: 50%;
    left: 50%;
-   width: 540px; /* 540 x 237 el activo */
+   width: 540px;
    height: 237px;
    transform-origin: center center;
    transform: translate(-50%, -50%);

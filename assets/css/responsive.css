@@ -180,6 +180,10 @@
 /* MOBILE PHONES
    ============= */
 @media only screen and (max-width: 739px) {
+  body.tt-boxed .tt-wrap {
+    max-width: unset;
+  }
+
   .tt-logo a {
     width: 60px;
   }
@@ -259,7 +263,7 @@
   }
   #services .services-container .services-buttons a.buttons2 {
     width: 341px;
-    background-image: url(../img/services-button2-mob.png);
+    background-image: url(../img/button-mob.png);
   }
   #services h4 {
     margin-top: 120px;
@@ -271,5 +275,107 @@
   }
   #content-wrap.work .work-title h1 {
     font-size: 45px;
+  }
+
+  /* SERVICES */
+  /* #services [class*="tt-col-"],
+  #contact [class*="tt-col-"] {
+    padding-left: 25px;
+    padding-right: 25px;
+  } */
+  #services .words-container {
+    width: 100%;
+    margin: -5px auto 45px;
+  }
+
+  /* TESTIMONIALS */
+  .carousel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    overflow: unset;
+    padding: 50px 0;
+  }
+  .stage {
+    height: unset;
+    overflow: visible;
+    perspective: unset;
+    transform-style: unset;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 341px;
+  }
+  .verbatim,
+  .verbatim.hidden {
+    transform: unset !important;
+    filter: unset !important;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 16px !important;
+    opacity: 1 !important;
+    z-index: 1;
+    position: relative;
+    top: unset !important;
+    left: unset !important;
+    width: 100%;
+    transform-origin: center center;
+    will-change: transform, filter;
+    border-radius: 7px;
+    padding: 32px;
+    height: 100%;
+    gap: 14px;
+    flex-direction: column;
+  }
+  .verbatim img {
+    width: 62px;
+    height: 62px;
+    margin: 0;
+  }
+  .verbatim p {
+    margin: 0;
+    padding: 0;
+  }
+  .verbatim p:first-child {
+    position: absolute;
+    transform: translate(76px, -69px);
+  }
+  .verbatim p span {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4px;
+  }
+
+  /* CONTACT */
+  body.tt-boxed #contact .tt-wrap {
+    width: 341px;
+  }
+  #contact .tt-col-md-6 {
+    width: 100%;
+    max-width: 100%;
+  }
+  #contact form .field:nth-child(3) {
+    display: none;
+  }
+  #contact h3 {
+    text-align: center;
+  }
+  footer#contact .btn {
+    width: 341px;
+    background-image: url(../img/button-mob.png);
+  }
+  footer#contact .socials {
+    transform: unset;
+    justify-content: center;
+    margin-bottom: 75px;
+}
+  footer#contact .footer-bottom-full,
+  footer#contact .footer-bottom-cut {
+    height: 87.22vw;
+    -webkit-mask-image: url("../img/footer_lets-build-mob.svg");
+    mask-image: url("../img/footer_lets-build-mob.svg");
+  }
+  footer#contact {
+    padding-bottom: 88.22vw !important;
   }
 }

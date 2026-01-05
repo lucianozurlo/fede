@@ -762,7 +762,8 @@ footer .footer-bottom-full {
   -webkit-mask-mode: alpha;
   mask-mode: alpha;
 }
-footer#contact .footer-bottom-full {
+footer#contact .footer-bottom-full,
+footer#contact .footer-bottom-cut {
   height: 24vw;
   -webkit-mask-image: url("../img/footer_lets-build.svg");
   mask-image: url("../img/footer_lets-build.svg");
@@ -803,11 +804,6 @@ footer .footer-bottom-cut {
   mask-size: 100vw auto;
   -webkit-mask-mode: alpha;
   mask-mode: alpha;
-}
-footer#contact .footer-bottom-cut {
-  height: 24vw;
-  -webkit-mask-image: url("../img/footer_lets-build.svg");
-  mask-image: url("../img/footer_lets-build.svg");
 }
 footer .footer-ink {
   position: relative;
