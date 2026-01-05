@@ -35,11 +35,20 @@
   }
 
   /* MENU */
+  body:not(.tt-boxed) .tt-header-inner,
+  .tt-header-inner:not(.tt-wrap) {
+    padding-top: 4px;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-bottom: 16px;
+    backdrop-filter: blur(11px);
+    background-color: #ffffffaa;
+  }
   #tt-ol-menu-toggle-btn-wrap {
     display: flex;
   }
   .tt-ol-menu-toggle-btn {
-    margin-top: 22px;
+    margin-top: 16px;
     transition: all 0.2s ease-in-out;
   }
   .tt-ol-menu-toggle-btn * {
@@ -171,12 +180,6 @@
 /* MOBILE PHONES
    ============= */
 @media only screen and (max-width: 739px) {
-  body:not(.tt-boxed) .tt-header-inner,
-  .tt-header-inner:not(.tt-wrap) {
-    padding-top: 18px;
-    padding-left: 40px;
-    padding-right: 20px;
-  }
   .tt-logo a {
     width: 60px;
   }
