@@ -35,20 +35,28 @@
   }
 
   /* MENU */
+  .nav-fixed {
+    display: block;
+  }
+  .tt-logo {
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    z-index: 11111111;
+  }
+  .tt-ol-menu-toggle-btn {
+    background-color: #f8f8f8aa;
+    border-radius: 10px;
+    backdrop-filter: blur(11px);
+  }
   body:not(.tt-boxed) .tt-header-inner,
   .tt-header-inner:not(.tt-wrap) {
-    padding-top: 4px;
-    padding-left: 30px;
-    padding-right: 20px;
-    padding-bottom: 16px;
-    backdrop-filter: blur(11px);
-    background-color: #f8f8f8aa;
+    padding: 30px;
   }
   #tt-ol-menu-toggle-btn-wrap {
     display: flex;
   }
   .tt-ol-menu-toggle-btn {
-    margin-top: 16px;
     transition: all 0.2s ease-in-out;
   }
   .tt-ol-menu-toggle-btn * {
@@ -56,6 +64,15 @@
   }
   .tt-ol-menu-toggle-btn span {
     width: 32px;
+    position: absolute;
+    display: block;
+    top: calc(50% + 4px);
+  }
+  body.tt-ol-menu-open .tt-ol-menu-toggle-btn span {
+    top: 50%;
+  }
+  .tt-ol-menu-toggle-btn-text {
+    padding-right: 0;
   }
   .tt-ol-menu-toggle-btn span::before,
   .tt-ol-menu-toggle-btn span::after {
@@ -89,9 +106,7 @@
   body.tt-ol-menu-open .tt-ol-menu-toggle-btn span::after {
     width: 32px;
   }
-  body.tt-ol-menu-open .tt-ol-menu-toggle-btn {
-    margin-top: 11px;
-  }
+
   .tt-overlay-menu {
     background-color: var(--color-fede-white);
   }
@@ -368,7 +383,7 @@
     transform: unset;
     justify-content: center;
     margin-bottom: 75px;
-}
+  }
   footer#contact .footer-bottom-full,
   footer#contact .footer-bottom-cut {
     height: 87.22vw;

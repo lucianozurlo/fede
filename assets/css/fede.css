@@ -149,6 +149,9 @@
 
 /* HEADER MENU */
 /* MENU */
+.nav-fixed {
+  display: none;
+}
 #tt-ol-menu-toggle-btn-wrap {
   display: none;
 }
