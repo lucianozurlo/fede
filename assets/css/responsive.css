@@ -393,4 +393,31 @@
   footer#contact {
     padding-bottom: 88.22vw !important;
   }
+  footer#contact .footer-masked.footer1 {
+    -webkit-mask-image: url("../img/footer-1-mob.svg");
+    mask-image: url("../img/footer-1-mob.svg");
+  }
+  footer#contact .footer-masked.footer2,
+    footer#contact .footer-bottom-mask {
+
+    -webkit-mask-image: url("../img/footer-2-mob.svg");
+    mask-image: url("../img/footer-2-mob.svg");
+  }
+  footer#contact .footer-masked.footer3 {
+    -webkit-mask-image: url("../img/footer-3-mob.svg");
+    mask-image: url("../img/footer-3-mob.svg");
+  }
+  footer#contact .footer-ink.footer1 {
+    -webkit-mask-image: url("../img/footer-1-mob.svg");
+    mask-image: url("../img/footer-1-mob.svg");
+  }
+  footer#contact .footer-ink.footer2 {
+    -webkit-mask-image: url("../img/footer-2-mob.svg");
+    mask-image: url("../img/footer-2-mob.svg");
+  }
+  footer#contact .footer-ink.footer3 {
+    -webkit-mask-image: url("../img/footer-3-mob.svg");
+    mask-image: url("../img/footer-3-mob.svg");
+  }
+  
 }
