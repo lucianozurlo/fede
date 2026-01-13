@@ -17,6 +17,8 @@
       <link rel="stylesheet" href="assets/css/anim.css" />
       <link rel="stylesheet" href="assets/css/config.css">
       <link rel="stylesheet" href="assets/css/fede.css" />
+      <link rel="stylesheet" href="assets/css/work-footer.css" />
+
       <link rel="stylesheet" href="assets/css/preload.css">
       <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css" />
@@ -24,16 +26,17 @@
       <link rel="stylesheet" href="assets/css/testimonials.css" />
       <link rel="stylesheet" href="assets/css/form.css" />
       <link rel="stylesheet" href="assets/css/cursor.css">
+      <link rel="stylesheet" href="assets/css/responsive.css" />
    </head>
 
-   <body id="body" class="tt-boxed tt-smooth-scroll">
+   <body id="body" class="tt-boxed tt-smooth-scroll work">
       <main id="body-inner">
          <div id="preloader-under" aria-hidden="true"></div>
          <div id="preloader" aria-live="polite" aria-label="Loading">
             <div class="pl-sweep" aria-hidden="true"></div>
             <div class="pl-inner">
                <div class="pl-top">LOADING</div>
-               <div class="pl-percent noise-fill-hover" data-percent>(0%)</div>
+               <div class="pl-percent" data-percent>(0%)</div>
                <div class="pl-bottom">PF FV 2026</div>
             </div>
          </div>
@@ -41,16 +44,23 @@
          <div class="fx-cursor" aria-hidden="true"></div>
 
          <div id="scroll-container">
+            <div class="tt-logo mob-ok">
+               <a href="#page-header" id="main-logo" data-offset="0" data-clear-gallery>
+                  <img src="assets/img/fv-logo-vector.svg" alt="" />
+                  <img src="assets/img/fv-logo.svg" alt="" />
+               </a>
+            </div>
             <header id="tt-header" class="tt-header-fixed">
                <div class="tt-header-inner">
                   <div class="tt-header-col">
-                     <div class="tt-logo">
+                     <div class="tt-logo mob-no">
                         <a href="#page-header" id="main-logo" data-offset="0" data-clear-gallery>
                            <img src="assets/img/fv-logo-vector.svg" alt="" />
                            <img src="assets/img/fv-logo.svg" alt="" />
                         </a>
                      </div>
-                     <nav class="tt-main-menu tt-submenu-dark tt-m-menu-center">
+
+                     <nav class="mob-no tt-main-menu tt-submenu-dark tt-m-menu-center">
                         <div class="tt-main-menu-holder">
                            <div class="tt-main-menu-inner">
                               <div class="tt-main-menu-content">
@@ -73,13 +83,67 @@
                            </div>
                         </div>
                      </nav>
+
                   </div>
-                  <div class="tt-header-col">
-                     <div id="tt-m-menu-toggle-btn-wrap">
-                        <div class="tt-m-menu-toggle-btn-holder">
-                           <a href="#" class="tt-m-menu-toggle-btn"><span></span></a>
+                  <div class="nav-fixed">
+
+                     <div id="tt-ol-menu-toggle-btn-wrap">
+                        <div class="tt-ol-menu-toggle-btn-text">
+                           <span class="text-menu" data-hover="Open"></span>
+                           <span class="text-close"></span>
+                        </div>
+                        <div class="tt-ol-menu-toggle-btn-holder">
+                           <a href="#" class="tt-ol-menu-toggle-btn magnetic-item"><span></span><span></span></a>
                         </div>
                      </div>
+
+                     <nav class="mob-ok tt-overlay-menu tt-ol-menu-center tt-ol-menu-count">
+                        <div class="tt-ol-menu-holder">
+                           <div class="tt-ol-menu-inner tt-wrap">
+                              <div class="tt-ol-menu-content">
+
+                                 <ul class="tt-ol-menu-list">
+                                    <li class="common-li">
+                                       <a href="#about" data-offset="60" data-clear-gallery>About</a>
+                                    </li>
+                                    <li class="tt-ol-submenu-wrap">
+                                       <div class="tt-ol-submenu-trigger">
+                                          <a id="works-submenu" href="#" class="tt-ol-submenu-link">Works</a>
+                                       </div>
+                                       <div class="tt-ol-submenu">
+                                          <ul class="tt-ol-submenu-list">
+                                             <li>
+                                                <a class="media" data-fancybox="galeria" data-type="iframe"
+                                                   data-src="work/frogbazar/index.html" data-caption="frog-bazar">
+                                                   / FROG BAZAR.</a>
+                                             </li>
+                                             <li><a href="#">/ ESTUDIO 32.</a></li>
+                                             <li><a href="#">/ OPAME.</a></li>
+                                             <li><a href="#">/ NM, P.</a></li>
+                                             <li><a href="#">/ CLEO.</a></li>
+                                             <li><a href="#">/ MICHI BISTRO.</a></li>
+                                             <li><a href="#">/ BROKE.</a></li>
+                                             <li><a href="#">/ BIG MOTHER ENERGY.</a></li>
+                                             <li><a href="#">/ UI / UX.</a></li>
+                                             <li><a href="#">/ WEB.</a></li>
+                                             <li><a href="#">/ LOGOFOLIO.</a></li>
+                                             <li><a href="#">/ PHOTOGRAPHY.</a></li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li class="common-li">
+                                       <a href="#services" data-offset="40" data-clear-gallery>Services</a>
+                                    </li>
+                                    <li class="common-li">
+                                       <a href="#contact" data-offset="14" data-clear-gallery>Contact</a>
+                                    </li>
+                                 </ul>
+
+                              </div>
+                           </div>
+                        </div>
+                     </nav>
+
                   </div>
                </div>
             </header>
@@ -94,86 +158,23 @@
                      </div>
 
                      <div class="ph-caption text-uppercase">
-                        <div class="text-center color-fv min-titles spacing">Portfolio</div>
 
                         <div class="hover-fv">
                            <h1 class="ph-caption-title font-bold text-center color-fv">
                               <a href="#about" data-offset="60" class="home-title noise-fill-hover">
-                                 <span>Federico</span>
-                                 <span>Vaccarezza</span>
+                                 <span>PRUEBA WORKS</span>
                               </a>
                            </h1>
-                           <div class="stamp">
-                              <img src="assets/img/stamp/crafting.svg" alt="" />
-                              <img src="assets/img/stamp/crafting-a.svg" class="join" alt="" />
-                              <img src="assets/img/stamp/crafting-b.svg" class="inside" alt="" />
-                           </div>
+
                         </div>
 
-                        <div class="text-center color-fv min-titles spacing">2026</div>
                      </div>
+
                   </div>
                </div>
 
                <div id="page-content">
-                  <div id="about" class="tt-section padding-bottom-xlg-90 psi-image-is-light">
-                     <div class="bg-vectors">
-                        <div class="pos bottom-right">
-                           <img src="assets/img/bg-lines/bg-lines2.svg" />
-                        </div>
-                     </div>
 
-                     <div class="tt-section-inner tt-wrap">
-                        <h2 class="section-title hola"><a href="#works" class="noise-fill-hover"
-                              data-offset="40">Hola!</a></h2>
-
-                        <a href="#works" data-offset="40" id="hola-foto" class="tt-row">
-                           <div class="tt-col-md-6">
-                              <div class="photo">
-                                 <div class="film out">
-                                    <div class="vectors">
-                                       <img src="assets/img/photo-vector-1.svg" class="photo-vector vector1" alt="" />
-                                       <img src="assets/img/photo-vector-2.svg" class="photo-vector vector2" alt="" />
-                                    </div>
-                                 </div>
-                                 <div class="fede">
-                                    <img src="assets/img/fede.jpg" />
-                                 </div>
-                                 <div class="film bg">
-                                    <div class="vectors">
-                                       <img src="assets/img/photo-vector-1.svg" class="photo-vector vector1" alt="" />
-                                       <img src="assets/img/photo-vector-2.svg" class="photo-vector vector2" alt="" />
-                                    </div>
-                                 </div>
-                                 <div class="film">
-                                    <div class="vectors">
-                                       <img src="assets/img/photo-vector-1.svg" class="photo-vector vector1" alt="" />
-                                       <img src="assets/img/photo-vector-2.svg" class="photo-vector vector2" alt="" />
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="tt-col-md-6">
-                              <div class="info">
-                                 <p>
-                                    I'm a graphic designer from Tigre, Argentina. I studied at the
-                                    University of Buenos Aires (UBA), where I started in industrial
-                                    design but eventually switched to graphic design. I've always
-                                    been into style, and that naturally pulled me into the creative
-                                    world.
-                                 </p>
-                                 <p>
-                                    Over the past few years, I've been working on branding, web
-                                    design, and UI/UX. I like creating things that not only look
-                                    good but are clear and easy to use. Clean visuals, smart
-                                    layouts, and designs that make sense — that's what I try to
-                                    bring to every project.
-                                 </p>
-                              </div>
-                           </div>
-                        </a>
-                     </div>
-                  </div>
 
                   <div id="works" class="tt-section">
                      <div class="bg-vectors">
@@ -318,7 +319,7 @@
                            <!-- BIG MOTHER ENERGY -->
                            <div class="card" id="big-mother-energy" data-caption="big-mother-energy">
                               <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/big-mother-energy/index.html" data-caption="Big Mother Energy">
+                                 data-src="work/big-mother-energy/index.html" data-caption="big-mother-energy">
                                  <img class="img-base" src="assets/home/big-mother-energy.jpg" alt="Big Mother Energy"
                                     loading="lazy" />
                                  <img class="img-hover" src="assets/home/big-mother-energy-b.jpg" alt=""
@@ -388,200 +389,31 @@
                      </div>
                   </div>
 
-                  <div id="services" class="tt-section">
-                     <div class="tt-section-inner tt-wrap">
-                        <h2 class="section-title noise-fill-hover">Services</h2>
-                        <span>
-                           <img src="assets/img/services-stars.svg" alt="" />
-                           <p>Crafting visuals that work</p>
-                        </span>
-
-                        <div class="tt-row">
-                           <div class="tt-col-md-6 d-flex-center">
-                              <div class="services-container">
-                                 <div class="services-items">
-                                    <div class="items">
-                                       <div class="icon">
-                                          <img src="assets/img/services-item1.svg" alt="" />
-                                       </div>
-                                       <div class="services-text">
-                                          <p>Web Design</p>
-                                          <p>
-                                             I design clean, responsive websites that look great and
-                                             work even better. Let's make your site stand out.
-                                          </p>
-                                       </div>
-                                    </div>
-                                    <div class="items">
-                                       <div class="icon">
-                                          <img src="assets/img/services-item2.svg" alt="" />
-                                       </div>
-                                       <div class="services-text">
-                                          <p>Branding</p>
-                                          <p>
-                                             I help you shape a brand that's clear, consistent, and
-                                             built to last — with visuals, tone, and strategy that
-                                             all work together.
-                                          </p>
-                                       </div>
-                                    </div>
-                                    <div class="items">
-                                       <div class="icon">
-                                          <img src="assets/img/services-item3.svg" alt="" />
-                                       </div>
-                                       <div class="services-text">
-                                          <p>Product Design (UI/UX)</p>
-                                          <p>
-                                             Great design is more than looks — I create interfaces
-                                             that guide, engage, and convert.
-                                          </p>
-                                       </div>
-                                    </div>
-                                    <div class="items">
-                                       <div class="icon">
-                                          <img src="assets/img/services-item4.svg" alt="" />
-                                       </div>
-                                       <div class="services-text">
-                                          <p>Graphic Design</p>
-                                          <p>
-                                             Bold, creative visuals that tell your story. From logos
-                                             to social posts, I'll make it pop.
-                                          </p>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="services-buttons">
-                                    <div class="buttons1">
-                                       <a href="#" data-modal-open="#modal-faqs">FAQs</a>
-                                       <a href="#" data-modal-open="#modal-process">Process</a>
-                                    </div>
-                                    <a href="#contact" class="buttons2">Connect</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-
-                        <div class="tt-row">
-                           <div class="tt-col-md-6 d-flex-center flex-col max-width-full">
-                              <h4 class="section-title">Trusted By:</h4>
-                              <div class="trusted-container">
-                                 <img src="assets/img/trusted-logo1.svg" alt="" />
-                                 <img src="assets/img/trusted-logo2.svg" alt="" />
-                                 <img src="assets/img/trusted-logo3.svg" alt="" />
-                                 <img src="assets/img/trusted-logo4.svg" alt="" />
-                                 <img src="assets/img/trusted-logo5.svg" alt="" />
-                                 <img src="assets/img/trusted-logo6.svg" alt="" />
-                                 <img src="assets/img/trusted-logo7.svg" alt="" />
-                                 <img src="assets/img/trusted-logo8.svg" alt="" />
-                                 <img src="assets/img/trusted-logo9.svg" alt="" />
-                                 <img src="assets/img/trusted-logo10.svg" alt="" />
-                                 <img src="assets/img/trusted-logo11.svg" alt="" />
-                                 <img src="assets/img/trusted-logo12.svg" alt="" />
-                              </div>
-                           </div>
-                        </div>
-
-                        <div class="tt-row">
-                           <div class="tt-col-md-6 d-flex-center flex-col max-width-full">
-                              <h4 class="section-title">Some Kind Words:</h4>
-                              <div class="words-container">
-                                 <div class="carousel" role="region">
-                                    <div class="stage" id="stage">
-                                       <article class="verbatim prev" tabindex="0">
-                                          <img src="assets/img/word2.jpg" alt="" />
-                                          <div>
-                                             <p><span>Dana Johonson</span> (Dotted 8)</p>
-                                             <p>
-                                                “As a US-based agency, it can be tricky to find
-                                                reliable international talent that aligns with our
-                                                time constraints and quality expectations. Fede has
-                                                been an incredible resource and a valued member of
-                                                our team for many years!”
-                                             </p>
-                                          </div>
-                                       </article>
-
-                                       <article class="verbatim active" tabindex="0">
-                                          <img src="assets/img/word1.jpg" alt="" />
-                                          <div>
-                                             <p><span>Ramiro Nieto Moreno</span> (N.M,P.)</p>
-                                             <p>
-                                                “From the first call to the final delivery,
-                                                everything just flowed. The site captures our vibe
-                                                perfectly—and the whole process was smoother than
-                                                expected!”
-                                             </p>
-                                          </div>
-                                       </article>
-
-                                       <article class="verbatim next" tabindex="0">
-                                          <img src="assets/img/word3.jpg" alt="" />
-                                          <div>
-                                             <p><span>Nayoung S. Kim</span> (Highfive)</p>
-                                             <p>
-                                                “Fede did an amazing job with HighFive! Our vet
-                                                purchase app is sleek, intuitive, and exactly what
-                                                we needed. Highly recommend!”
-                                             </p>
-                                          </div>
-                                       </article>
-
-                                       <article class="verbatim hidden" tabindex="0">
-                                          <img src="assets/img/word4.jpg" alt="" />
-                                          <div>
-                                             <p>
-                                                <span>Tristan Kemitzis</span> (Kemitzis Consulting)
-                                             </p>
-                                             <p>
-                                                “Working with Fede has been a true pleasure. Quick
-                                                turnarounds, immediate responsiveness... all in all
-                                                extremely high quality, white-glove service.”
-                                             </p>
-                                          </div>
-                                       </article>
-                                       <article class="verbatim hidden" tabindex="0">
-                                          <img src="assets/img/word5.jpg" alt="" />
-                                          <div>
-                                             <p><span>Nick Godin</span> (Netwrk Ventures)</p>
-                                             <p>
-                                                “Fede nailed it. He instantly got what we were about
-                                                and came up with fresh, modern branding that tells
-                                                our story perfectly. Super easy to work with and
-                                                always on point”
-                                             </p>
-                                          </div>
-                                       </article>
-
-                                       <div class="hit left" aria-hidden="true"></div>
-                                       <div class="hit right" aria-hidden="true"></div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-
                   <footer id="contact" class="tt-section">
                      <div class="bg-vectors">
-                        <div class="pos bottom-center"> <img src="assets/img/footer-4.svg" /> </div>
+                        <div class="pos bottom-center">
+                           <img class="mob-no" src="assets/img/footer-4.svg" />
+                           <img class="mob-ok block" src="assets/img/footer-4-mob.svg" alt="" />
+                        </div>
                      </div>
                      <div class="footer-masked footer1">
-                        <div class="footer-ink footer1"> <img class="footer-probe" src="assets/img/footer-1.svg"
-                              alt="" />
+                        <div class="footer-ink footer1">
+                           <img class="footer-probe mob-no" src="assets/img/footer-1.svg" alt="" />
+                           <img class="footer-probe mob-ok block" src="assets/img/footer-1-mob.svg" alt="" />
                            <div class="footer-texture orange" aria-hidden="true"></div>
                         </div>
                      </div>
                      <div class="footer-masked footer1">
-                        <div class="footer-ink footer2"> <img class="footer-probe" src="assets/img/footer-2.svg"
-                              alt="" />
+                        <div class="footer-ink footer2">
+                           <img class="footer-probe mob-no" src="assets/img/footer-2.svg" alt="" />
+                           <img class="footer-probe mob-ok block" src="assets/img/footer-2-mob.svg" alt="" />
                            <div class="footer-texture yellow" aria-hidden="true"></div>
                         </div>
                      </div>
                      <div class="footer-masked footer3">
-                        <div class="footer-ink footer3"> <img class="footer-probe" src="assets/img/footer-3.svg"
-                              alt="" />
+                        <div class="footer-ink footer3">
+                           <img class="footer-probe mob-no" src="assets/img/footer-3.svg" alt="" />
+                           <img class="footer-probe mob-ok block" src="assets/img/footer-3-mob.svg" alt="" />
                            <div class="footer-texture yellow" aria-hidden="true"></div>
                         </div>
                      </div>
@@ -875,13 +707,63 @@
       <script src="assets/js/gallery.js"></script>
       <script src="assets/js/testimonials.js"></script>
       <script src="assets/js/form.js"></script>
-      <script src="assets/js/anim.js"></script>
       <script src="assets/js/modal.js"></script>
       <script src="assets/js/cursor-follow.js" defer></script>
       <script src="assets/js/cursor-fancybox-bridge.js" defer></script>
-      <script src="assets/js/zoom-photos-bridge.js" defer></script>
       <script src="assets/js/preload.js"></script>
       <script src="assets/js/noise.js"></script>
+      <script src="assets/js/scroll.js"></script>
+
+      <script>
+         document.addEventListener("DOMContentLoaded", () => {
+            const worksSubmenu = document.getElementById("works-submenu");
+            const menuToggleBtn = document.querySelector(".tt-ol-menu-toggle-btn");
+            const submenuTrigger = document.querySelector(".tt-ol-submenu-trigger");
+
+            const mq = window.matchMedia("(max-width: 960px)");
+
+            const onWorksClick = (e) => {
+               e.preventDefault();
+               document.body.classList.toggle("hide-others");
+            };
+
+            const onToggleClick = (e) => {
+               e.preventDefault();
+               setTimeout(() => {
+                  document.body.classList.remove("hide-others");
+                  if (submenuTrigger) submenuTrigger.classList.remove("tt-ol-submenu-open");
+               }, 500);
+            };
+
+            const bind = () => {
+               if (worksSubmenu) worksSubmenu.addEventListener("click", onWorksClick);
+               if (menuToggleBtn) menuToggleBtn.addEventListener("click", onToggleClick);
+            };
+
+            const unbind = () => {
+               if (worksSubmenu) worksSubmenu.removeEventListener("click", onWorksClick);
+               if (menuToggleBtn) menuToggleBtn.removeEventListener("click", onToggleClick);
+            };
+
+            const apply = () => {
+               if (mq.matches) bind();
+               else {
+                  unbind();
+                  // opcional: limpiar estado por si venías de mobile
+                  document.body.classList.remove("hide-others");
+                  if (submenuTrigger) submenuTrigger.classList.remove("tt-ol-submenu-open");
+               }
+            };
+
+            apply();
+
+            // escucha cambios de breakpoint
+            if (mq.addEventListener) mq.addEventListener("change", apply);
+            else mq.addListener(apply); // fallback Safari viejo
+         });
+
+      </script>
+
    </body>
 
 </html>
