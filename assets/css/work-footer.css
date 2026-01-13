@@ -1,52 +1,100 @@
-/* FOOTER */
-body.work footer * {
-  font-size: 16px;
+/* CONTACT */
+
+body.work footer {
+  padding: 105px 0 5.5vw !important;
 }
-body.work footer h3 {
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 90%;
-  margin-bottom: 32px;
+body.work footer .footer-masked {
+  top: 0;
+  -webkit-mask-position: center top;
+  mask-position: center top;
 }
-body.work footer div a:last-child {
-  margin-top: 4px;
+body.work footer .footer-masked.footer1 {
+  -webkit-mask-image: url("../img/footer-works-1.svg");
+  mask-image: url("../img/footer-works-1.svg");
 }
-body.work footer .btn {
-  color: var(--color-fede-fv);
-  width: 341px;
-  margin-bottom: 36px;
-  background-image: url(../img/talk-buttons.png);
+body.work footer .footer-masked.footer2 {
+  -webkit-mask-image: url("../img/footer-works-2.svg");
+  mask-image: url("../img/footer-works-2.svg");
 }
-body.work footer .btn:hover {
-  background: var(--color-fede-fv);
-  color: var(--color-fede-white);
-  border-radius: 10px;
+body.work footer .footer-masked.footer3 {
+  -webkit-mask-image: url("../img/footer-works-3.svg");
+  mask-image: url("../img/footer-works-3.svg");
 }
-body.work footer .talk-section {
-  text-align: center;
+body.work footer .footer-bottom-full,
+body.work footer .footer-bottom-cut {
+  height: 5.33vw;
+  -webkit-mask-image: url("../img/footer-works_lets-build.svg");
+  mask-image: url("../img/footer-works_lets-build.svg");
 }
-body.work footer .talk-section:last-child {
-  margin: 45px auto;
+body.work footer .footer-bottom-mask {
+  left: 0;
+  top: 0;
+  -webkit-mask-position: left top;
+  mask-position: left top;
 }
-body.work footer .talk-section:last-child h3 {
-  margin-bottom: 20px;
+body.work footer .footer-bottom-mask {
+  -webkit-mask-image: url("../img/footer-works-mask.svg");
+  mask-image: url("../img/footer-works-mask.svg");
 }
-body.work footer .talk-section .socials {
-  justify-content: center;
+body.work footer .footer-bottom-cut {
+  left: 0;
+  bottom: 0;
+  -webkit-mask-position: left bottom;
+  mask-position: left bottom;
 }
-body.work footer .talk-section .socials a:hover img {
-  filter: grayscale(1) brightness(5);
+body.work footer .footer-ink {
+  -webkit-mask-position: center bottom;
+  mask-position: center bottom;
 }
-body.work footer .talk-section .socials a:hover p {
-  color: #fff;
+body.work footer .footer-ink.footer1 {
+  -webkit-mask-image: url("../img/footer-works-1.svg");
+  mask-image: url("../img/footer-works-1.svg");
 }
-body.work footer .talk-buttons {
-  display: flex;
-  flex-direction: row;
-  column-gap: 30px;
-  row-gap: 0;
-  justify-content: center;
+body.work footer .footer-ink.footer2 {
+  -webkit-mask-image: url("../img/footer-works-2.svg");
+  mask-image: url("../img/footer-works-2.svg");
 }
-body.work footer .talk-buttons .btn {
-  margin-top: unset !important;
+body.work footer .footer-ink.footer3 {
+  -webkit-mask-image: url("../img/footer-works-3.svg");
+  mask-image: url("../img/footer-works-3.svg");
+}
+
+@media only screen and (max-width: 960px) {
+  body.work footer {
+    padding: 134.22vw 0 94.22vw !important;
+  }
+  body.work footer .footer-masked.footer1 {
+    -webkit-mask-image: url("../img/footer-works-1-mob.svg");
+    mask-image: url("../img/footer-works-1-mob.svg");
+  }
+  body.work footer .footer-masked.footer2 {
+    -webkit-mask-image: url("../img/footer-works-2-mob.svg");
+    mask-image: url("../img/footer-works-2-mob.svg");
+  }
+  body.work footer .footer-masked.footer3 {
+    -webkit-mask-image: url("../img/footer-works-3-mob.svg");
+    mask-image: url("../img/footer-works-3-mob.svg");
+  }
+  body.work footer .footer-bottom-full,
+  body.work footer .footer-bottom-cut {
+    height: 187.22vw;
+    -webkit-mask-image: url("../img/footer_lets-build-mob.svg");
+    mask-image: url("../img/footer_lets-build-mob.svg");
+  }
+  body.work footer .footer-bottom-mask {
+    -webkit-mask-image: url("../img/footer-works-mask-mob.svg");
+    mask-image: url("../img/footer-works-mask-mob.svg");
+  }
+  body.work footer .footer-ink.footer1 {
+    -webkit-mask-image: url("../img/footer-works-1-mob.svg");
+    mask-image: url("../img/footer-works-1-mob.svg");
+  }
+  body.work footer .footer-ink.footer2 {
+    -webkit-mask-image: url("../img/footer-works-2-mob.svg");
+    mask-image: url("../img/footer-works-2-mob.svg");
+  }
+  body.work footer .footer-ink.footer3 {
+    -webkit-mask-image: url("../img/footer-works-3-mob.svg");
+    mask-image: url("../img/footer-works-3-mob.svg");
+  }
 }

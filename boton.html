@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .btn-dashed-center {
+                --c: #222;
+                --stroke: 1px;
+                --dash: 10px;
+                --gap: 10px;
+                --r: 5px;
+                --period: calc(var(--dash) + var(--gap));
+
+                position: relative;
+                isolation: isolate;
+                border: 0;
+                background: #fff;
+                color: var(--c);
+                border-radius: var(--r);
+                padding: 14px 46px;
+                font: 800 28px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            }
+
+            .btn-dashed-center .label {
+                position: relative;
+                z-index: 2;
+            }
+
+            .btn-dashed-center .stroke {
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                pointer-events: none;
+                z-index: 1;
+
+                /* 4 ESQUINAS (arcos sólidos de 1px) */
+                background:
+                    radial-gradient(circle at 0 0,
+                        transparent calc(var(--r) - var(--stroke)),
+                        var(--c) calc(var(--r) - var(--stroke)) var(--r),
+                        transparent var(--r)) 0 0 / calc(var(--r)*2) calc(var(--r)*2) no-repeat,
+
+                    radial-gradient(circle at 100% 0,
+                        transparent calc(var(--r) - var(--stroke)),
+                        var(--c) calc(var(--r) - var(--stroke)) var(--r),
+                        transparent var(--r)) 100% 0 / calc(var(--r)*2) calc(var(--r)*2) no-repeat,
+
+                    radial-gradient(circle at 100% 100%,
+                        transparent calc(var(--r) - var(--stroke)),
+                        var(--c) calc(var(--r) - var(--stroke)) var(--r),
+                        transparent var(--r)) 100% 100% / calc(var(--r)*2) calc(var(--r)*2) no-repeat,
+
+                    radial-gradient(circle at 0 100%,
+                        transparent calc(var(--r) - var(--stroke)),
+                        var(--c) calc(var(--r) - var(--stroke)) var(--r),
+                        transparent var(--r)) 0 100% / calc(var(--r)*2) calc(var(--r)*2) no-repeat;
+            }
+
+            /* TOP + BOTTOM (centrados y SIN tocar esquinas) */
+            .btn-dashed-center .stroke::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                left: var(--r);
+                right: var(--r);
+                pointer-events: none;
+
+                background:
+                    /* TOP */
+                    linear-gradient(90deg, var(--c) 0 var(--dash), transparent 0) center 0 / var(--period) var(--stroke) repeat-x,
+
+                    /* BOTTOM */
+                    linear-gradient(90deg, var(--c) 0 var(--dash), transparent 0) center 100% / var(--period) var(--stroke) repeat-x;
+            }
+
+            /* LEFT + RIGHT (centrados y SIN tocar esquinas) */
+            .btn-dashed-center .stroke::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                top: var(--r);
+                bottom: var(--r);
+                pointer-events: none;
+
+                background:
+                    /* LEFT */
+                    linear-gradient(0deg, var(--c) 0 var(--dash), transparent 0) 0 center / var(--stroke) var(--period) repeat-y,
+
+                    /* RIGHT */
+                    linear-gradient(0deg, var(--c) 0 var(--dash), transparent 0) 100% center / var(--stroke) var(--period) repeat-y;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <button class="btn-dashed-center">
+            <span class="stroke" aria-hidden="true"></span>
+            <span class="label">write me</span>
+        </button>
+
+    </body>
+
+</html>
