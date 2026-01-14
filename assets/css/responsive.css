@@ -455,6 +455,7 @@
   }
   body.work .work-content img.full-min,
   body.work .work-content .tt-wrap .tt-col-md-6 img {
+    width: 100%;
     max-width: calc(100dvw - 30px) !important;
     padding: 0;
   }
@@ -579,7 +580,22 @@
     right: -6%;
     top: 77%;
   }
-    body.work.michi img.mob5 {
-      margin-top: 5%;
+  body.work.michi img.mob5 {
+    margin-top: 5%;
+  }
+
+  body.work.big-mother-energy img.mob2 {
+    margin-top: -53%;
+    max-width: unset !important;
+    width: 107%;
+  }
+  body.work.big-mother-energy img.mob3 {
+    z-index: 11;
+    width: 70%;
+    margin-bottom: -14%;
+  }
+  body.work.big-mother-energy img.mob4,
+  body.work.big-mother-energy img.mob5 {
+    margin-bottom: 50px;
   }
 }
