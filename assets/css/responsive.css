@@ -472,6 +472,13 @@
   body.work img.mob {
     width: 114px !important;
   }
+  body.work img.mob-rel {
+    position: relative;
+    left: unset !important;
+    height: unset !important;
+    top: unset !important;
+    width: 100% !important;
+  }
   body.work.frogbazar img.mob.mob1 {
     right: -2.5%;
   }
@@ -597,5 +604,52 @@
   body.work.big-mother-energy img.mob4,
   body.work.big-mother-energy img.mob5 {
     margin-bottom: 50px;
+  }
+
+  body.work.broke img.mob.mob1 {
+    left: -6%;
+    top: 32.5%;
+    width: 33% !important;
+  }
+  body.work.broke img.mob4 {
+    margin-bottom: -10px;
+  }
+  body.work.broke img.mob.square-1 {
+    margin-bottom: 50px;
+  }
+  body.work.broke .tt-wrap .tt-col-md-6:first-child img:nth-child(1) {
+    max-width: unset !important;
+    width: calc(100% + 36px) !important;
+    padding-left: 0;
+    padding-right: 0;
+    transform: translateX(18px);
+  }
+
+  body.work.nmp img.ipad.ipad1 {
+    top: 0;
+    left: -5px;
+    width: 270px !important;
+  }
+  body.work.nmp img.mob.mob1 {
+    position: relative;
+    top: -1.5%;
+    width: 136px !important;
+    right: -19px;
+  }
+
+  body.work.nmp img.ipad.ipad2 {
+    top: 45%;
+    right: -12px;
+    width: 260px !important;
+  }
+  body.work.nmp img.mob.mob2 {
+    position: relative;
+    top: -11.5%;
+    width: 136px !important;
+    left: -276px;
+  }
+  body.work.nmp img.mob.mob3 {
+    width: 80%;
+    margin: 18% auto;
   }
 }
