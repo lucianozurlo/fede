@@ -823,4 +823,8 @@
   body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min .tt-col-md-12 figure {
     width: unset !important;
   }
+  body.tt-boxed.work.logofolio .tt-wrap.talk {
+    row-gap: unset;
+    margin-top: unset;
+}
 }
