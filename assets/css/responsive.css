@@ -437,9 +437,9 @@
 
   /****/
   /* WORKS */
-  .fancybox__nav {
+  /* .fancybox__nav {
     display: none;
-  }
+  } */
   body.work #scroll-inside {
     display: none;
   }
@@ -826,5 +826,31 @@
   body.tt-boxed.work.logofolio .tt-wrap.talk {
     row-gap: unset;
     margin-top: unset;
+  }
 }
+
+/* Zonas invisibles a izquierda/derecha para swipe en slides tipo iframe */
+@media (max-width: 960px) {
+  .fb-edge-swipe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(24px, 10vw, 64px);
+    z-index: 20;
+    background: transparent;
+    /* importante: que capture el touch sin tapar el centro (scroll del iframe) */
+    pointer-events: auto;
+  }
+
+  .fb-edge-swipe--left {
+    left: 0;
+  }
+  .fb-edge-swipe--right {
+    right: 0;
+  }
+
+  /* Ocultar flechas (Navigation) en mobile */
+  .fancybox__carousel .f-carousel__nav {
+    display: none !important;
+  }
 }

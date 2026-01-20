@@ -1001,6 +1001,91 @@
 
       </script>
 
+      <script>
+         // Helper: consideramos "mobile" por ancho o por pointer coarse (táctil)
+         const isMobileFB = () =>
+            window.matchMedia("(max-width: 960px)").matches ||
+            window.matchMedia("(pointer: coarse)").matches;
+
+         function addEdgeSwipeZones(fancybox, slide) {
+            if (!slide?.contentEl) return;
+            if (slide.type !== "iframe") return;
+
+            // Evitar duplicar si el slide se preload/revela más de una vez
+            if (slide.contentEl.querySelector(".fb-edge-swipe")) return;
+
+            // Asegurar posicionamiento para overlay
+            const computedPos = getComputedStyle(slide.contentEl).position;
+            if (computedPos === "static") slide.contentEl.style.position = "relative";
+
+            const mkZone = (side) => {
+               const z = document.createElement("div");
+               z.className = `fb-edge-swipe fb-edge-swipe--${side}`;
+               z.setAttribute("aria-hidden", "true");
+               return z;
+            };
+
+            const left = mkZone("left");
+            const right = mkZone("right");
+
+            slide.contentEl.appendChild(left);
+            slide.contentEl.appendChild(right);
+
+            let startX = 0;
+            let startY = 0;
+
+            const onStart = (e) => {
+               const t = e.touches?.[0];
+               if (!t) return;
+               startX = t.clientX;
+               startY = t.clientY;
+            };
+
+            const onEnd = (e) => {
+               const t = e.changedTouches?.[0];
+               if (!t) return;
+
+               const dx = t.clientX - startX;
+               const dy = t.clientY - startY;
+
+               // Si fue más vertical que horizontal, no hacemos nada (para no pelear con scroll)
+               if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
+
+               if (dx < 0) {
+                  fancybox.next(); // swipe hacia la izquierda => siguiente
+               } else {
+                  fancybox.prev(); // swipe hacia la derecha => anterior
+               }
+            };
+
+            // Capturamos gesto SOLO desde los bordes
+            [left, right].forEach((el) => {
+               el.addEventListener("touchstart", onStart, { passive: true });
+               el.addEventListener("touchend", onEnd, { passive: true });
+            });
+         }
+
+         Fancybox.bind('[data-fancybox="galeria"]', {
+            // Hace que el cambio se sienta más "slider"
+            Carousel: {
+               transition: "slide", // opción del Carousel :contentReference[oaicite:1]{index=1}
+            },
+
+            on: {
+               // Se dispara cuando el slide ya está revelado/cargado :contentReference[oaicite:2]{index=2}
+               done: (fancybox, slide) => {
+                  // Importante: el evento puede dispararse por slides preloaded :contentReference[oaicite:3]{index=3}
+                  if (!fancybox.isCurrentSlide(slide)) return;
+
+                  if (isMobileFB()) {
+                     addEdgeSwipeZones(fancybox, slide);
+                  }
+               },
+            },
+         });
+      </script>
+
+
    </body>
 
 </html>
