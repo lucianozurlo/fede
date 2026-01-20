@@ -440,9 +440,15 @@
   /* .fancybox__nav {
     display: none;
   } */
-  body.work .logo-main,
+  html.with-fancybox .logo-home,
   body.work #scroll-inside {
-    display: none;
+    display: none !important;
+  }
+  .logo-home {
+    transition: all 0.3s ease-in-out;
+  }
+  body.tt-ol-menu-open .logo-home {
+    opacity: 0;
   }
   body.tt-boxed.work .mobs-separator {
     order: 1;
