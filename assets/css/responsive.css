@@ -499,6 +499,13 @@
     top: unset !important;
     width: 100% !important;
   }
+  
+    body.work .work-content img.full-min,
+  body.work .work-content .tt-wrap .tt-col-md-6 img {
+    width: 100% !important;
+    max-width: calc(100dvw - 30px) !important;
+  }
+  
   body.work.frogbazar img.mob.mob1 {
     right: -2.5%;
   }
@@ -798,8 +805,6 @@
     padding-left: 50px;
     padding-right: 50px;
   }
-  body.work .work-content img.full-min,
-  body.work .work-content .tt-wrap .tt-col-md-6 img,
   body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min img {
     width: 30dvw !important;
     max-width: calc(30dvw - 30px) !important;
