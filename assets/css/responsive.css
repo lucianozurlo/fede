@@ -499,13 +499,13 @@
     top: unset !important;
     width: 100% !important;
   }
-  
-    body.work .work-content img.full-min,
+
+  body.work .work-content img.full-min,
   body.work .work-content .tt-wrap .tt-col-md-6 img {
-    width: 100% !important;
+    width: 100%;
     max-width: calc(100dvw - 30px) !important;
   }
-  
+
   body.work.frogbazar img.mob.mob1 {
     right: -2.5%;
   }
@@ -672,7 +672,7 @@
     position: relative;
     top: -11.5%;
     width: 136px !important;
-    left: -276px;
+    left: -206px;
   }
   body.work.nmp img.mob.mob3 {
     width: 80%;
