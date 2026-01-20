@@ -440,6 +440,7 @@
   /* .fancybox__nav {
     display: none;
   } */
+  body.work .logo-main,
   body.work #scroll-inside {
     display: none;
   }
