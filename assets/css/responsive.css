@@ -476,6 +476,7 @@
   body.work .work-content img.full-min,
   body.work .work-content .tt-wrap .tt-col-md-6 img {
     width: 100%;
+    height: auto;
     max-width: calc(100dvw - 30px) !important;
     padding: 0;
   }
@@ -553,8 +554,9 @@
   }
   body.work.frogbazar .tt-wrap .tt-col-md-6:last-child img:nth-child(3) {
     width: calc(100dvw + 60px);
+    height: auto;
     max-width: unset;
-    margin-left: -50px;
+    margin-left: 0;
   }
   body.work.frogbazar .tt-wrap .tt-col-md-6:last-child img:last-child {
     margin-top: -30px;
@@ -799,11 +801,12 @@
     padding-left: 50px;
     padding-right: 50px;
   }
-    
+
   body.tt-boxed.work.logofolio img.full-min,
   body.tt-boxed.work.logofolio .tt-wrap .tt-col-md-6 img,
   body.tt-boxed.work.logofolio .tt-wrap .tt-row.logo-min img {
     width: 30dvw !important;
+    height: auto;
     max-width: calc(30dvw - 30px) !important;
   }
   body.tt-boxed.work.logofolio .tt-wrap {
