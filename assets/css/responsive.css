@@ -256,6 +256,12 @@
     flex-direction: column;
     gap: 7px;
   }
+  .card .meta h3 {
+  letter-spacing: 7px;
+}
+.card .meta p {
+  font-size: 14px;
+}
   #works .card .meta p:last-child {
     display: none;
   }
@@ -838,6 +844,22 @@
   body.tt-boxed.work.logofolio .tt-wrap.talk {
     row-gap: unset;
     margin-top: unset;
+  }
+  /* MODAL */
+  .modal-simple.submmodal .modal__dialog {
+    padding: 80px 25px 40px;
+    gap: 20px;
+  }
+  .modal-item {
+    max-width: 341px;
+}
+  .modal-full a.close,
+  .modal-simple a.close {
+    width: 341px;
+    background-image: url(../img/button-mob.png);
+  }
+  .modal-simple.submmodal a.submodal-close {
+    display: none;
   }
 }
 
