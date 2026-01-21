@@ -257,11 +257,11 @@
     gap: 7px;
   }
   .card .meta h3 {
-  letter-spacing: 7px;
-}
-.card .meta p {
-  font-size: 14px;
-}
+    letter-spacing: 7px;
+  }
+  .card .meta p {
+    font-size: 14px;
+  }
   #works .card .meta p:last-child {
     display: none;
   }
@@ -852,7 +852,7 @@
   }
   .modal-item {
     max-width: 341px;
-}
+  }
   .modal-full a.close,
   .modal-simple a.close {
     width: 341px;
@@ -861,6 +861,27 @@
   .modal-simple.submmodal a.submodal-close {
     display: none;
   }
+
+  /* ARROWS */
+  .is-horizontal .fancybox__nav .f-button.is-prev {
+    left: 30px !important;
+  }
+  .is-horizontal .fancybox__nav .f-button.is-next {
+    right: 30px !important;
+  }
+  .is-horizontal .fancybox__nav .f-button {
+    background-color: #f8f8f8aa !important;
+  }
+  .is-horizontal .fancybox__nav .f-button.is-next::after {
+    display: none !important;
+  }
+    .is-horizontal .fancybox__nav .f-button.is-prev,
+  .is-horizontal .fancybox__nav .f-button.is-next {
+    right: 30px !important;
+    top: unset;
+    bottom: 30px;
+    transform: translateY(0);
+}
 }
 
 /* Zonas invisibles a izquierda/derecha para swipe en slides tipo iframe */
