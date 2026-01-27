@@ -223,7 +223,7 @@ html .fancybox__backdrop {
   z-index: 99990;
   pointer-events: none;
   opacity: 0;
-  transition: opacity .4s ease;
+  transition: opacity 0.4s ease;
 }
 .modal-simple .content {
   display: flex;
@@ -285,7 +285,7 @@ html .fancybox__backdrop {
   }
   70% {
     opacity: 1;
-    transform: translateY(-.2vw);
+    transform: translateY(-0.2vw);
   }
   100% {
     opacity: 1;

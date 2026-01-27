@@ -875,13 +875,13 @@
   .is-horizontal .fancybox__nav .f-button.is-next::after {
     display: none !important;
   }
-    .is-horizontal .fancybox__nav .f-button.is-prev,
+  .is-horizontal .fancybox__nav .f-button.is-prev,
   .is-horizontal .fancybox__nav .f-button.is-next {
     right: 30px !important;
     top: unset;
     bottom: 30px;
     transform: translateY(0);
-}
+  }
 }
 
 /* Zonas invisibles a izquierda/derecha para swipe en slides tipo iframe */
