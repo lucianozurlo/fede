@@ -1,0 +1,128 @@
+@view-transition {
+  navigation: auto;
+}
+
+/* ===== View Transitions: slide según dirección ===== */
+:root {
+  --vt-dur: 520ms;
+  --vt-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* default: "next" (entra desde derecha) */
+  --vt-old-from: 0%;
+  --vt-old-to: -100%;
+  --vt-new-from: 100%;
+  --vt-new-to: 0%;
+}
+
+:root[data-vt-dir="prev"] {
+  /* "prev" (entra desde izquierda) */
+  --vt-old-to: 100%;
+  --vt-new-from: -100%;
+}
+
+/* Overlay del transition */
+::view-transition {
+  background: transparent;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation-duration: var(--vt-dur);
+  animation-timing-function: var(--vt-ease);
+  animation-fill-mode: both;
+}
+
+::view-transition-old(root) {
+  animation-name: vt-old-slide;
+}
+::view-transition-new(root) {
+  animation-name: vt-new-slide;
+}
+
+@keyframes vt-old-slide {
+  from {
+    transform: translateX(var(--vt-old-from));
+  }
+  to {
+    transform: translateX(var(--vt-old-to));
+  }
+}
+@keyframes vt-new-slide {
+  from {
+    transform: translateX(var(--vt-new-from));
+  }
+  to {
+    transform: translateX(var(--vt-new-to));
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
+/* ===== Layout demo ===== */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  font:
+    600 18px/1.2 system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto;
+  display: grid;
+  place-items: center;
+
+  /* clave para swipe + scroll vertical */
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+}
+
+.card {
+  width: min(560px, 92vw);
+  padding: 18px 16px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(8px);
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+a.btn {
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  text-decoration: none;
+}
+
+.hint {
+  opacity: 0.85;
+  margin: 8px 0 0;
+}
+
+/* ===== Fondos por página ===== */
+.bg-1 {
+  background: #ff6a00;
+}
+.bg-2 {
+  background: #1fbf4a;
+}
+.bg-3 {
+  background: #2b6cff;
+}
