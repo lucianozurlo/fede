@@ -1,0 +1,97 @@
+/* Opt-in a cross-document view transitions (MPA) */
+@view-transition {
+  navigation: auto;
+}
+
+/* Base */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--page-bg);
+  display: grid;
+  place-items: center;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+main {
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------
+   VIEW TRANSITION WIPE (ambos tramos desde abajo)
+   1) viejo se recorta desde abajo -> aparece naranja
+   2) nuevo se revela desde abajo -> se va el naranja
+--------------------------------------------- */
+
+/* El overlay de la transición (detrás de las snapshots old/new) */
+::view-transition {
+  background: #ff6a00; /* naranja */
+}
+
+/* Quitamos el cross-fade default */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* 1) Vista vieja: se recorta desde abajo hacia arriba => aparece naranja desde abajo */
+::view-transition-old(root) {
+  animation: wipe-to-orange 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* 2) Vista nueva: se revela desde abajo hacia arriba => se “despinta” desde abajo */
+::view-transition-new(root) {
+  animation: reveal-from-orange-bottom 1s 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Viejo: visible -> recortado completo desde abajo */
+@keyframes wipe-to-orange {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 100% 0);
+  } /* recorta 100% desde abajo */
+}
+
+/* Nuevo: oculto (todo recortado desde arriba) -> visible.
+   Esto hace que aparezca desde ABAJO hacia ARRIBA. */
+@keyframes reveal-from-orange-bottom {
+  from {
+    clip-path: inset(100% 0 0 0);
+  } /* top 100% => no se ve nada, arranca “en el piso” */
+  to {
+    clip-path: inset(0 0 0 0);
+  } /* se revela hacia arriba */
+}
+
+/* Accesibilidad: si el usuario pide menos movimiento, lo anulamos */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+  }
+}
