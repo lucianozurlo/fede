@@ -870,3 +870,96 @@ body.work footer .footer-ink.footer3 {
   -webkit-mask-image: url("../img/footer-works-3.svg");
   mask-image: url("../img/footer-works-3.svg");
 }
+
+/* NAV-WORK */
+.nav-work button {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  color: #dbdbdb;
+  box-shadow: none;
+  pointer-events: all;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  filter: unset !important;
+  stroke: var(--color-fede-fv);
+  overflow: visible;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ededed !important;
+  background-color: var(--color-fede-fv-ultragray) !important;
+  transition: all 0.35s ease-in-out;
+}
+.nav-work button:hover {
+  background-color: var(--color-fede-fv) !important;
+}
+.nav-work button svg {
+  width: 18px !important;
+  height: 18px !important;
+  stroke-width: 3 !important;
+  stroke: var(--color-fede-fv) !important;
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+.nav-work button img {
+  transition: all 0.35s ease-in-out;
+}
+.nav-work button:hover img {
+  -webkit-filter: invert(1) brightness(1.5);
+  filter: invert(1) brightness(1.5);
+}
+.nav-work button[disabled] {
+  stroke: var(--color-fede-fv-gray);
+  opacity: 0.5 !important;
+}
+.nav-work button[disabled] img {
+  -webkit-filter: unset !important;
+  filter: unset !important;
+  stroke: var(--color-fede-fv-gray);
+  opacity: 0.5 !important;
+}
+.nav-work button.is-next {
+  right: 11.5% !important;
+}
+.nav-work button.is-prev {
+  left: 11.5% !important;
+}
+.nav-work button:before {
+  position: absolute;
+  content: "";
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.nav-work button::after {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  color: var(--color-fede-fv);
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.nav-work button.is-prev::after {
+  content: "previous project";
+}
+.nav-work button.is-next::after {
+  content: "next project";
+}
+.nav-work button:hover::after {
+  opacity: 1;
+}

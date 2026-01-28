@@ -684,7 +684,8 @@ body.tt-boxed #services .tt-wrap {
   line-height: 90%;
   text-align: center;
 }
-#services .trusted-container {
+#services .trusted-container,
+#services .trusted-container .trusted-track {
   display: flex;
   gap: 47px 90px;
   width: 1260px;
@@ -696,7 +697,8 @@ body.tt-boxed #services .tt-wrap {
 #services .words-container {
   display: flex;
   flex-direction: column;
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   margin: 65px auto 45px;
 }
 
@@ -971,95 +973,6 @@ footer .btn:hover {
   color: var(--color-fede-orange);
 }
 
-/* FANCYBOX */
-.is-idle .fancybox__nav {
-  opacity: 1 !important;
-}
-.is-horizontal .fancybox__nav .f-button {
-  width: 40px;
-  height: 40px;
-  -webkit-filter: unset !important;
-  filter: unset !important;
-  stroke: var(--color-fede-fv);
-}
-.is-horizontal .fancybox__nav .f-button svg {
-  width: 18px !important;
-  height: 18px !important;
-  stroke-width: 3 !important;
-  stroke: var(--color-fede-fv) !important;
-  -webkit-filter: none !important;
-  filter: none !important;
-}
-.is-horizontal .fancybox__nav .f-button.is-prev {
-  left: 11.5% !important;
-}
-.is-horizontal .fancybox__nav .f-button.is-next {
-  right: 11.5% !important;
-}
-.is-horizontal .fancybox__nav .f-button {
-  background: #ededed !important;
-  transition: all 0.35s ease-in-out;
-}
-.is-horizontal .fancybox__nav .f-button:before {
-  position: absolute;
-  content: "";
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  bottom: 0px;
-  border-radius: 50%;
-  z-index: 1;
-}
-.is-horizontal .fancybox__nav .f-button {
-  background-color: var(--color-fede-fv-ultragray) !important;
-  transition: all 0.35s ease-in-out;
-}
-.is-horizontal .fancybox__nav .f-button:hover {
-  background-color: var(--color-fede-fv) !important;
-}
-.is-horizontal .fancybox__nav .f-button img {
-  transition: all 0.35s ease-in-out;
-}
-.is-horizontal .fancybox__nav .f-button:hover img {
-  -webkit-filter: invert(1) brightness(1.5);
-  filter: invert(1) brightness(1.5);
-}
-.is-horizontal .fancybox__nav .f-button[disabled] {
-  stroke: var(--color-fede-fv-gray);
-  opacity: 0.5 !important;
-}
-.is-horizontal .fancybox__nav .f-button[disabled] img {
-  -webkit-filter: unset !important;
-  filter: unset !important;
-  stroke: var(--color-fede-fv-gray);
-  opacity: 0.5 !important;
-}
-.is-horizontal .fancybox__nav .f-button {
-  position: relative;
-  overflow: visible;
-}
-.is-horizontal .fancybox__nav .f-button::after {
-  position: absolute;
-  bottom: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 16px;
-  color: var(--color-fede-fv);
-  opacity: 0;
-  transition: opacity 0.35s ease-in-out;
-  white-space: nowrap;
-  pointer-events: none;
-}
-.is-horizontal .fancybox__nav .f-button.is-prev::after {
-  content: "previous project";
-}
-.is-horizontal .fancybox__nav .f-button.is-next::after {
-  content: "next project";
-}
-.is-horizontal .fancybox__nav .f-button:hover::after {
-  opacity: 1;
-}
-
 /* MODAL SHOW */
 .tt-logo a img:last-child {
   filter: brightness(1);
@@ -1068,11 +981,3 @@ footer .btn:hover {
 .tt-main-menu {
   transition: all 1s ease;
 }
-/* body.zoom-photos .is-horizontal .fancybox__nav .f-button,
-body.zoom-photos .tt-main-menu, */
-/* body.modal-open .is-horizontal .fancybox__nav .f-button,
-body.modal-open .tt-main-menu {
-  opacity: 0 !important;
-  pointer-events: none;
-  transition: all 1s ease;
-} */

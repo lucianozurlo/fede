@@ -54,6 +54,16 @@
       <main id="body-inner">
 
          <div class="fx-cursor" aria-hidden="true"></div>
+         <div class="nav-work">
+            <button type="button" tabindex="0" title="Previous" class="is-prev" data-carousel-prev="true"
+               aria-label="Previous">
+               <img src="../../assets/img/arrow-prev.svg" alt="Prev">
+            </button>
+
+            <button type="button" tabindex="0" title="Next" class="is-next" data-carousel-next="true" aria-label="Next">
+               <img src="../../assets/img/arrow-next.svg" alt="Next">
+            </button>
+         </div>
 
          <div id="scroll-container">
             <div id="logo-header" class="tt-logo logo-home mob-ok">
@@ -124,33 +134,40 @@
                                        <div class="tt-ol-submenu">
                                           <ul class="tt-ol-submenu-list">
                                              <li><a class="media" href="../frogbazar/" alt="frog-bazar"
-                                                   data-vt-mode="slide" data-vt-dir="next">
+                                                   data-vt-mode="slide" data-vt-dir="prev">
                                                    / FROG BAZAR.</a></li>
                                              <li><a class="media" href="../estudio32/" alt="estudio32"
-                                                   data-vt-mode="fade">
+                                                   data-vt-mode="slide" data-vt-dir="prev">
                                                    / ESTUDIO 32.</a></li>
-                                             <li><a class="media" href="../opame/" alt="opame" data-vt-mode="fade">
+                                             <li><a class="media" href="../opame/" alt="opame" data-vt-mode="slide"
+                                                   data-vt-dir="prev">
                                                    / OPAME.</a></li>
-                                             <li><a class="media" href="../nmp/" alt="nmp" data-vt-mode="fade">
+                                             <li><a class="media" href="../nmp/" alt="nmp" data-vt-mode="slide"
+                                                   data-vt-dir="prev">
                                                    / NM, P.</a></li>
-                                             <li><a class="media" href="../cleo/" alt="cleo" data-vt-mode="fade">
+                                             <li><a class="media" href="../cleo/" alt="cleo" data-vt-mode="slide"
+                                                   data-vt-dir="prev">
                                                    / CLEO.</a></li>
-                                             <li><a class="media" href="../michi/" alt="michi" data-vt-mode="fade">
+                                             <li><a class="media" href="../michi/" alt="michi" data-vt-mode="slide"
+                                                   data-vt-dir="prev">
                                                    / MICHI BISTRO.</a></li>
-                                             <li><a class="media" href="../broke/" alt="broke" data-vt-mode="fade">
+                                             <li><a class="media" href="../broke/" alt="broke" data-vt-mode="slide"
+                                                   data-vt-dir="prev">
                                                    / BROKE.</a></li>
                                              <li><a class="media" href="../big-mother-energy/" alt="big-mother-energy"
-                                                   data-vt-mode="fade">
+                                                   data-vt-mode="slide" data-vt-dir="prev">
                                                    / BIG MOTHER ENERGY.</a></li>
-                                             <li><a class="media" href="../ui-ux/" alt="ui-ux" data-vt-mode="fade">
+                                             <li><a class="media" href="../ui-ux/" alt="ui-ux" data-vt-mode="slide"
+                                                   data-vt-dir="prev">
                                                    / UI / UX.</a></li>
-                                             <li><a class="media" href="../web/" alt="web" data-vt-mode="fade">
+                                             <li><a class="media" href="../web/" alt="web" data-vt-mode="slide"
+                                                   data-vt-dir="prev">
                                                    / WEB.</a></li>
                                              <li><a class="media" href="../logofolio/" alt="logofolio"
                                                    data-vt-mode="slide" data-vt-dir="prev">
                                                    / LOGOFOLIO.</a></li>
                                              <li><a class="media" href="../photography/" alt="photography"
-                                                   data-vt-mode="fade">
+                                                   class="active">
                                                    / PHOTOGRAPHY.</a></li>
                                           </ul>
                                        </div>
@@ -173,7 +190,7 @@
             </header>
 
             <div id="content-wrap" class="work">
-               <div class="bg-vectors">
+               <div class="bg-vectors" id="bg-vectors-1">
                   <div class="pos top-left">
                      <img src="../../assets/img/bg-lines/work-bg-lines1.svg" />
                   </div>
@@ -753,7 +770,7 @@
                   </div>
 
                   <footer class="tt-section">
-                     <div class="bg-vectors">
+                     <div class="bg-vectors" id="bg-vectors-2">
                         <div class="pos bottom-center">
                            <img class="mob-no" src="../../assets/img/footer-works-4.svg" />
                            <img class="mob-ok block" src="../../assets/img/footer-works-4-mob.svg" alt="" />
@@ -832,7 +849,7 @@
       <div class="modal-simple submmodal" id="modal-works" role="dialog" aria-modal="true" aria-hidden="true">
          <div class="modal__backdrop" data-modal-close></div>
          <div class="modal__dialog" role="document">
-            <div class="bg-vectors">
+            <div class="bg-vectors" id="bg-vectors-3">
                <div class="pos bottom-left">
                   <img src="../../assets/img/bg-lines/modal-bg1.svg" />
                </div>
@@ -886,12 +903,13 @@
       <script src="../../assets/js/noise.js"></script>
       <script src="../../assets/js/scroll.js"></script>
       <script src="../../assets/js/photos.js"></script>
+      <script src="../../assets/js/transition.js" defer></script>
       <script src="../../assets/js/preloadThumbs.js"></script>
       <script>
          window.addEventListener("load", () => {
             const run = () =>
                preloadThumbs({
-                  baseUrl: "./photos/th/",
+                  baseUrl: "../photography/photos/th/",
                   from: 1,
                   to: 59,
                   concurrency: 6,

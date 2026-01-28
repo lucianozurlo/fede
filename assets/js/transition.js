@@ -101,6 +101,79 @@
   );
 })();
 
+// ==========================================
+// BOTONES PREV/NEXT (pager entre páginas)
+// - usa body[data-prev]/body[data-next]
+// - fuerza SLIDE (como el drag mobile)
+// ==========================================
+function go(dir) {
+  const prev = document.body?.dataset?.prev;
+  const next = document.body?.dataset?.next;
+
+  const target = dir === "prev" ? prev : dir === "next" ? next : null;
+
+  if (!target) return;
+
+  const url = new URL(target, location.href).href;
+
+  // Setear transición en snapshot viejo
+  document.documentElement.dataset.vtMode = "slide";
+  document.documentElement.dataset.vtDir = dir;
+
+  // Persistir para snapshot nuevo
+  sessionStorage.setItem("vt_mode", "slide");
+  sessionStorage.setItem("vt_dir", dir);
+
+  location.assign(url);
+}
+
+document.addEventListener("click", (e) => {
+  const prevBtn = e.target.closest('[data-carousel-prev="true"]');
+  const nextBtn = e.target.closest('[data-carousel-next="true"]');
+
+  if (!prevBtn && !nextBtn) return;
+
+  e.preventDefault(); // evita cualquier comportamiento accidental
+  go(prevBtn ? "prev" : "next");
+});
+
+// ==========================================
+// TECLAS ← / → (desktop) => prev/next
+// - ignora inputs, textareas, selects, contenteditable
+// - ignora si hay modal abierto (clase modal-open)
+// ==========================================
+function isTypingContext(el) {
+  if (!el) return false;
+  const tag = el.tagName?.toLowerCase();
+  if (tag === "input" || tag === "textarea" || tag === "select") return true;
+  if (el.isContentEditable) return true;
+  return false;
+}
+
+document.addEventListener("keydown", (e) => {
+  // no interferir con combinaciones
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+
+  // si hay modal abierto, no navegamos
+  if (
+    document.documentElement.classList.contains("modal-open") ||
+    document.body.classList.contains("modal-open")
+  ) {
+    return;
+  }
+
+  // si estás escribiendo en algún campo, no navegamos
+  if (isTypingContext(document.activeElement)) return;
+
+  if (e.key === "ArrowLeft") {
+    e.preventDefault();
+    go("prev");
+  } else if (e.key === "ArrowRight") {
+    e.preventDefault();
+    go("next");
+  }
+});
+
 (function prewarmPrevNext() {
   const prev = document.body?.dataset?.prev;
   const next = document.body?.dataset?.next;
