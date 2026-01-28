@@ -1,0 +1,59 @@
+@view-transition {
+  navigation: auto;
+}
+
+/* ===== View Transitions: “slide” SOLO cuando vt-mode="slide" ===== */
+:root {
+  --vt-dur: 520ms;
+  --vt-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* default next */
+  --vt-old-from: 0%;
+  --vt-old-to: -100%;
+  --vt-new-from: 100%;
+  --vt-new-to: 0%;
+}
+:root[data-vt-dir="prev"] {
+  --vt-old-to: 100%;
+  --vt-new-from: -100%;
+}
+
+/* En modo slide reemplazamos el cross-fade default del root */
+:root[data-vt-mode="slide"] ::view-transition-old(root),
+:root[data-vt-mode="slide"] ::view-transition-new(root) {
+  animation-duration: var(--vt-dur);
+  animation-timing-function: var(--vt-ease);
+  animation-fill-mode: both;
+  mix-blend-mode: normal;
+}
+
+:root[data-vt-mode="slide"] ::view-transition-old(root) {
+  animation-name: vt-old-slide;
+}
+:root[data-vt-mode="slide"] ::view-transition-new(root) {
+  animation-name: vt-new-slide;
+}
+
+@keyframes vt-old-slide {
+  from {
+    transform: translateX(var(--vt-old-from));
+  }
+  to {
+    transform: translateX(var(--vt-old-to));
+  }
+}
+@keyframes vt-new-slide {
+  from {
+    transform: translateX(var(--vt-new-from));
+  }
+  to {
+    transform: translateX(var(--vt-new-to));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-vt-mode="slide"] ::view-transition-old(root),
+  :root[data-vt-mode="slide"] ::view-transition-new(root) {
+    animation: none !important;
+  }
+}

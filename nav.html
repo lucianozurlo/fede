@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Nav</title>
+        <link rel="stylesheet" href="./assets/css/nav.css" />
+
+        <!-- Aplica vt_mode/vt_dir antes del render -->
+        <script>
+            (function () {
+                const mode = sessionStorage.getItem("vt_mode");
+                const dir = sessionStorage.getItem("vt_dir");
+                if (mode) document.documentElement.dataset.vtMode = mode;
+                if (dir) document.documentElement.dataset.vtDir = dir;
+                sessionStorage.removeItem("vt_mode");
+                sessionStorage.removeItem("vt_dir");
+            })();
+        </script>
+    </head>
+
+    <body class="bg-home">
+        <div class="container">
+            <div class="topbar">
+                <div>
+                    <div style="font-size:22px; letter-spacing:.2px;">Home</div>
+                    <div class="hint">Cards y “volver”: fade (1.2s). En p1..p6: Anterior/Siguiente y swipe: slide.</div>
+                </div>
+                <div class="badge">MPA + View Transitions</div>
+            </div>
+
+            <div class="grid">
+                <a class="card" href="./nav/p1/" data-vt-mode="fade">
+                    <div class="media" style="--img: linear-gradient(135deg, #ff6a00, #ff3d9a);"></div>
+                    <h2>Aurora</h2>
+                    <p>Gradientes cálidos, brillo suave y sensación “hero”.</p>
+                </a>
+
+                <a class="card" href="./nav/p2/" data-vt-mode="fade">
+                    <div class="media" style="--img: linear-gradient(135deg, #00d38f, #1fbf4a);"></div>
+                    <h2>Nébula</h2>
+                    <p>Verde profundo con contraste, look tech limpio.</p>
+                </a>
+
+                <a class="card" href="./nav/p3/" data-vt-mode="fade">
+                    <div class="media" style="--img: linear-gradient(135deg, #2b6cff, #6b2bff);"></div>
+                    <h2>Prisma</h2>
+                    <p>Azules eléctricos y violeta, energía y foco.</p>
+                </a>
+
+                <a class="card" href="./nav/p4/" data-vt-mode="fade">
+                    <div class="media" style="--img: linear-gradient(135deg, #ffb300, #ff6a00);"></div>
+                    <h2>Duna</h2>
+                    <p>Amarillo arena + naranja, cálido y editorial.</p>
+                </a>
+
+                <a class="card" href="./nav/p5/" data-vt-mode="fade">
+                    <div class="media" style="--img: linear-gradient(135deg, #a63cff, #ff41ff);"></div>
+                    <h2>Vector</h2>
+                    <p>Magenta y violeta, contraste “pop” premium.</p>
+                </a>
+
+                <a class="card" href="./nav/p6/" data-vt-mode="fade">
+                    <div class="media" style="--img: linear-gradient(135deg, #ff2b6c, #ff7a7a);"></div>
+                    <h2>Pulso</h2>
+                    <p>Rojos intensos, ritmo y presencia fuerte.</p>
+                </a>
+            </div>
+        </div>
+
+        <script src="./assets/js/nav.js" defer></script>
+    </body>
+
+</html>

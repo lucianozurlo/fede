@@ -8,23 +8,34 @@
          content="I'm based in Tigre, Argentina, and I spent several years studying at the University of Buenos Aires (UBA), switching from industrial to graphic design. I've always had a passion for style in all its forms and have been diving into this creative world for many years.orium." />
       <meta name="Federico Vaccarezza" content="fvaccarezza.com" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-      <link rel="stylesheet" href="assets/vendor/normalize/normalize.min.css" />
-      <link rel="stylesheet" href="assets/vendor/fontawesome/css/fontawesome-all.min.css" />
-      <link rel="stylesheet" href="assets/css/helper.css" />
-      <link rel="stylesheet" href="assets/css/theme.css" />
-      <link rel="stylesheet" href="assets/fonts/fonts.css" />
-      <link rel="stylesheet" href="assets/css/anim.css" />
-      <link rel="stylesheet" href="assets/css/config.css">
-      <link rel="stylesheet" href="assets/css/fede.css" />
-      <link rel="stylesheet" href="assets/css/preload.css">
+      <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+      <link rel="stylesheet" href="./assets/vendor/normalize/normalize.min.css" />
+      <link rel="stylesheet" href="./assets/vendor/fontawesome/css/fontawesome-all.min.css" />
+      <link rel="stylesheet" href="./assets/css/helper.css" />
+      <link rel="stylesheet" href="./assets/css/theme.css" />
+      <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+      <link rel="stylesheet" href="./assets/css/config.css">
+      <link rel="stylesheet" href="./assets/css/fede.css" />
+      <link rel="stylesheet" href="./assets/css/preload.css">
       <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css" />
-      <link rel="stylesheet" href="assets/css/gallery.css" />
-      <link rel="stylesheet" href="assets/css/testimonials.css" />
-      <link rel="stylesheet" href="assets/css/form.css" />
-      <link rel="stylesheet" href="assets/css/cursor.css">
-      <link rel="stylesheet" href="assets/css/responsive.css" />
+      <link rel="stylesheet" href="./assets/css/gallery.css" />
+      <link rel="stylesheet" href="./assets/css/testimonials.css" />
+      <link rel="stylesheet" href="./assets/css/form.css" />
+      <link rel="stylesheet" href="./assets/css/cursor.css">
+      <link rel="stylesheet" href="./assets/css/responsive.css" />
+
+      <link rel="stylesheet" href="./nav.css">
+
+      <script>
+         (function () {
+            const mode = sessionStorage.getItem("vt_mode");
+            const dir = sessionStorage.getItem("vt_dir");
+            if (mode) document.documentElement.dataset.vtMode = mode;
+            if (dir) document.documentElement.dataset.vtDir = dir;
+            sessionStorage.removeItem("vt_mode");
+            sessionStorage.removeItem("vt_dir");
+         })();
+      </script>
    </head>
 
    <body id="body" class="tt-boxed tt-smooth-scroll">
@@ -43,18 +54,18 @@
 
          <div id="scroll-container">
             <div class="tt-logo logo-home mob-ok">
-               <a href="#page-header" id="main-logo" data-offset="0" data-clear-gallery>
-                  <img src="assets/img/fv-logo-vector.svg" alt="" />
-                  <img src="assets/img/fv-logo.svg" alt="" />
+               <a href="#page-header" id="main-logo" data-offset="0">
+                  <img src="./assets/img/fv-logo-vector.svg" alt="" />
+                  <img src="./assets/img/fv-logo.svg" alt="" />
                </a>
             </div>
             <header id="tt-header" class="tt-header-fixed">
                <div class="tt-header-inner">
                   <div class="tt-header-col">
                      <div class="tt-logo mob-no">
-                        <a href="#page-header" id="main-logo" data-offset="0" data-clear-gallery>
-                           <img src="assets/img/fv-logo-vector.svg" alt="" />
-                           <img src="assets/img/fv-logo.svg" alt="" />
+                        <a href="#page-header" id="main-logo" data-offset="0">
+                           <img src="./assets/img/fv-logo-vector.svg" alt="" />
+                           <img src="./assets/img/fv-logo.svg" alt="" />
                         </a>
                      </div>
 
@@ -64,17 +75,16 @@
                               <div class="tt-main-menu-content">
                                  <ul class="tt-main-menu-list">
                                     <li>
-                                       <a href="#about" data-offset="60" data-clear-gallery>About</a>
+                                       <a href="#about" data-offset="60">About</a>
                                     </li>
                                     <li>
-                                       <a href="#works" data-offset="40" data-clear-gallery>Works</a>
-                                       <a href="#" data-modal-open="#modal-works">Works</a>
+                                       <a href="#works" data-offset="40">Works</a>
                                     </li>
                                     <li>
-                                       <a href="#services" data-offset="40" data-clear-gallery>Services</a>
+                                       <a href="#services" data-offset="40">Services</a>
                                     </li>
                                     <li>
-                                       <a href="#contact" data-offset="14" data-clear-gallery>Contact</a>
+                                       <a href="#contact" data-offset="14">Contact</a>
                                     </li>
                                  </ul>
                               </div>
@@ -102,7 +112,7 @@
 
                                  <ul class="tt-ol-menu-list">
                                     <li class="common-li">
-                                       <a href="#about" data-offset="60" data-clear-gallery>About</a>
+                                       <a href="#about" data-offset="60">About</a>
                                     </li>
                                     <li class="tt-ol-submenu-wrap">
                                        <div class="tt-ol-submenu-trigger">
@@ -110,51 +120,40 @@
                                        </div>
                                        <div class="tt-ol-submenu">
                                           <ul class="tt-ol-submenu-list">
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/frogbazar/index.html" data-caption="frog-bazar">
+                                             <li><a class="media" data-vt-mode="shared" data-vt-dir="next"
+                                                   href="work/frogbazar/" alt="frog-bazar">
                                                    / FROG BAZAR.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/estudio32/index.html" data-caption="estudio32">
+                                             <li><a class="media" href="work/estudio32/" alt="estudio32">
                                                    / ESTUDIO 32.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/opame/index.html" data-caption="opame">
+                                             <li><a class="media" href="work/opame/" alt="opame">
                                                    / OPAME.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/nmp/index.html" data-caption="nmp">
+                                             <li><a class="media" href="work/nmp/" alt="nmp">
                                                    / NM, P.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/cleo/index.html" data-caption="cleo">
+                                             <li><a class="media" href="work/cleo/" alt="cleo">
                                                    / CLEO.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/michi/index.html" data-caption="michi">
+                                             <li><a class="media" href="work/michi/" alt="michi">
                                                    / MICHI BISTRO.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/broke/index.html" data-caption="broke">
+                                             <li><a class="media" href="work/broke/" alt="broke">
                                                    / BROKE.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/big-mother-energy/index.html"
-                                                   data-caption="big-mother-energy">
+                                             <li><a class="media" href="work/big-mother-energy/"
+                                                   alt="big-mother-energy">
                                                    / BIG MOTHER ENERGY.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/ui-ux/index.html" data-caption="ui-ux">
+                                             <li><a class="media" href="work/ui-ux/" alt="ui-ux">
                                                    / UI / UX.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/web/index.html" data-caption="web">
+                                             <li><a class="media" href="work/web/" alt="web">
                                                    / WEB.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/logofolio/index.html" data-caption="logofolio">
+                                             <li><a class="media" href="work/logofolio/" alt="logofolio">
                                                    / LOGOFOLIO.</a></li>
-                                             <li><a class="media" data-fancybox="galeria" data-type="iframe"
-                                                   data-src="work/photography/index.html" data-caption="photography">
+                                             <li><a class="media" href="work/photography/" alt="photography">
                                                    / PHOTOGRAPHY.</a></li>
                                           </ul>
                                        </div>
                                     </li>
                                     <li class="common-li">
-                                       <a href="#services" data-offset="40" data-clear-gallery>Services</a>
+                                       <a href="#services" data-offset="40">Services</a>
                                     </li>
                                     <li class="common-li">
-                                       <a href="#contact" data-offset="14" data-clear-gallery>Contact</a>
+                                       <a href="#contact" data-offset="14">Contact</a>
                                     </li>
                                  </ul>
 
@@ -172,7 +171,7 @@
                   <div class="page-header-inner tt-wrap">
                      <div class="bg-vectors">
                         <div class="pos top-left">
-                           <img src="assets/img/bg-lines/bg-lines1.svg" />
+                           <img src="./assets/img/bg-lines/bg-lines1.svg" />
                         </div>
                      </div>
 
@@ -187,9 +186,9 @@
                               </a>
                            </h1>
                            <div class="stamp">
-                              <img src="assets/img/stamp/crafting.svg" alt="" />
-                              <img src="assets/img/stamp/crafting-a.svg" class="join" alt="" />
-                              <img src="assets/img/stamp/crafting-b.svg" class="inside" alt="" />
+                              <img src="./assets/img/stamp/crafting.svg" alt="" />
+                              <img src="./assets/img/stamp/crafting-a.svg" class="join" alt="" />
+                              <img src="./assets/img/stamp/crafting-b.svg" class="inside" alt="" />
                            </div>
                         </div>
 
@@ -203,7 +202,7 @@
                   <div id="about" class="tt-section padding-bottom-xlg-90 psi-image-is-light">
                      <div class="bg-vectors">
                         <div class="pos bottom-right">
-                           <img src="assets/img/bg-lines/bg-lines2.svg" />
+                           <img src="./assets/img/bg-lines/bg-lines2.svg" />
                         </div>
                      </div>
 
@@ -216,23 +215,23 @@
                               <div class="photo">
                                  <div class="film out">
                                     <div class="vectors mob-no">
-                                       <img src="assets/img/photo-vector-1.svg" class="photo-vector vector1" alt="" />
-                                       <img src="assets/img/photo-vector-2.svg" class="photo-vector vector2" alt="" />
+                                       <img src="./assets/img/photo-vector-1.svg" class="photo-vector vector1" alt="" />
+                                       <img src="./assets/img/photo-vector-2.svg" class="photo-vector vector2" alt="" />
                                     </div>
                                  </div>
                                  <div class="fede">
-                                    <img src="assets/img/fede.jpg" />
+                                    <img src="./assets/img/fede.jpg" />
                                  </div>
                                  <div class="film bg">
                                     <div class="vectors mob-no">
-                                       <img src="assets/img/photo-vector-1.svg" class="photo-vector vector1" alt="" />
-                                       <img src="assets/img/photo-vector-2.svg" class="photo-vector vector2" alt="" />
+                                       <img src="./assets/img/photo-vector-1.svg" class="photo-vector vector1" alt="" />
+                                       <img src="./assets/img/photo-vector-2.svg" class="photo-vector vector2" alt="" />
                                     </div>
                                  </div>
                                  <div class="film">
                                     <div class="vectors mob-no">
-                                       <img src="assets/img/photo-vector-1.svg" class="photo-vector vector1" alt="" />
-                                       <img src="assets/img/photo-vector-2.svg" class="photo-vector vector2" alt="" />
+                                       <img src="./assets/img/photo-vector-1.svg" class="photo-vector vector1" alt="" />
+                                       <img src="./assets/img/photo-vector-2.svg" class="photo-vector vector2" alt="" />
                                     </div>
                                  </div>
                               </div>
@@ -262,53 +261,52 @@
                   <div id="works" class="tt-section">
                      <div class="bg-vectors">
                         <div class="pos top-left">
-                           <img src="assets/img/bg-lines/bg-lines3.svg" />
+                           <img src="./assets/img/bg-lines/bg-lines3.svg" />
                         </div>
                      </div>
 
                      <div class="tt-section-inner tt-wrap">
                         <h2 class="section-title noise-fill-hover">Works</h2>
                         <span>
-                           <img src="assets/img/work-brush.svg" alt="" />
+                           <img src="./assets/img/work-brush.svg" alt="" />
                            <p>Some of what I've done over the years.</p>
                         </span>
 
                         <div class="gallery">
 
                            <!-- Frog Bazar -->
-                           <div class="card" data-caption="frog-bazar" id="frog-bazar" data-caption="frog-bazar">
+                           <div class="card" alt="frog-bazar" id="frog-bazar" alt="frog-bazar">
                               <a href="https://www.behance.net/gallery/157959551/Frog-Bazar-2023" target="_blank"
                                  class="stamp">
-                                 <img src="assets/img/stamp/project-be.svg" alt="" />
-                                 <img src="assets/img/stamp/project-be-a.svg" class="join" alt="" />
-                                 <img src="assets/img/stamp/project-be-b.svg" class="inside" alt="" />
+                                 <img src="./assets/img/stamp/project-be.svg" alt="" />
+                                 <img src="./assets/img/stamp/project-be-a.svg" class="join" alt="" />
+                                 <img src="./assets/img/stamp/project-be-b.svg" class="inside" alt="" />
                               </a>
 
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/frogbazar/index.html" data-caption="frog-bazar">
-                                 <img class="img-base" src="assets/home/frogbazar.jpg" alt="Frog Bazar"
+                              <a class="media" href="work/frogbazar/" alt="frog-bazar" data-vt-mode="shared"
+                                 data-vt-dir="next">
+                                 <img class="img-base" src="./assets/home/frogbazar.jpg" alt="Frog Bazar"
                                     loading="lazy" />
-                                 <img class="img-hover" src="assets/home/frogbazar-b.jpg" alt="" aria-hidden="true" />
+                                 <img class="img-hover" src="./assets/home/frogbazar-b.jpg" alt="" aria-hidden="true" />
+                                 <div class="meta">
+                                    <h3>Frog Bazar</h3>
+                                    <p>branding + website + photo</p>
+                                    <p>(001)</p>
+                                 </div>
                               </a>
-                              <div class="meta">
-                                 <h3>Frog Bazar</h3>
-                                 <p>branding + website + photo</p>
-                                 <p>(001)</p>
-                              </div>
                            </div>
 
                            <!-- ESTUDIO 32 -->
-                           <div class="card" id="estudio32" data-caption="estudio32">
+                           <div class="card" id="estudio32" alt="estudio32">
                               <a href="http://behance.net/gallery/164603319/estudio32" target="_blank" class="stamp">
-                                 <img src="assets/img/stamp/project-be.svg" alt="" />
-                                 <img src="assets/img/stamp/project-be-a.svg" class="join" alt="" />
-                                 <img src="assets/img/stamp/project-be-b.svg" class="inside" alt="" />
+                                 <img src="./assets/img/stamp/project-be.svg" alt="" />
+                                 <img src="./assets/img/stamp/project-be-a.svg" class="join" alt="" />
+                                 <img src="./assets/img/stamp/project-be-b.svg" class="inside" alt="" />
                               </a>
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/estudio32/index.html" data-caption="estudio32">
-                                 <img class="img-base" src="assets/home/estudio32.jpg" alt="ESTUDIO 32"
+                              <a class="media" href="work/estudio32/" alt="estudio32">
+                                 <img class="img-base" src="./assets/home/estudio32.jpg" alt="ESTUDIO 32"
                                     loading="lazy" />
-                                 <img class="img-hover" src="assets/home/estudio32-b.jpg" alt="" aria-hidden="true" />
+                                 <img class="img-hover" src="./assets/home/estudio32-b.jpg" alt="" aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>ESTUDIO 32</h3>
@@ -318,11 +316,10 @@
                            </div>
 
                            <!-- OPAME -->
-                           <div class="card" id="opame" data-caption="opame">
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/opame/index.html" data-caption="opame">
-                                 <img class="img-base" src="assets/home/opame.jpg" alt="OPAME" loading="lazy" />
-                                 <img class="img-hover" src="assets/home/opame-b.jpg" alt="" aria-hidden="true" />
+                           <div class="card" id="opame" alt="opame">
+                              <a class="media" href="work/opame/" alt="opame">
+                                 <img class="img-base" src="./assets/home/opame.jpg" alt="OPAME" loading="lazy" />
+                                 <img class="img-hover" src="./assets/home/opame-b.jpg" alt="" aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>OPAME COLLECTIVE</h3>
@@ -332,11 +329,10 @@
                            </div>
 
                            <!-- N.M,P -->
-                           <div class="card" id="nmp" data-caption="nmp">
-                              <a class="media" data-fancybox="galeria" data-type="iframe" data-src="work/nmp/index.html"
-                                 data-caption="nmp">
-                                 <img class="img-base" src="assets/home/nmp.jpg" alt="N.M, P" loading="lazy" />
-                                 <img class="img-hover" src="assets/home/nmp-b.jpg" alt="" aria-hidden="true" />
+                           <div class="card" id="nmp" alt="nmp">
+                              <a class="media" href alt="nmp">
+                                 <img class="img-base" src="./assets/home/nmp.jpg" alt="N.M, P" loading="lazy" />
+                                 <img class="img-hover" src="./assets/home/nmp-b.jpg" alt="" aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>N.M,P</h3>
@@ -346,11 +342,10 @@
                            </div>
 
                            <!-- CLEO PAY -->
-                           <div class="card" id="cleo" data-caption="cleo">
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/cleo/index.html" data-caption="cleo">
-                                 <img class="img-base" src="assets/home/cleo.jpg" alt="CLEO PAY" loading="lazy" />
-                                 <img class="img-hover" src="assets/home/cleo-b.jpg" alt="" aria-hidden="true" />
+                           <div class="card" id="cleo" alt="cleo">
+                              <a class="media" href="work/cleo/" alt="cleo">
+                                 <img class="img-base" src="./assets/home/cleo.jpg" alt="CLEO PAY" loading="lazy" />
+                                 <img class="img-hover" src="./assets/home/cleo-b.jpg" alt="" aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>CLEO PAY</h3>
@@ -360,17 +355,17 @@
                            </div>
 
                            <!-- MICHI BISTRO -->
-                           <div class="card" id="michi" data-caption="michi">
+                           <div class="card" id="michi" alt="michi">
                               <a href="https://www.behance.net/gallery/162858615/Michi-Dine-In-Take-Away"
                                  target="_blank" class="stamp">
-                                 <img src="assets/img/stamp/project-be.svg" alt="" />
-                                 <img src="assets/img/stamp/project-be-a.svg" class="join" alt="" />
-                                 <img src="assets/img/stamp/project-be-b.svg" class="inside" alt="" />
+                                 <img src="./assets/img/stamp/project-be.svg" alt="" />
+                                 <img src="./assets/img/stamp/project-be-a.svg" class="join" alt="" />
+                                 <img src="./assets/img/stamp/project-be-b.svg" class="inside" alt="" />
                               </a>
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/michi/index.html" data-caption="michi">
-                                 <img class="img-base" src="assets/home/michi.jpg" alt="MICHI BISTRO" loading="lazy" />
-                                 <img class="img-hover" src="assets/home/michi-b.jpg" alt="" aria-hidden="true" />
+                              <a class="media" href="work/michi/" alt="michi">
+                                 <img class="img-base" src="./assets/home/michi.jpg" alt="MICHI BISTRO"
+                                    loading="lazy" />
+                                 <img class="img-hover" src="./assets/home/michi-b.jpg" alt="" aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>MICHI BISTRO</h3>
@@ -380,17 +375,16 @@
                            </div>
 
                            <!-- BROKE -->
-                           <div class="card" id="broke" data-caption="broke">
+                           <div class="card" id="broke" alt="broke">
                               <a href="https://www.behance.net/gallery/161530441/Broke-Music" target="_blank"
                                  class="stamp">
-                                 <img src="assets/img/stamp/project-be.svg" alt="" />
-                                 <img src="assets/img/stamp/project-be-a.svg" class="join" alt="" />
-                                 <img src="assets/img/stamp/project-be-b.svg" class="inside" alt="" />
+                                 <img src="./assets/img/stamp/project-be.svg" alt="" />
+                                 <img src="./assets/img/stamp/project-be-a.svg" class="join" alt="" />
+                                 <img src="./assets/img/stamp/project-be-b.svg" class="inside" alt="" />
                               </a>
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/broke/index.html" data-caption="broke">
-                                 <img class="img-base" src="assets/home/broke.jpg" alt="Broke" loading="lazy" />
-                                 <img class="img-hover" src="assets/home/broke-b.jpg" alt="" aria-hidden="true" />
+                              <a class="media" href="work/broke/" alt="broke">
+                                 <img class="img-base" src="./assets/home/broke.jpg" alt="Broke" loading="lazy" />
+                                 <img class="img-hover" src="./assets/home/broke-b.jpg" alt="" aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>BROKE</h3>
@@ -400,12 +394,11 @@
                            </div>
 
                            <!-- BIG MOTHER ENERGY -->
-                           <div class="card" id="big-mother-energy" data-caption="big-mother-energy">
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/big-mother-energy/index.html" data-caption="big-mother-energy">
-                                 <img class="img-base" src="assets/home/big-mother-energy.jpg" alt="Big Mother Energy"
+                           <div class="card" id="big-mother-energy" alt="big-mother-energy">
+                              <a class="media" href="work/big-mother-energy/" alt="big-mother-energy">
+                                 <img class="img-base" src="./assets/home/big-mother-energy.jpg" alt="Big Mother Energy"
                                     loading="lazy" />
-                                 <img class="img-hover" src="assets/home/big-mother-energy-b.jpg" alt=""
+                                 <img class="img-hover" src="./assets/home/big-mother-energy-b.jpg" alt=""
                                     aria-hidden="true" />
                               </a>
                               <div class="meta">
@@ -416,11 +409,10 @@
                            </div>
 
                            <!-- UI / UX -->
-                           <div class="card" id="ui-ux" data-caption="ui-ux">
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/ui-ux/index.html" data-caption="ui-ux">
-                                 <img class="img-base" src="assets/home/ui-ux.jpg" alt="UI / UX" loading="lazy" />
-                                 <img class="img-hover" src="assets/home/ui-ux-b.jpg" alt="" aria-hidden="true" />
+                           <div class="card" id="ui-ux" alt="ui-ux">
+                              <a class="media" href="work/ui-ux/" alt="ui-ux">
+                                 <img class="img-base" src="./assets/home/ui-ux.jpg" alt="UI / UX" loading="lazy" />
+                                 <img class="img-hover" src="./assets/home/ui-ux-b.jpg" alt="" aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>UI / UX</h3>
@@ -429,11 +421,10 @@
                            </div>
 
                            <!-- WEB -->
-                           <div class="card" id="web" data-caption="web">
-                              <a class="media" data-fancybox="galeria" data-type="iframe" data-src="work/web/index.html"
-                                 data-caption="web">
-                                 <img class="img-base" src="assets/home/web.jpg" alt="Web" loading="lazy" />
-                                 <img class="img-hover" src="assets/home/web-b.jpg" alt="" aria-hidden="true" />
+                           <div class="card" id="web" alt="web">
+                              <a class="media" href alt="web">
+                                 <img class="img-base" src="./assets/home/web.jpg" alt="Web" loading="lazy" />
+                                 <img class="img-hover" src="./assets/home/web-b.jpg" alt="" aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>WEB</h3>
@@ -442,11 +433,11 @@
                            </div>
 
                            <!-- LOGOFOLIO -->
-                           <div class="card" id="logofolio" data-caption="logofolio">
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/logofolio/index.html" data-caption="logofolio">
-                                 <img class="img-base" src="assets/home/logofolio.jpg" alt="Logofolio" loading="lazy" />
-                                 <img class="img-hover" src="assets/home/logofolio-b.jpg" alt="" aria-hidden="true" />
+                           <div class="card" id="logofolio" alt="logofolio">
+                              <a class="media" href="work/logofolio/" alt="logofolio">
+                                 <img class="img-base" src="./assets/home/logofolio.jpg" alt="Logofolio"
+                                    loading="lazy" />
+                                 <img class="img-hover" src="./assets/home/logofolio-b.jpg" alt="" aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>LOGOFOLIO</h3>
@@ -455,12 +446,12 @@
                            </div>
 
                            <!-- PHOTOGRAPHY -->
-                           <div class="card" id="photography" data-caption="photography">
-                              <a class="media" data-fancybox="galeria" data-type="iframe"
-                                 data-src="work/photography/index.html" data-caption="photography">
-                                 <img class="img-base" src="assets/home/photography.jpg" alt="photography"
+                           <div class="card" id="photography" alt="photography">
+                              <a class="media" href="work/photography/" alt="photography">
+                                 <img class="img-base" src="./assets/home/photography.jpg" alt="photography"
                                     loading="lazy" />
-                                 <img class="img-hover" src="assets/home/photography-b.jpg" alt="" aria-hidden="true" />
+                                 <img class="img-hover" src="./assets/home/photography-b.jpg" alt=""
+                                    aria-hidden="true" />
                               </a>
                               <div class="meta">
                                  <h3>PHOTOGRAPHY</h3>
@@ -476,7 +467,7 @@
                      <div class="tt-section-inner tt-wrap">
                         <h2 class="section-title noise-fill-hover">Services</h2>
                         <span>
-                           <img src="assets/img/services-stars.svg" alt="" />
+                           <img src="./assets/img/services-stars.svg" alt="" />
                            <p>Crafting visuals that work</p>
                         </span>
 
@@ -486,7 +477,7 @@
                                  <div class="services-items">
                                     <div class="items">
                                        <div class="icon">
-                                          <img src="assets/img/services-item1.svg" alt="" />
+                                          <img src="./assets/img/services-item1.svg" alt="" />
                                        </div>
                                        <div class="services-text">
                                           <p>Web Design</p>
@@ -498,7 +489,7 @@
                                     </div>
                                     <div class="items">
                                        <div class="icon">
-                                          <img src="assets/img/services-item2.svg" alt="" />
+                                          <img src="./assets/img/services-item2.svg" alt="" />
                                        </div>
                                        <div class="services-text">
                                           <p>Branding</p>
@@ -511,7 +502,7 @@
                                     </div>
                                     <div class="items">
                                        <div class="icon">
-                                          <img src="assets/img/services-item3.svg" alt="" />
+                                          <img src="./assets/img/services-item3.svg" alt="" />
                                        </div>
                                        <div class="services-text">
                                           <p>Product Design (UI/UX)</p>
@@ -523,7 +514,7 @@
                                     </div>
                                     <div class="items">
                                        <div class="icon">
-                                          <img src="assets/img/services-item4.svg" alt="" />
+                                          <img src="./assets/img/services-item4.svg" alt="" />
                                        </div>
                                        <div class="services-text">
                                           <p>Graphic Design</p>
@@ -550,18 +541,18 @@
                            <div class="tt-col-md-6 d-flex-center flex-col max-width-full">
                               <h4 class="section-title">Trusted By:</h4>
                               <div class="trusted-container">
-                                 <img src="assets/img/trusted-logo1.svg" alt="" />
-                                 <img src="assets/img/trusted-logo2.svg" alt="" />
-                                 <img src="assets/img/trusted-logo3.svg" alt="" />
-                                 <img src="assets/img/trusted-logo4.svg" alt="" />
-                                 <img src="assets/img/trusted-logo5.svg" alt="" />
-                                 <img src="assets/img/trusted-logo6.svg" alt="" />
-                                 <img src="assets/img/trusted-logo7.svg" alt="" />
-                                 <img src="assets/img/trusted-logo8.svg" alt="" />
-                                 <img src="assets/img/trusted-logo9.svg" alt="" />
-                                 <img src="assets/img/trusted-logo10.svg" alt="" />
-                                 <img src="assets/img/trusted-logo11.svg" alt="" />
-                                 <img src="assets/img/trusted-logo12.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo1.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo2.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo3.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo4.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo5.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo6.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo7.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo8.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo9.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo10.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo11.svg" alt="" />
+                                 <img src="./assets/img/trusted-logo12.svg" alt="" />
                               </div>
                            </div>
                         </div>
@@ -573,7 +564,7 @@
                                  <div class="carousel" role="region">
                                     <div class="stage" id="stage">
                                        <article class="verbatim prev" tabindex="0">
-                                          <img src="assets/img/word2.jpg" alt="" />
+                                          <img src="./assets/img/word2.jpg" alt="" />
                                           <div>
                                              <p><span>Dana Johonson</span> (Dotted 8)</p>
                                              <p>
@@ -587,7 +578,7 @@
                                        </article>
 
                                        <article class="verbatim active" tabindex="0">
-                                          <img src="assets/img/word1.jpg" alt="" />
+                                          <img src="./assets/img/word1.jpg" alt="" />
                                           <div>
                                              <p><span>Ramiro Nieto Moreno</span> (N.M,P.)</p>
                                              <p>
@@ -600,7 +591,7 @@
                                        </article>
 
                                        <article class="verbatim next" tabindex="0">
-                                          <img src="assets/img/word3.jpg" alt="" />
+                                          <img src="./assets/img/word3.jpg" alt="" />
                                           <div>
                                              <p><span>Nayoung S. Kim</span> (Highfive)</p>
                                              <p>
@@ -612,7 +603,7 @@
                                        </article>
 
                                        <article class="verbatim hidden" tabindex="0">
-                                          <img src="assets/img/word4.jpg" alt="" />
+                                          <img src="./assets/img/word4.jpg" alt="" />
                                           <div>
                                              <p>
                                                 <span>Tristan Kemitzis</span> (Kemitzis Consulting)
@@ -625,7 +616,7 @@
                                           </div>
                                        </article>
                                        <article class="verbatim hidden" tabindex="0">
-                                          <img src="assets/img/word5.jpg" alt="" />
+                                          <img src="./assets/img/word5.jpg" alt="" />
                                           <div>
                                              <p><span>Nick Godin</span> (Netwrk Ventures)</p>
                                              <p>
@@ -650,28 +641,28 @@
                   <footer id="contact" class="tt-section">
                      <div class="bg-vectors">
                         <div class="pos bottom-center">
-                           <img class="mob-no" src="assets/img/footer-4.svg" />
-                           <img class="mob-ok block" src="assets/img/footer-4-mob.svg" alt="" />
+                           <img class="mob-no" src="./assets/img/footer-4.svg" />
+                           <img class="mob-ok block" src="./assets/img/footer-4-mob.svg" alt="" />
                         </div>
                      </div>
                      <div class="footer-masked footer1">
                         <div class="footer-ink footer1">
-                           <img class="footer-probe mob-no" src="assets/img/footer-1.svg" alt="" />
-                           <img class="footer-probe mob-ok block" src="assets/img/footer-1-mob.svg" alt="" />
+                           <img class="footer-probe mob-no" src="./assets/img/footer-1.svg" alt="" />
+                           <img class="footer-probe mob-ok block" src="./assets/img/footer-1-mob.svg" alt="" />
                            <div class="footer-texture orange" aria-hidden="true"></div>
                         </div>
                      </div>
                      <div class="footer-masked footer1">
                         <div class="footer-ink footer2">
-                           <img class="footer-probe mob-no" src="assets/img/footer-2.svg" alt="" />
-                           <img class="footer-probe mob-ok block" src="assets/img/footer-2-mob.svg" alt="" />
+                           <img class="footer-probe mob-no" src="./assets/img/footer-2.svg" alt="" />
+                           <img class="footer-probe mob-ok block" src="./assets/img/footer-2-mob.svg" alt="" />
                            <div class="footer-texture yellow" aria-hidden="true"></div>
                         </div>
                      </div>
                      <div class="footer-masked footer3">
                         <div class="footer-ink footer3">
-                           <img class="footer-probe mob-no" src="assets/img/footer-3.svg" alt="" />
-                           <img class="footer-probe mob-ok block" src="assets/img/footer-3-mob.svg" alt="" />
+                           <img class="footer-probe mob-no" src="./assets/img/footer-3.svg" alt="" />
+                           <img class="footer-probe mob-ok block" src="./assets/img/footer-3-mob.svg" alt="" />
                            <div class="footer-texture yellow" aria-hidden="true"></div>
                         </div>
                      </div>
@@ -683,7 +674,7 @@
                      <div class="tt-section-inner tt-wrap">
                         <h2 class="section-title noise-fill-hover">Get in touch</h2>
                         <span>
-                           <img src="assets/img/contact.svg" alt="" />
+                           <img src="./assets/img/contact.svg" alt="" />
                            <p>Ready when you are!</p>
                         </span>
                      </div>
@@ -754,24 +745,24 @@
                                  <a href="https://calendly.com/fvaccarezza/intro-call" target="_blank" class="btn">Book
                                     a Call</a>
                                  <a href="tel:+5491165093091">+54 9 11 6509 3091</a>
-                                 <a href="mailto:fvaccarezza@gmail.com"><img src="assets/img/contact.svg"
+                                 <a href="mailto:fvaccarezza@gmail.com"><img src="./assets/img/contact.svg"
                                        alt="" />fvaccarezza@gmail.com</a>
                               </div>
                               <div class="col">
                                  <h3>Social.</h3>
                                  <div class="socials">
                                     <a href="https://www.behance.net/Vaccarezza" target="_blank">
-                                       <img src="assets/img/social-behance.svg" alt="" />
+                                       <img src="./assets/img/social-behance.svg" alt="" />
                                        <p>Behance</p>
                                        <div class="circle"></div>
                                     </a>
                                     <a href="https://dribbble.com/Vaccarezza" target="_blank">
-                                       <img src="assets/img/social-dribble.svg" alt="" />
+                                       <img src="./assets/img/social-dribble.svg" alt="" />
                                        <p>Dribble</p>
                                        <div class="circle"></div>
                                     </a>
                                     <a href="https://vsco.co/fedevaccarezza/" target="_blank">
-                                       <img src="assets/img/social-vsco.svg" alt="" />
+                                       <img src="./assets/img/social-vsco.svg" alt="" />
                                        <p>Vsco</p>
                                        <div class="circle"></div>
                                     </a>
@@ -788,63 +779,22 @@
          </div>
       </main>
 
-      <!-- SUBMODAL -->
-      <div class="modal-simple submmodal" id="modal-works" role="dialog" aria-modal="true" aria-hidden="true">
-         <div class="modal__backdrop" data-modal-close></div>
-         <div class="modal__dialog" role="document">
-            <div class="bg-vectors">
-               <div class="pos bottom-left">
-                  <img src="assets/img/bg-lines/modal-bg1.svg" />
-               </div>
-               <div class="pos top-right">
-                  <img src="assets/img/bg-lines/modal-bg2.svg" />
-               </div>
-            </div>
-            <header>
-               <h3 class="section-title">WORKS</h3>
-               <a href="#" data-modal-close data-clear-gallery class="submodal-close">
-                  <img src="assets/img/icon-close.svg" alt="">
-               </a>
-            </header>
-            <div class="content">
-               <div class="works-items">
-                  <a href="#" data-modal-close data-gallery-target="frog-bazar">FROG BAZAR.</a>
-                  <a href="#" data-modal-close data-gallery-target="estudio32">ESTUDIO 32.</a>
-                  <a href="#" data-modal-close data-gallery-target="opame">OPAME.</a>
-                  <a href="#" data-modal-close data-gallery-target="nmp">N.M, P.</a>
-               </div>
-               <div class="works-items">
-                  <a href="#" data-modal-close data-gallery-target="cleo">CLEO.</a>
-                  <a href="#" data-modal-close data-gallery-target="michi">MICHI BISTRO.</a>
-                  <a href="#" data-modal-close data-gallery-target="broke">BROKE.</a>
-                  <a href="#" data-modal-close data-gallery-target="big-mother-energy">BIG MOTHER ENERGY.</a>
-               </div>
-               <div class="works-items">
-                  <a href="#" data-modal-close data-gallery-target="ui-ux">UI / UX.</a>
-                  <a href="#" data-modal-close data-gallery-target="web">WEB.</a>
-                  <a href="#" data-modal-close data-gallery-target="logofolio">LOGOFOLIO.</a>
-                  <a href="#" data-modal-close data-gallery-target="photography">PHOTOGRAPHY.</a>
-               </div>
-            </div>
-         </div>
-      </div>
-
       <!-- MODAL Process -->
       <div class="modal-simple submmodal" id="modal-process" role="dialog" aria-modal="true" aria-hidden="true">
          <div class="modal__backdrop" data-modal-close></div>
          <div class="modal__dialog" role="document">
             <div class="bg-vectors">
                <div class="pos bottom-left">
-                  <img src="assets/img/bg-lines/modal-bg1.svg" />
+                  <img src="./assets/img/bg-lines/modal-bg1.svg" />
                </div>
                <div class="pos top-right">
-                  <img src="assets/img/bg-lines/modal-bg2.svg" />
+                  <img src="./assets/img/bg-lines/modal-bg2.svg" />
                </div>
             </div>
             <header>
                <h3 class="section-title">PROCESS</h3>
-               <a href="#" data-modal-close data-clear-gallery class="submodal-close">
-                  <img src="assets/img/icon-close.svg" alt="">
+               <a href="#" data-modal-close class="submodal-close">
+                  <img src="./assets/img/icon-close.svg" alt="">
                </a>
             </header>
             <div class="content">
@@ -884,7 +834,7 @@
                      </p>
                   </div>
                </div>
-               <a href="#" data-modal-close data-clear-gallery class="close">Close</a>
+               <a href="#" data-modal-close class="close">Close</a>
             </div>
          </div>
       </div>
@@ -895,16 +845,16 @@
          <div class="modal__dialog" role="document">
             <div class="bg-vectors">
                <div class="pos bottom-left">
-                  <img src="assets/img/bg-lines/modal-bg1.svg" />
+                  <img src="./assets/img/bg-lines/modal-bg1.svg" />
                </div>
                <div class="pos top-right">
-                  <img src="assets/img/bg-lines/modal-bg2.svg" />
+                  <img src="./assets/img/bg-lines/modal-bg2.svg" />
                </div>
             </div>
             <header>
                <h3 class="section-title">FAQs</h3>
-               <a href="#" data-modal-close data-clear-gallery class="submodal-close">
-                  <img src="assets/img/icon-close.svg" alt="">
+               <a href="#" data-modal-close class="submodal-close">
+                  <img src="./assets/img/icon-close.svg" alt="">
                </a>
             </header>
             <div class="content">
@@ -944,169 +894,33 @@
                      </p>
                   </div>
                </div>
-               <a href="#" data-modal-close data-clear-gallery class="close">Close</a>
+               <a href="#" data-modal-close class="close">Close</a>
             </div>
          </div>
       </div>
 
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-      <script src="assets/vendor/gsap/ScrollToPlugin.min.js"></script>
+      <script src="./assets/vendor/gsap/ScrollToPlugin.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-      <script src="assets/vendor/smooth-scrollbar.js"></script>
-      <script src="assets/vendor/swiper/js/swiper-bundle.min.js"></script>
-      <script src="assets/vendor/isotope/imagesloaded.pkgd.min.js"></script>
-      <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
-      <script src="assets/vendor/isotope/packery-mode.pkgd.min.js"></script>
-      <script src="assets/vendor/lightgallery/js/lightgallery-all.min.js"></script>
-      <script src="assets/vendor/jquery.mousewheel.min.js"></script>
-      <script src="assets/js/theme.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
-      <script src="assets/js/gallery.js"></script>
-      <script src="assets/js/testimonials.js"></script>
-      <script src="assets/js/form.js"></script>
-      <script src="assets/js/modal.js"></script>
-      <script src="assets/js/cursor-follow.js" defer></script>
-      <script src="assets/js/cursor-fancybox-bridge.js" defer></script>
-      <script src="assets/js/preload.js"></script>
-      <script src="assets/js/noise.js"></script>
-      <script src="assets/js/scroll.js"></script>
+      <script src="./assets/vendor/smooth-scrollbar.js"></script>
+      <script src="./assets/vendor/swiper/js/swiper-bundle.min.js"></script>
+      <script src="./assets/vendor/isotope/imagesloaded.pkgd.min.js"></script>
+      <script src="./assets/vendor/isotope/isotope.pkgd.min.js"></script>
+      <script src="./assets/vendor/isotope/packery-mode.pkgd.min.js"></script>
+      <script src="./assets/vendor/lightgallery/js/lightgallery-all.min.js"></script>
+      <script src="./assets/vendor/jquery.mousewheel.min.js"></script>
+      <script src="./assets/js/theme.js"></script>
+      <script src="./assets/js/gallery.js"></script>
+      <script src="./assets/js/testimonials.js"></script>
+      <script src="./assets/js/form.js"></script>
+      <script src="./assets/js/modal.js"></script>
+      <script src="./assets/js/cursor-follow.js" defer></script>
+      <script src="./assets/js/preload.js"></script>
+      <script src="./assets/js/noise.js"></script>
+      <script src="./assets/js/scroll.js"></script>
 
-      <script>
-         document.addEventListener("DOMContentLoaded", () => {
-            const worksSubmenu = document.getElementById("works-submenu");
-            const menuToggleBtn = document.querySelector(".tt-ol-menu-toggle-btn");
-            const submenuTrigger = document.querySelector(".tt-ol-submenu-trigger");
-
-            const mq = window.matchMedia("(max-width: 960px)");
-
-            const onWorksClick = (e) => {
-               e.preventDefault();
-               document.body.classList.toggle("hide-others");
-            };
-
-            const onToggleClick = (e) => {
-               e.preventDefault();
-               setTimeout(() => {
-                  document.body.classList.remove("hide-others");
-                  if (submenuTrigger) submenuTrigger.classList.remove("tt-ol-submenu-open");
-               }, 500);
-            };
-
-            const bind = () => {
-               if (worksSubmenu) worksSubmenu.addEventListener("click", onWorksClick);
-               if (menuToggleBtn) menuToggleBtn.addEventListener("click", onToggleClick);
-            };
-
-            const unbind = () => {
-               if (worksSubmenu) worksSubmenu.removeEventListener("click", onWorksClick);
-               if (menuToggleBtn) menuToggleBtn.removeEventListener("click", onToggleClick);
-            };
-
-            const apply = () => {
-               if (mq.matches) bind();
-               else {
-                  unbind();
-                  // opcional: limpiar estado por si venías de mobile
-                  document.body.classList.remove("hide-others");
-                  if (submenuTrigger) submenuTrigger.classList.remove("tt-ol-submenu-open");
-               }
-            };
-
-            apply();
-
-            // escucha cambios de breakpoint
-            if (mq.addEventListener) mq.addEventListener("change", apply);
-            else mq.addListener(apply); // fallback Safari viejo
-         });
-
-      </script>
-
-      <script>
-         // Helper: consideramos "mobile" por ancho o por pointer coarse (táctil)
-         const isMobileFB = () =>
-            window.matchMedia("(max-width: 960px)").matches ||
-            window.matchMedia("(pointer: coarse)").matches;
-
-         function addEdgeSwipeZones(fancybox, slide) {
-            if (!slide?.contentEl) return;
-            if (slide.type !== "iframe") return;
-
-            // Evitar duplicar si el slide se preload/revela más de una vez
-            if (slide.contentEl.querySelector(".fb-edge-swipe")) return;
-
-            // Asegurar posicionamiento para overlay
-            const computedPos = getComputedStyle(slide.contentEl).position;
-            if (computedPos === "static") slide.contentEl.style.position = "relative";
-
-            const mkZone = (side) => {
-               const z = document.createElement("div");
-               z.className = `fb-edge-swipe fb-edge-swipe--${side}`;
-               z.setAttribute("aria-hidden", "true");
-               return z;
-            };
-
-            const left = mkZone("left");
-            const right = mkZone("right");
-
-            slide.contentEl.appendChild(left);
-            slide.contentEl.appendChild(right);
-
-            let startX = 0;
-            let startY = 0;
-
-            const onStart = (e) => {
-               const t = e.touches?.[0];
-               if (!t) return;
-               startX = t.clientX;
-               startY = t.clientY;
-            };
-
-            const onEnd = (e) => {
-               const t = e.changedTouches?.[0];
-               if (!t) return;
-
-               const dx = t.clientX - startX;
-               const dy = t.clientY - startY;
-
-               // Si fue más vertical que horizontal, no hacemos nada (para no pelear con scroll)
-               if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
-
-               if (dx < 0) {
-                  fancybox.next(); // swipe hacia la izquierda => siguiente
-               } else {
-                  fancybox.prev(); // swipe hacia la derecha => anterior
-               }
-            };
-
-            // Capturamos gesto SOLO desde los bordes
-            [left, right].forEach((el) => {
-               el.addEventListener("touchstart", onStart, { passive: true });
-               el.addEventListener("touchend", onEnd, { passive: true });
-            });
-         }
-
-         Fancybox.bind('[data-fancybox="galeria"]', {
-            // Hace que el cambio se sienta más "slider"
-            Carousel: {
-               transition: "slide", // opción del Carousel :contentReference[oaicite:1]{index=1}
-            },
-
-            on: {
-               // Se dispara cuando el slide ya está revelado/cargado :contentReference[oaicite:2]{index=2}
-               done: (fancybox, slide) => {
-                  // Importante: el evento puede dispararse por slides preloaded :contentReference[oaicite:3]{index=3}
-                  if (!fancybox.isCurrentSlide(slide)) return;
-
-                  if (isMobileFB()) {
-                     addEdgeSwipeZones(fancybox, slide);
-                  }
-               },
-            },
-         });
-      </script>
-
-
+      <script src="./app.js" defer></script>
    </body>
 
 </html>

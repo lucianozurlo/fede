@@ -250,9 +250,9 @@ body:not(.tt-boxed) .tt-header-inner,
 .tt-main-menu-list.tt-mm-hover > li > a {
   opacity: 1 !important;
 }
-.tt-main-menu-list > li:nth-child(2) > a:last-child {
+/* .tt-main-menu-list > li:nth-child(2) > a:last-child {
   display: none;
-}
+} */
 html.with-fancybox-gallery
   .tt-main-menu-list
   > li:nth-child(2)
@@ -1068,11 +1068,11 @@ footer .btn:hover {
 .tt-main-menu {
   transition: all 1s ease;
 }
-body.zoom-photos .is-horizontal .fancybox__nav .f-button,
-body.zoom-photos .tt-main-menu,
-body.modal-open .is-horizontal .fancybox__nav .f-button,
+/* body.zoom-photos .is-horizontal .fancybox__nav .f-button,
+body.zoom-photos .tt-main-menu, */
+/* body.modal-open .is-horizontal .fancybox__nav .f-button,
 body.modal-open .tt-main-menu {
   opacity: 0 !important;
   pointer-events: none;
   transition: all 1s ease;
-}
+} */

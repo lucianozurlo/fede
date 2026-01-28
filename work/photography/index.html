@@ -16,35 +16,131 @@
       <link rel="stylesheet" href="../../assets/fonts/fonts.css" />
       <link rel="stylesheet" href="../../assets/css/config.css">
       <link rel="stylesheet" href="../../assets/css/fede.css" />
-      <link rel="stylesheet" href="../../assets/css/preload.css">
       <link rel="stylesheet" href="../../assets/css/work.css" />
       <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css" />
       <link rel="stylesheet" href="../../assets/css/gallery.css" />
       <link rel="stylesheet" href="../../assets/css/photos.css">
+      <link rel="stylesheet" href="../../assets/css/cursor.css">
       <link rel="stylesheet" href="../../assets/css/responsive.css" />
    </head>
 
    <body id="body" class="tt-transition tt-boxed tt-smooth-scroll work photography">
       <main id="body-inner">
-         <div id="preloader-under" aria-hidden="true"></div>
-         <div id="preloader" aria-live="polite" aria-label="Loading">
-            <div class="pl-sweep" aria-hidden="true"></div>
-            <div class="pl-inner">
-               <div class="pl-top">LOADING</div>
-               <div class="pl-percent" data-percent>(0%)</div>
-               <div class="pl-bottom">PF FV 2026</div>
-            </div>
-         </div>
+
+         <div class="fx-cursor" aria-hidden="true"></div>
 
          <div id="scroll-container">
-            <div class="tt-logo mob-ok">
-               <a href="../../" id="main-logo" data-offset="0" data-clear-gallery data-modal-close data-clear-gallery
-                  class="close">
+            <div class="tt-logo logo-home mob-ok">
+               <a href="../.." id="main-logo" data-offset="0">
                   <img src="../../assets/img/fv-logo-vector.svg" alt="" />
                   <img src="../../assets/img/fv-logo.svg" alt="" />
                </a>
             </div>
+            <header id="tt-header" class="tt-header-fixed">
+               <div class="tt-header-inner">
+                  <div class="tt-header-col">
+                     <div class="tt-logo mob-no">
+                        <a href="../.." id="main-logo" data-offset="0">
+                           <img src="../../assets/img/fv-logo-vector.svg" alt="" />
+                           <img src="../../assets/img/fv-logo.svg" alt="" />
+                        </a>
+                     </div>
+
+                     <nav class="mob-no tt-main-menu tt-submenu-dark tt-m-menu-center">
+                        <div class="tt-main-menu-holder">
+                           <div class="tt-main-menu-inner">
+                              <div class="tt-main-menu-content">
+                                 <ul class="tt-main-menu-list">
+                                    <li>
+                                       <a href="../#about" data-offset="60">About</a>
+                                    </li>
+                                    <li>
+                                       <a href="#" data-modal-open="#modal-works">Works</a>
+                                    </li>
+                                    <li>
+                                       <a href="../#services" data-offset="40">Services</a>
+                                    </li>
+                                    <li>
+                                       <a href="../#contact" data-offset="14">Contact</a>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </nav>
+
+                  </div>
+                  <div class="nav-fixed">
+
+                     <div id="tt-ol-menu-toggle-btn-wrap">
+                        <div class="tt-ol-menu-toggle-btn-text">
+                           <span class="text-menu" data-hover="Open"></span>
+                           <span class="text-close"></span>
+                        </div>
+                        <div class="tt-ol-menu-toggle-btn-holder">
+                           <a href="#" class="tt-ol-menu-toggle-btn magnetic-item"><span></span><span></span></a>
+                        </div>
+                     </div>
+
+                     <nav class="mob-ok tt-overlay-menu tt-ol-menu-center tt-ol-menu-count">
+                        <div class="tt-ol-menu-holder">
+                           <div class="tt-ol-menu-inner tt-wrap">
+                              <div class="tt-ol-menu-content">
+
+                                 <ul class="tt-ol-menu-list">
+                                    <li class="common-li">
+                                       <a href="../#about" data-offset="60">About</a>
+                                    </li>
+                                    <li class="tt-ol-submenu-wrap">
+                                       <div class="tt-ol-submenu-trigger">
+                                          <a id="works-submenu" href="#" class="tt-ol-submenu-link">Works</a>
+                                       </div>
+                                       <div class="tt-ol-submenu">
+                                          <ul class="tt-ol-submenu-list">
+                                             <li><a class="media" href="../frogbazar/" alt="frog-bazar">
+                                                   / FROG BAZAR.</a></li>
+                                             <li><a class="media" href="../estudio32/" alt="estudio32">
+                                                   / ESTUDIO 32.</a></li>
+                                             <li><a class="media" href="../opame/" alt="opame">
+                                                   / OPAME.</a></li>
+                                             <li><a class="media" href="../nmp/" alt="nmp">
+                                                   / NM, P.</a></li>
+                                             <li><a class="media" href="../cleo/" alt="cleo">
+                                                   / CLEO.</a></li>
+                                             <li><a class="media" href="../michi/" alt="michi">
+                                                   / MICHI BISTRO.</a></li>
+                                             <li><a class="media" href="../broke/" alt="broke">
+                                                   / BROKE.</a></li>
+                                             <li><a class="media" href="../big-mother-energy/" alt="big-mother-energy">
+                                                   / BIG MOTHER ENERGY.</a></li>
+                                             <li><a class="media" href="../ui-ux/" alt="ui-ux">
+                                                   / UI / UX.</a></li>
+                                             <li><a class="media" href="../web/" alt="web">
+                                                   / WEB.</a></li>
+                                             <li><a class="media" href="../logofolio/" alt="logofolio">
+                                                   / LOGOFOLIO.</a></li>
+                                             <li><a class="media" href="../photography/" alt="photography">
+                                                   / PHOTOGRAPHY.</a></li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li class="common-li">
+                                       <a href="../#services" data-offset="40">Services</a>
+                                    </li>
+                                    <li class="common-li">
+                                       <a href="../#contact" data-offset="14">Contact</a>
+                                    </li>
+                                 </ul>
+
+                              </div>
+                           </div>
+                        </div>
+                     </nav>
+
+                  </div>
+               </div>
+            </header>
+
             <div id="content-wrap" class="work">
                <div class="bg-vectors">
                   <div class="pos top-left">
@@ -700,6 +796,47 @@
          </div>
       </main>
 
+      <!-- SUBMODAL -->
+      <div class="modal-simple submmodal" id="modal-works" role="dialog" aria-modal="true" aria-hidden="true">
+         <div class="modal__backdrop" data-modal-close></div>
+         <div class="modal__dialog" role="document">
+            <div class="bg-vectors">
+               <div class="pos bottom-left">
+                  <img src="assets/img/bg-lines/modal-bg1.svg" />
+               </div>
+               <div class="pos top-right">
+                  <img src="assets/img/bg-lines/modal-bg2.svg" />
+               </div>
+            </div>
+            <header>
+               <h3 class="section-title">WORKS</h3>
+               <a href="#" data-modal-close class="submodal-close">
+                  <img src="assets/img/icon-close.svg" alt="">
+               </a>
+            </header>
+            <div class="content">
+               <div class="works-items">
+                  <a href="../frog-bazar">FROG BAZAR.</a>
+                  <a href="../estudio32">ESTUDIO 32.</a>
+                  <a href="../opame">OPAME.</a>
+                  <a href="../nmp">N.M, P.</a>
+               </div>
+               <div class="works-items">
+                  <a href="../cleo">CLEO.</a>
+                  <a href="../michi">MICHI BISTRO.</a>
+                  <a href="../broke">BROKE.</a>
+                  <a href="../big-mother-energy">BIG MOTHER ENERGY.</a>
+               </div>
+               <div class="works-items">
+                  <a href="../ui-ux">UI / UX.</a>
+                  <a href="../web">WEB.</a>
+                  <a href="../logofolio">LOGOFOLIO.</a>
+                  <a href="../photography">PHOTOGRAPHY.</a>
+               </div>
+            </div>
+         </div>
+      </div>
+
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
       <script src="../../assets/vendor/gsap/ScrollToPlugin.min.js"></script>
@@ -711,10 +848,10 @@
       <script src="../../assets/vendor/isotope/packery-mode.pkgd.min.js"></script>
       <script src="../../assets/vendor/jquery.mousewheel.min.js"></script>
       <script src="../../assets/js/theme.js"></script>
-      <script src="../../assets/js/preload.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
+      <script src="../../assets/js/gallery.js"></script>
+      <script src="../../assets/js/modal.js"></script>
+      <script src="../../assets/js/cursor-follow.js" defer></script>
       <script src="../../assets/js/noise.js"></script>
-      <script src="../../assets/js/work.js"></script>
       <script src="../../assets/js/scroll.js"></script>
       <script src="../../assets/js/photos.js"></script>
    </body>
