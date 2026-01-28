@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Nébula</title>
+        <link rel="stylesheet" href="../../assets/css/nav.css" />
+        <script>
+            (function () {
+                const mode = sessionStorage.getItem("vt_mode");
+                const dir = sessionStorage.getItem("vt_dir");
+                if (mode) document.documentElement.dataset.vtMode = mode;
+                if (dir) document.documentElement.dataset.vtDir = dir;
+                sessionStorage.removeItem("vt_mode");
+                sessionStorage.removeItem("vt_dir");
+            })();
+        </script>
+    </head>
+
+    <body class="bg-2" data-prev="../p1/" data-next="../p3/">
+        <div class="container">
+            <div class="topbar">
+                <a class="btn" href="../../nav.html" data-vt-mode="fade">← Volver a Home</a>
+                <div class="badge">Anterior/Siguiente + Swipe = slide</div>
+            </div>
+
+            <div class="detail-wrap">
+                <div class="hero">
+                    <div class="media" style="--img: linear-gradient(135deg, #00d38f, #1fbf4a);"></div>
+                    <h1>Nébula</h1>
+                    <p>Verde profundo con contraste, look tech limpio.</p>
+                    <div class="small">Home/cards = fade 1.2s · Pager + swipe = slide</div>
+                </div>
+
+                <aside class="side">
+                    <h3>Navegación</h3>
+                    <div class="nav">
+                        <a class="btn" href="../p1/" data-vt-mode="slide" data-vt-dir="prev">← Anterior</a>
+                        <a class="btn" href="../p3/" data-vt-mode="slide" data-vt-dir="next">Siguiente →</a>
+                    </div>
+                    <div class="small">Swipe izquierda = siguiente · Swipe derecha = anterior</div>
+                </aside>
+            </div>
+        </div>
+
+        <script src="../../assets/js/nav.js" defer></script>
+    </body>
+
+</html>
