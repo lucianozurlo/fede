@@ -1,0 +1,95 @@
+@view-transition {
+  navigation: auto;
+}
+
+/* ========= View Transitions ========= */
+:root {
+  --fade-dur: 1200ms;
+
+  --slide-dur: 520ms;
+  --slide-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* default slide direction: next */
+  --vt-old-from: 0%;
+  --vt-old-to: -100%;
+  --vt-new-from: 100%;
+  --vt-new-to: 0%;
+}
+
+:root[data-vt-dir="prev"] {
+  --vt-old-to: 100%;
+  --vt-new-from: -100%;
+}
+
+/* IMPORTANTE: pseudo-elementos adjuntos al :root (sin espacio) */
+:root::view-transition-old(root),
+:root::view-transition-new(root) {
+  mix-blend-mode: normal;
+}
+
+/* -------- Fade -------- */
+:root[data-vt-mode="fade"]::view-transition-old(root),
+:root[data-vt-mode="fade"]::view-transition-new(root) {
+  animation: none; /* mata el cross-fade default */
+}
+
+:root[data-vt-mode="fade"]::view-transition-old(root) {
+  animation: vt-fade-out var(--fade-dur) ease both;
+}
+:root[data-vt-mode="fade"]::view-transition-new(root) {
+  animation: vt-fade-in var(--fade-dur) ease both;
+}
+
+@keyframes vt-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* -------- Slide -------- */
+:root[data-vt-mode="slide"]::view-transition-old(root),
+:root[data-vt-mode="slide"]::view-transition-new(root) {
+  animation: none; /* mata el cross-fade default */
+}
+
+:root[data-vt-mode="slide"]::view-transition-old(root) {
+  animation: vt-old-slide var(--slide-dur) var(--slide-ease) both;
+}
+:root[data-vt-mode="slide"]::view-transition-new(root) {
+  animation: vt-new-slide var(--slide-dur) var(--slide-ease) both;
+}
+
+@keyframes vt-old-slide {
+  from {
+    transform: translateX(var(--vt-old-from));
+  }
+  to {
+    transform: translateX(var(--vt-old-to));
+  }
+}
+@keyframes vt-new-slide {
+  from {
+    transform: translateX(var(--vt-new-from));
+  }
+  to {
+    transform: translateX(var(--vt-new-to));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-vt-mode]::view-transition-old(root),
+  :root[data-vt-mode]::view-transition-new(root) {
+    animation: none !important;
+  }
+}
