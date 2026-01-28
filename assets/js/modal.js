@@ -172,6 +172,70 @@
     closeModal(modal);
   });
 
+  // Navegar desde links dentro del modal:
+  // - setea View Transition
+  // - cierra modal
+  // - navega cuando termina el cierre (para que el snapshot viejo NO tenga el modal encima)
+  document.addEventListener(
+    "click",
+    (e) => {
+      const modal = e.target.closest(MODAL_SELECTOR);
+      if (!modal) return;
+
+      // Solo si el modal está abierto/clausurándose
+      if (
+        !modal.classList.contains("is-open") &&
+        !modal.classList.contains("is-closing")
+      )
+        return;
+
+      const link = e.target.closest("a[href]");
+      if (!link) return;
+
+      // Ignorar links de open/close del propio modal
+      if (link.hasAttribute(OPEN_ATTR) || link.hasAttribute(CLOSE_ATTR)) return;
+
+      const hrefAttr = link.getAttribute("href");
+      if (!hrefAttr) return;
+
+      // Ignorar anchors / no navegación
+      if (hrefAttr === "#" || hrefAttr.startsWith("#")) return;
+
+      // Ignorar links externos en nueva pestaña
+      if (link.target === "_blank") return;
+
+      // ========= View Transition (igual que nav.js) =========
+      const mode = link.dataset.vtMode || "fade"; // fade | slide
+      const dir = mode === "slide" ? link.dataset.vtDir || "next" : null;
+
+      // Setear en el doc actual (snapshot viejo)
+      document.documentElement.dataset.vtMode = mode;
+      if (dir) document.documentElement.dataset.vtDir = dir;
+      else delete document.documentElement.dataset.vtDir;
+
+      // Persistir para el doc destino (snapshot nuevo)
+      sessionStorage.setItem("vt_mode", mode);
+      if (dir) sessionStorage.setItem("vt_dir", dir);
+      else sessionStorage.removeItem("vt_dir");
+
+      // Frenar navegación inmediata
+      e.preventDefault();
+
+      // Cerrar y navegar al final
+      closeModal(modal, { restoreFocus: false });
+
+      // Usamos el mismo timing que tu cierre (CLOSE_ANIM_MS)
+      // + margen por fallback
+      const navigateAfter = CLOSE_ANIM_MS + 60;
+
+      // link.href da la URL resuelta (absoluta)
+      setTimeout(() => {
+        location.assign(link.href);
+      }, navigateAfter);
+    },
+    { capture: true },
+  );
+
   // Teclado: ESC cierra todo + Tab trap en el modal abierto
   document.addEventListener("keydown", (e) => {
     const openModals = getOpenModals();
