@@ -21,16 +21,30 @@
       <link rel="stylesheet" href="../../assets/css/gallery.css" />
       <link rel="stylesheet" href="../../assets/css/cursor.css">
       <link rel="stylesheet" href="../../assets/css/responsive.css" />
+      <link rel="stylesheet" href="../../assets/css/transition.css" />
+      <link rel="prefetch" as="document" href="../estudio32/">
+      <link rel="prefetch" as="document" href="../nmp/">
+
+      <script>
+         (function () {
+            const mode = sessionStorage.getItem("vt_mode");
+            const dir = sessionStorage.getItem("vt_dir");
+            if (mode) document.documentElement.dataset.vtMode = mode;
+            if (dir) document.documentElement.dataset.vtDir = dir;
+            sessionStorage.removeItem("vt_mode");
+            sessionStorage.removeItem("vt_dir");
+         })();
+      </script>
    </head>
 
-   <body id="body" class="tt-transition tt-boxed tt-smooth-scroll work opame">
+   <body id="body" class="tt-boxed tt-smooth-scroll work opame" data-prev="../estudio32/" data-next="../nmp/">
       <main id="body-inner">
 
          <div class="fx-cursor" aria-hidden="true"></div>
 
          <div id="scroll-container">
-            <div class="tt-logo logo-home mob-ok">
-               <a href="../.." id="main-logo" data-offset="0">
+            <div id="logo-header" class="tt-logo logo-home mob-ok">
+               <a href="../.." id="main-logo" data-offset="0" data-vt-mode="fade">
                   <img src="../../assets/img/fv-logo-vector.svg" alt="" />
                   <img src="../../assets/img/fv-logo.svg" alt="" />
                </a>
@@ -39,7 +53,7 @@
                <div class="tt-header-inner">
                   <div class="tt-header-col">
                      <div class="tt-logo mob-no">
-                        <a href="../.." id="main-logo" data-offset="0">
+                        <a href="../.." id="main-logo" data-offset="0" data-vt-mode="fade">
                            <img src="../../assets/img/fv-logo-vector.svg" alt="" />
                            <img src="../../assets/img/fv-logo.svg" alt="" />
                         </a>
@@ -51,16 +65,16 @@
                               <div class="tt-main-menu-content">
                                  <ul class="tt-main-menu-list">
                                     <li>
-                                       <a href="../#about" data-offset="60">About</a>
+                                       <a href="../#about" data-offset="60" data-vt-mode="fade">About</a>
                                     </li>
                                     <li>
                                        <a href="#" data-modal-open="#modal-works">Works</a>
                                     </li>
                                     <li>
-                                       <a href="../#services" data-offset="40">Services</a>
+                                       <a href="../#services" data-offset="40" data-vt-mode="fade">Services</a>
                                     </li>
                                     <li>
-                                       <a href="../#contact" data-offset="14">Contact</a>
+                                       <a href="../#contact" data-offset="14" data-vt-mode="fade">Contact</a>
                                     </li>
                                  </ul>
                               </div>
@@ -88,7 +102,7 @@
 
                                  <ul class="tt-ol-menu-list">
                                     <li class="common-li">
-                                       <a href="../#about" data-offset="60">About</a>
+                                       <a href="../#about" data-offset="60" data-vt-mode="fade">About</a>
                                     </li>
                                     <li class="tt-ol-submenu-wrap">
                                        <div class="tt-ol-submenu-trigger">
@@ -96,38 +110,43 @@
                                        </div>
                                        <div class="tt-ol-submenu">
                                           <ul class="tt-ol-submenu-list">
-                                             <li><a class="media" href="../frogbazar/" alt="frog-bazar">
+                                             <li><a class="media" href="../frogbazar/" alt="frog-bazar"
+                                                   data-vt-mode="fade">
                                                    / FROG BAZAR.</a></li>
-                                             <li><a class="media" href="../estudio32/" alt="estudio32">
+                                             <li><a class="media" href="../estudio32/" alt="estudio32"
+                                                   data-vt-mode="fade">
                                                    / ESTUDIO 32.</a></li>
-                                             <li><a class="media" href="../opame/" alt="opame">
+                                             <li><a class="media" href="../opame/" alt="opame" data-vt-mode="fade">
                                                    / OPAME.</a></li>
-                                             <li><a class="media" href="../nmp/" alt="nmp">
+                                             <li><a class="media" href="../nmp/" alt="nmp" data-vt-mode="fade">
                                                    / NM, P.</a></li>
-                                             <li><a class="media" href="../cleo/" alt="cleo">
+                                             <li><a class="media" href="../cleo/" alt="cleo" data-vt-mode="fade">
                                                    / CLEO.</a></li>
-                                             <li><a class="media" href="../michi/" alt="michi">
+                                             <li><a class="media" href="../michi/" alt="michi" data-vt-mode="fade">
                                                    / MICHI BISTRO.</a></li>
-                                             <li><a class="media" href="../broke/" alt="broke">
+                                             <li><a class="media" href="../broke/" alt="broke" data-vt-mode="fade">
                                                    / BROKE.</a></li>
-                                             <li><a class="media" href="../big-mother-energy/" alt="big-mother-energy">
+                                             <li><a class="media" href="../big-mother-energy/" alt="big-mother-energy"
+                                                   data-vt-mode="fade">
                                                    / BIG MOTHER ENERGY.</a></li>
-                                             <li><a class="media" href="../ui-ux/" alt="ui-ux">
+                                             <li><a class="media" href="../ui-ux/" alt="ui-ux" data-vt-mode="fade">
                                                    / UI / UX.</a></li>
-                                             <li><a class="media" href="../web/" alt="web">
+                                             <li><a class="media" href="../web/" alt="web" data-vt-mode="fade">
                                                    / WEB.</a></li>
-                                             <li><a class="media" href="../logofolio/" alt="logofolio">
+                                             <li><a class="media" href="../logofolio/" alt="logofolio"
+                                                   data-vt-mode="fade">
                                                    / LOGOFOLIO.</a></li>
-                                             <li><a class="media" href="../photography/" alt="photography">
+                                             <li><a class="media" href="../photography/" alt="photography"
+                                                   data-vt-mode="fade">
                                                    / PHOTOGRAPHY.</a></li>
                                           </ul>
                                        </div>
                                     </li>
                                     <li class="common-li">
-                                       <a href="../#services" data-offset="40">Services</a>
+                                       <a href="../#services" data-offset="40" data-vt-mode="fade">Services</a>
                                     </li>
                                     <li class="common-li">
-                                       <a href="../#contact" data-offset="14">Contact</a>
+                                       <a href="../#contact" data-offset="14" data-vt-mode="fade">Contact</a>
                                     </li>
                                  </ul>
 
@@ -258,26 +277,27 @@
                         <div class="talk-section">
                            <h3>Get in touch.</h3>
                            <div class="talk-buttons">
-                              <a href="../../#contact" class="btn">
+                              <a href="../../#contact" class="btn" data-vt-mode="fade">
                                  write me</a>
-                              <a href="https://calendly.com/fvaccarezza/intro-call" target="_blank" class="btn">
+                              <a href="https://calendly.com/fvaccarezza/intro-call" target="_blank" class="btn"
+                                 data-vt-mode="fade">
                                  book a call</a>
                            </div>
                         </div>
                         <div class="talk-section">
                            <h3>Social.</h3>
                            <div class="socials">
-                              <a href="https://www.behance.net/Vaccarezza" target="_blank">
+                              <a href="https://www.behance.net/Vaccarezza" target="_blank" data-vt-mode="fade">
                                  <img src="../../assets/img/social-behance.svg" alt="" />
                                  <p>Behance</p>
                                  <div class="circle"></div>
                               </a>
-                              <a href="https://dribbble.com/Vaccarezza" target="_blank">
+                              <a href="https://dribbble.com/Vaccarezza" target="_blank" data-vt-mode="fade">
                                  <img src="../../assets/img/social-dribble.svg" alt="" />
                                  <p>Dribble</p>
                                  <div class="circle"></div>
                               </a>
-                              <a href="https://vsco.co/fedevaccarezza/" target="_blank">
+                              <a href="https://vsco.co/fedevaccarezza/" target="_blank" data-vt-mode="fade">
                                  <img src="../../assets/img/social-vsco.svg" alt="" />
                                  <p>Vsco</p>
                                  <div class="circle"></div>
@@ -299,36 +319,36 @@
          <div class="modal__dialog" role="document">
             <div class="bg-vectors">
                <div class="pos bottom-left">
-                  <img src="assets/img/bg-lines/modal-bg1.svg" />
+                  <img src="../../assets/img/bg-lines/modal-bg1.svg" />
                </div>
                <div class="pos top-right">
-                  <img src="assets/img/bg-lines/modal-bg2.svg" />
+                  <img src="../../assets/img/bg-lines/modal-bg2.svg" />
                </div>
             </div>
             <header>
                <h3 class="section-title">WORKS</h3>
                <a href="#" data-modal-close class="submodal-close">
-                  <img src="assets/img/icon-close.svg" alt="">
+                  <img src="../../assets/img/icon-close.svg" alt="">
                </a>
             </header>
             <div class="content">
                <div class="works-items">
-                  <a href="../frog-bazar">FROG BAZAR.</a>
-                  <a href="../estudio32">ESTUDIO 32.</a>
-                  <a href="../opame">OPAME.</a>
-                  <a href="../nmp">N.M, P.</a>
+                  <a href="../frog-bazar/" data-vt-mode="fade">FROG BAZAR.</a>
+                  <a href="../estudio32/" data-vt-mode="fade">ESTUDIO 32.</a>
+                  <a href="../opame/" data-vt-mode="fade">OPAME.</a>
+                  <a href="../nmp/" data-vt-mode="fade">N.M, P.</a>
                </div>
                <div class="works-items">
-                  <a href="../cleo">CLEO.</a>
-                  <a href="../michi">MICHI BISTRO.</a>
-                  <a href="../broke">BROKE.</a>
-                  <a href="../big-mother-energy">BIG MOTHER ENERGY.</a>
+                  <a href="../cleo/" data-vt-mode="fade">CLEO.</a>
+                  <a href="../michi/" data-vt-mode="fade">MICHI BISTRO.</a>
+                  <a href="../broke/" data-vt-mode="fade">BROKE.</a>
+                  <a href="../big-mother-energy/" data-vt-mode="fade">BIG MOTHER ENERGY.</a>
                </div>
                <div class="works-items">
-                  <a href="../ui-ux">UI / UX.</a>
-                  <a href="../web">WEB.</a>
-                  <a href="../logofolio">LOGOFOLIO.</a>
-                  <a href="../photography">PHOTOGRAPHY.</a>
+                  <a href="../ui-ux/" data-vt-mode="fade">UI / UX.</a>
+                  <a href="../web/" data-vt-mode="fade">WEB.</a>
+                  <a href="../logofolio/" data-vt-mode="fade">LOGOFOLIO.</a>
+                  <a href="../photography/" data-vt-mode="fade">PHOTOGRAPHY.</a>
                </div>
             </div>
          </div>
