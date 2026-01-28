@@ -100,3 +100,29 @@
     { passive: true },
   );
 })();
+
+(function prewarmPrevNext() {
+  const prev = document.body?.dataset?.prev;
+  const next = document.body?.dataset?.next;
+  if (!prev && !next) return;
+
+  // Evitar gastar datos en conexiones pobres / ahorro de datos
+  const c = navigator.connection;
+  if (c && (c.saveData || /2g/.test(c.effectiveType))) return;
+
+  const urls = [prev, next]
+    .filter(Boolean)
+    .map((u) => new URL(u, location.href).href);
+
+  const run = () => {
+    urls.forEach((u) => {
+      fetch(u, { credentials: "same-origin", cache: "force-cache" }).catch(
+        () => {},
+      );
+    });
+  };
+
+  if ("requestIdleCallback" in window)
+    requestIdleCallback(run, { timeout: 1200 });
+  else setTimeout(run, 250);
+})();
